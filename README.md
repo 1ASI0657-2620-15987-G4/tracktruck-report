@@ -1136,8 +1136,7 @@ A continuación, se presenta la captura del Product Backlog gestionado en Trello
 ![Product Backlog - TrackTruck](assets/images/chapter3/product-backlog.png)
 
 **Enlace público del Product Backlog:**  
-[Ver Product Backlog de TrackTruck en Trello](URL_TRELLO)
-
+https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello
 
 
 <div style="page-break-after: always;"></div>
