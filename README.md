@@ -503,159 +503,117 @@ En esta sección se presenta el registro de las entrevistas realizadas a los usu
 
 ### Entrevista 1
 
-**Responsable de la entrevista:** Miembro X
-
 | Campo | Detalle |
 |---|---|
-| Nombres y apellidos | Por completar |
-| Edad | Por completar |
-| Distrito | Por completar |
+| Nombres y apellidos | Gianfranco Quispe |
 | Segmento objetivo | Empresas de transporte de carga |
-| Cargo / función | Por completar |
-| Empresa | Por completar |
-| Fecha de entrevista | Por completar |
+| Cargo / actividad | Empresario del sector de transporte y logística |
 | Duración | Por completar |
-| Timing en el video | Por completar |
-| URL del video | [Ver video](URL_POR_COMPLETAR) |
+| URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQDkzObcE5ATSpmZvlKaZk58ARkz3Yp5qF9_nS_ZYSTAGaQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=QOjMzT) |
 
 <p align="center">
   <img src="assets/images/chapter2/entrevista-segmento1-1.png" width="700">
 </p>
 
 **Resumen:**  
-Por completar. Describir las principales respuestas proporcionadas por el entrevistado, considerando cómo supervisa actualmente sus vehículos y conductores, qué herramientas utiliza, cuáles son sus principales dificultades, cómo gestiona las incidencias y qué funcionalidades considera importantes para una plataforma como TrackTruck.
+Gianfranco Quispe es un empresario con cinco años de experiencia en el sector logístico y de transporte. Durante la entrevista destacó la importancia de utilizar tecnología para mejorar la eficiencia y seguridad de las operaciones, especialmente en zonas rurales del Perú. Actualmente emplea herramientas GPS y medios de comunicación en tiempo real para supervisar y coordinar los viajes. También recopila información de sus clientes mediante encuestas y sistemas de calificación. Frente a incrementos de demanda, aumenta temporalmente la disponibilidad de vehículos y reorganiza sus operaciones. Sus respuestas evidencian la necesidad de contar con una aplicación como **Trakto**, que permita centralizar la gestión de vehículos, conductores, rutas y viajes.
 
 ---
 
 ### Entrevista 2
 
-**Responsable de la entrevista:** Miembro X
-
 | Campo | Detalle |
 |---|---|
-| Nombres y apellidos | Por completar |
-| Edad | Por completar |
-| Distrito | Por completar |
+| Nombres y apellidos | Diego Cisneros |
 | Segmento objetivo | Empresas de transporte de carga |
-| Cargo / función | Por completar |
-| Empresa | Por completar |
-| Fecha de entrevista | Por completar |
+| Cargo / actividad | Personal relacionado con la gestión de transporte |
 | Duración | Por completar |
-| Timing en el video | Por completar |
-| URL del video | [Ver video](URL_POR_COMPLETAR) |
+| URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQA-12ReLDzQR49ealZCQkCfATl5EcCRvhjS1SzkyXFY-xU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Ujrc4n) |
 
 <p align="center">
   <img src="assets/images/chapter2/entrevista-segmento1-2.png" width="700">
 </p>
 
 **Resumen:**  
-Por completar.
+Diego Cisneros considera que una aplicación móvil permitiría automatizar y optimizar diferentes procesos relacionados con el transporte, brindando mayor control sobre las operaciones. Señala que uno de los principales problemas son los retrasos ocasionados por el mal estado de algunas carreteras. Actualmente utiliza Excel para registrar información sobre los camiones, controlar su estado y programar mantenimientos según el tiempo de uso. Esto demuestra la necesidad de una solución como **Trakto**, donde la información de vehículos, viajes, rutas y estados pueda mantenerse centralizada y disponible de manera más rápida.
 
 ---
 
 ### Entrevista 3
 
-**Responsable de la entrevista:** Miembro X
-
 | Campo | Detalle |
 |---|---|
-| Nombres y apellidos | Por completar |
-| Edad | Por completar |
-| Distrito | Por completar |
+| Nombres y apellidos | Valeria Cardenas |
 | Segmento objetivo | Empresas de transporte de carga |
-| Cargo / función | Por completar |
-| Empresa | Por completar |
-| Fecha de entrevista | Por completar |
+| Cargo / actividad | Administradora en empresa de transporte de carga |
 | Duración | Por completar |
-| Timing en el video | Por completar |
-| URL del video | [Ver video](URL_POR_COMPLETAR) |
+| URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQBtRonP6CraSJUSB36JKYOyActf48po9v-Z1ghUJw-bAgE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6Xlw1F) |
 
 <p align="center">
   <img src="assets/images/chapter2/entrevista-segmento1-3.png" width="700">
 </p>
 
 **Resumen:**  
-Por completar.
+Valeria Cardenas cuenta con dos años de experiencia como administradora en el sector de transporte de carga. Menciona que las condiciones geográficas y de infraestructura del país representan dificultades importantes para las operaciones. Actualmente utiliza herramientas como Excel y rastreo satelital para gestionar los envíos y consultar su avance. También considera importantes la seguridad, puntualidad y adecuada gestión de los vehículos y conductores. La entrevista evidencia la necesidad de centralizar la información operativa y mantener un historial de vehículos, viajes y recorridos mediante una solución móvil como **Trakto**.
 
 ---
 
-## Segmento objetivo 2: Operadores y empresas de logística
+## Segmento objetivo 2: Clientes que requieren servicios de transporte de carga
 
 ### Entrevista 4
 
-**Responsable de la entrevista:** Miembro X
-
 | Campo | Detalle |
 |---|---|
-| Nombres y apellidos | Por completar |
-| Edad | Por completar |
-| Distrito | Por completar |
-| Segmento objetivo | Operadores y empresas de logística |
-| Cargo / función | Por completar |
-| Empresa | Por completar |
-| Fecha de entrevista | Por completar |
+| Nombres y apellidos | Rodrigo Guerra |
+| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Cargo / actividad | Emprendedor |
 | Duración | Por completar |
-| Timing en el video | Por completar |
-| URL del video | [Ver video](URL_POR_COMPLETAR) |
+| URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAV3DQLGB33SpVkVyUbv9pQAUsYOLoLLNGkZGiAaly_qig?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wJlceN) |
 
 <p align="center">
   <img src="assets/images/chapter2/entrevista-segmento2-1.png" width="700">
 </p>
 
 **Resumen:**  
-Por completar. Describir las principales respuestas proporcionadas por el entrevistado, considerando cómo realiza actualmente el seguimiento de sus operaciones, qué información necesita durante los recorridos, cómo identifica retrasos o incidencias y qué funcionalidades esperaría encontrar en TrackTruck.
+Rodrigo Guerra es un emprendedor que depende de servicios de transporte de mercancías para desarrollar sus actividades comerciales. Durante la entrevista destacó problemas relacionados con la falta de visibilidad de los envíos y el control de los costos. Considera importante poder consultar el estado de un traslado y conocer su avance de forma sencilla. Mostró interés en utilizar una aplicación móvil que mejore la transparencia de las operaciones y destacó que la interfaz debería ser intuitiva y contar con un diseño moderno.
 
 ---
 
 ### Entrevista 5
 
-**Responsable de la entrevista:** Miembro X
-
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos | Por completar |
-| Edad | Por completar |
-| Distrito | Por completar |
-| Segmento objetivo | Operadores y empresas de logística |
-| Cargo / función | Por completar |
-| Empresa | Por completar |
-| Fecha de entrevista | Por completar |
+| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Cargo / actividad | Personal de empresa de mobiliario |
 | Duración | Por completar |
-| Timing en el video | Por completar |
-| URL del video | [Ver video](URL_POR_COMPLETAR) |
+| URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQCYIb0z_NwBTLbajN-6r4f9AWyuPx7pVcLQDYFiSKfXhjQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ah7IkZ) |
 
 <p align="center">
   <img src="assets/images/chapter2/entrevista-segmento2-2.png" width="700">
 </p>
 
 **Resumen:**  
-Por completar.
+El entrevistado trabaja en una empresa dedicada al sector mobiliario y considera fundamental el servicio de transporte para realizar las entregas de sus productos. Entre los principales problemas identifica los retrasos, los posibles daños a la mercancía y la falta de comunicación con los transportistas. Considera útil disponer de una aplicación que permita conocer el estado de los envíos y mejorar la transparencia durante el traslado. También menciona como importante conocer la ubicación y el progreso de la entrega. Sus respuestas muestran interés por una solución que facilite el seguimiento y reduzca la incertidumbre durante las operaciones de transporte.
 
 ---
 
-### Entrevista 6 
-
-**Responsable de la entrevista:** Miembro X
+### Entrevista 6
 
 | Campo | Detalle |
 |---|---|
-| Nombres y apellidos | Por completar |
-| Edad | Por completar |
-| Distrito | Por completar |
-| Segmento objetivo | Operadores y empresas de logística |
-| Cargo / función | Por completar |
-| Empresa | Por completar |
-| Fecha de entrevista | Por completar |
+| Nombres y apellidos | Jael Pinta |
+| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Cargo / actividad | Comerciante mayorista de prendas |
 | Duración | Por completar |
-| Timing en el video | Por completar |
-| URL del video | [Ver video](URL_POR_COMPLETAR) |
+| URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAz-85vOfF1R46gy8UA0z54AfCV6TF7BxvrpjY63Y2yBAs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=CS9mfl) |
 
 <p align="center">
   <img src="assets/images/chapter2/entrevista-segmento2-3.png" width="700">
 </p>
 
 **Resumen:**  
-Por completar.
+Jael Pinta se dedica a la venta mayorista de prendas hacia diferentes zonas del interior del país y utiliza servicios de transporte para realizar sus envíos. Su principal preocupación es la seguridad de la mercancía, debido a que en algunas ocasiones los productos no llegan completos o en las mismas condiciones en las que fueron enviados. También menciona que la comunicación mediante canales tradicionales puede resultar lenta y generar pérdida de tiempo al consultar el estado de los envíos. Considera importante contar con mayor información sobre el traslado y mejorar la organización y trazabilidad de las operaciones.
 
 <div style="page-break-after: always;"></div>
 
@@ -1202,10 +1160,6 @@ UXPressia. (s. f.). *UXPressia*. https://uxpressia.com/
 
 | Recurso | Enlace |
 |---|---|
-| Repositorio de GitHub | [Ver repositorio](URL_GITHUB) |
-| Tablero de Trello | [Ver tablero](URL_TRELLO) |
-| User Personas - UXPressia | [Ver recurso](URL_UXPRESSIA_USER_PERSONAS) |
-| Empathy Maps - UXPressia | [Ver recurso](URL_UXPRESSIA_EMPATHY_MAPS) |
-| Impact Map - UXPressia | [Ver recurso](URL_UXPRESSIA_IMPACT_MAP) |
-| As-Is Scenario Maps - LucidChart | [Ver recurso](URL_LUCIDCHART_AS_IS) |
-| To-Be Scenario Maps - LucidChart | [Ver recurso](URL_LUCIDCHART_TO_BE) |
+| Repositorio de GitHub | [Ver repositorio](https://github.com/1ASI0657-2620-15987-G4) |
+| Tablero de Trello | [Ver tablero](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello) |
+
