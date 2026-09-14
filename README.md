@@ -508,7 +508,7 @@ En esta sección se presenta el registro de las entrevistas realizadas a los usu
 | Nombres y apellidos | Gianfranco Quispe |
 | Segmento objetivo | Empresas de transporte de carga |
 | Cargo / actividad | Empresario del sector de transporte y logística |
-| Duración | Por completar |
+| Duración | 4:34 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQDkzObcE5ATSpmZvlKaZk58ARkz3Yp5qF9_nS_ZYSTAGaQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=QOjMzT) |
 
 <p align="center">
@@ -527,7 +527,7 @@ Gianfranco Quispe es un empresario con cinco años de experiencia en el sector l
 | Nombres y apellidos | Diego Cisneros |
 | Segmento objetivo | Empresas de transporte de carga |
 | Cargo / actividad | Personal relacionado con la gestión de transporte |
-| Duración | Por completar |
+| Duración | 6:25 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQA-12ReLDzQR49ealZCQkCfATl5EcCRvhjS1SzkyXFY-xU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Ujrc4n) |
 
 <p align="center">
@@ -546,7 +546,7 @@ Diego Cisneros considera que una aplicación móvil permitiría automatizar y op
 | Nombres y apellidos | Valeria Cardenas |
 | Segmento objetivo | Empresas de transporte de carga |
 | Cargo / actividad | Administradora en empresa de transporte de carga |
-| Duración | Por completar |
+| Duración | 4:08 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQBtRonP6CraSJUSB36JKYOyActf48po9v-Z1ghUJw-bAgE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6Xlw1F) |
 
 <p align="center">
@@ -567,7 +567,7 @@ Valeria Cardenas cuenta con dos años de experiencia como administradora en el s
 | Nombres y apellidos | Rodrigo Guerra |
 | Segmento objetivo | Clientes que requieren servicios de transporte de carga |
 | Cargo / actividad | Emprendedor |
-| Duración | Por completar |
+| Duración | 5:49 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAV3DQLGB33SpVkVyUbv9pQAUsYOLoLLNGkZGiAaly_qig?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wJlceN) |
 
 <p align="center">
@@ -586,7 +586,7 @@ Rodrigo Guerra es un emprendedor que depende de servicios de transporte de merca
 | Nombres y apellidos | Por completar |
 | Segmento objetivo | Clientes que requieren servicios de transporte de carga |
 | Cargo / actividad | Personal de empresa de mobiliario |
-| Duración | Por completar |
+| Duración | 3:35 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQCYIb0z_NwBTLbajN-6r4f9AWyuPx7pVcLQDYFiSKfXhjQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ah7IkZ) |
 
 <p align="center">
@@ -605,7 +605,7 @@ El entrevistado trabaja en una empresa dedicada al sector mobiliario y considera
 | Nombres y apellidos | Jael Pinta |
 | Segmento objetivo | Clientes que requieren servicios de transporte de carga |
 | Cargo / actividad | Comerciante mayorista de prendas |
-| Duración | Por completar |
+| Duración | 4:12 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAz-85vOfF1R46gy8UA0z54AfCV6TF7BxvrpjY63Y2yBAs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=CS9mfl) |
 
 <p align="center">
