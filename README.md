@@ -615,9 +615,26 @@ El entrevistado trabaja en una empresa dedicada al sector mobiliario y considera
 **Resumen:**  
 Jael Pinta se dedica a la venta mayorista de prendas hacia diferentes zonas del interior del país y utiliza servicios de transporte para realizar sus envíos. Su principal preocupación es la seguridad de la mercancía, debido a que en algunas ocasiones los productos no llegan completos o en las mismas condiciones en las que fueron enviados. También menciona que la comunicación mediante canales tradicionales puede resultar lenta y generar pérdida de tiempo al consultar el estado de los envíos. Considera importante contar con mayor información sobre el traslado y mejorar la organización y trazabilidad de las operaciones.
 
+---
+
+### Entrevista 7
+
+| Campo | Detalle |
+|---|---|
+| Nombres y apellidos |  Alonso Shovl |
+| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Cargo / actividad | Comerciante de equipo de ferretería |
+| Duración | 8:22 |
+| URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213553_upc_edu_pe/IQBnolRqUlm5SoIE66MFLH98AU3jHadHbl2VdK9mHX7oo6A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OfYgGa) |
+
+<p align="center">
+  <img src="assets/images/chapter2/entrevista-segmento2-4.png" width="700">
+</p>
+
+**Resumen:**  
+Alonso habla de las dificultades que tiene a la hora de comunicarse con los conductores de los camiones y cómo es díficil mantener organizado el estado de los mismos, igual que la carga.
+
 <div style="page-break-after: always;"></div>
-
-
 
 
 ## 2.2.3. Análisis de entrevistas
