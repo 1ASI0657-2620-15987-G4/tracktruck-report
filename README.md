@@ -1119,7 +1119,7 @@ https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b
 
 ## Archi TrackTruck
 
-![Archi - TrackTruck](assets/images/chapter3/arquitectura_tracktruck_completa.png)
+![Archi - TrackTruck](assets/images/chapter3/arquitectura-tracktruck-completa.png)
 
 <div style="page-break-after: always;"></div>
 
