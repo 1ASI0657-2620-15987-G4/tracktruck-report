@@ -1117,6 +1117,395 @@ https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b
 <div style="page-break-after: always;"></div>
 
 
+# Capítulo IV: Product Architecture Design
+
+# 4.1 Desing Concepts, ViewPoints & ER Diagrams
+
+Los principios de LogiGo / TrackTruck orientan el diseño y la evolución del sistema a largo plazo. Se basan en el objetivo de mejorar la visibilidad y el control del transporte de carga, considerando la disponibilidad, interoperabilidad, rendimiento y seguridad.
+
+| Principio | Aplicación en el proyecto |
+|---|---|
+| **Priorizar la disponibilidad de las funciones esenciales.** | Mantener operativas la gestión de viajes y el seguimiento, procurando que las fallas de servicios externos tengan un impacto limitado. |
+| **Preferir llamadas asincrónicas cuando no se necesite una respuesta inmediata.** | Procesar reportes de ubicación, incidencias y notificaciones sin bloquear otras operaciones del sistema. |
+| **Separar las responsabilidades del negocio.** | Organizar la gestión de viajes, conductores, camiones y seguimiento en componentes con responsabilidades claras para facilitar su mantenimiento. |
+| **Integrar servicios mediante interfaces definidas.** | Utilizar contratos documentados para comunicarse con proveedores de geolocalización y otros sistemas, facilitando futuras integraciones. |
+| **Aplicar seguridad desde el diseño.** | Restringir el acceso a la información y a las operaciones según el rol del usuario, protegiendo los datos de conductores y viajes. |
+| **Conservar la trazabilidad de los viajes.** | Mantener un historial de estados, paradas e incidencias para revisar lo ocurrido y evaluar el servicio después de cada viaje. |
+| **Elegir bibliotecas estables y con soporte.** | Priorizar herramientas con documentación y mantenimiento activo para facilitar la continuidad y evolución del proyecto. |
+
+
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.2. Approaches Statements Architectural Styles & Patterns
+
+LogiGo / TrackTruck considera los siguientes enfoques, estilos y patrones para facilitar su mantenimiento y el seguimiento del transporte.
+
+#### Enfoque de desarrollo
+
+- **Domain Driven Design (DDD):** organizar el sistema según las áreas del negocio: viajes, flota y seguimiento, utilizando un lenguaje común.
+
+#### Estilos arquitectónicos
+
+- **Arquitectura por capas:** separar presentación, aplicación, dominio e infraestructura para mantener claras las responsabilidades.
+- **Arquitectura orientada a eventos:** comunicar ubicaciones, paradas e incidencias de forma asincrónica, reduciendo el acoplamiento.
+
+#### Patrones de apoyo
+
+- **Repository:** separar el acceso a los datos de las reglas del negocio, apoyando la arquitectura por capas.
+- **Adapter:** integrar proveedores externos mediante interfaces propias, manteniendo sus detalles en infraestructura.
+- **Publish–Subscribe:** distribuir eventos a los componentes interesados, apoyando la arquitectura orientada a eventos.
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.3. Context Diagram
+
+El diagrama presenta a TrackTruck como el sistema de LogiGo que permite gestionar y monitorear el transporte de carga. Muestra a sus usuarios y al sistema externo con el que interactúa.
+
+```mermaid
+flowchart TB
+    operador["Operador de transporte<br/>Gestiona viajes y supervisa la operación"]
+    conductor["Conductor<br/>Consulta viajes y reporta incidencias"]
+    administrador["Administrador<br/>Gestiona usuarios, conductores y camiones"]
+
+    sistema["TrackTruck<br/>Sistema de gestión y seguimiento<br/>del transporte de carga"]
+
+    mapas["Proveedor de mapas y geolocalización<br/>Sistema externo"]
+
+    operador -->|"Registra viajes y consulta ubicaciones,<br/>paradas e incidencias"| sistema
+    conductor -->|"Consulta asignaciones y reporta<br/>ubicación e incidencias"| sistema
+    administrador -->|"Administra usuarios y flota"| sistema
+    sistema -->|"Solicita mapas e información geográfica"| mapas
+    mapas -->|"Devuelve mapas e información geográfica"| sistema
+```
+
+El sistema centraliza la información de los viajes para facilitar el control operativo. El proveedor externo aporta los mapas y la información geográfica utilizada para visualizar el seguimiento.
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.4. Approach driven ViewPoints Diagrams
+
+Los siguientes diagramas UML muestran el flujo de seguimiento, los estados de un viaje y las principales clases del negocio. Su organización se relaciona con el enfoque DDD propuesto para TrackTruck.
+
+#### Diagrama de actividad
+
+Representa el seguimiento de un viaje, desde su inicio hasta su finalización, incluyendo la actualización de ubicaciones y el registro de paradas e incidencias.
+
+![Diagrama de actividad - TrackTruck](assets/images/chapter4/activity-diagram.png)
+
+<div style="page-break-after: always;"></div>
+
+
+#### Diagrama de estado
+
+Muestra los estados de un viaje: programado, en curso, completado y cancelado, junto con las acciones que permiten cambiar entre ellos.
+
+![Diagrama de estado - TrackTruck](assets/images/chapter4/state-diagram.png)
+
+<div style="page-break-after: always;"></div>
+
+#### Diagrama de clases
+
+Presenta las clases principales del dominio y sus relaciones, agrupadas en gestión de flota, gestión de viajes y seguimiento.
+
+![Diagrama de clases - TrackTruck](assets/images/chapter4/class-diagram.png)
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.5. Relational/Non Relational Database Diagram
+
+Se propone una base de datos relacional para persistir la información de TrackTruck. Las tablas se organizan según los bounded contexts de gestión de flota, gestión de viajes y seguimiento.
+
+#### Tablas y columnas
+
+| Bounded context | Tabla | Columnas |
+|---|---|---|
+| Gestión de flota | conductor | id UUID PK, nombre VARCHAR(100) NOT NULL, licencia VARCHAR(20) UNIQUE NOT NULL |
+| Gestión de flota | camion | id UUID PK, placa VARCHAR(10) UNIQUE NOT NULL, capacidad DECIMAL(10,2) NOT NULL CHECK (capacidad > 0) |
+| Gestión de viajes | viaje | id UUID PK, conductor_id UUID FK NOT NULL, camion_id UUID FK NOT NULL, origen VARCHAR(200) NOT NULL, destino VARCHAR(200) NOT NULL, fecha_programada TIMESTAMP NOT NULL, estado VARCHAR(20) NOT NULL |
+| Seguimiento | ubicacion | id UUID PK, viaje_id UUID FK NOT NULL, latitud DECIMAL(9,6) NOT NULL, longitud DECIMAL(9,6) NOT NULL, fecha_hora TIMESTAMP NOT NULL |
+| Seguimiento | parada | id UUID PK, viaje_id UUID FK NOT NULL, inicio TIMESTAMP NOT NULL, fin TIMESTAMP NULL, motivo VARCHAR(100) NOT NULL |
+| Seguimiento | incidencia | id UUID PK, viaje_id UUID FK NOT NULL, descripcion TEXT NOT NULL, fecha_hora TIMESTAMP NOT NULL |
+
+<div style="page-break-after: always;"></div>
+
+#### Relaciones y restricciones
+
+- Cada viaje referencia a un conductor y un camión mediante `conductor_id` y `camion_id`.
+- Cada ubicación, parada e incidencia referencia a un viaje mediante `viaje_id`.
+- Un conductor y un camión pueden participar en varios viajes a lo largo del tiempo.
+- Un viaje puede tener múltiples ubicaciones, paradas e incidencias.
+- El estado del viaje se restringe mediante `CHECK` a: `PROGRAMADO`, `EN_CURSO`, `COMPLETADO` o `CANCELADO`.
+- La latitud se restringe mediante `CHECK` entre -90 y 90, y la longitud entre -180 y 180.
+- El fin de una parada puede ser nulo mientras continúe activa; mediante `CHECK`, si existe, debe ser mayor o igual al inicio.
+- Las claves foráneas impiden registrar referencias inexistentes y se restringe la eliminación de registros que tengan información relacionada.
+
+#### Diagrama de base de datos
+
+El diagrama muestra las tablas, sus columnas, las claves primarias y foráneas, y las relaciones uno a muchos que permiten conservar el historial de cada viaje.
+
+![Diagrama de base de datos relacional - TrackTruck](assets/images/chapter4/database-diagram.png)
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.6. Design Patterns
+
+TrackTruck propone utilizar los siguientes patrones para separar responsabilidades y facilitar el mantenimiento y la integración del sistema.
+
+| Patrón | Aplicación en TrackTruck |
+|---|---|
+| **Repository.** | Encapsular el acceso a los datos de viajes, conductores, camiones y seguimiento, separándolo de las reglas del negocio. |
+| **Adapter.** | Adaptar los servicios externos de mapas y geolocalización a las interfaces del sistema. |
+| **Publish–Subscribe.** | Distribuir eventos de ubicación, paradas e incidencias a los componentes interesados sin generar dependencias directas entre ellos. |
+| **Circuit Breaker.** | Suspender temporalmente las llamadas a proveedores que presenten fallas y permitir su recuperación antes de reanudar las solicitudes. |
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.7. Tactics
+
+Las siguientes tácticas apoyan los atributos de calidad priorizados para TrackTruck.
+
+| Atributo de calidad | Táctica | Aplicación en TrackTruck |
+|---|---|---|
+| **Disponibilidad.** | Detección de fallas y recuperación. | Supervisar los servicios y reiniciar los componentes que fallen para recuperar su funcionamiento. |
+| **Disponibilidad.** | Limitar tiempos de espera. | Establecer tiempos máximos para las llamadas a proveedores externos y evitar bloqueos prolongados. |
+| **Rendimiento.** | Gestión de recursos. | Procesar eventos mediante colas y limitar la concurrencia según la capacidad del sistema. |
+| **Rendimiento.** | Reducir el costo de las consultas. | Crear índices en los campos utilizados para consultar el seguimiento y el historial de los viajes. |
+| **Seguridad.** | Autenticación y autorización. | Verificar la identidad del usuario y permitir únicamente las operaciones correspondientes a su rol. |
+| **Seguridad.** | Protección de la información. | Cifrar las comunicaciones y registrar las operaciones sensibles para permitir su auditoría. |
+| **Interoperabilidad.** | Estandarización de interfaces. | Definir contratos y formatos de intercambio consistentes para integrar servicios externos. |
+
+<div style="page-break-after: always;"></div>
+
+## 4.1.7.1 Architectural Drivers
+
+Los drivers arquitectónicos de TrackTruck orientan las decisiones de diseño según los objetivos del negocio, las funcionalidades requeridas y los atributos de calidad prioritarios: disponibilidad, interoperabilidad, rendimiento y seguridad.
+
+### 4.1.8. Design Purpose
+
+El propósito del proceso de diseño es definir una arquitectura que permita implementar de forma coherente la gestión de viajes, flota y seguimiento del transporte de carga.
+
+Para ello, se establecen las responsabilidades, interfaces y relaciones de los componentes, manteniendo la correspondencia entre la implementación y las entidades representadas en los modelos y vistas arquitectónicas.
+
+El diseño busca facilitar el mantenimiento y la evolución del sistema, proteger la información y permitir un seguimiento oportuno y disponible para apoyar el control operativo de LogiGo.
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.9. Primary Functionality (Primary User Stories)
+
+Las siguientes historias de usuario representan funcionalidades que afectan la estructura de TrackTruck, ya que requieren componentes de gestión, seguimiento, integración y control de acceso.
+
+| Código | Historia de usuario | Impacto en la arquitectura |
+|---|---|---|
+| PUS01 | Como operador, quiero registrar viajes y asignar conductores y camiones para organizar el transporte de carga. | Requiere integrar la gestión de viajes con la gestión de flota y validar las asignaciones. |
+| PUS02 | Como operador, quiero visualizar la ubicación de los camiones para supervisar el avance de los viajes. | Requiere recibir y almacenar ubicaciones, actualizar el seguimiento e integrar un proveedor de mapas. |
+| PUS03 | Como operador, quiero consultar las paradas e incidencias de un viaje para identificar problemas durante el traslado. | Requiere componentes para registrar eventos y relacionarlos con el viaje correspondiente. |
+| PUS04 | Como conductor, quiero reportar incidencias para informar al operador sobre problemas durante el viaje. | Requiere recibir reportes y distribuir notificaciones mediante eventos. |
+| PUS05 | Como operador, quiero consultar el historial de un viaje para evaluar lo ocurrido después de su finalización. | Requiere persistir y consultar estados, ubicaciones, paradas e incidencias. |
+| PUS06 | Como administrador, quiero gestionar usuarios y sus roles para controlar el acceso al sistema. | Requiere autenticación y autorización en las interfaces y operaciones de la aplicación. |
+
+<div style="page-break-after: always;"></div>
+
+
+
+### 4.1.10. Quality Attribute Scenarios
+
+Se proponen los siguientes escenarios para evaluar la disponibilidad, rendimiento, seguridad e interoperabilidad de TrackTruck. Las medidas representan objetivos que deberán comprobarse mediante pruebas.
+
+#### QAS01: Disponibilidad
+
+| Parte | Descripción |
+|---|---|
+| Fuente de estímulo | Proveedor de mapas. |
+| Estímulo | Deja de responder. |
+| Medioambiente | Operación normal con viajes en curso. |
+| Artefacto | Integración con mapas. |
+| Respuesta | Informa la falla y mantiene el registro de ubicaciones. |
+| Medida de respuesta | Detectar la falla en máximo 5 segundos y guardar todos los reportes válidos recibidos durante una interrupción de 10 minutos. |
+
+#### QAS02: Rendimiento
+
+| Parte | Descripción |
+|---|---|
+| Fuente de estímulo | Dispositivos de 100 vehículos. |
+| Estímulo | Envían una ubicación por vehículo cada 10 segundos. |
+| Medioambiente | Los 100 vehículos están activos durante 30 minutos. |
+| Artefacto | Servicio de seguimiento. |
+| Respuesta | Procesa las ubicaciones y las deja disponibles para consulta. |
+| Medida de respuesta | El 95 % de las ubicaciones queda disponible en máximo 3 segundos desde su recepción. |
+
+<div style="page-break-after: always;"></div>
+
+#### QAS03: Seguridad
+
+| Parte | Descripción |
+|---|---|
+| Fuente de estímulo | Conductor autenticado. |
+| Estímulo | Intenta administrar usuarios sin permiso. |
+| Medioambiente | Operación normal. |
+| Artefacto | Control de acceso. |
+| Respuesta | Rechaza la solicitud sin mostrar ni modificar datos protegidos. |
+| Medida de respuesta | Bloquear el 100 % de 20 solicitudes de prueba realizadas sin el permiso requerido. |
+
+#### QAS04: Interoperabilidad
+
+| Parte | Descripción |
+|---|---|
+| Fuente de estímulo | Sistema externo de geolocalización. |
+| Estímulo | Envía reportes de ubicación según el contrato acordado. |
+| Medioambiente | Operación normal con la integración habilitada. |
+| Artefacto | Adaptador de geolocalización. |
+| Respuesta | Valida y transforma los reportes al formato interno. |
+| Medida de respuesta | Procesar correctamente 100 de 100 reportes válidos de prueba, conservando el identificador del vehículo, las coordenadas y la fecha de captura. |
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.11. Constraints
+
+Las siguientes restricciones delimitan el diseño y la implementación de TrackTruck.
+
+| Código | Restricción | Implicación arquitectónica |
+|---|---|---|
+| CON01 | Implementar los servicios mediante interfaces REST. | Las operaciones deben exponerse mediante endpoints y contratos definidos. |
+| CON02 | Utilizar una base de datos relacional para la persistencia propuesta. | Los datos deben organizarse en tablas con claves y relaciones que aseguren su integridad. |
+| CON03 | Integrarse con un proveedor externo de mapas. | La integración debe respetar sus formatos, límites de uso y mecanismos de acceso. |
+| CON04 | Utilizar GitHub para el control de versiones, conforme a los lineamientos del curso. | El desarrollo debe seguir GitFlow, Conventional Commits y versionado semántico. |
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.12. Architectural Concerns
+
+Las siguientes preocupaciones representan aspectos de alto impacto que deben abordarse durante el diseño de TrackTruck.
+
+| Código | Preocupación | Orientación de diseño |
+|---|---|---|
+| AC01 | Las fallas del proveedor de mapas pueden afectar la operación. | Aislar la integración y mantener el registro de seguimiento durante la interrupción. |
+| AC02 | El aumento de vehículos puede retrasar el procesamiento de ubicaciones. | Procesar eventos de forma asincrónica y permitir ampliar la capacidad del seguimiento. |
+| AC03 | Los usuarios podrían acceder a información u operaciones sin autorización. | Aplicar autenticación y permisos según el rol del usuario. |
+| AC04 | Los reportes duplicados o fuera de orden pueden generar un historial incorrecto. | Identificar los reportes y considerar su fecha de captura al procesarlos. |
+| AC05 | Los cambios en un proveedor pueden afectar las reglas del negocio. | Mantener los detalles externos separados mediante adaptadores e interfaces propias. |
+
+<div style="page-break-after: always;"></div>
+
+## 4.1.13. ADD Iterations
+
+Se aplicará ADD v3 mediante iteraciones que refinan la arquitectura de TrackTruck según sus funcionalidades principales, atributos de calidad, restricciones y preocupaciones arquitectónicas.
+
+<div style="page-break-after: always;"></div>
+
+### 4.2.1. Iteration 1: Gestión de viajes y seguimiento
+
+Esta iteración define los componentes responsables de gestionar viajes, recibir ubicaciones y registrar paradas e incidencias, junto con sus interfaces y relaciones.
+
+#### 4.2.1.1. Architectural Design Backlog 1
+
+| Código | Trabajo de diseño | Drivers relacionados | Prioridad |
+|---|---|---|---|
+| ADB01 | Definir las responsabilidades de gestión de viajes, flota y seguimiento. | PUS01, PUS03, PUS05 | Alta |
+| ADB02 | Definir las interfaces REST para registrar viajes y consultar su seguimiento. | PUS01, PUS02, CON01 | Alta |
+| ADB03 | Diseñar la recepción y el procesamiento asincrónico de ubicaciones. | PUS02, QAS02, AC02 | Alta |
+| ADB04 | Diseñar el registro de paradas e incidencias y la distribución de notificaciones. | PUS03, PUS04 | Alta |
+| ADB05 | Definir la persistencia y el tratamiento de reportes duplicados o fuera de orden. | PUS05, CON02, AC04 | Alta |
+| ADB06 | Diseñar la integración con mapas y el manejo de fallas del proveedor. | QAS01, QAS04, CON03, AC01, AC05 | Alta |
+| ADB07 | Definir los controles de acceso según el rol del usuario. | PUS06, QAS03, AC03 | Alta |
+
+<div style="page-break-after: always;"></div>
+
+#### 4.2.1.2. Establish Iteration Goal by Selecting Drivers
+
+El objetivo de esta iteración es definir la estructura de gestión de viajes y seguimiento, incluyendo persistencia, integración con mapas y control de acceso.
+
+| Tipo | Drivers seleccionados |
+|---|---|
+| Funcionalidades | PUS01–PUS06: gestión de viajes, ubicación, paradas, incidencias, historial y usuarios. |
+| Atributos de calidad | QAS01–QAS04: disponibilidad, rendimiento, seguridad e interoperabilidad. |
+| Restricciones | CON01–CON03: interfaces REST, base de datos relacional e integración con mapas. |
+| Preocupaciones | AC01–AC05: fallas externas, crecimiento de carga, accesos indebidos, reportes inconsistentes y dependencia del proveedor. |
+
+<div style="page-break-after: always;"></div>
+
+#### 4.2.1.3. Choose One or More Elements of the System to Refine
+
+Se refinarán los siguientes elementos:
+
+- **Gestión de viajes:** registro, asignación y cambios de estado.
+- **Gestión de flota:** consulta de conductores y camiones.
+- **Seguimiento:** recepción de ubicaciones y registro de paradas e incidencias.
+- **Integración con mapas:** comunicación con el proveedor externo.
+- **Persistencia y control de acceso:** almacenamiento de información y validación de permisos.
+
+#### 4.2.1.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
+
+| Concepto seleccionado | Propósito | Drivers |
+|---|---|---|
+| DDD y arquitectura por capas. | Separar responsabilidades del negocio y detalles técnicos. | PUS01, PUS03, PUS05, AC05 |
+| Publish–Subscribe y procesamiento mediante colas. | Distribuir eventos y procesar ubicaciones sin bloquear otras operaciones. | PUS02, PUS04, QAS02, AC02 |
+| Repository y base de datos relacional. | Conservar el historial y controlar la integridad de los registros. | PUS05, CON02, AC04 |
+| Adapter, Circuit Breaker y tiempos máximos de espera. | Integrar mapas y limitar el impacto de fallas externas. | QAS01, QAS04, CON03, AC01, AC05 |
+| Autenticación y autorización por roles. | Restringir las operaciones según los permisos del usuario. | PUS06, QAS03, AC03 |
+
+<div style="page-break-after: always;"></div>
+
+#### 4.2.1.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+| Elemento | Responsabilidad | Interfaces propuestas |
+|---|---|---|
+| Gestión de viajes | Registrar viajes, asignar conductor y camión, y actualizar estados. | `POST /api/v1/viajes`, `GET /api/v1/viajes/{id}`, `PATCH /api/v1/viajes/{id}/estado` |
+| Gestión de flota | Consultar conductores y camiones disponibles. | `GET /api/v1/conductores`, `GET /api/v1/camiones` |
+| Seguimiento | Recibir ubicaciones y registrar paradas e incidencias. | `POST /api/v1/viajes/{id}/ubicaciones`, `POST /api/v1/viajes/{id}/incidencias`, `GET /api/v1/viajes/{id}/seguimiento` |
+| Canal de eventos | Distribuir información a los componentes interesados. | Eventos `UbicacionReportada`, `ParadaRegistrada` e `IncidenciaReportada`. |
+| Adaptador de mapas | Solicitar información geográfica al proveedor. | Interfaz interna `ProveedorMapas`. |
+| Repositorios | Guardar y consultar los datos del negocio. | Interfaces `ViajeRepository`, `FlotaRepository` y `SeguimientoRepository`. |
+| Control de acceso | Autenticar usuarios y validar permisos. | `POST /api/v1/auth/login` y validación de autorización en los endpoints protegidos. |
+
+<div style="page-break-after: always;"></div>
+
+#### 4.2.1.6. Sketch Views (C4 & UML) and Record Design Decisions
+
+El diagrama C4 de contenedores muestra las aplicaciones, los servicios, el canal de eventos y la base de datos. El diagrama UML de secuencia muestra cómo se recibe, almacena y publica una ubicación.
+
+![C4 de contenedores - Iteración 1](assets/images/chapter4/iteration1-c4-containers.png)
+
+![UML de secuencia de seguimiento - Iteración 1](assets/images/chapter4/iteration1-tracking-sequence.png)
+
+| Código | Decisión de diseño | Justificación |
+|---|---|---|
+| DD01 | Separar viajes, flota y seguimiento por responsabilidades. | Facilitar el mantenimiento y la evolución del sistema. |
+| DD02 | Procesar ubicaciones y notificaciones mediante eventos. | Reducir bloqueos y dependencias directas. |
+| DD03 | Aislar el proveedor de mapas mediante un adaptador. | Facilitar cambios de proveedor y controlar sus fallas. |
+| DD04 | Usar persistencia relacional e identificar cada reporte. | Mantener relaciones válidas y evitar registros duplicados. |
+| DD05 | Validar permisos antes de ejecutar operaciones protegidas. | Impedir accesos y modificaciones sin autorización. |
+
+<div style="page-break-after: always;"></div>
+
+#### 4.2.1.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
+
+La propuesta define las responsabilidades e interfaces principales de la iteración. Su cumplimiento se revisará mediante los siguientes criterios:
+
+| Aspecto | Criterio de revisión |
+|---|---|
+| Funcionalidad | Las interfaces cubren las operaciones de PUS01–PUS06. |
+| Disponibilidad | Una falla de mapas permite continuar registrando ubicaciones según QAS01. |
+| Rendimiento | El procesamiento cumple el tiempo establecido en QAS02. |
+| Seguridad | Las solicitudes sin permiso se bloquean según QAS03. |
+| Interoperabilidad | El adaptador procesa los reportes definidos en QAS04. |
+| Integridad | Los reportes duplicados o fuera de orden no alteran incorrectamente el historial. |
+
+El tablero Kanban permitirá seguir los elementos ADB01–ADB07 mediante las columnas **Por hacer**, **En proceso**, **En revisión** y **Terminado**. Cada elemento pasará a terminado cuando sus interfaces, diagramas y decisiones hayan sido revisados. Las pruebas de calidad quedarán pendientes de validación durante la implementación.
+
+![Tablero Kanban - Iteración 1](assets/images/chapter4/iteration1-kanban.png)
+
+[Ver tablero Kanban en Trello](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚)
+
+<div style="page-break-after: always;"></div>
+
+
+
+
+
+
+
+
 ## Archi TrackTruck
 
 ![Archi - TrackTruck](assets/images/chapter3/arquitectura-tracktruck-completa.png)
