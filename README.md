@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="./assets/images/shared/logo_upc.png" alt="Logo UPC" width="200"/>
 </p>
@@ -54,18 +53,11 @@
 
 <h3 align="center">Periodo 202620</h3>
 
-
-
-<div style="page-break-after: always;"></div>
-
 <h2 align="center">Registro de Versiones del Informe</h2>
 
 | Versión | Fecha      | Autor | Descripción de modificación                                                                                                                                                                                                                                                              |
 |---------|------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AV1     | 07-09-2026 | LogiGo | Creación del informe. Inclusión de Capítulos I, II, III y la inclusion del Sprint 1                                                                                                                                                                                              |
-
-<div style="page-break-after: always;"></div>
-
+| AV1     | 07-09-2026 | LogiGo | Creación del informe. Inclusión de los Capítulos I, II y III, junto con el avance del diseño arquitectónico del Capítulo IV.                                                                                                                                                                                              |
 
 <h2 align="center">Project Report Collaboration Insights</h2>
 
@@ -73,11 +65,10 @@
 
 **AV1.** Para la AV1, la elaboración del informe se centró en desarrollar los contenidos establecidos en la rúbrica, incluyendo la presentación de la startup y del producto, el proceso Lean UX, el análisis de competidores, las entrevistas, el Needfinding y la especificación de requisitos mediante User Stories, Impact Map y Product Backlog. Todos los integrantes participaron en la elaboración y revisión del informe, coordinándose mediante reuniones presenciales y reuniones virtuales por Discord, además del uso de GitHub para gestionar y consolidar los avances realizados.
 
-<div style="page-break-after: always;"></div>
-
 ## Contenido
 
 - [Student Outcome](#student-outcome)
+
 - [Capítulo I: Introducción](#capítulo-i-introducción)
     - [1.1. Startup Profile](#11-startup-profile)
         - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
@@ -92,32 +83,63 @@
             - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
     - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
 
-- [Capítulo II: Requirements & Analysis](#capítulo-ii-requirements--analysis)
+- [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation--analysis)
     - [2.1. Competidores](#21-competidores)
+        - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
+        - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
     - [2.2. Entrevistas](#22-entrevistas)
+        - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+        - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
+        - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
     - [2.3. Needfinding](#23-needfinding)
         - [2.3.1. User Personas](#231-user-personas)
         - [2.3.2. User Task Matrix](#232-user-task-matrix)
         - [2.3.3. Empathy Maps](#233-empathy-maps)
-        - [2.3.4. As-is Scenario Mapping](#234-as-is-scenario-mapping)
+        - [2.3.4. As-Is Scenario Mapping](#234-as-is-scenario-mapping)
 
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
     - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
     - [3.2. User Stories](#32-user-stories)
-    - [3.3. Impact Map](#33-impact-map)
+    - [3.3. Impact Mapping](#33-impact-mapping)
     - [3.4. Product Backlog](#34-product-backlog)
 
+- [Capítulo IV: Product Architecture Design](#capítulo-iv-product-architecture-design)
+    - [4.1. Design Concepts, ViewPoints & ER Diagrams](#41-design-concepts-viewpoints--er-diagrams)
+        - [4.1.1. Principles Statements](#411-principles-statements)
+        - [4.1.2. Approaches Statements Architectural Styles & Patterns](#412-approaches-statements-architectural-styles--patterns)
+        - [4.1.3. Context Diagram](#413-context-diagram)
+        - [4.1.4. Approach Driven ViewPoints Diagrams](#414-approach-driven-viewpoints-diagrams)
+        - [4.1.5. Relational/Non Relational Database Diagram](#415-relationalnon-relational-database-diagram)
+        - [4.1.6. Design Patterns](#416-design-patterns)
+        - [4.1.7. Tactics](#417-tactics)
+    - [4.2. Architectural Drivers](#42-architectural-drivers)
+        - [4.2.1. Design Purpose](#421-design-purpose)
+        - [4.2.2. Primary Functionality (Primary User Stories)](#422-primary-functionality-primary-user-stories)
+        - [4.2.3. Quality Attribute Scenarios](#423-quality-attribute-scenarios)
+        - [4.2.4. Constraints](#424-constraints)
+        - [4.2.5. Architectural Concerns](#425-architectural-concerns)
+    - [4.3. ADD Iterations](#43-add-iterations)
+        - [4.3.1. Iteration 1: Gestión de viajes y seguimiento](#431-iteration-1-gestión-de-viajes-y-seguimiento)
+        - [4.3.2. Iteration 2](#432-iteration-2)
+        - [4.3.3. Iteration 3](#433-iteration-3)
+        - [4.3.4. Iteration 4](#434-iteration-4)
+        - [4.3.5. Iteration 5](#435-iteration-5)
+
+- [Capítulo V: Product Implementation, Validation & Deployment](#capítulo-v-product-implementation-validation--deployment)
+    - [5.1. Testing Suites & General Patterns](#51-testing-suites--general-patterns)
+    - [5.2. Software Configuration Management](#52-software-configuration-management)
+    - [5.3. Microservices Implementation](#53-microservices-implementation)
+        - [5.3.1. Sprint 1](#531-sprint-1)
+
 - [Conclusiones](#conclusiones)
-    - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
-
 - [Referencias Bibliográficas](#referencias-bibliográficas)
-
 - [Anexos](#anexos)
-    - [Links](#links)
-
+- [Links](#links)
 
 
 <div style="page-break-after: always;"></div>
+
+# Student Outcome
 
 ### ABET – EAC - Student Outcome 7
 
@@ -136,13 +158,18 @@ En el siguiente cuadro se describen las acciones realizadas y los enunciados de 
 |  | **Aldair Joaquin Ramos Aguirre** | Fortaleció sus conocimientos sobre planificación de productos mediante la elaboración del Impact Map y la organización y priorización del Product Backlog. | Identificó la necesidad del aprendizaje permanente en técnicas de planificación y gestión de productos de software para responder adecuadamente a nuevos requerimientos y cambios del proyecto. |
 |  | **Conclusiones** | **El equipo actualizó y aplicó conocimientos relacionados con Lean UX, investigación de usuarios, análisis de requisitos y planificación del producto, integrándolos en el desarrollo de los capítulos I, II y III del proyecto.** | **El equipo reconoció la importancia del aprendizaje continuo y autónomo para fortalecer sus competencias y adaptar el desarrollo de soluciones de software a las necesidades de los usuarios y a la evolución del proyecto.** |
 
+
 <div style="page-break-after: always;"></div>
-
-
 
 # Capítulo I: Introducción
 
+
+<div style="page-break-after: always;"></div>
+
 ## 1.1. Startup Profile
+
+
+<div style="page-break-after: always;"></div>
 
 ### 1.1.1. Descripción de la Startup
 
@@ -152,10 +179,10 @@ Frente a esta problemática, LogiGo desarrolla **TrackTruck**, una plataforma or
 
 Asimismo, TrackTruck mantiene un registro de las operaciones realizadas, incluyendo información sobre conductores, camiones, rutas, recorridos e incidencias. De esta manera, las empresas pueden consultar el historial de cada viaje, evaluar el desempeño de sus recursos y contar con una mayor trazabilidad de sus operaciones, mejorando el control, la seguridad y la capacidad de respuesta en el transporte de carga.
 
+
 <div style="page-break-after: always;"></div>
 
-
-## 1.1.2. Perfiles de integrantes del equipo
+### 1.1.2. Perfiles de integrantes del equipo
 
 | Foto | Información |
 |---|---|
@@ -163,12 +190,24 @@ Asimismo, TrackTruck mantiene un registro de las operaciones realizadas, incluye
 | <img src="assets/images/shared/miembro2.png" width="500"/> | **Nombre:** Anhelo Rodrigo Rocca Leon<br><br>**Código:** U20221C803<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy Anhelo Rodrigo Rocca Leon, estudiante de la carrera de Ingeniería de Software en la UPC. Tengo conocimientos en C++, HTML, CSS, JavaScript, C#, Python, Java y Flutter. Me interesa el desarrollo frontend para aplicaciones web y móviles, enfocándome en crear experiencias dinámicas, funcionales y adaptadas a las necesidades de los usuarios. |
 | <img src="assets/images/shared/miembro3.png" width="500"/> | **Nombre:** Alexander Piero Fernandez Garfias<br><br>**Código:** U202019498<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy Alexander Piero Fernandez Garfias, estudiante de la carrera de Ingeniería de Software en la UPC. Poseo conocimientos en C++, HTML, CSS, JavaScript, C#, Python, Java y Flutter. Me enfoco en el diseño y desarrollo frontend para aplicaciones web y móviles, aplicando creatividad y buenas prácticas para construir soluciones tecnológicas modernas y eficientes. |
 | <img src="assets/images/shared/miembro4.jpg" width="500"/> | **Nombre:** Sebastián De Las Casas Latour<br><br>**Código:** U202213553<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy Sebastián De Las Casas Latour, estudiante de Ingeniería de Software en la UPC. En TrackTruck contribuyo a transformar las necesidades de los segmentos objetivo en User Stories claras, criterios de aceptación verificables y una priorización coherente del producto. Me interesa fortalecer mis competencias en análisis, especificación de requisitos y trabajo colaborativo para construir soluciones de software alineadas con problemas reales.|
-| <img src="assets/images/shared/miembro5.jpeg" width="500"/> | **Nombre:** Aldair Joaquin Ramos Aguirrebr><br>**Código:** U20201f051<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy estudiante de la carrera de Ingeniería de Software en la UPC. Tengo interés en seguir aprendiendo sobre tecnologías y metodologías relacionadas con el desarrollo de software, contribuyendo al trabajo colaborativo y al cumplimiento de los objetivos del proyecto. |
+| <img src="assets/images/shared/miembro5.jpeg" width="500"/> | **Nombre:** Aldair Joaquin Ramos Aguirre><br>**Código:** U20201f051<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy estudiante de la carrera de Ingeniería de Software en la UPC. Tengo interés en seguir aprendiendo sobre tecnologías y metodologías relacionadas con el desarrollo de software, contribuyendo al trabajo colaborativo y al cumplimiento de los objetivos del proyecto. |
+
 
 <div style="page-break-after: always;"></div>
 
+## 1.2. Solution Profile
 
-### 1.2.1. Antecedentes y problemática
+
+<div style="page-break-after: always;"></div>
+
+### 1.2.1. Nombre del producto
+
+**TrackTruck** es el producto digital desarrollado por LogiGo para apoyar la gestión, supervisión y trazabilidad de las operaciones de transporte de carga mediante el seguimiento de vehículos, conductores, rutas, viajes e incidencias.
+
+
+<div style="page-break-after: always;"></div>
+
+### 1.2.2. Antecedentes y problemática
 
 **Who (¿Quién?) - ¿A quiénes afecta el problema?**  
 Empresas de transporte de carga y operadores logísticos que necesitan supervisar sus vehículos, conductores y rutas durante el traslado de mercancías.
@@ -191,12 +230,15 @@ La falta de visibilidad y comunicación dificulta conocer el estado real de los 
 **How Much (¿Cuánto?) - ¿Qué tan grande es el problema?**  
 El transporte de carga requiere un seguimiento constante de vehículos, conductores y recorridos para garantizar el cumplimiento de las operaciones. La ausencia de herramientas que centralicen esta información puede generar menor capacidad de supervisión y respuesta ante incidencias. En este contexto, existe una oportunidad para soluciones como **TrackTruck**, que integren geolocalización, comunicación y registro histórico de las operaciones en una misma plataforma.
 
+
 <div style="page-break-after: always;"></div>
 
+### 1.2.3. Lean UX Process
 
-### 1.2.2. Lean UX Process
 
-#### 1.2.2.1. Lean UX Problem Statements
+<div style="page-break-after: always;"></div>
+
+#### 1.2.3.1. Lean UX Problem Statement
 
 **Problem statement:**  
 Actualmente, muchas empresas dedicadas al transporte de carga enfrentan dificultades para supervisar de manera centralizada y en tiempo real sus vehículos, conductores y rutas. Aunque existen herramientas de geolocalización y comunicación, estas suelen encontrarse separadas, lo que dificulta obtener una visión completa del estado de cada operación y responder de manera rápida ante retrasos, incidencias o posibles accidentes.
@@ -205,11 +247,10 @@ Esta problemática afecta especialmente a empresas de transporte y operadores lo
 
 **TrackTruck** busca atender esta necesidad mediante una plataforma que centralice el monitoreo de vehículos, la geolocalización de rutas, la comunicación con los conductores y el registro histórico de las operaciones. La solución estará orientada inicialmente a empresas de transporte de carga del mercado peruano y priorizará la facilidad de uso, la visualización en tiempo real y el acceso rápido a información relevante para la toma de decisiones.
 
+
 <div style="page-break-after: always;"></div>
 
-
-
-#### 1.2.2.2. Lean UX Assumptions
+#### 1.2.3.2. Lean UX Assumptions
 
 Lean UX Assumptions es una técnica que permite identificar las principales suposiciones relacionadas con el negocio, los usuarios y sus necesidades antes de desarrollar completamente una solución. Estas suposiciones permiten orientar las decisiones del equipo y posteriormente validarlas mediante investigación y retroalimentación de los usuarios, reduciendo el riesgo de desarrollar funcionalidades que no respondan a necesidades reales.
 
@@ -268,11 +309,10 @@ Algunos problemas potenciales incluyen una ubicación imprecisa debido a problem
 **¿Qué características son importantes?**  
 Las características principales de TrackTruck incluyen geolocalización y seguimiento en tiempo real, visualización de rutas y recorridos, identificación de paradas, descansos, retrasos e incidencias, comunicación mediante llamadas y registro histórico de conductores, vehículos, rutas y operaciones.
 
+
 <div style="page-break-after: always;"></div>
 
-
-
-#### 1.2.2.3. Lean UX Hypothesis Statements
+#### 1.2.3.3. Lean UX Hypothesis
 
 **Hypothesis Statement 1:**  
 Creemos que proporcionar a las empresas la **ubicación en tiempo real de sus vehículos y la visualización de sus recorridos** mejorará la visibilidad y el control sobre sus operaciones de transporte.  
@@ -294,17 +334,19 @@ Sabremos que esto es cierto cuando los usuarios puedan consultar viajes anterior
 Creemos que centralizar el **monitoreo, la comunicación y el registro de las operaciones** en TrackTruck facilitará la gestión del transporte de carga y permitirá evaluar mejor el desempeño de los vehículos y conductores.  
 Sabremos que esto es cierto cuando los usuarios utilicen la información recopilada por la plataforma para supervisar sus operaciones, revisar el desempeño de sus recursos y tomar decisiones con mayor información.
 
+
 <div style="page-break-after: always;"></div>
 
-
-
-#### 1.2.2.4. Lean UX Canvas
+#### 1.2.3.4. Lean UX Canvas
 
 El **Lean UX Canvas** de TrackTruck fue elaborado considerando la problemática, los supuestos, las hipótesis y los segmentos objetivo definidos durante el proceso Lean UX.
 
 ![Lean UX Canvas](./assets/images/chapter1/lean_ux_canvas.png)
 
+
 <div style="page-break-after: always;"></div>
+
+## 1.3. Segmentos objetivo
 
 ### Segmento 1: Empresas de transporte de carga
 
@@ -345,10 +387,12 @@ Para este segmento, TrackTruck permite centralizar la información de los recorr
 
 <div style="page-break-after: always;"></div>
 
-
 # Capítulo II: Requirements Elicitation & Analysis
 
-# 2.1. Competidores
+
+<div style="page-break-after: always;"></div>
+
+## 2.1. Competidores
 
 Para comprender el entorno competitivo de **TrackTruck**, se analizaron soluciones relacionadas con el monitoreo de vehículos, gestión de flotas y seguimiento de operaciones de transporte. Este análisis permite identificar las principales funcionalidades ofrecidas actualmente en el mercado, así como sus fortalezas y diferencias frente a nuestra propuesta.
 
@@ -378,9 +422,8 @@ Tookan es una plataforma orientada principalmente a la gestión de entregas y op
 
 Se considera un competidor indirecto debido a que comparte funcionalidades relacionadas con el seguimiento y gestión de vehículos y conductores, aunque su enfoque está más orientado a la administración de entregas y servicios de última milla. En contraste, TrackTruck se enfoca en la supervisión y trazabilidad de operaciones de transporte de carga, incluyendo vehículos, conductores, rutas, recorridos e incidencias.
 
+
 <div style="page-break-after: always;"></div>
-
-
 
 ### 2.1.1. Análisis competitivo
 
@@ -402,11 +445,10 @@ Se considera un competidor indirecto debido a que comparte funcionalidades relac
 | Oportunidades | Digitalización de las empresas de transporte de carga; necesidad de mayor trazabilidad de las operaciones; posibilidad de atender empresas peruanas que buscan centralizar el seguimiento de vehículos, conductores y rutas. | Expansión de la digitalización y necesidad de mayor visibilidad en las cadenas de suministro y operaciones de transporte. | Crecimiento de la digitalización de flotas y mayor demanda de herramientas de telemática y gestión vehicular. | Crecimiento del comercio electrónico, delivery y operaciones de última milla que requieren herramientas digitales de coordinación y seguimiento. |
 | Amenazas | Competencia de plataformas internacionales consolidadas; aparición de nuevas soluciones de rastreo y gestión de flotas; riesgos relacionados con seguridad y privacidad de los datos de ubicación. | Competencia creciente de otras plataformas de visibilidad logística y desarrollo de nuevas tecnologías de seguimiento. | Competencia de soluciones de gestión de flotas más económicas y aparición de nuevas tecnologías para monitoreo vehicular. | Competencia de plataformas más especializadas y completas para gestión de flotas y transporte de carga. |
 
+
 <div style="page-break-after: always;"></div>
 
-
-
-# 2.1.2. Estrategias y tácticas frente a competidores
+### 2.1.2. Estrategias y tácticas frente a competidores
 
 En esta sección se presentan las principales estrategias y tácticas que **TrackTruck** aplicará para competir dentro del mercado de soluciones de monitoreo y gestión del transporte de carga. Estas acciones buscan fortalecer la propuesta de valor de la plataforma, diferenciarla de otras alternativas y responder a las necesidades de las empresas de transporte y operadores logísticos.
 
@@ -441,12 +483,13 @@ Se buscará establecer contacto directo con empresas del sector transporte y log
 **Mejora continua de la plataforma:**  
 Se realizarán iteraciones constantes sobre TrackTruck a partir de los resultados obtenidos durante las pruebas con usuarios y del análisis del mercado, con el objetivo de mantener una solución competitiva y alineada con las necesidades del sector.
 
+
 <div style="page-break-after: always;"></div>
 
+## 2.2. Entrevistas
 
 
-
-# 2.2. Entrevistas
+<div style="page-break-after: always;"></div>
 
 ## 2.2.1. Diseño de entrevistas
 
@@ -488,10 +531,8 @@ La información obtenida permitirá validar las principales suposiciones plantea
 13. ¿Qué funcionalidades esperaría encontrar en una plataforma como TrackTruck?
 14. ¿Qué aspectos relacionados con facilidad de uso, acceso a la información o comunicación considerarían importantes para utilizar este tipo de plataforma?
 
+
 <div style="page-break-after: always;"></div>
-
-
-
 
 ### 2.2.2. Registro de entrevistas
 
@@ -516,7 +557,7 @@ En esta sección se presenta el registro de las entrevistas realizadas a los usu
 </p>
 
 **Resumen:**  
-Gianfranco Quispe es un empresario con cinco años de experiencia en el sector logístico y de transporte. Durante la entrevista destacó la importancia de utilizar tecnología para mejorar la eficiencia y seguridad de las operaciones, especialmente en zonas rurales del Perú. Actualmente emplea herramientas GPS y medios de comunicación en tiempo real para supervisar y coordinar los viajes. También recopila información de sus clientes mediante encuestas y sistemas de calificación. Frente a incrementos de demanda, aumenta temporalmente la disponibilidad de vehículos y reorganiza sus operaciones. Sus respuestas evidencian la necesidad de contar con una aplicación como **Trakto**, que permita centralizar la gestión de vehículos, conductores, rutas y viajes.
+Gianfranco Quispe es un empresario con cinco años de experiencia en el sector logístico y de transporte. Durante la entrevista destacó la importancia de utilizar tecnología para mejorar la eficiencia y seguridad de las operaciones, especialmente en zonas rurales del Perú. Actualmente emplea herramientas GPS y medios de comunicación en tiempo real para supervisar y coordinar los viajes. También recopila información de sus clientes mediante encuestas y sistemas de calificación. Frente a incrementos de demanda, aumenta temporalmente la disponibilidad de vehículos y reorganiza sus operaciones. Sus respuestas evidencian la necesidad de contar con una aplicación como **TrackTruck**, que permita centralizar la gestión de vehículos, conductores, rutas y viajes.
 
 ---
 
@@ -535,7 +576,7 @@ Gianfranco Quispe es un empresario con cinco años de experiencia en el sector l
 </p>
 
 **Resumen:**  
-Diego Cisneros considera que una aplicación móvil permitiría automatizar y optimizar diferentes procesos relacionados con el transporte, brindando mayor control sobre las operaciones. Señala que uno de los principales problemas son los retrasos ocasionados por el mal estado de algunas carreteras. Actualmente utiliza Excel para registrar información sobre los camiones, controlar su estado y programar mantenimientos según el tiempo de uso. Esto demuestra la necesidad de una solución como **Trakto**, donde la información de vehículos, viajes, rutas y estados pueda mantenerse centralizada y disponible de manera más rápida.
+Diego Cisneros considera que una aplicación móvil permitiría automatizar y optimizar diferentes procesos relacionados con el transporte, brindando mayor control sobre las operaciones. Señala que uno de los principales problemas son los retrasos ocasionados por el mal estado de algunas carreteras. Actualmente utiliza Excel para registrar información sobre los camiones, controlar su estado y programar mantenimientos según el tiempo de uso. Esto demuestra la necesidad de una solución como **TrackTruck**, donde la información de vehículos, viajes, rutas y estados pueda mantenerse centralizada y disponible de manera más rápida.
 
 ---
 
@@ -554,18 +595,18 @@ Diego Cisneros considera que una aplicación móvil permitiría automatizar y op
 </p>
 
 **Resumen:**  
-Valeria Cardenas cuenta con dos años de experiencia como administradora en el sector de transporte de carga. Menciona que las condiciones geográficas y de infraestructura del país representan dificultades importantes para las operaciones. Actualmente utiliza herramientas como Excel y rastreo satelital para gestionar los envíos y consultar su avance. También considera importantes la seguridad, puntualidad y adecuada gestión de los vehículos y conductores. La entrevista evidencia la necesidad de centralizar la información operativa y mantener un historial de vehículos, viajes y recorridos mediante una solución móvil como **Trakto**.
+Valeria Cardenas cuenta con dos años de experiencia como administradora en el sector de transporte de carga. Menciona que las condiciones geográficas y de infraestructura del país representan dificultades importantes para las operaciones. Actualmente utiliza herramientas como Excel y rastreo satelital para gestionar los envíos y consultar su avance. También considera importantes la seguridad, puntualidad y adecuada gestión de los vehículos y conductores. La entrevista evidencia la necesidad de centralizar la información operativa y mantener un historial de vehículos, viajes y recorridos mediante una solución móvil como **TrackTruck**.
 
 ---
 
-## Segmento objetivo 2: Clientes que requieren servicios de transporte de carga
+## Segmento objetivo 2: Operadores y empresas de logística
 
 ### Entrevista 4
 
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos | Rodrigo Guerra |
-| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Segmento objetivo | Operadores y empresas de logística |
 | Cargo / actividad | Emprendedor |
 | Duración | 5:49 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAV3DQLGB33SpVkVyUbv9pQAUsYOLoLLNGkZGiAaly_qig?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wJlceN) |
@@ -584,7 +625,7 @@ Rodrigo Guerra es un emprendedor que depende de servicios de transporte de merca
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos | Por completar |
-| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Segmento objetivo | Operadores y empresas de logística |
 | Cargo / actividad | Personal de empresa de mobiliario |
 | Duración | 3:35 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQCYIb0z_NwBTLbajN-6r4f9AWyuPx7pVcLQDYFiSKfXhjQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ah7IkZ) |
@@ -603,7 +644,7 @@ El entrevistado trabaja en una empresa dedicada al sector mobiliario y considera
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos | Jael Pinta |
-| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Segmento objetivo | Operadores y empresas de logística |
 | Cargo / actividad | Comerciante mayorista de prendas |
 | Duración | 4:12 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAz-85vOfF1R46gy8UA0z54AfCV6TF7BxvrpjY63Y2yBAs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=CS9mfl) |
@@ -622,7 +663,7 @@ Jael Pinta se dedica a la venta mayorista de prendas hacia diferentes zonas del 
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos |  Alonso Shovl |
-| Segmento objetivo | Clientes que requieren servicios de transporte de carga |
+| Segmento objetivo | Operadores y empresas de logística |
 | Cargo / actividad | Comerciante de equipo de ferretería |
 | Duración | 8:22 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213553_upc_edu_pe/IQBnolRqUlm5SoIE66MFLH98AU3jHadHbl2VdK9mHX7oo6A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OfYgGa) |
@@ -634,8 +675,8 @@ Jael Pinta se dedica a la venta mayorista de prendas hacia diferentes zonas del 
 **Resumen:**  
 Alonso habla de las dificultades que tiene a la hora de comunicarse con los conductores de los camiones y cómo es díficil mantener organizado el estado de los mismos, igual que la carga.
 
-<div style="page-break-after: always;"></div>
 
+<div style="page-break-after: always;"></div>
 
 ## 2.2.3. Análisis de entrevistas
 
@@ -666,11 +707,13 @@ Finalmente, el **100 % mostró interés en una plataforma que permita consultar 
 
 A partir de estos resultados, se identifica que este segmento se caracteriza principalmente por buscar **información centralizada, trazabilidad, supervisión simultánea de operaciones y capacidad de respuesta ante incidencias**. Estas características respaldan el enfoque de TrackTruck como una herramienta orientada a facilitar la supervisión y gestión de las operaciones de transporte.
 
+
 <div style="page-break-after: always;"></div>
 
-
-
 ## 2.3. Needfinding
+
+
+<div style="page-break-after: always;"></div>
 
 ### 2.3.1. User Personas
 
@@ -688,9 +731,8 @@ Para el segundo segmento, correspondiente a **operadores y empresas de logístic
 
 ![User Persona - Operadores y empresas de logística](assets/images/chapter2/user-persona2.png)
 
+
 <div style="page-break-after: always;"></div>
-
-
 
 ## 2.3.2. User Task Matrix
 
@@ -725,16 +767,17 @@ Por otro lado, **Andrea Salazar**, como coordinadora de operaciones logísticas,
 
 La principal coincidencia entre ambos perfiles se encuentra en la necesidad de conocer el estado de las operaciones y responder oportunamente ante situaciones que puedan afectar los recorridos. La principal diferencia radica en que el primer User Persona presenta un enfoque más orientado al **control de la flota y los conductores**, mientras que el segundo tiene un enfoque relacionado con la **coordinación y seguimiento general de las operaciones logísticas**.
 
+
 <div style="page-break-after: always;"></div>
-
-
-
 
 ### 2.3.3. Empathy Mapping
 
 En esta sección se presentan los **Empathy Maps** elaborados en **UXPressia** para cada uno de los User Personas identificados en los segmentos objetivo de TrackTruck. Estos mapas permiten comprender con mayor profundidad las necesidades, comportamientos, pensamientos, preocupaciones y expectativas de los usuarios dentro de su contexto de trabajo.
 
 Para su elaboración, se colocó a cada User Persona como elemento central y se analizaron las observaciones obtenidas durante las entrevistas. A partir de ello, se organizaron los principales hallazgos considerando qué necesita hacer el usuario, qué dice, qué ve, qué hace, qué escucha y qué piensa o siente. Finalmente, se identificaron sus principales **Pains** y **Gains**, los cuales permiten reconocer los problemas que enfrenta actualmente y los resultados que espera obtener.
+
+
+<div style="page-break-after: always;"></div>
 
 #### 1. Empathy Map del primer segmento: Empresas de transporte de carga
 
@@ -744,6 +787,9 @@ Entre sus principales preocupaciones se encuentran la dificultad para conocer in
 
 ![Empathy Map - Carlos Mendoza](assets/images/chapter2/empathy-map1.png)
 
+
+<div style="page-break-after: always;"></div>
+
 #### 2. Empathy Map del segundo segmento: Operadores y empresas de logística
 
 El segundo Empathy Map corresponde a **Andrea Salazar**, coordinadora de operaciones y representante del segmento de operadores y empresas de logística. Este perfil necesita coordinar y supervisar diferentes operaciones de transporte, conocer el progreso de los recorridos e identificar situaciones que puedan afectar el cumplimiento de las operaciones.
@@ -752,10 +798,8 @@ Sus principales preocupaciones están relacionadas con la dificultad para superv
 
 ![Empathy Map - Andrea Salazar](assets/images/chapter2/empathy-map2.png)
 
+
 <div style="page-break-after: always;"></div>
-
-
-
 
 ### 2.3.4. As-Is Scenario Mapping
 
@@ -767,6 +811,9 @@ Finalmente, se identificaron las áreas positivas, negativas y **blank areas** p
 
 Cada As-Is Scenario Mapping se encuentra organizado mediante las filas **Phases, Doing, Thinking y Feeling**.
 
+
+<div style="page-break-after: always;"></div>
+
 #### 1. As-Is Scenario Mapping del primer segmento: Empresas de transporte de carga
 
 El primer escenario corresponde a **Carlos Mendoza**, supervisor de flota y representante del segmento de empresas de transporte de carga. El escenario representa el proceso actual que realiza para preparar un viaje, supervisar el recorrido de los vehículos, atender posibles incidencias y revisar el cumplimiento de la operación.
@@ -776,6 +823,9 @@ Las fases identificadas para este escenario son **Preparación del viaje, Inicio
 Durante este proceso, Carlos debe consultar diferentes fuentes de información y mantener comunicación frecuente con los conductores para conocer el estado de las unidades. Los principales puntos negativos aparecen cuando necesita identificar rápidamente retrasos, paradas o incidencias y no dispone de toda la información de manera centralizada.
 
 ![As-Is Scenario Mapping - Carlos Mendoza](assets/images/chapter2/as-is-scenario-map1.jpg)
+
+
+<div style="page-break-after: always;"></div>
 
 #### 2. As-Is Scenario Mapping del segundo segmento: Operadores y empresas de logística
 
@@ -787,16 +837,17 @@ Durante este proceso, Andrea necesita consultar constantemente información sobr
 
 ![As-Is Scenario Mapping - Andrea Salazar](assets/images/chapter2/as-is-scenario-map2.jpg)
 
+
 <div style="page-break-after: always;"></div>
-
-
-
 
 # Capítulo III: Requirements Specification
 
 En esta sección se especifican los principales requisitos de **TrackTruck** a partir de la información obtenida durante las entrevistas y el proceso de Needfinding. Los hallazgos identificados permiten comprender las necesidades, dificultades y objetivos de los segmentos analizados y utilizarlos como base para definir las funcionalidades que deberá ofrecer la solución.
 
 La especificación de requisitos comprende el **To-Be Scenario Mapping**, las **User Stories**, el **Impact Map** y el **Product Backlog**, permitiendo transformar las necesidades identificadas en requisitos concretos para el desarrollo de TrackTruck.
+
+
+<div style="page-break-after: always;"></div>
 
 ## 3.1. To-Be Scenario Mapping
 
@@ -805,6 +856,9 @@ En esta sección se presentan los **To-Be Scenario Mapping** elaborados en **Luc
 Para su elaboración, el equipo tomó como punto de partida los problemas y oportunidades identificados en los **As-Is Scenario Mapping**. Posteriormente, se realizó una lluvia de ideas individual sobre posibles mejoras en la experiencia de cada usuario. Las propuestas fueron revisadas y agrupadas por el equipo para establecer las fases principales del nuevo escenario.
 
 Finalmente, los escenarios To-Be fueron comparados con los escenarios As-Is para identificar los principales cambios que TrackTruck podría generar en las actividades, pensamientos y emociones de los usuarios. Cada escenario se encuentra organizado mediante las filas **Phases, Doing, Thinking y Feeling**.
+
+
+<div style="page-break-after: always;"></div>
 
 ### 1. To-Be Scenario Mapping del primer segmento: Empresas de transporte de carga
 
@@ -817,6 +871,9 @@ Con TrackTruck, Carlos podría consultar la ubicación y recorrido de los vehíc
 En comparación con el escenario As-Is, se busca reducir la necesidad de consultar información mediante diferentes medios y disminuir la incertidumbre sobre el estado de los vehículos durante los recorridos. Como resultado, Carlos tendría mayor visibilidad sobre las operaciones y una mejor capacidad de respuesta ante incidencias.
 
 ![To-Be Scenario Mapping - Carlos Mendoza](assets/images/chapter3/to-be-scenario-map1.png)
+
+
+<div style="page-break-after: always;"></div>
 
 ### 2. To-Be Scenario Mapping del segundo segmento: Operadores y empresas de logística
 
@@ -832,9 +889,8 @@ En comparación con el escenario As-Is, TrackTruck permitiría reducir la disper
 
 ![To-Be Scenario Mapping - Andrea Salazar](assets/images/chapter3/to-be-scenario-map2.png)
 
+
 <div style="page-break-after: always;"></div>
-
-
 
 ## 3.2. User Stories
 
@@ -843,7 +899,6 @@ En esta sección se presentan los principales requisitos funcionales y arquitect
 Las User Stories describen las necesidades de los usuarios utilizando el formato **"Como..., deseo..., para..."**, mientras que los criterios de aceptación permiten establecer las condiciones necesarias para considerar cada historia como completada.
 
 Asimismo, se identifican las funcionalidades principales que afectan la estructura de la aplicación, los escenarios de atributos de calidad, las restricciones arquitectónicas y las principales preocupaciones arquitectónicas del sistema.
-
 
 
 ### Primary Functionality (Primary User Stories)
@@ -913,76 +968,14 @@ Las siguientes User Stories representan las funcionalidades principales de Track
 | US49 | Consultar perfil | Como usuario autenticado, deseo consultar mi perfil para visualizar la información asociada a mi cuenta. | **Scenario 1: Perfil disponible** <br> **Given** que tengo una sesión activa, <br> **When** accedo a mi perfil, <br> **Then** el sistema muestra la información correspondiente a mi cuenta. | EP10 |
 | US50 | Actualizar perfil | Como usuario autenticado, deseo actualizar la información de mi perfil para mantener mis datos vigentes. | **Scenario 1: Actualización exitosa** <br> **Given** que modifico información válida de mi perfil, <br> **When** guardo los cambios, <br> **Then** el sistema actualiza mis datos. | EP10 |
 
-<div style="page-break-after: always;"></div>
-
-
-
-### Quality Attribute Scenarios
-
-Los siguientes escenarios representan atributos de calidad relevantes para TrackTruck. Cada escenario especifica la fuente del estímulo, el estímulo recibido, el ambiente en el que ocurre, el artefacto afectado, la respuesta esperada y una medida verificable de dicha respuesta.
-
-| ID | Atributo | Fuente de estímulo | Estímulo | Medioambiente | Artefacto | Respuesta | Medida de respuesta |
-|---|---|---|---|---|---|---|---|
-| QA01 | Rendimiento | Responsable de operaciones | Solicita visualizar la ubicación actual de un vehículo | Operación normal con múltiples viajes activos | Módulo de monitoreo | El sistema obtiene y presenta la ubicación disponible del vehículo | La información solicitada debe mostrarse en un máximo de 3 segundos bajo condiciones normales |
-| QA02 | Disponibilidad | Supervisor de flota | Intenta consultar una operación activa | Durante una operación de transporte | Plataforma TrackTruck | El sistema mantiene disponibles las funciones necesarias para consultar las operaciones | Disponibilidad mensual objetivo igual o superior al 99 % |
-| QA03 | Seguridad | Usuario no autorizado | Intenta acceder a información perteneciente a una empresa | Sistema funcionando normalmente | API y datos empresariales | El sistema rechaza la solicitud y evita mostrar información no autorizada | El 100 % de solicitudes sin autorización válida a recursos protegidos deben ser rechazadas |
-| QA04 | Usabilidad | Responsable de operaciones | Necesita encontrar un viaje activo y visualizar su ubicación | Uso normal de la plataforma | Interfaz de monitoreo | El sistema permite localizar la operación y acceder al mapa mediante una navegación clara | Al menos el 90 % de los usuarios de prueba debe completar la tarea sin asistencia |
-| QA05 | Confiabilidad | Sistema de geolocalización | Se interrumpe temporalmente la recepción de una nueva ubicación | Vehículo realizando un viaje | Módulo de monitoreo | El sistema conserva la última ubicación conocida e informa que la información puede estar desactualizada | No se debe mostrar una ubicación antigua como si fuera una actualización en tiempo real |
-| QA06 | Escalabilidad | Empresas usuarias | Aumenta la cantidad de vehículos y viajes monitoreados simultáneamente | Periodo de alta actividad | Backend y servicios de monitoreo | El sistema continúa procesando las solicitudes sin degradación crítica | El tiempo de respuesta de las operaciones principales debe mantenerse por debajo de 5 segundos bajo la carga objetivo definida para las pruebas |
-| QA07 | Recuperabilidad | Servicio o infraestructura | Se produce una interrupción inesperada durante el registro de información | Operación normal | Backend y persistencia | El sistema evita dejar información parcialmente registrada o inconsistente | Las operaciones transaccionales incompletas deben revertirse sin generar registros inconsistentes |
 
 <div style="page-break-after: always;"></div>
 
-
-
-
-### Constraints
-
-Las restricciones arquitectónicas establecen condiciones que deberán ser consideradas durante el diseño y desarrollo de TrackTruck.
-
-| ID | Restricción | Descripción |
-|---|---|---|
-| CON01 | Aplicación web | TrackTruck deberá contar con una interfaz web responsive que permita su utilización desde computadoras y dispositivos móviles compatibles. |
-| CON02 | Conectividad | Las funcionalidades de monitoreo en tiempo real dependerán de una conexión a Internet para enviar y recibir información actualizada. |
-| CON03 | Geolocalización | El seguimiento de los vehículos dependerá de la disponibilidad de información de geolocalización proporcionada durante los recorridos. |
-| CON04 | Base de datos | La información relacionada con empresas, vehículos, conductores, rutas, viajes e incidencias deberá almacenarse de forma persistente. |
-| CON05 | Servicios de mapas | La representación visual de ubicaciones y recorridos requerirá la integración con una tecnología o servicio de mapas compatible con la plataforma. |
-| CON06 | Seguridad de acceso | La información perteneciente a cada empresa deberá estar protegida frente al acceso de usuarios no autorizados. |
-| CON07 | Compatibilidad web | La interfaz deberá ser compatible con navegadores web modernos utilizados en computadoras y dispositivos móviles. |
-
-<div style="page-break-after: always;"></div>
-
-
-
-
-### Architectural Concerns
-
-Las siguientes preocupaciones arquitectónicas representan aspectos con un impacto significativo sobre las decisiones de diseño de TrackTruck.
-
-| ID | Architectural Concern | Descripción |
-|---|---|---|
-| AC01 | Monitoreo en tiempo real | La arquitectura debe permitir recibir, procesar y presentar actualizaciones de ubicación de los vehículos durante los viajes. |
-| AC02 | Seguridad y aislamiento de información | La información de cada empresa debe permanecer protegida y no debe ser accesible por usuarios pertenecientes a otras organizaciones. |
-| AC03 | Disponibilidad | Las funciones de seguimiento deben permanecer disponibles durante las operaciones de transporte, debido a que pueden ser necesarias para supervisar viajes activos. |
-| AC04 | Escalabilidad | La solución debe permitir incrementar progresivamente la cantidad de empresas, vehículos, conductores y operaciones sin requerir cambios estructurales significativos. |
-| AC05 | Trazabilidad | La arquitectura debe permitir mantener relaciones consistentes entre empresas, vehículos, conductores, rutas, viajes, ubicaciones e incidencias. |
-| AC06 | Integridad de datos | La información registrada durante las operaciones debe mantenerse consistente, especialmente durante la creación y finalización de viajes y el registro de incidencias. |
-| AC07 | Integración de geolocalización | La arquitectura debe permitir integrar los mecanismos necesarios para obtener y representar información geográfica sin acoplar excesivamente la lógica principal a un proveedor específico. |
-| AC08 | Mantenibilidad | Los componentes relacionados con gestión de flotas, viajes, monitoreo e incidencias deben mantenerse claramente separados para facilitar modificaciones y evolución futura de la plataforma. |
-
-<div style="page-break-after: always;"></div>
-
-
-
-# 3.3. Impact Mapping
+## 3.3. Impact Mapping
 
 El **Impact Map** de TrackTruck fue elaborado en **UXPressia**. Este permite relacionar el objetivo de negocio del producto con los actores involucrados, los impactos esperados y las funcionalidades necesarias para alcanzarlos.
 
 ![Impact Map - TrackTruck](assets/images/chapter3/impact-map.png)
-
-<div style="page-break-after: always;"></div>
-
-
 
 ## Business Goal
 
@@ -1007,9 +1000,6 @@ Mejorar la visibilidad, el control y la trazabilidad de las operaciones de trans
 - Mejorar la trazabilidad de las operaciones.
 - Tomar decisiones con información más actualizada.
 
-<div style="page-break-after: always;"></div>
-
-
 ## Deliverables
 
 - Monitoreo de vehículos en tiempo real.
@@ -1033,11 +1023,8 @@ Algunas User Stories relacionadas con el Impact Map son:
 - **US30:** Visualizar vehículos en mapa.
 - **US43:** Visualizar resumen de operaciones.
 
+
 <div style="page-break-after: always;"></div>
-
-
-
-
 
 ## 3.4. Product Backlog
 
@@ -1097,11 +1084,6 @@ La estimación se realiza mediante **Story Points**, utilizando los valores 1, 2
 | 48 | US49 | Consultar perfil | Como usuario autenticado, deseo consultar mi perfil para visualizar la información asociada a mi cuenta. | 2 |
 | 49 | US50 | Actualizar perfil | Como usuario autenticado, deseo actualizar la información de mi perfil para mantener mis datos vigentes. | 2 |
 
-<div style="page-break-after: always;"></div>
-
-
-
-
 ### Product Backlog en Trello
 
 El Product Backlog de **TrackTruck** fue gestionado en **Trello**, donde las User Stories fueron organizadas y priorizadas de acuerdo con el valor que aportan al negocio. Asimismo, se realizó la estimación de cada historia mediante Story Points utilizando los valores 1, 2, 3, 5 y 8.
@@ -1116,10 +1098,17 @@ https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b
 
 <div style="page-break-after: always;"></div>
 
-
 # Capítulo IV: Product Architecture Design
 
-# 4.1 Desing Concepts, ViewPoints & ER Diagrams
+
+<div style="page-break-after: always;"></div>
+
+## 4.1. Design Concepts, ViewPoints & ER Diagrams
+
+
+<div style="page-break-after: always;"></div>
+
+### 4.1.1. Principles Statements
 
 Los principios de LogiGo / TrackTruck orientan el diseño y la evolución del sistema a largo plazo. Se basan en el objetivo de mejorar la visibilidad y el control del transporte de carga, considerando la disponibilidad, interoperabilidad, rendimiento y seguridad.
 
@@ -1132,7 +1121,6 @@ Los principios de LogiGo / TrackTruck orientan el diseño y la evolución del si
 | **Aplicar seguridad desde el diseño.** | Restringir el acceso a la información y a las operaciones según el rol del usuario, protegiendo los datos de conductores y viajes. |
 | **Conservar la trazabilidad de los viajes.** | Mantener un historial de estados, paradas e incidencias para revisar lo ocurrido y evaluar el servicio después de cada viaje. |
 | **Elegir bibliotecas estables y con soporte.** | Priorizar herramientas con documentación y mantenimiento activo para facilitar la continuidad y evolución del proyecto. |
-
 
 
 <div style="page-break-after: always;"></div>
@@ -1155,6 +1143,7 @@ LogiGo / TrackTruck considera los siguientes enfoques, estilos y patrones para f
 - **Repository:** separar el acceso a los datos de las reglas del negocio, apoyando la arquitectura por capas.
 - **Adapter:** integrar proveedores externos mediante interfaces propias, manteniendo sus detalles en infraestructura.
 - **Publish–Subscribe:** distribuir eventos a los componentes interesados, apoyando la arquitectura orientada a eventos.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -1181,6 +1170,7 @@ flowchart TB
 
 El sistema centraliza la información de los viajes para facilitar el control operativo. El proveedor externo aporta los mapas y la información geográfica utilizada para visualizar el seguimiento.
 
+
 <div style="page-break-after: always;"></div>
 
 ### 4.1.4. Approach driven ViewPoints Diagrams
@@ -1193,22 +1183,18 @@ Representa el seguimiento de un viaje, desde su inicio hasta su finalización, i
 
 ![Diagrama de actividad - TrackTruck](assets/images/chapter4/activity-diagram.png)
 
-<div style="page-break-after: always;"></div>
-
-
 #### Diagrama de estado
 
 Muestra los estados de un viaje: programado, en curso, completado y cancelado, junto con las acciones que permiten cambiar entre ellos.
 
 ![Diagrama de estado - TrackTruck](assets/images/chapter4/state-diagram.png)
 
-<div style="page-break-after: always;"></div>
-
 #### Diagrama de clases
 
 Presenta las clases principales del dominio y sus relaciones, agrupadas en gestión de flota, gestión de viajes y seguimiento.
 
 ![Diagrama de clases - TrackTruck](assets/images/chapter4/class-diagram.png)
+
 
 <div style="page-break-after: always;"></div>
 
@@ -1227,8 +1213,6 @@ Se propone una base de datos relacional para persistir la información de TrackT
 | Seguimiento | parada | id UUID PK, viaje_id UUID FK NOT NULL, inicio TIMESTAMP NOT NULL, fin TIMESTAMP NULL, motivo VARCHAR(100) NOT NULL |
 | Seguimiento | incidencia | id UUID PK, viaje_id UUID FK NOT NULL, descripcion TEXT NOT NULL, fecha_hora TIMESTAMP NOT NULL |
 
-<div style="page-break-after: always;"></div>
-
 #### Relaciones y restricciones
 
 - Cada viaje referencia a un conductor y un camión mediante `conductor_id` y `camion_id`.
@@ -1246,6 +1230,7 @@ El diagrama muestra las tablas, sus columnas, las claves primarias y foráneas, 
 
 ![Diagrama de base de datos relacional - TrackTruck](assets/images/chapter4/database-diagram.png)
 
+
 <div style="page-break-after: always;"></div>
 
 ### 4.1.6. Design Patterns
@@ -1258,6 +1243,7 @@ TrackTruck propone utilizar los siguientes patrones para separar responsabilidad
 | **Adapter.** | Adaptar los servicios externos de mapas y geolocalización a las interfaces del sistema. |
 | **Publish–Subscribe.** | Distribuir eventos de ubicación, paradas e incidencias a los componentes interesados sin generar dependencias directas entre ellos. |
 | **Circuit Breaker.** | Suspender temporalmente las llamadas a proveedores que presenten fallas y permitir su recuperación antes de reanudar las solicitudes. |
+
 
 <div style="page-break-after: always;"></div>
 
@@ -1275,13 +1261,17 @@ Las siguientes tácticas apoyan los atributos de calidad priorizados para TrackT
 | **Seguridad.** | Protección de la información. | Cifrar las comunicaciones y registrar las operaciones sensibles para permitir su auditoría. |
 | **Interoperabilidad.** | Estandarización de interfaces. | Definir contratos y formatos de intercambio consistentes para integrar servicios externos. |
 
+
 <div style="page-break-after: always;"></div>
 
-## 4.1.7.1 Architectural Drivers
+## 4.2. Architectural Drivers
 
 Los drivers arquitectónicos de TrackTruck orientan las decisiones de diseño según los objetivos del negocio, las funcionalidades requeridas y los atributos de calidad prioritarios: disponibilidad, interoperabilidad, rendimiento y seguridad.
 
-### 4.1.8. Design Purpose
+
+<div style="page-break-after: always;"></div>
+
+### 4.2.1. Design Purpose
 
 El propósito del proceso de diseño es definir una arquitectura que permita implementar de forma coherente la gestión de viajes, flota y seguimiento del transporte de carga.
 
@@ -1289,9 +1279,10 @@ Para ello, se establecen las responsabilidades, interfaces y relaciones de los c
 
 El diseño busca facilitar el mantenimiento y la evolución del sistema, proteger la información y permitir un seguimiento oportuno y disponible para apoyar el control operativo de LogiGo.
 
+
 <div style="page-break-after: always;"></div>
 
-### 4.1.9. Primary Functionality (Primary User Stories)
+### 4.2.2. Primary Functionality (Primary User Stories)
 
 Las siguientes historias de usuario representan funcionalidades que afectan la estructura de TrackTruck, ya que requieren componentes de gestión, seguimiento, integración y control de acceso.
 
@@ -1304,11 +1295,10 @@ Las siguientes historias de usuario representan funcionalidades que afectan la e
 | PUS05 | Como operador, quiero consultar el historial de un viaje para evaluar lo ocurrido después de su finalización. | Requiere persistir y consultar estados, ubicaciones, paradas e incidencias. |
 | PUS06 | Como administrador, quiero gestionar usuarios y sus roles para controlar el acceso al sistema. | Requiere autenticación y autorización en las interfaces y operaciones de la aplicación. |
 
+
 <div style="page-break-after: always;"></div>
 
-
-
-### 4.1.10. Quality Attribute Scenarios
+### 4.2.3. Quality Attribute Scenarios
 
 Se proponen los siguientes escenarios para evaluar la disponibilidad, rendimiento, seguridad e interoperabilidad de TrackTruck. Las medidas representan objetivos que deberán comprobarse mediante pruebas.
 
@@ -1334,8 +1324,6 @@ Se proponen los siguientes escenarios para evaluar la disponibilidad, rendimient
 | Respuesta | Procesa las ubicaciones y las deja disponibles para consulta. |
 | Medida de respuesta | El 95 % de las ubicaciones queda disponible en máximo 3 segundos desde su recepción. |
 
-<div style="page-break-after: always;"></div>
-
 #### QAS03: Seguridad
 
 | Parte | Descripción |
@@ -1358,9 +1346,10 @@ Se proponen los siguientes escenarios para evaluar la disponibilidad, rendimient
 | Respuesta | Valida y transforma los reportes al formato interno. |
 | Medida de respuesta | Procesar correctamente 100 de 100 reportes válidos de prueba, conservando el identificador del vehículo, las coordenadas y la fecha de captura. |
 
+
 <div style="page-break-after: always;"></div>
 
-### 4.1.11. Constraints
+### 4.2.4. Constraints
 
 Las siguientes restricciones delimitan el diseño y la implementación de TrackTruck.
 
@@ -1371,9 +1360,10 @@ Las siguientes restricciones delimitan el diseño y la implementación de TrackT
 | CON03 | Integrarse con un proveedor externo de mapas. | La integración debe respetar sus formatos, límites de uso y mecanismos de acceso. |
 | CON04 | Utilizar GitHub para el control de versiones, conforme a los lineamientos del curso. | El desarrollo debe seguir GitFlow, Conventional Commits y versionado semántico. |
 
+
 <div style="page-break-after: always;"></div>
 
-### 4.1.12. Architectural Concerns
+### 4.2.5. Architectural Concerns
 
 Las siguientes preocupaciones representan aspectos de alto impacto que deben abordarse durante el diseño de TrackTruck.
 
@@ -1385,19 +1375,24 @@ Las siguientes preocupaciones representan aspectos de alto impacto que deben abo
 | AC04 | Los reportes duplicados o fuera de orden pueden generar un historial incorrecto. | Identificar los reportes y considerar su fecha de captura al procesarlos. |
 | AC05 | Los cambios en un proveedor pueden afectar las reglas del negocio. | Mantener los detalles externos separados mediante adaptadores e interfaces propias. |
 
+
 <div style="page-break-after: always;"></div>
 
-## 4.1.13. ADD Iterations
+## 4.3. ADD Iterations
 
 Se aplicará ADD v3 mediante iteraciones que refinan la arquitectura de TrackTruck según sus funcionalidades principales, atributos de calidad, restricciones y preocupaciones arquitectónicas.
 
+
 <div style="page-break-after: always;"></div>
 
-### 4.2.1. Iteration 1: Gestión de viajes y seguimiento
+### 4.3.1. Iteration 1: Gestión de viajes y seguimiento
 
 Esta iteración define los componentes responsables de gestionar viajes, recibir ubicaciones y registrar paradas e incidencias, junto con sus interfaces y relaciones.
 
-#### 4.2.1.1. Architectural Design Backlog 1
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.1.1. Architectural Design Backlog 1
 
 | Código | Trabajo de diseño | Drivers relacionados | Prioridad |
 |---|---|---|---|
@@ -1409,9 +1404,10 @@ Esta iteración define los componentes responsables de gestionar viajes, recibir
 | ADB06 | Diseñar la integración con mapas y el manejo de fallas del proveedor. | QAS01, QAS04, CON03, AC01, AC05 | Alta |
 | ADB07 | Definir los controles de acceso según el rol del usuario. | PUS06, QAS03, AC03 | Alta |
 
+
 <div style="page-break-after: always;"></div>
 
-#### 4.2.1.2. Establish Iteration Goal by Selecting Drivers
+#### 4.3.1.2. Establish Iteration Goal by Selecting Drivers
 
 El objetivo de esta iteración es definir la estructura de gestión de viajes y seguimiento, incluyendo persistencia, integración con mapas y control de acceso.
 
@@ -1422,9 +1418,10 @@ El objetivo de esta iteración es definir la estructura de gestión de viajes y 
 | Restricciones | CON01–CON03: interfaces REST, base de datos relacional e integración con mapas. |
 | Preocupaciones | AC01–AC05: fallas externas, crecimiento de carga, accesos indebidos, reportes inconsistentes y dependencia del proveedor. |
 
+
 <div style="page-break-after: always;"></div>
 
-#### 4.2.1.3. Choose One or More Elements of the System to Refine
+#### 4.3.1.3. Choose One or More Elements of the System to Refine
 
 Se refinarán los siguientes elementos:
 
@@ -1434,7 +1431,10 @@ Se refinarán los siguientes elementos:
 - **Integración con mapas:** comunicación con el proveedor externo.
 - **Persistencia y control de acceso:** almacenamiento de información y validación de permisos.
 
-#### 4.2.1.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.1.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
 | Concepto seleccionado | Propósito | Drivers |
 |---|---|---|
@@ -1444,9 +1444,10 @@ Se refinarán los siguientes elementos:
 | Adapter, Circuit Breaker y tiempos máximos de espera. | Integrar mapas y limitar el impacto de fallas externas. | QAS01, QAS04, CON03, AC01, AC05 |
 | Autenticación y autorización por roles. | Restringir las operaciones según los permisos del usuario. | PUS06, QAS03, AC03 |
 
+
 <div style="page-break-after: always;"></div>
 
-#### 4.2.1.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+#### 4.3.1.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
 | Elemento | Responsabilidad | Interfaces propuestas |
 |---|---|---|
@@ -1458,9 +1459,10 @@ Se refinarán los siguientes elementos:
 | Repositorios | Guardar y consultar los datos del negocio. | Interfaces `ViajeRepository`, `FlotaRepository` y `SeguimientoRepository`. |
 | Control de acceso | Autenticar usuarios y validar permisos. | `POST /api/v1/auth/login` y validación de autorización en los endpoints protegidos. |
 
+
 <div style="page-break-after: always;"></div>
 
-#### 4.2.1.6. Sketch Views (C4 & UML) and Record Design Decisions
+#### 4.3.1.6. Sketch Views (C4 & UML) and Record Design Decisions
 
 El diagrama C4 de contenedores muestra las aplicaciones, los servicios, el canal de eventos y la base de datos. El diagrama UML de secuencia muestra cómo se recibe, almacena y publica una ubicación.
 
@@ -1476,9 +1478,10 @@ El diagrama C4 de contenedores muestra las aplicaciones, los servicios, el canal
 | DD04 | Usar persistencia relacional e identificar cada reporte. | Mantener relaciones válidas y evitar registros duplicados. |
 | DD05 | Validar permisos antes de ejecutar operaciones protegidas. | Impedir accesos y modificaciones sin autorización. |
 
+
 <div style="page-break-after: always;"></div>
 
-#### 4.2.1.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
+#### 4.3.1.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
 La propuesta define las responsabilidades e interfaces principales de la iteración. Su cumplimiento se revisará mediante los siguientes criterios:
 
@@ -1497,21 +1500,400 @@ El tablero Kanban permitirá seguir los elementos ADB01–ADB07 mediante las col
 
 [Ver tablero Kanban en Trello](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚)
 
+
 <div style="page-break-after: always;"></div>
 
+### 4.3.2. Iteration 2: [Nombre de la iteración]
 
 
+<div style="page-break-after: always;"></div>
+
+#### 4.3.2.1. Architectural Design Backlog 2
+
+<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
 
 
+<div style="page-break-after: always;"></div>
+
+#### 4.3.2.2. Establish Iteration Goal by Selecting Drivers
+
+<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
 
 
+<div style="page-break-after: always;"></div>
 
-## Archi TrackTruck
+#### 4.3.2.3. Choose One or More Elements of the System to Refine
+
+<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.2.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
+
+<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.2.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.2.6. Sketch Views (C4 & UML) and Record Design Decisions
+
+<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.2.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
+
+<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 4.3.3. Iteration 3: [Nombre de la iteración]
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.3.1. Architectural Design Backlog 3
+
+<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.3.2. Establish Iteration Goal by Selecting Drivers
+
+<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.3.3. Choose One or More Elements of the System to Refine
+
+<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.3.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
+
+<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.3.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.3.6. Sketch Views (C4 & UML) and Record Design Decisions
+
+<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.3.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
+
+<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 4.3.4. Iteration 4: [Nombre de la iteración]
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.4.1. Architectural Design Backlog 4
+
+<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.4.2. Establish Iteration Goal by Selecting Drivers
+
+<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.4.3. Choose One or More Elements of the System to Refine
+
+<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.4.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
+
+<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.4.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.4.6. Sketch Views (C4 & UML) and Record Design Decisions
+
+<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.4.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
+
+<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 4.3.5. Iteration 5: [Nombre de la iteración]
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.5.1. Architectural Design Backlog 5
+
+<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.5.2. Establish Iteration Goal by Selecting Drivers
+
+<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.5.3. Choose One or More Elements of the System to Refine
+
+<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.5.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
+
+<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.5.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.5.6. Sketch Views (C4 & UML) and Record Design Decisions
+
+<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 4.3.5.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
+
+<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+
+
+### Vista arquitectónica general de TrackTruck
 
 ![Archi - TrackTruck](assets/images/chapter3/arquitectura-tracktruck-completa.png)
 
+
 <div style="page-break-after: always;"></div>
 
+# Capítulo V: Product Implementation, Validation & Deployment
+
+
+<div style="page-break-after: always;"></div>
+
+## 5.1. Testing Suites & General Patterns
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.1.1. Backend Application Core Testing Suite
+
+<!-- PENDIENTE: describir y evidenciar la suite de pruebas del núcleo de la aplicación backend. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.1.2. Pattern Based Backend Application(s)
+
+<!-- PENDIENTE: describir la aplicación de patrones en el backend y presentar las evidencias correspondientes. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.1.3. Pattern Based Custom Software Library
+
+<!-- PENDIENTE: documentar la librería de software personalizada basada en patrones, si corresponde al alcance del equipo. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.1.4. Framework Pattern Driven Refactoring Report
+
+<!-- PENDIENTE: presentar el reporte de refactorización guiada por patrones/frameworks y las decisiones adoptadas. -->
+
+
+<div style="page-break-after: always;"></div>
+
+## 5.2. Software Configuration Management
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.2.1. Software Development Environment Configuration
+
+<!-- PENDIENTE: especificar herramientas utilizadas para Project Management, Requirements, Design, Development, Testing, Deployment y Documentation, incluyendo enlaces de referencia o descarga. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.2.2. Source Code Management
+
+<!-- PENDIENTE: incluir repositorio(s) GitHub, explicar GitFlow, ramas feature/release/hotfix, Semantic Versioning y Conventional Commits. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.2.3. Source Code Style Guide & Conventions
+
+<!-- PENDIENTE: documentar las guías de estilo, nomenclatura en inglés y convenciones de código utilizadas por el equipo. -->
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.2.4. Software Deployment Configuration
+
+<!-- PENDIENTE: explicar la configuración y pasos de despliegue e insertar el Deployment Diagram correspondiente. -->
+
+
+<div style="page-break-after: always;"></div>
+
+## 5.3. Microservices Implementation
+
+
+<div style="page-break-after: always;"></div>
+
+### 5.3.1. Sprint 1
+
+<!-- PENDIENTE: agregar una breve introducción del Sprint 1 y resumir el objetivo principal del sprint. -->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.1. Sprint Backlog 1
+
+<!-- PENDIENTE:
+- Indicar el objetivo del Sprint 1.
+- Insertar captura del board.
+- Agregar URL pública del board.
+- Incluir tabla con User Story, Work-Item/Task, ID, título, descripción, estimación en horas, responsable y estado.
+-->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.2. Development Evidence for Sprint Review
+
+<!-- PENDIENTE:
+- Resumir los avances de implementación.
+- Incluir tabla por repositorio con Repository, Branch, Commit Id, Commit Message, Commit Message Body y Commited on (Date).
+-->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.3. Testing Suite Evidence for Sprint Review
+
+<!-- PENDIENTE:
+- Incluir Integration/Acceptance Tests del alcance del Sprint 1.
+- Incorporar archivos .feature en Gherkin.
+- Relacionar cada test con sus User Stories.
+- Agregar repositorio y commits relacionados con testing.
+-->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.4. Execution Evidence for Sprint Review
+
+<!-- PENDIENTE:
+- Resumir lo alcanzado en el Sprint 1.
+- Insertar screenshots de operaciones ejecutadas vía Postman.
+- Agregar enlace al video de demostración del Sprint 1.
+-->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.5. Microservices Documentation Evidence for Sprint Review
+
+<!-- PENDIENTE:
+- Relacionar endpoints documentados con OpenAPI/Swagger.
+- Para cada endpoint indicar verbo HTTP, sintaxis, parámetros, ejemplo y explicación del response.
+- Incluir capturas, URL de documentación y commits relacionados.
+-->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.6. Software Deployment Evidence for Sprint Review
+
+<!-- PENDIENTE:
+- Explicar lo realizado respecto al deployment durante el Sprint 1.
+- Incluir configuración de cuentas/recursos, integración o automatización y capturas de evidencia.
+-->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.7. Team Collaboration Insights during Sprint
+
+<!-- PENDIENTE:
+- Explicar la colaboración del equipo durante el Sprint 1.
+- Insertar capturas de analíticos y commits de GitHub.
+- Evidenciar participación de todos los integrantes.
+-->
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.1.8. Kanban Board
+
+<!-- PENDIENTE:
+- Insertar captura actualizada del tablero Kanban del Sprint 1.
+- Agregar el enlace público.
+- Verificar que los estados reflejen el avance real del sprint.
+-->
+
+
+<div style="page-break-after: always;"></div>
 
 # Conclusiones
 
@@ -1522,6 +1904,7 @@ A partir del desarrollo de la AV1, se definió la problemática que **TrackTruck
 El proceso Lean UX permitió establecer assumptions e hipótesis relacionadas con la necesidad de contar con mayor visibilidad, control y trazabilidad. Estas hipótesis deberán contrastarse con los resultados reales de las entrevistas y posteriores pruebas con usuarios para determinar si los criterios de éxito planteados se cumplen.
 
 Como siguiente paso, se recomienda continuar validando las necesidades de los segmentos objetivo, ajustar el Product Backlog según los hallazgos obtenidos y priorizar en el roadmap las funcionalidades de mayor valor, principalmente el monitoreo en tiempo real, seguimiento de recorridos, gestión de incidencias, comunicación con conductores e historial de viajes.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -1551,6 +1934,7 @@ TypeScript. (s. f.). *TypeScript documentation*. https://www.typescriptlang.org/
 
 UXPressia. (s. f.). *UXPressia*. https://uxpressia.com/
 
+
 <div style="page-break-after: always;"></div>
 
 # Anexos
@@ -1568,6 +1952,7 @@ UXPressia. (s. f.). *UXPressia*. https://uxpressia.com/
 | Control de versiones | GitHub / Git |
 | Flujo de trabajo de Git | GitFlow Workflow |
 
+
 <div style="page-break-after: always;"></div>
 
 # Links
@@ -1576,4 +1961,3 @@ UXPressia. (s. f.). *UXPressia*. https://uxpressia.com/
 |---|---|
 | Repositorio de GitHub | [Ver repositorio](https://github.com/1ASI0657-2620-15987-G4) |
 | Tablero de Trello | [Ver tablero](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello) |
-
