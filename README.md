@@ -1797,110 +1797,326 @@ El avance de los elementos del Architectural Design Backlog se gestiona mediante
 <div style="page-break-after: always;"></div>
 
 
-### 4.3.4. Iteration 4: [Nombre de la iteración]
 
+### 4.3.4. Iteration 4: Trip Execution, Tracking and Delivery
+
+Esta iteración tiene como objetivo refinar la ejecución del viaje, el seguimiento en tiempo real, la gestión de incidencias y la confirmación de entrega dentro de **TrackTruck**.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.1. Architectural Design Backlog 4
 
-<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
+El Architectural Design Backlog de esta iteración reúne los elementos necesarios para controlar una operación desde el inicio del viaje hasta la entrega de la carga.
 
+| ID | Elemento de diseño | Prioridad |
+|---|---|---|
+| ADB26 | Definir el ciclo de vida del viaje. | Alta |
+| ADB27 | Definir el procesamiento de actualizaciones de ubicación. | Alta |
+| ADB28 | Diseñar el registro de paradas durante el viaje. | Alta |
+| ADB29 | Diseñar la gestión de incidencias operativas. | Alta |
+| ADB30 | Definir el manejo de ubicaciones duplicadas o fuera de orden. | Media |
+| ADB31 | Definir la comunicación entre Trip Execution y Tracking & Geolocation. | Alta |
+| ADB32 | Diseñar la confirmación de entrega. | Alta |
+| ADB33 | Definir la respuesta ante interrupciones o situaciones excepcionales. | Media |
+| ADB34 | Registrar eventos relevantes para historial y trazabilidad. | Alta |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.2. Establish Iteration Goal by Selecting Drivers
 
-<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
+El objetivo de esta iteración es diseñar una arquitectura que permita controlar la ejecución de un viaje, registrar su ubicación, gestionar incidencias y finalizar correctamente la operación mediante la confirmación de entrega.
 
+Los principales drivers seleccionados son:
+
+| Driver | Aplicación |
+|---|---|
+| Funcionalidad | Iniciar, ejecutar y finalizar viajes, además de registrar seguimiento e incidencias. |
+| Disponibilidad | Mantener el registro de información aun cuando existan fallas temporales en servicios externos. |
+| Rendimiento | Procesar actualizaciones frecuentes de ubicación sin afectar el funcionamiento general. |
+| Integridad | Mantener estados válidos del viaje y evitar registros inconsistentes. |
+| Interoperabilidad | Permitir comunicación entre Trip Execution, Tracking, Incident y Delivery. |
+| Seguridad | Restringir operaciones según usuarios y responsabilidades autorizadas. |
+| Trazabilidad | Conservar los principales eventos ocurridos durante el viaje. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.3. Choose One or More Elements of the System to Refine
 
-<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+Los principales elementos seleccionados para esta iteración son:
 
+- **Trip Execution:** administra el ciclo de vida y estado del viaje.
+- **Tracking & Geolocation:** recibe y procesa las ubicaciones del vehículo.
+- **Incident Management:** registra incidencias producidas durante la operación.
+- **Delivery Management:** gestiona la confirmación de entrega.
+- **Dispatch Planning:** proporciona la planificación aprobada utilizada para iniciar el viaje.
+- **Operational History:** conserva los eventos relevantes de la operación.
+- **Maps & Routes Provider:** proporciona información complementaria de rutas cuando sea requerida.
+
+La asignación de conductor y vehículo se considera estable después de iniciado el viaje, salvo que ocurra una situación excepcional que requiera una nueva planificación.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+Para satisfacer los drivers seleccionados se consideran los siguientes conceptos y patrones:
 
+| Concepto / Patrón | Aplicación |
+|---|---|
+| State Pattern | Controlar las transiciones permitidas durante el ciclo de vida del viaje. |
+| Event-Driven Architecture | Comunicar cambios relevantes entre los servicios. |
+| Publish–Subscribe | Distribuir eventos de seguimiento, incidencias y finalización. |
+| Idempotency | Evitar que mensajes repetidos produzcan registros duplicados. |
+| Repository | Encapsular el acceso a los datos propios de cada bounded context. |
+| Database per Service | Mantener autonomía de persistencia entre los servicios. |
+| Adapter | Aislar la integración con proveedores externos. |
+| Circuit Breaker | Limitar el impacto de fallas producidas por servicios externos. |
+
+Estos conceptos permiten mantener separados el control del viaje, el seguimiento, las incidencias y la entrega.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
 
+| Elemento | Responsabilidad | Integración |
+|---|---|---|
+| Trip Execution Service | Gestionar el inicio, ejecución, estados y finalización del viaje. | REST / Eventos |
+| Tracking Service | Recibir y almacenar actualizaciones de ubicación. | REST / Eventos |
+| Incident Service | Registrar y gestionar incidencias operativas. | REST / Eventos |
+| Delivery Service | Confirmar la entrega de la carga. | REST / Eventos |
+| Operational History Service | Registrar los eventos relevantes generados durante el viaje. | Eventos |
+| Route Provider Adapter | Consultar información complementaria de ruta cuando sea necesario. | API externa |
+| Event Broker | Distribuir eventos entre los diferentes servicios. | Publish–Subscribe |
+
+Los principales eventos definidos para esta iteración son:
+
+- `TripStarted`
+- `VehicleLocationUpdated`
+- `StopDetected`
+- `IncidentReported`
+- `TripInterrupted`
+- `TripCompleted`
+- `DeliveryConfirmed`
+- `TripReplanningRequested`
+
+El evento `TripReplanningRequested` podrá utilizarse cuando una situación excepcional, como una avería grave o interrupción de la ruta, requiera solicitar una nueva planificación.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+El C4 Container Diagram representa la interacción entre Trip Execution, Tracking & Geolocation, Incident Management y Delivery Management durante la operación.
 
+![C4 de contenedores - Iteración 4](assets/images/chapter4/iteration4-c4-containers.png)
+
+El UML Sequence Diagram representa el flujo desde el inicio del viaje, el registro de ubicaciones e incidencias, hasta la confirmación de la entrega.
+
+![UML de secuencia - Iteración 4](assets/images/chapter4/iteration4-tracking-sequence.png)
+
+Las principales decisiones arquitectónicas de esta iteración son:
+
+| ID | Decisión | Justificación |
+|---|---|---|
+| DD26 | Separar Trip Execution de Tracking & Geolocation. | El control del viaje y el procesamiento de ubicaciones poseen responsabilidades diferentes. |
+| DD27 | Utilizar eventos para comunicar actualizaciones relevantes. | Reduce dependencias directas entre servicios. |
+| DD28 | Aplicar idempotencia sobre actualizaciones y eventos. | Evita efectos duplicados ante reintentos. |
+| DD29 | Mantener las coordenadas registradas aunque el proveedor de mapas no esté disponible. | Permite conservar el seguimiento básico del viaje. |
+| DD30 | Gestionar incidencias mediante un bounded context independiente. | Facilita el tratamiento y seguimiento de situaciones excepcionales. |
+| DD31 | Mantener estable la asignación del viaje una vez iniciado. | Evita cambios operativos innecesarios. |
+| DD32 | Solicitar replanificación únicamente ante eventos excepcionales. | Mantiene estabilidad sin impedir la recuperación ante problemas importantes. |
+| DD33 | Separar Delivery Management de Trip Execution. | Permite gestionar de forma independiente la confirmación de entrega. |
+| DD34 | Publicar eventos hacia Operational History. | Mantiene trazabilidad del ciclo completo del viaje. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+El diseño obtenido permite controlar la operación de transporte desde el inicio del viaje hasta la confirmación de entrega, manteniendo separadas las responsabilidades de ejecución, seguimiento, incidencias y entrega.
 
+La revisión de la iteración considera los siguientes aspectos:
+
+| Aspecto | Resultado |
+|---|---|
+| Ciclo de vida del viaje | Cumplido |
+| Procesamiento de ubicaciones | Cumplido |
+| Registro de paradas | Cumplido |
+| Gestión de incidencias | Cumplido |
+| Manejo de eventos duplicados | Cumplido |
+| Separación entre Trip Execution y Tracking | Cumplido |
+| Confirmación de entrega | Cumplido |
+| Replanificación excepcional | Cumplido |
+| Trazabilidad operacional | Cumplido |
+
+La iteración se considera satisfactoria cuando el sistema puede representar el inicio del viaje, mantener su seguimiento, registrar situaciones relevantes y cerrar la operación mediante la confirmación de entrega.
+
+El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban correspondiente.
+
+![Tablero Kanban - Iteración 4](assets/images/chapter4/iteration4-kanban.png)
+
+**URL del tablero:** [Iteration 4 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
 
 <div style="page-break-after: always;"></div>
 
-### 4.3.5. Iteration 5: [Nombre de la iteración]
 
+### 4.3.5. Iteration 5: Billing, Operational History and Analytics
+
+Esta iteración tiene como objetivo refinar el cierre del proceso logístico de **TrackTruck**, considerando facturación, pagos, historial operativo y generación de información para análisis y reportes.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.1. Architectural Design Backlog 5
 
-<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
+El Architectural Design Backlog de esta iteración reúne los principales elementos necesarios para completar el procesamiento posterior a la entrega.
 
+| ID | Elemento de diseño | Prioridad |
+|---|---|---|
+| ADB35 | Definir el proceso de facturación posterior a la entrega. | Alta |
+| ADB36 | Definir la integración con el proveedor de pagos. | Alta |
+| ADB37 | Definir la integración con el proveedor de facturación electrónica. | Alta |
+| ADB38 | Diseñar el registro del historial operativo. | Alta |
+| ADB39 | Definir los eventos utilizados para construir el historial. | Alta |
+| ADB40 | Diseñar las consultas y reportes operativos. | Media |
+| ADB41 | Definir mecanismos de idempotencia para pagos y documentos. | Alta |
+| ADB42 | Definir mecanismos de tolerancia ante fallas de proveedores externos. | Alta |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.2. Establish Iteration Goal by Selecting Drivers
 
-<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
+El objetivo de esta iteración es diseñar la arquitectura necesaria para completar las operaciones financieras, conservar el historial de la actividad logística y proporcionar información útil para reportes y análisis.
 
+Los principales drivers seleccionados son:
+
+| Driver | Aplicación |
+|---|---|
+| Funcionalidad | Gestionar facturación, pagos, historial y reportes. |
+| Integridad | Evitar cobros, pagos o documentos duplicados. |
+| Confiabilidad | Mantener consistencia ante fallas o reintentos. |
+| Interoperabilidad | Integrar proveedores externos de pagos y facturación. |
+| Seguridad | Proteger información financiera y restringir operaciones sensibles. |
+| Trazabilidad | Conservar los eventos importantes de las operaciones. |
+| Disponibilidad | Evitar que fallas externas detengan procesos que puedan continuar posteriormente. |
+| Rendimiento | Permitir consultas eficientes sobre historial y reportes. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.3. Choose One or More Elements of the System to Refine
 
-<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+Los principales elementos seleccionados para esta iteración son:
 
+- **Billing & Payments:** administra cobros, pagos y documentos asociados al servicio.
+- **Operational History:** consolida los eventos relevantes producidos durante las operaciones.
+- **Reporting & Analytics:** permite consultar indicadores y reportes derivados de la información operacional.
+- **Delivery Management:** comunica la confirmación de entrega necesaria para completar procesos posteriores.
+- **Shipment Management:** proporciona información relacionada con el servicio y envío realizado.
+- **Payment Provider:** procesa pagos mediante un servicio externo.
+- **Electronic Billing Provider:** permite generar documentos electrónicos mediante un proveedor externo.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+Para satisfacer los drivers seleccionados se consideran los siguientes conceptos y patrones:
 
+| Concepto / Patrón | Aplicación |
+|---|---|
+| Event-Driven Architecture | Procesar eventos de entrega, facturación, pagos e historial de forma desacoplada. |
+| Publish–Subscribe | Permitir que Operational History y Reporting reciban eventos de otros servicios. |
+| Adapter | Encapsular la integración con proveedores de pagos y facturación. |
+| Anti-Corruption Layer | Evitar que los modelos de proveedores externos ingresen directamente al dominio. |
+| Circuit Breaker | Limitar el impacto de fallas de proveedores externos. |
+| Retry | Reintentar operaciones temporales que hayan fallado. |
+| Idempotency | Evitar pagos, documentos o eventos duplicados. |
+| Database per Service | Mantener persistencia independiente para Billing, History y Reporting. |
+| CQRS / Read Model | Facilitar consultas y generación de reportes sin afectar los servicios operacionales. |
+
+Estos conceptos permiten separar el procesamiento financiero de las funciones de historial y análisis, manteniendo integración mediante contratos y eventos.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
 
+| Elemento | Responsabilidad | Integración |
+|---|---|---|
+| Billing Service | Gestionar facturación, cargos y estado de pagos. | REST / Eventos |
+| Payment Provider Adapter | Integrar TrackTruck con el proveedor externo de pagos. | API externa |
+| Electronic Billing Adapter | Integrar la generación de documentos electrónicos. | API externa |
+| Operational History Service | Conservar eventos relevantes del proceso logístico. | Eventos |
+| Reporting & Analytics Service | Generar consultas, indicadores y reportes. | Eventos / REST |
+| Event Broker | Distribuir eventos entre los diferentes servicios. | Publish–Subscribe |
+| Delivery Service | Comunicar la confirmación de entrega. | Eventos |
+
+Los principales eventos considerados en esta iteración son:
+
+- `DeliveryConfirmed`
+- `InvoiceGenerated`
+- `PaymentRequested`
+- `PaymentCompleted`
+- `PaymentFailed`
+- `BillingDocumentGenerated`
+- `OperationalEventRecorded`
+
+Operational History podrá consumir eventos generados por diferentes bounded contexts para construir una visión cronológica de cada operación.
+
+Reporting & Analytics utilizará información procesada para generar indicadores y consultas sin acceder directamente a las bases de datos de otros servicios.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+El C4 Container Diagram representa los servicios involucrados en facturación, pagos, historial y analítica, incluyendo sus relaciones con proveedores externos.
 
+![C4 de contenedores - Iteración 5](assets/images/chapter4/iteration5-c4-containers.png)
+
+El UML Sequence Diagram representa el flujo desde la confirmación de entrega hasta la generación del documento de facturación y el procesamiento del pago.
+
+![UML de secuencia - Iteración 5](assets/images/chapter4/iteration5-billing-sequence.png)
+
+Las principales decisiones arquitectónicas de esta iteración son:
+
+| ID | Decisión | Justificación |
+|---|---|---|
+| DD35 | Separar Billing & Payments de Delivery Management. | Las responsabilidades financieras no deben formar parte del proceso de entrega. |
+| DD36 | Utilizar adaptadores para proveedores externos. | Permite reemplazar proveedores sin modificar directamente el dominio. |
+| DD37 | Aplicar idempotencia en pagos y generación de documentos. | Evita operaciones financieras duplicadas. |
+| DD38 | Aplicar Circuit Breaker y Retry sobre integraciones externas. | Mejora la tolerancia frente a fallas temporales. |
+| DD39 | Implementar Operational History como consumidor de eventos. | Permite construir trazabilidad sin acoplarse directamente a otros servicios. |
+| DD40 | Separar Reporting & Analytics de los servicios transaccionales. | Evita que consultas analíticas afecten operaciones principales. |
+| DD41 | Utilizar modelos de lectura para consultas y reportes. | Facilita el acceso eficiente a información consolidada. |
+| DD42 | Mantener persistencia independiente para cada servicio. | Conserva la autonomía de los bounded contexts. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+El diseño obtenido permite completar el flujo logístico mediante servicios especializados para facturación, pagos, historial operativo y análisis de información.
+
+La revisión de la iteración considera los siguientes aspectos:
+
+| Aspecto | Resultado |
+|---|---|
+| Gestión de facturación | Cumplido |
+| Integración con pagos | Cumplido |
+| Integración con facturación electrónica | Cumplido |
+| Idempotencia de operaciones financieras | Cumplido |
+| Tolerancia ante fallas externas | Cumplido |
+| Historial operacional | Cumplido |
+| Generación de reportes | Cumplido |
+| Separación entre operaciones y analítica | Cumplido |
+| Trazabilidad del proceso | Cumplido |
+
+La iteración se considera satisfactoria cuando TrackTruck puede representar el cierre financiero de una operación, conservar su historial y disponer de información consolidada para futuras consultas y análisis.
+
+El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban correspondiente.
+
+![Tablero Kanban - Iteración 5](assets/images/chapter4/iteration5-kanban.png)
+
+**URL del tablero:** [Iteration 5 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
+
+<div style="page-break-after: always;"></div>
 
 
 ### Vista arquitectónica general de TrackTruck
