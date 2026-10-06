@@ -1593,57 +1593,152 @@ Cada elemento podrá considerarse terminado cuando su definición haya sido revi
 
 <div style="page-break-after: always;"></div>
 
-### 4.3.2. Iteration 2: [Nombre de la iteración]
+### 4.3.2. Iteration 2: Shipment and Warehouse Operations
 
+Esta iteración tiene como objetivo refinar la gestión de envíos y las operaciones de almacén de **TrackTruck**, considerando el proceso desde el registro del envío hasta que la carga se encuentra preparada para su posterior planificación de despacho.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.1. Architectural Design Backlog 2
 
-<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
+El Architectural Design Backlog de esta iteración reúne los principales elementos que deben ser refinados para gestionar correctamente los envíos y las operaciones realizadas dentro del almacén.
 
+| ID | Elemento de diseño | Prioridad |
+|---|---|---|
+| ADB10 | Definir las responsabilidades de Shipment Management y Warehouse Operations. | Alta |
+| ADB11 | Definir el ciclo de vida de un envío. | Alta |
+| ADB12 | Diseñar el proceso de recepción y almacenamiento de carga. | Alta |
+| ADB13 | Diseñar la preparación y liberación de carga para despacho. | Alta |
+| ADB14 | Definir la comunicación entre Shipment Management y Warehouse Operations. | Alta |
+| ADB15 | Definir los principales eventos generados durante el proceso. | Media |
+| ADB16 | Definir mecanismos para mantener consistencia y evitar operaciones duplicadas. | Media |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.2. Establish Iteration Goal by Selecting Drivers
 
-<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
+El objetivo de esta iteración es establecer una arquitectura que permita gestionar el ciclo de vida de los envíos y las operaciones realizadas sobre la carga dentro del almacén.
 
+Los principales drivers seleccionados son:
+
+| Driver | Aplicación |
+|---|---|
+| Funcionalidad | Registrar envíos, recibir carga, almacenarla, prepararla y dejarla disponible para despacho. |
+| Integridad | Mantener estados válidos durante el proceso. |
+| Trazabilidad | Registrar los principales cambios realizados sobre el envío y la carga. |
+| Interoperabilidad | Permitir comunicación entre los diferentes servicios involucrados. |
+| Mantenibilidad | Mantener separadas las responsabilidades de envíos y almacén. |
+| Confiabilidad | Evitar operaciones duplicadas o inconsistentes. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.3. Choose One or More Elements of the System to Refine
 
-<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+Los principales elementos seleccionados para ser refinados durante esta iteración son:
 
+- **Shipment Management:** administra la información y el ciclo de vida de los envíos.
+- **Warehouse Operations:** administra la recepción, almacenamiento, preparación y liberación de la carga.
+- **Customer Management:** proporciona la información del cliente relacionado con el envío.
+- **Dispatch Planning:** recibe la información cuando una carga se encuentra preparada para ser despachada.
+- **Operational History:** conserva los eventos relevantes generados durante el proceso.
+
+La iteración busca establecer límites claros entre estos elementos y definir cómo intercambian información sin compartir directamente sus datos internos.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+Para satisfacer los drivers seleccionados se consideran los siguientes conceptos y patrones:
 
+| Concepto / Patrón | Aplicación |
+|---|---|
+| Domain-Driven Design | Separar Shipment Management y Warehouse Operations en bounded contexts independientes. |
+| Microservices Architecture | Mantener servicios con responsabilidades específicas y autonomía. |
+| RESTful APIs | Gestionar operaciones que necesitan una respuesta inmediata. |
+| Event-Driven Architecture | Comunicar cambios importantes del estado del envío. |
+| Publish–Subscribe | Permitir que diferentes servicios reaccionen a los eventos publicados. |
+| Database per Service | Mantener la persistencia independiente por servicio. |
+| Repository | Separar el dominio del mecanismo de persistencia. |
+| Idempotency | Evitar que una misma solicitud genere efectos duplicados. |
+
+Estos conceptos permiten reducir el acoplamiento entre los servicios y mantener claramente separadas las responsabilidades del proceso logístico.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
 
+| Elemento | Responsabilidad | Integración |
+|---|---|---|
+| Customer Service | Gestionar información de clientes. | REST |
+| Shipment Service | Gestionar envíos y sus estados. | REST / Eventos |
+| Warehouse Service | Gestionar recepción, almacenamiento y preparación de carga. | REST / Eventos |
+| Dispatch Planning Service | Recibir información de cargas disponibles para planificación. | Eventos / REST |
+| Operational History Service | Registrar eventos relevantes de la operación. | Eventos |
+| Event Broker | Distribuir eventos entre los servicios. | Publish–Subscribe |
+
+Los principales eventos definidos para esta iteración son:
+
+- `ShipmentCreated`
+- `ShipmentReceived`
+- `CargoStored`
+- `CargoPrepared`
+- `ShipmentReadyForDispatch`
+- `ShipmentCancelled`
+
+El evento `ShipmentReadyForDispatch` permite informar a **Dispatch Planning** que una carga se encuentra disponible para iniciar el proceso de planificación del transporte.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+Durante esta iteración se elaboran vistas arquitectónicas que permiten representar los servicios involucrados y sus principales interacciones.
 
+El C4 Container Diagram muestra la relación entre Shipment Management, Warehouse Operations y los demás servicios relacionados.
+
+![C4 de contenedores - Iteración 2](assets/images/chapter4/iteration2-c4-containers.png)
+
+El UML Sequence Diagram representa el flujo principal desde la creación del envío hasta que la carga queda preparada para despacho.
+
+![UML de secuencia - Iteración 2](assets/images/chapter4/iteration2-shipment-sequence.png)
+
+Las principales decisiones arquitectónicas registradas son:
+
+| ID | Decisión | Justificación |
+|---|---|---|
+| DD11 | Separar Shipment Management de Warehouse Operations. | Cada contexto posee responsabilidades y reglas diferentes. |
+| DD12 | Mantener persistencia independiente por servicio. | Evita dependencias directas entre bounded contexts. |
+| DD13 | Utilizar eventos para comunicar cambios importantes. | Reduce el acoplamiento entre servicios. |
+| DD14 | Utilizar REST para operaciones que requieren respuesta inmediata. | Facilita interacciones síncronas entre servicios. |
+| DD15 | Aplicar idempotencia en operaciones sensibles. | Evita efectos duplicados ante reintentos. |
+| DD16 | Utilizar `ShipmentReadyForDispatch` para comunicar la disponibilidad de la carga. | Permite integrar Warehouse Operations con Dispatch Planning de forma desacoplada. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+El diseño obtenido permite separar la administración del envío de las operaciones físicas realizadas sobre la carga dentro del almacén.
 
+La revisión de la iteración considera los siguientes aspectos:
+
+| Aspecto | Resultado |
+|---|---|
+| Separación de responsabilidades | Cumplido |
+| Gestión del ciclo de vida del envío | Cumplido |
+| Comunicación entre servicios | Cumplido |
+| Persistencia independiente | Cumplido |
+| Uso de eventos | Cumplido |
+| Trazabilidad del proceso | Cumplido |
+| Preparación para Dispatch Planning | Cumplido |
+
+La iteración permite establecer el flujo necesario para que un envío pueda ser registrado, recibido, almacenado y preparado hasta encontrarse disponible para su planificación de despacho.
+
+El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban de la iteración.
+
+![Tablero Kanban - Iteración 2](assets/images/chapter4/iteration2-kanban.png)
+
+**URL del tablero:** [Iteration 2 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
 
 <div style="page-break-after: always;"></div>
 
