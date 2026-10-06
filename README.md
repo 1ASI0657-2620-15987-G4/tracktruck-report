@@ -1742,57 +1742,176 @@ El avance de los elementos del Architectural Design Backlog se gestiona mediante
 
 <div style="page-break-after: always;"></div>
 
-### 4.3.3. Iteration 3: [Nombre de la iteración]
+### 4.3.3. Iteration 3: Intelligent Dispatch Planning and Resource Assignment
 
+Esta iteración tiene como objetivo refinar la planificación del despacho de **TrackTruck**, considerando la selección de conductor, vehículo y ruta antes del inicio de una operación de transporte.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.1. Architectural Design Backlog 3
 
-<!-- PENDIENTE: agregar el Architectural Design Backlog de esta iteración. -->
+El Architectural Design Backlog de esta iteración reúne los elementos necesarios para definir el proceso de planificación y asignación de recursos.
 
+| ID | Elemento de diseño | Prioridad |
+|---|---|---|
+| ADB17 | Definir los datos requeridos por Dispatch Planning. | Alta |
+| ADB18 | Definir las reglas de elegibilidad de conductores. | Alta |
+| ADB19 | Definir las reglas de disponibilidad y condición de vehículos. | Alta |
+| ADB20 | Integrar información de Time & Attendance y Driver Safety & Compliance. | Alta |
+| ADB21 | Integrar información de Maintenance Management. | Alta |
+| ADB22 | Definir la integración con el proveedor de mapas y rutas. | Alta |
+| ADB23 | Diseñar el mecanismo de recomendación de conductor, vehículo y ruta. | Alta |
+| ADB24 | Definir un mecanismo alternativo cuando el componente inteligente no se encuentre disponible. | Media |
+| ADB25 | Registrar y comunicar el resultado aprobado de la planificación. | Alta |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.2. Establish Iteration Goal by Selecting Drivers
 
-<!-- PENDIENTE: indicar el objetivo de la iteración y los drivers seleccionados. -->
+El objetivo de esta iteración es diseñar un proceso de planificación que permita seleccionar recursos válidos y recomendar una combinación adecuada de conductor, vehículo y ruta para cada envío preparado para despacho.
 
+Los principales drivers seleccionados son:
+
+| Driver | Aplicación |
+|---|---|
+| Funcionalidad | Generar una planificación previa al inicio del viaje. |
+| Seguridad operacional | Evitar asignar conductores o vehículos que no cumplan las restricciones establecidas. |
+| Interoperabilidad | Obtener información de diferentes bounded contexts y proveedores externos. |
+| Disponibilidad | Mantener una alternativa de planificación cuando un servicio externo o componente inteligente no esté disponible. |
+| Rendimiento | Procesar las alternativas de planificación en un tiempo adecuado para la operación. |
+| Trazabilidad | Registrar los criterios y recursos considerados durante la planificación. |
+| Mantenibilidad | Mantener separadas las reglas obligatorias del mecanismo de recomendación. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.3. Choose One or More Elements of the System to Refine
 
-<!-- PENDIENTE: especificar los elementos arquitectónicos que serán refinados. -->
+Los principales elementos seleccionados para esta iteración son:
 
+- **Dispatch Planning:** responsable de coordinar la planificación del despacho.
+- **Fleet Management:** proporciona información sobre conductores y vehículos disponibles.
+- **Maintenance Management:** informa la condición y restricciones de los vehículos.
+- **Time & Attendance:** proporciona información sobre jornadas y horas trabajadas.
+- **Driver Safety & Compliance:** determina si un conductor puede ser considerado elegible.
+- **Shipment Management:** proporciona información del envío, prioridad y características de la carga.
+- **Maps & Routes Provider:** proporciona alternativas de ruta, distancia y duración estimada.
+- **Trip Execution:** recibe la planificación aprobada para posteriormente iniciar el viaje.
+
+La planificación se realiza únicamente después de que el envío haya sido marcado como disponible para despacho.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-<!-- PENDIENTE: justificar los conceptos, patrones, tácticas o enfoques elegidos. -->
+Para satisfacer los drivers seleccionados se consideran los siguientes conceptos, patrones y tácticas:
 
+| Concepto / Patrón | Aplicación |
+|---|---|
+| Domain-Driven Design | Mantener Dispatch Planning separado de Fleet, Maintenance y demás bounded contexts. |
+| Rule-Based Validation | Aplicar reglas obligatorias antes de generar recomendaciones. |
+| Strategy Pattern | Permitir diferentes estrategias de selección y recomendación de recursos. |
+| Adapter | Aislar la integración con proveedores externos de rutas. |
+| Anti-Corruption Layer | Transformar los datos externos antes de utilizarlos dentro del dominio. |
+| Circuit Breaker | Evitar que una falla del proveedor externo afecte continuamente la planificación. |
+| Fallback | Mantener una alternativa basada en reglas cuando el componente inteligente no esté disponible. |
+| Event-Driven Architecture | Comunicar la disponibilidad del envío y el resultado de la planificación. |
+| Repository | Gestionar la persistencia de los planes de despacho. |
+
+Las reglas obligatorias se evalúan antes del mecanismo de recomendación. De esta manera, el componente inteligente únicamente analiza alternativas que previamente cumplen con las restricciones definidas por el negocio.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-<!-- PENDIENTE: definir elementos, responsabilidades e interfaces resultantes. -->
+A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
 
+| Elemento | Responsabilidad | Integración |
+|---|---|---|
+| Dispatch Planning Service | Coordinar el proceso de planificación y generar propuestas de asignación. | REST / Eventos |
+| Fleet Service | Proporcionar conductores y vehículos disponibles. | REST |
+| Maintenance Service | Informar si un vehículo puede participar en una operación. | REST |
+| Time & Attendance Service | Proporcionar información de jornada laboral. | REST |
+| Driver Compliance Service | Evaluar restricciones y elegibilidad del conductor. | REST |
+| Route Provider Adapter | Obtener alternativas de rutas desde un proveedor externo. | API externa |
+| Planning Recommendation Engine | Evaluar alternativas válidas y generar una recomendación. | Componente interno |
+| Trip Execution Service | Recibir el plan aprobado para iniciar posteriormente el viaje. | Eventos / REST |
+
+El proceso de planificación considera primero las reglas obligatorias relacionadas con disponibilidad, mantenimiento, jornada laboral y cumplimiento del conductor.
+
+Posteriormente, el mecanismo de recomendación puede considerar factores como:
+
+- distancia de la ruta;
+- duración estimada;
+- condiciones de tráfico;
+- capacidad del vehículo;
+- ubicación actual de los recursos;
+- horas trabajadas;
+- historial operativo;
+- prioridad del envío.
+
+Los principales eventos considerados son:
+
+- `ShipmentReadyForDispatch`
+- `DriverEligibilityChanged`
+- `VehicleMaintenanceRequired`
+- `DispatchPlanned`
+- `DispatchPlanApproved`
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-<!-- PENDIENTE: insertar los diagramas C4/UML correspondientes y registrar las decisiones de diseño. -->
+El C4 Container Diagram representa los servicios involucrados en la planificación y las dependencias necesarias para obtener información de conductores, vehículos, mantenimiento y rutas.
 
+![C4 de contenedores - Iteración 3](assets/images/chapter4/iteration3-c4-containers.png)
+
+El UML Sequence Diagram representa el proceso desde la recepción de un envío disponible para despacho hasta la aprobación de una combinación de conductor, vehículo y ruta.
+
+![UML de secuencia - Iteración 3](assets/images/chapter4/iteration3-dispatch-sequence.png)
+
+Las principales decisiones arquitectónicas de esta iteración son:
+
+| ID | Decisión | Justificación |
+|---|---|---|
+| DD17 | Centralizar la planificación en Dispatch Planning. | Evita distribuir la lógica de asignación entre diferentes bounded contexts. |
+| DD18 | Evaluar primero las reglas obligatorias de elegibilidad. | Una recomendación no debe utilizar recursos inválidos. |
+| DD19 | Mantener el mecanismo inteligente dentro de Dispatch Planning. | La recomendación forma parte de la capacidad de planificación. |
+| DD20 | Utilizar Adapter y ACL para el proveedor de rutas. | Evita dependencia directa del modelo externo. |
+| DD21 | Implementar una estrategia de fallback. | Permite continuar con una planificación básica ante fallas del componente inteligente. |
+| DD22 | Mantener separadas las reglas determinísticas y el mecanismo de recomendación. | Facilita mantenimiento, validación y evolución independiente. |
+| DD23 | Registrar la decisión final de planificación. | Permite trazabilidad sobre los recursos asignados. |
+| DD24 | Considerar estable una asignación una vez iniciado el viaje. | Evita cambios innecesarios durante la ejecución. |
+| DD25 | Permitir replanificación únicamente ante situaciones excepcionales. | Mantiene estabilidad operativa sin impedir responder ante incidentes graves. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-<!-- PENDIENTE: analizar el diseño, revisar el cumplimiento del objetivo e insertar captura y enlace del tablero Kanban. -->
+El diseño obtenido permite que TrackTruck evalúe diferentes fuentes de información antes de generar una propuesta de despacho.
 
+La separación entre validaciones obligatorias y mecanismos de recomendación evita que una decisión generada automáticamente ignore restricciones operativas importantes.
+
+La revisión de la iteración considera los siguientes aspectos:
+
+| Aspecto | Resultado |
+|---|---|
+| Validación de conductores | Cumplido |
+| Validación de vehículos | Cumplido |
+| Integración con mantenimiento | Cumplido |
+| Integración con jornada laboral | Cumplido |
+| Integración con proveedor de rutas | Cumplido |
+| Separación entre reglas y recomendación | Cumplido |
+| Mecanismo de fallback | Cumplido |
+| Trazabilidad de la planificación | Cumplido |
+| Comunicación con Trip Execution | Cumplido |
+
+La iteración se considera satisfactoria cuando Dispatch Planning puede recibir un envío preparado, obtener recursos disponibles, descartar alternativas inválidas, generar una recomendación y registrar una planificación aprobada para el posterior inicio del viaje.
+
+El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban correspondiente.
+
+![Tablero Kanban - Iteración 3](assets/images/chapter4/iteration3-kanban.png)
+
+**URL del tablero:** [Iteration 3 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
 
 <div style="page-break-after: always;"></div>
 
