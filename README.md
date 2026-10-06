@@ -1821,169 +1821,486 @@ Cada elemento podrá considerarse terminado cuando su definición haya sido revi
 
 ## 5.1. Testing Suites & General Patterns
 
+En esta sección se definen las estrategias de validación y los patrones generales que permitirán comprobar que la arquitectura propuesta para **TrackTruck** satisface las funcionalidades y atributos de calidad establecidos.
+
+Debido a que el alcance del proyecto se centra en el diseño arquitectónico de la solución, las suites de pruebas se presentan como una propuesta de validación para una futura implementación de los microservicios.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.1.1. Backend Application Core Testing Suite
 
-<!-- PENDIENTE: describir y evidenciar la suite de pruebas del núcleo de la aplicación backend. -->
+La Backend Application Core Testing Suite define los escenarios que deberían validarse sobre los principales servicios y reglas de negocio de TrackTruck durante una futura implementación.
 
+La estrategia considera pruebas sobre las capacidades centrales del sistema y sobre las decisiones arquitectónicas definidas durante las iteraciones ADD.
+
+| Área a validar | Prueba propuesta | Resultado esperado |
+|---|---|---|
+| Shipment Management | Registrar un envío con información válida. | El envío es creado con un estado inicial válido. |
+| Warehouse Operations | Registrar la recepción y preparación de una carga. | La carga avanza únicamente mediante estados permitidos. |
+| Fleet Management | Consultar conductores y vehículos disponibles. | Solo se muestran recursos operativamente disponibles. |
+| Driver Safety & Compliance | Evaluar un conductor considerando sus horas trabajadas y restricciones. | El sistema determina correctamente si puede ser considerado para una nueva asignación. |
+| Maintenance Management | Evaluar el estado técnico de un vehículo. | Un vehículo con una restricción crítica no puede ser considerado disponible. |
+| Dispatch Planning | Evaluar alternativas de conductor, vehículo y ruta. | Se obtiene una recomendación que respeta las restricciones del negocio. |
+| Trip Execution | Iniciar y finalizar un viaje. | El viaje realiza únicamente transiciones de estado permitidas. |
+| Tracking & Geolocation | Procesar actualizaciones de ubicación. | Las ubicaciones válidas quedan asociadas al viaje correspondiente. |
+| Incident Management | Registrar una incidencia durante un viaje. | La incidencia queda relacionada con la operación y puede ser consultada. |
+| Delivery Management | Confirmar la entrega de un envío. | La entrega se registra y permite cerrar el proceso de transporte. |
+| Billing & Payments | Generar el proceso de facturación después de una operación válida. | La información necesaria para el cobro queda disponible. |
+| Operational History | Recibir eventos producidos por otros bounded contexts. | El historial conserva los eventos relevantes de la operación. |
+
+Además de las funcionalidades del dominio, se propone validar los principales atributos de calidad definidos para la arquitectura.
+
+| Atributo de calidad | Validación propuesta |
+|---|---|
+| Disponibilidad | Verificar que una falla temporal de un proveedor externo no detenga funcionalidades que puedan continuar independientemente. |
+| Rendimiento | Verificar que las operaciones críticas respondan dentro de los tiempos definidos en los Quality Attribute Scenarios. |
+| Seguridad | Verificar que usuarios sin permisos no puedan acceder a recursos protegidos. |
+| Interoperabilidad | Verificar que los servicios puedan intercambiar información utilizando los contratos definidos. |
+| Integridad | Verificar que eventos duplicados o solicitudes repetidas no produzcan información inconsistente. |
+| Escalabilidad | Evaluar el comportamiento esperado ante un incremento en la cantidad de envíos, viajes y actualizaciones de ubicación. |
+| Trazabilidad | Verificar que los eventos relevantes puedan relacionarse con la operación logística correspondiente. |
+
+Estas pruebas constituyen una guía para validar posteriormente que la implementación de los microservicios respete las decisiones arquitectónicas, reglas del dominio y atributos de calidad definidos durante el diseño de TrackTruck.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.1.2. Pattern Based Backend Application(s)
 
-<!-- PENDIENTE: describir la aplicación de patrones en el backend y presentar las evidencias correspondientes. -->
+La arquitectura backend propuesta para **TrackTruck** utiliza patrones arquitectónicos y de diseño con el propósito de mantener responsabilidades claramente separadas, reducir el acoplamiento entre bounded contexts y facilitar la evolución de la solución.
 
+Debido a que el alcance del proyecto se concentra en el diseño arquitectónico, esta sección presenta la aplicación propuesta de los patrones sobre los microservicios y componentes definidos para TrackTruck.
+
+Los principales patrones considerados son los siguientes:
+
+| Patrón | Aplicación en TrackTruck | Beneficio arquitectónico |
+|---|---|---|
+| Domain-Driven Design | El sistema se divide en bounded contexts como Shipment Management, Warehouse Operations, Fleet Management, Dispatch Planning, Trip Execution y Tracking & Geolocation. | Permite separar las capacidades del negocio y mantener modelos especializados. |
+| Microservices Architecture | Los bounded contexts principales se plantean como servicios independientes. | Permite evolución, despliegue y escalamiento independiente. |
+| Repository | Cada bounded context encapsula el acceso a sus propios datos mediante repositorios. | Separa las reglas del dominio de los mecanismos de persistencia. |
+| Adapter | Los proveedores externos, como mapas, rutas, pagos y facturación, se integran mediante adaptadores. | Evita acoplar el dominio a tecnologías o proveedores específicos. |
+| Anti-Corruption Layer | Los modelos de servicios externos se transforman antes de ingresar al dominio de TrackTruck. | Protege el modelo interno frente a cambios externos. |
+| Publish–Subscribe | Los microservicios publican eventos para que otros bounded contexts puedan reaccionar independientemente. | Reduce dependencias directas entre servicios. |
+| Event-Driven Architecture | Cambios como `ShipmentReadyForDispatch`, `TripStarted` o `DeliveryConfirmed` se propagan mediante eventos. | Facilita integración asíncrona y escalabilidad. |
+| Circuit Breaker | Las llamadas hacia proveedores externos pueden suspenderse temporalmente cuando presentan fallas reiteradas. | Evita que una falla externa afecte a toda la plataforma. |
+| API Gateway | Las aplicaciones cliente utilizan un punto de entrada común hacia los servicios de TrackTruck. | Centraliza el acceso y facilita la aplicación de políticas de seguridad. |
+| Database per Service | Cada microservicio mantiene autonomía sobre sus datos. | Evita compartir directamente modelos de persistencia entre bounded contexts. |
+| Idempotency | Las operaciones sensibles y los eventos consideran identificadores que permiten detectar reintentos. | Evita duplicidad de efectos y mejora la consistencia. |
+
+La combinación de estos patrones permite que TrackTruck mantenga una arquitectura distribuida en la que cada bounded context conserva sus responsabilidades y puede comunicarse con otros servicios mediante contratos definidos.
+
+La aplicación general de los patrones puede representarse mediante la siguiente vista:
+
+![Pattern Based Backend Architecture](assets/images/chapter5/pattern-based-backend-architecture.png)
 
 <div style="page-break-after: always;"></div>
 
 ### 5.1.3. Pattern Based Custom Software Library
 
-<!-- PENDIENTE: documentar la librería de software personalizada basada en patrones, si corresponde al alcance del equipo. -->
+Como parte del diseño arquitectónico de **TrackTruck**, se propone una librería de software personalizada que reúna componentes técnicos reutilizables por los diferentes microservicios de la plataforma.
 
+Esta librería tiene como objetivo mantener convenciones comunes entre los servicios sin compartir directamente las reglas de negocio pertenecientes a cada bounded context. De esta manera, los microservicios pueden reutilizar estructuras técnicas manteniendo su autonomía.
+
+La librería propuesta se denomina **TrackTruck Shared Kernel Library**.
+
+| Componente reutilizable | Propósito |
+|---|---|
+| `DomainEvent` | Definir una estructura común para representar eventos de dominio generados por los diferentes servicios. |
+| `EventId` | Proporcionar un identificador único para cada evento. |
+| `EventMetadata` | Mantener información asociada al evento, como fecha de creación, servicio de origen y tipo de evento. |
+| `CorrelationId` | Permitir relacionar solicitudes y eventos que pertenecen a una misma operación logística. |
+| `IdempotencyKey` | Identificar operaciones procesadas previamente para evitar efectos duplicados. |
+| `ErrorResponse` | Estandarizar la estructura de los errores expuestos por los servicios. |
+| `PageResult` | Proporcionar una estructura reutilizable para resultados paginados. |
+| `AuditableEvent` | Mantener información necesaria para la trazabilidad y auditoría de operaciones. |
+
+La librería podrá ser utilizada por servicios como **Shipment Management**, **Fleet Management**, **Warehouse Operations**, **Dispatch Planning**, **Trip Execution**, **Tracking & Geolocation** y otros microservicios que necesiten estas capacidades técnicas comunes.
+
+Cada bounded context continuará manteniendo de manera independiente sus entidades, agregados, Value Objects, reglas de negocio y estructuras de persistencia.
+
+Por esta razón, elementos como `Shipment`, `Vehicle`, `Driver`, `Trip`, `Invoice` o `Payment` no formarán parte de la librería compartida, ya que pertenecen a modelos de dominio específicos y compartirlos produciría un mayor acoplamiento entre los servicios.
+
+La propuesta aplica el concepto de **Shared Kernel** de forma limitada, incluyendo únicamente elementos técnicos estables y realmente comunes a la plataforma.
+
+Debido a que el alcance del proyecto se concentra en el diseño arquitectónico, la librería representa una propuesta para una futura implementación de los microservicios de TrackTruck.
+
+![Pattern Based Custom Software Library](assets/images/chapter5/pattern-based-custom-software-library.png)
 
 <div style="page-break-after: always;"></div>
+
 
 ### 5.1.4. Framework Pattern Driven Refactoring Report
 
-<!-- PENDIENTE: presentar el reporte de refactorización guiada por patrones/frameworks y las decisiones adoptadas. -->
+Durante el proceso de diseño arquitectónico de **TrackTruck** se realizaron diferentes refinamientos sobre la estructura inicial de la solución con el objetivo de mejorar la separación de responsabilidades, reducir el acoplamiento y mantener coherencia con los patrones arquitectónicos seleccionados.
 
+Debido a que el alcance del proyecto se concentra en el diseño de arquitectura y no en la implementación de código, el refactoring presentado en esta sección corresponde a cambios realizados sobre la estructura arquitectónica, los bounded contexts, las responsabilidades de los servicios y sus mecanismos de integración.
+
+Los principales refinamientos realizados fueron los siguientes:
+
+| Situación inicial | Refactorización aplicada | Patrón / principio utilizado | Resultado |
+|---|---|---|---|
+| La solución estaba centrada principalmente en viajes, flota y seguimiento. | Se amplió la arquitectura para representar el ciclo logístico completo mediante bounded contexts especializados. | Domain-Driven Design | Se obtuvo una arquitectura con mayor cobertura del negocio y responsabilidades más claras. |
+| Shipment Management y Warehouse Operations podían concentrarse dentro de una misma responsabilidad. | Se separaron ambos bounded contexts. | Separation of Concerns / DDD | Cada contexto mantiene sus propias reglas, estados y datos. |
+| La planificación de viajes podía depender directamente de diferentes servicios operativos. | Se definió Dispatch Planning como el contexto responsable de centralizar la planificación y consumir información de otros servicios. | Service Decomposition / DDD | La lógica de planificación queda separada del resto de capacidades. |
+| La información de horas trabajadas y restricciones del conductor podía mantenerse dentro de Fleet Management. | Se separaron Time & Attendance y Driver Safety & Compliance. | Single Responsibility Principle | Se diferencia el registro de jornada de la evaluación de elegibilidad del conductor. |
+| El acceso a proveedores externos podía realizarse directamente desde la lógica principal. | Se propuso el uso de Adapter y Anti-Corruption Layer. | Adapter / Anti-Corruption Layer | El dominio queda desacoplado de proveedores de mapas, pagos y facturación. |
+| Los servicios podían depender directamente unos de otros para comunicar cambios de estado. | Se incorporó Event-Driven Architecture y Publish–Subscribe mediante un Event Broker. | Publish–Subscribe / Event-Driven Architecture | Se reduce el acoplamiento entre microservicios. |
+| Los servicios podían compartir directamente estructuras de persistencia. | Se adoptó Database per Service. | Database per Service | Cada bounded context mantiene autonomía sobre sus datos. |
+| Las aplicaciones cliente podían conectarse directamente con múltiples servicios. | Se incorporó un API Gateway como punto de entrada. | API Gateway | Se simplifica el acceso a los servicios y se centralizan controles comunes. |
+| Las fallas de proveedores externos podían afectar el funcionamiento de otros componentes. | Se incorporaron tiempos máximos de espera y Circuit Breaker. | Circuit Breaker / Fault Tolerance | Se limita la propagación de fallas externas. |
+| Un mismo evento o solicitud podía procesarse más de una vez ante reintentos. | Se incorporó el uso de identificadores únicos e idempotencia. | Idempotency Pattern | Se reduce el riesgo de duplicidad e inconsistencias. |
+| Diferentes microservicios podían definir estructuras técnicas similares de forma independiente. | Se propuso TrackTruck Shared Kernel Library. | Shared Kernel | Se reutilizan elementos técnicos comunes sin compartir reglas específicas del dominio. |
+
+Uno de los principales cambios realizados fue evolucionar desde una arquitectura enfocada principalmente en la gestión de viajes y seguimiento hacia una arquitectura empresarial que representa capacidades como gestión de clientes, envíos, almacén, flota, mantenimiento, personal, planificación, ejecución de viajes, seguimiento, entregas, facturación, historial y analítica.
+
+El proceso de refactorización permitió establecer límites más claros entre los bounded contexts y definir mecanismos de comunicación adecuados según el tipo de interacción requerida.
+
+Las operaciones que necesitan una respuesta inmediata utilizan principalmente interfaces síncronas mediante REST, mientras que los cambios de estado que pueden ser procesados de manera independiente se comunican mediante eventos.
+
+También se estableció que cada bounded context mantendrá autonomía sobre sus datos y reglas de negocio, evitando que un servicio acceda directamente a la persistencia de otro contexto.
+
+Estos refinamientos permiten que la arquitectura propuesta para TrackTruck pueda evolucionar de manera progresiva y que cambios realizados sobre una capacidad específica generen un impacto limitado sobre el resto de la plataforma.
+
+![Framework Pattern Driven Refactoring Report](assets/images/chapter5/framework-pattern-refactoring.png)
 
 <div style="page-break-after: always;"></div>
 
+
 ## 5.2. Software Configuration Management
 
+En esta sección se describen las herramientas, configuraciones y convenciones utilizadas para organizar y mantener el proyecto **TrackTruck** de forma consistente durante su desarrollo.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.2.1. Software Development Environment Configuration
 
-<!-- PENDIENTE: especificar herramientas utilizadas para Project Management, Requirements, Design, Development, Testing, Deployment y Documentation, incluyendo enlaces de referencia o descarga. -->
+Para el desarrollo de **TrackTruck** se utilizan distintas herramientas para organizar, diseñar, documentar y gestionar el proyecto.
 
+| Actividad | Herramienta | Propósito |
+|---|---|---|
+| Project Management | Trello | Gestionar tareas mediante tableros Kanban. |
+| Requirements Management | GitHub / Markdown | Documentar requisitos y User Stories. |
+| Domain Modeling | Miro | Elaborar Bounded Context Maps. |
+| Architecture Design | Structurizr | Elaborar diagramas C4. |
+| UML Modeling | Lucidchart | Elaborar diagramas UML. |
+| Version Control | Git / GitHub | Gestionar cambios y versiones del proyecto. |
+| Documentation | Markdown | Elaborar y mantener el informe. |
 
 <div style="page-break-after: always;"></div>
 
+
 ### 5.2.2. Source Code Management
 
-<!-- PENDIENTE: incluir repositorio(s) GitHub, explicar GitFlow, ramas feature/release/hotfix, Semantic Versioning y Conventional Commits. -->
+Para la gestión de versiones de **TrackTruck** se utiliza **Git y GitHub**, permitiendo mantener un historial organizado de los cambios realizados por el equipo.
 
+**Repositorio del proyecto:**
+
+[TrackTruck - GitHub](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai)
+
+Se considera una organización basada en **GitFlow**:
+
+| Rama | Propósito |
+|---|---|
+| `main` | Versión estable del proyecto. |
+| `develop` | Integración de cambios antes de su liberación. |
+| `feature/*` | Desarrollo de nuevas funcionalidades o artefactos. |
+| `release/*` | Preparación de nuevas versiones. |
+| `hotfix/*` | Correcciones importantes. |
+
+Para las versiones se utiliza **Semantic Versioning** con el formato `MAJOR.MINOR.PATCH`, por ejemplo `1.0.0`.
+
+Los commits siguen **Conventional Commits**, utilizando prefijos como:
+
+- `feat:` nueva funcionalidad.
+- `fix:` corrección.
+- `docs:` cambios en documentación.
+- `refactor:` reorganización o mejora.
+- `chore:` tareas de mantenimiento.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.2.3. Source Code Style Guide & Conventions
 
-<!-- PENDIENTE: documentar las guías de estilo, nomenclatura en inglés y convenciones de código utilizadas por el equipo. -->
+Para mantener consistencia en los artefactos técnicos de **TrackTruck**, se establecen convenciones comunes de nomenclatura y organización.
 
+Las principales convenciones son:
+
+- Utilizar nombres en **inglés** para componentes, servicios, clases, atributos y elementos arquitectónicos.
+- Utilizar **PascalCase** para nombres de clases, servicios y componentes.
+- Utilizar **camelCase** para atributos, variables y operaciones.
+- Utilizar nombres descriptivos y relacionados con el dominio.
+- Mantener una nomenclatura consistente entre diagramas, documentación y repositorio.
+- Evitar abreviaciones poco claras o nombres genéricos.
+
+Ejemplos:
+
+`ShipmentManagement`
+
+`DispatchPlanningService`
+
+`trackingStatus`
+
+`driverEligibility`
+
+`ShipmentReadyForDispatch`
+
+Estas convenciones permiten mantener una documentación y arquitectura más clara y uniforme entre los integrantes del equipo.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.2.4. Software Deployment Configuration
 
-<!-- PENDIENTE: explicar la configuración y pasos de despliegue e insertar el Deployment Diagram correspondiente. -->
+La configuración de despliegue de **TrackTruck** define cómo los diferentes servicios de la solución podrían ser publicados y ejecutados en un entorno de infraestructura.
 
+La arquitectura considera el despliegue independiente de los microservicios, permitiendo que cada servicio pueda actualizarse o escalarse sin afectar directamente a los demás.
+
+Los principales elementos considerados son:
+
+| Elemento | Propósito |
+|---|---|
+| API Gateway | Centralizar el acceso a los servicios. |
+| Microservices | Ejecutar las capacidades principales de TrackTruck de forma independiente. |
+| Databases | Mantener la persistencia separada por servicio. |
+| Event Broker | Gestionar la comunicación asíncrona entre microservicios. |
+| External Providers | Integrar servicios externos como mapas, pagos y facturación. |
+| Cloud Infrastructure | Alojar y ejecutar los componentes de la solución. |
+
+El despliegue puede realizarse sobre una plataforma cloud como **AWS, Microsoft Azure o Google Cloud**, manteniendo separados los servicios, bases de datos y componentes de integración.
+
+El siguiente diagrama representa la configuración general de despliegue propuesta para TrackTruck.
+
+![Software Deployment Configuration](assets/images/chapter5/software-deployment-configuration.png)
 
 <div style="page-break-after: always;"></div>
 
+
+
 ## 5.3. Microservices Implementation
 
+En esta sección se documenta el desarrollo progresivo de la arquitectura de microservicios de **TrackTruck** mediante diferentes Sprints.
+
+Cada Sprint permite avanzar de manera incremental en la definición de los servicios, sus responsabilidades, integraciones y principales decisiones arquitectónicas.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.3.1. Sprint 1
 
-<!-- PENDIENTE: agregar una breve introducción del Sprint 1 y resumir el objetivo principal del sprint. -->
+El objetivo del Sprint 1 es establecer la estructura inicial de la arquitectura de microservicios de TrackTruck.
 
+Durante este Sprint se prioriza la definición de los principales bounded contexts, sus responsabilidades y las relaciones necesarias para soportar el flujo logístico principal.
+
+Se consideran como actividades principales:
+
+- definir los microservicios iniciales de la solución;
+- establecer responsabilidades y límites entre servicios;
+- definir las principales interfaces de comunicación;
+- establecer comunicación síncrona mediante REST y asíncrona mediante eventos;
+- elaborar las primeras vistas C4 y UML;
+- registrar las principales decisiones arquitectónicas;
+- organizar las actividades mediante el Sprint Backlog y tablero Kanban.
+
+El resultado esperado del Sprint es contar con una base arquitectónica consistente que permita continuar refinando e integrando los demás servicios en los siguientes Sprints.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.1. Sprint Backlog 1
 
-<!-- PENDIENTE:
-- Indicar el objetivo del Sprint 1.
-- Insertar captura del board.
-- Agregar URL pública del board.
-- Incluir tabla con User Story, Work-Item/Task, ID, título, descripción, estimación en horas, responsable y estado.
--->
+El Sprint Backlog 1 organiza las actividades necesarias para establecer la estructura inicial de la arquitectura de microservicios de **TrackTruck**.
 
+**Sprint Goal:** definir la base arquitectónica de la solución, identificando los principales microservicios, sus responsabilidades, relaciones e interfaces de comunicación.
+
+| ID | Work Item / Task | Descripción | Estimación | Estado |
+|---|---|---|---|---|
+| SB01 | Define Microservices | Identificar los microservicios principales de TrackTruck. | 3 h | Terminado |
+| SB02 | Define Bounded Context Responsibilities | Establecer las responsabilidades y límites de cada bounded context. | 3 h | Terminado |
+| SB03 | Define Service Relationships | Definir las relaciones e intercambio de información entre servicios. | 3 h | Terminado |
+| SB04 | Define REST Communication | Establecer las principales comunicaciones síncronas mediante REST. | 2 h | Terminado |
+| SB05 | Define Event Communication | Identificar los principales eventos para comunicación asíncrona. | 3 h | Terminado |
+| SB06 | Define External Integrations | Identificar proveedores externos de mapas, pagos y facturación. | 2 h | Terminado |
+| SB07 | Create C4 Architecture View | Elaborar la vista C4 de la arquitectura inicial. | 4 h | Terminado |
+| SB08 | Create UML Architecture View | Elaborar los diagramas UML principales del Sprint. | 4 h | Terminado |
+| SB09 | Document Architecture Decisions | Registrar las decisiones arquitectónicas tomadas durante el Sprint. | 2 h | Terminado |
+
+El avance de las actividades se gestiona mediante un tablero Kanban con las columnas **Por hacer**, **En proceso**, **En revisión** y **Terminado**.
+
+![Sprint Backlog 1 - Kanban Board](assets/images/chapter5/sprint1-backlog-kanban.png)
+
+**URL del tablero:** [Sprint 1 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.2. Development Evidence for Sprint Review
 
-<!-- PENDIENTE:
-- Resumir los avances de implementación.
-- Incluir tabla por repositorio con Repository, Branch, Commit Id, Commit Message, Commit Message Body y Commited on (Date).
--->
+Durante el Sprint 1 se desarrollaron los principales artefactos arquitectónicos necesarios para establecer la estructura inicial de **TrackTruck**.
 
+Como evidencia del trabajo realizado se consideran los siguientes resultados:
+
+- definición de los bounded contexts principales;
+- identificación de los microservicios de la solución;
+- definición de responsabilidades por servicio;
+- relaciones entre bounded contexts;
+- definición de comunicación síncrona mediante REST;
+- definición de comunicación asíncrona mediante eventos;
+- identificación de integraciones con proveedores externos;
+- elaboración de diagramas C4 y UML;
+- registro de decisiones arquitectónicas.
+
+Las siguientes evidencias muestran los principales artefactos desarrollados durante el Sprint.
+
+![Sprint 1 - Bounded Context Map](assets/images/chapter5/sprint1-bounded-context-map.png)
+
+![Sprint 1 - C4 Architecture](assets/images/chapter5/sprint1-c4-architecture.png)
+
+![Sprint 1 - UML Architecture](assets/images/chapter5/sprint1-uml-architecture.png)
+
+Estos artefactos permiten validar que el Sprint 1 estableció una base arquitectónica para continuar con el refinamiento de los microservicios en los siguientes Sprints.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.3. Testing Suite Evidence for Sprint Review
 
-<!-- PENDIENTE:
-- Incluir Integration/Acceptance Tests del alcance del Sprint 1.
-- Incorporar archivos .feature en Gherkin.
-- Relacionar cada test con sus User Stories.
-- Agregar repositorio y commits relacionados con testing.
--->
+Durante el Sprint 1 se revisaron los principales artefactos arquitectónicos definidos para **TrackTruck**, verificando que las responsabilidades, relaciones e interfaces fueran coherentes con los requerimientos y drivers seleccionados.
 
+Las principales validaciones realizadas fueron:
+
+| Elemento validado | Criterio de revisión | Resultado |
+|---|---|---|
+| Bounded Contexts | Cada contexto posee responsabilidades claramente diferenciadas. | Cumplido |
+| Microservices | Los servicios representan capacidades independientes del negocio. | Cumplido |
+| REST Communication | Las operaciones síncronas poseen interfaces claramente definidas. | Cumplido |
+| Event Communication | Los eventos permiten comunicación desacoplada entre servicios. | Cumplido |
+| External Integrations | Los proveedores externos se encuentran separados mediante interfaces y adaptadores. | Cumplido |
+| Data Ownership | Cada servicio mantiene autonomía sobre sus propios datos. | Cumplido |
+| Architectural Views | Los diagramas C4 y UML representan la estructura propuesta. | Cumplido |
+
+La evidencia de validación del Sprint se presenta en la siguiente imagen.
+
+![Sprint 1 - Testing Suite Evidence](assets/images/chapter5/sprint1-testing-evidence.png)
+
+Los resultados obtenidos permiten continuar con el refinamiento de los bounded contexts y microservicios en los siguientes Sprints.
 
 <div style="page-break-after: always;"></div>
+
+
 
 #### 5.3.1.4. Execution Evidence for Sprint Review
 
-<!-- PENDIENTE:
-- Resumir lo alcanzado en el Sprint 1.
-- Insertar screenshots de operaciones ejecutadas vía Postman.
-- Agregar enlace al video de demostración del Sprint 1.
--->
+Durante el Sprint 1 se revisó la ejecución del diseño arquitectónico propuesto para **TrackTruck**, verificando el flujo general entre los principales microservicios y sus mecanismos de comunicación.
 
+La evidencia considera el recorrido de una operación desde el registro del envío hasta su procesamiento por los servicios involucrados, validando que cada bounded context participe únicamente dentro de sus responsabilidades definidas.
+
+Se verificaron principalmente los siguientes flujos:
+
+- registro de un envío;
+- recepción y preparación de la carga;
+- comunicación entre microservicios mediante REST;
+- publicación y consumo de eventos;
+- interacción con servicios externos mediante adaptadores;
+- transferencia de información hacia los servicios responsables de las siguientes etapas del proceso.
+
+La siguiente evidencia representa la ejecución del flujo arquitectónico definido durante el Sprint.
+
+![Sprint 1 - Execution Evidence](assets/images/chapter5/sprint1-execution-evidence.png)
+
+Esta revisión permitió comprobar que la arquitectura propuesta mantiene una secuencia coherente de interacción entre los componentes definidos para TrackTruck.
 
 <div style="page-break-after: always;"></div>
+
 
 #### 5.3.1.5. Microservices Documentation Evidence for Sprint Review
 
-<!-- PENDIENTE:
-- Relacionar endpoints documentados con OpenAPI/Swagger.
-- Para cada endpoint indicar verbo HTTP, sintaxis, parámetros, ejemplo y explicación del response.
-- Incluir capturas, URL de documentación y commits relacionados.
--->
+Durante el Sprint 1 se documentaron los principales microservicios definidos para **TrackTruck**, incluyendo sus responsabilidades, relaciones e interfaces de comunicación.
 
+La documentación considera los servicios principales de la solución y su participación dentro del flujo logístico.
+
+| Microservice | Responsabilidad principal |
+|---|---|
+| Shipment Service | Gestionar la información y estados de los envíos. |
+| Warehouse Service | Gestionar la recepción, almacenamiento y preparación de carga. |
+| Fleet Service | Gestionar conductores y vehículos. |
+| Dispatch Planning Service | Planificar la asignación de recursos y rutas. |
+| Trip Execution Service | Gestionar la ejecución y estados de los viajes. |
+| Tracking Service | Gestionar ubicaciones y seguimiento de los vehículos. |
+| Delivery Service | Gestionar la confirmación de entregas. |
+| Billing Service | Gestionar información relacionada con facturación y pagos. |
+
+También se documentaron los principales mecanismos de integración entre servicios, considerando comunicación mediante **REST APIs** y eventos publicados a través del **Event Broker**.
+
+Como evidencia se presentan las vistas arquitectónicas y documentación generadas durante el Sprint.
+
+![Sprint 1 - Microservices Documentation](assets/images/chapter5/sprint1-microservices-documentation.png)
+
+Esta documentación permite mantener una referencia común sobre la estructura, responsabilidades y relaciones de los microservicios definidos para TrackTruck.
 
 <div style="page-break-after: always;"></div>
+
+
 
 #### 5.3.1.6. Software Deployment Evidence for Sprint Review
 
-<!-- PENDIENTE:
-- Explicar lo realizado respecto al deployment durante el Sprint 1.
-- Incluir configuración de cuentas/recursos, integración o automatización y capturas de evidencia.
--->
+Durante el Sprint 1 se definió la configuración inicial de despliegue de los principales componentes de **TrackTruck**.
 
+La propuesta considera el despliegue independiente de los microservicios, junto con los componentes necesarios para comunicación, persistencia e integración con servicios externos.
+
+Los principales elementos considerados son:
+
+- API Gateway.
+- Microservicios de TrackTruck.
+- Bases de datos independientes por servicio.
+- Event Broker.
+- Proveedores externos.
+- Infraestructura Cloud.
+
+Como evidencia se presenta el diagrama de despliegue correspondiente al Sprint 1.
+
+![Sprint 1 - Software Deployment Evidence](assets/images/chapter5/sprint1-deployment-evidence.png)
+
+La configuración definida servirá como base para continuar refinando el despliegue de la solución en los siguientes Sprints.
 
 <div style="page-break-after: always;"></div>
+
+
 
 #### 5.3.1.7. Team Collaboration Insights during Sprint
 
-<!-- PENDIENTE:
-- Explicar la colaboración del equipo durante el Sprint 1.
-- Insertar capturas de analíticos y commits de GitHub.
-- Evidenciar participación de todos los integrantes.
--->
+Durante el Sprint 1, los integrantes del equipo colaboraron en la definición y revisión de la arquitectura inicial de **TrackTruck**.
 
+Las principales actividades de colaboración fueron:
+
+- distribución de tareas entre los integrantes;
+- revisión conjunta de bounded contexts y microservicios;
+- elaboración y validación de diagramas arquitectónicos;
+- discusión de responsabilidades e interfaces entre servicios;
+- actualización del tablero Kanban;
+- revisión de decisiones arquitectónicas antes de integrarlas al informe.
+
+La colaboración permitió mantener una visión común de la arquitectura y detectar inconsistencias antes de continuar con los siguientes Sprints.
+
+![Sprint 1 - Team Collaboration](assets/images/chapter5/sprint1-team-collaboration.png)
 
 <div style="page-break-after: always;"></div>
+
+
 
 #### 5.3.1.8. Kanban Board
 
-<!-- PENDIENTE:
-- Insertar captura actualizada del tablero Kanban del Sprint 1.
-- Agregar el enlace público.
-- Verificar que los estados reflejen el avance real del sprint.
--->
+El tablero Kanban del Sprint 1 permite visualizar y controlar el avance de las actividades relacionadas con la definición inicial de la arquitectura de **TrackTruck**.
 
+Las tareas se organizan en las siguientes columnas:
+
+- **Por hacer**
+- **En proceso**
+- **En revisión**
+- **Terminado**
+
+El tablero permite identificar el estado de cada actividad, facilitar la distribución del trabajo y realizar seguimiento al cumplimiento del Sprint Goal.
+
+![Sprint 1 - Kanban Board](assets/images/chapter5/sprint1-kanban-board.png)
+
+**URL del tablero:** [Sprint 1 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
 
 <div style="page-break-after: always;"></div>
+
+
 
 # Conclusiones
 
