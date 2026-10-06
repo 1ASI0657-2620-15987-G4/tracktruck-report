@@ -1385,121 +1385,211 @@ Se aplicará ADD v3 mediante iteraciones que refinan la arquitectura de TrackTru
 
 <div style="page-break-after: always;"></div>
 
-### 4.3.1. Iteration 1: Gestión de viajes y seguimiento
+### 4.3.1. Iteration 1: Global System Structure
 
-Esta iteración define los componentes responsables de gestionar viajes, recibir ubicaciones y registrar paradas e incidencias, junto con sus interfaces y relaciones.
+Esta primera iteración tiene como propósito establecer la estructura arquitectónica global de **TrackTruck**, identificando las principales capacidades del dominio logístico y delimitándolas mediante bounded contexts. Asimismo, se definen sus responsabilidades, relaciones y mecanismos generales de integración, proporcionando una base arquitectónica sobre la cual se realizarán los refinamientos de las siguientes iteraciones.
 
+La descomposición busca representar el flujo completo de una operación logística, desde el registro del cliente y la recepción de un envío hasta su almacenamiento, planificación, transporte, seguimiento, entrega, facturación y posterior análisis de la operación.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.1. Architectural Design Backlog 1
 
+El Architectural Design Backlog de esta iteración reúne las principales decisiones de diseño necesarias para obtener una primera estructura global de TrackTruck.
+
 | Código | Trabajo de diseño | Drivers relacionados | Prioridad |
 |---|---|---|---|
-| ADB01 | Definir las responsabilidades de gestión de viajes, flota y seguimiento. | PUS01, PUS03, PUS05 | Alta |
-| ADB02 | Definir las interfaces REST para registrar viajes y consultar su seguimiento. | PUS01, PUS02, CON01 | Alta |
-| ADB03 | Diseñar la recepción y el procesamiento asincrónico de ubicaciones. | PUS02, QAS02, AC02 | Alta |
-| ADB04 | Diseñar el registro de paradas e incidencias y la distribución de notificaciones. | PUS03, PUS04 | Alta |
-| ADB05 | Definir la persistencia y el tratamiento de reportes duplicados o fuera de orden. | PUS05, CON02, AC04 | Alta |
-| ADB06 | Diseñar la integración con mapas y el manejo de fallas del proveedor. | QAS01, QAS04, CON03, AC01, AC05 | Alta |
-| ADB07 | Definir los controles de acceso según el rol del usuario. | PUS06, QAS03, AC03 | Alta |
-
+| ADB01 | Identificar y delimitar los bounded contexts principales de TrackTruck. | Funcionalidad primaria, mantenibilidad, separación de responsabilidades | Alta |
+| ADB02 | Definir las responsabilidades principales y límites de cada bounded context. | Funcionalidad primaria, mantenibilidad | Alta |
+| ADB03 | Definir las relaciones e intercambio de información entre los bounded contexts. | Interoperabilidad, trazabilidad, consistencia | Alta |
+| ADB04 | Establecer una arquitectura orientada a microservicios alineada con los bounded contexts identificados. | Mantenibilidad, escalabilidad, disponibilidad | Alta |
+| ADB05 | Definir mecanismos generales de comunicación síncrona y asíncrona entre servicios. | Rendimiento, disponibilidad, interoperabilidad | Alta |
+| ADB06 | Identificar los principales sistemas externos requeridos por TrackTruck. | Interoperabilidad, disponibilidad | Alta |
+| ADB07 | Definir Identity & Access como capacidad transversal para proteger las operaciones del sistema. | Seguridad, control de acceso | Alta |
+| ADB08 | Definir criterios de autonomía de datos para evitar el acceso directo entre las bases de datos de los bounded contexts. | Integridad, mantenibilidad, bajo acoplamiento | Alta |
+| ADB09 | Establecer mecanismos generales para mantener la trazabilidad de eventos durante el ciclo completo de una operación logística. | Trazabilidad, confiabilidad | Alta |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.2. Establish Iteration Goal by Selecting Drivers
 
-El objetivo de esta iteración es definir la estructura de gestión de viajes y seguimiento, incluyendo persistencia, integración con mapas y control de acceso.
+El objetivo de esta iteración es **definir la estructura arquitectónica global de TrackTruck**, identificando las capacidades principales del dominio logístico, organizándolas mediante bounded contexts y estableciendo sus mecanismos iniciales de integración.
+
+La iteración prioriza aquellos drivers que tienen un impacto directo sobre la estructura general del sistema.
 
 | Tipo | Drivers seleccionados |
 |---|---|
-| Funcionalidades | PUS01–PUS06: gestión de viajes, ubicación, paradas, incidencias, historial y usuarios. |
-| Atributos de calidad | QAS01–QAS04: disponibilidad, rendimiento, seguridad e interoperabilidad. |
-| Restricciones | CON01–CON03: interfaces REST, base de datos relacional e integración con mapas. |
-| Preocupaciones | AC01–AC05: fallas externas, crecimiento de carga, accesos indebidos, reportes inconsistentes y dependencia del proveedor. |
+| Funcionalidades principales | Gestión de clientes, envíos, almacén, flota, mantenimiento, personal, planificación de despachos, ejecución de viajes, seguimiento, incidencias, entregas, facturación, historial y reportes. |
+| Atributos de calidad | Disponibilidad, rendimiento, seguridad, interoperabilidad, mantenibilidad, escalabilidad y trazabilidad. |
+| Restricciones | Arquitectura orientada a microservicios, interfaces REST, persistencia independiente por contexto, integración con proveedores externos y uso de mecanismos de comunicación basados en eventos cuando corresponda. |
+| Preocupaciones arquitectónicas | Desacoplamiento entre dominios, consistencia de información, crecimiento del sistema, aislamiento de datos, seguridad, integración con terceros y trazabilidad de operaciones. |
 
+Los drivers seleccionados permiten definir primero una visión global de la solución antes de profundizar en decisiones específicas relacionadas con almacenamiento, planificación inteligente, seguimiento, facturación u otros procesos particulares.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.3. Choose One or More Elements of the System to Refine
 
-Se refinarán los siguientes elementos:
+En esta iteración se refinará inicialmente el sistema **TrackTruck** como elemento arquitectónico principal, descomponiéndolo según las capacidades del dominio.
 
-- **Gestión de viajes:** registro, asignación y cambios de estado.
-- **Gestión de flota:** consulta de conductores y camiones.
-- **Seguimiento:** recepción de ubicaciones y registro de paradas e incidencias.
-- **Integración con mapas:** comunicación con el proveedor externo.
-- **Persistencia y control de acceso:** almacenamiento de información y validación de permisos.
+Los siguientes bounded contexts forman parte de la estructura global propuesta:
 
+- **Identity & Access:** gestiona autenticación, autorización, usuarios, roles y permisos de acceso.
+- **Customer Management:** administra la información de los clientes y organizaciones que utilizan los servicios de LogiGo.
+- **Shipment Management:** administra los envíos, cargas y solicitudes de transporte desde su creación hasta su entrega.
+- **Warehouse Operations:** controla la recepción, almacenamiento, preparación y salida de mercancía.
+- **Fleet Management:** administra la información operativa de conductores y vehículos.
+- **Maintenance Management:** controla mantenimientos preventivos y correctivos, kilometraje y condición técnica de los vehículos.
+- **Workforce Management:** administra empleados, asignaciones y disponibilidad laboral.
+- **Time & Attendance:** registra jornadas, horas trabajadas, descansos y horas adicionales.
+- **Driver Safety & Compliance:** evalúa restricciones operativas, condiciones de elegibilidad y cumplimiento de reglas aplicables a los conductores.
+- **Dispatch Planning:** planifica los despachos y selecciona las alternativas adecuadas de conductor, vehículo y ruta.
+- **Trip Execution:** controla el inicio, ejecución, cambios de estado y finalización de los viajes.
+- **Tracking & Geolocation:** procesa y mantiene la ubicación de los vehículos durante las operaciones.
+- **Incident Management:** administra incidencias, emergencias y situaciones excepcionales durante las operaciones.
+- **Delivery Management:** controla la entrega de la mercancía, su confirmación y el cierre de la operación.
+- **Billing & Payments:** administra precios, cobros, pagos, boletas, facturas y comprobantes.
+- **Operational History:** conserva el historial consolidado de los eventos relevantes producidos durante una operación.
+- **Reporting & Analytics:** genera indicadores, reportes y análisis sobre la información operacional.
+
+La separación propuesta permite que cada capacidad del negocio evolucione de manera independiente y evita concentrar todas las reglas del sistema en un único modelo de dominio.
+
+![Bounded Context Map - Iteración 1](assets/images/chapter4/iteration1-bounded-context-map.png)
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-| Concepto seleccionado | Propósito | Drivers |
-|---|---|---|
-| DDD y arquitectura por capas. | Separar responsabilidades del negocio y detalles técnicos. | PUS01, PUS03, PUS05, AC05 |
-| Publish–Subscribe y procesamiento mediante colas. | Distribuir eventos y procesar ubicaciones sin bloquear otras operaciones. | PUS02, PUS04, QAS02, AC02 |
-| Repository y base de datos relacional. | Conservar el historial y controlar la integridad de los registros. | PUS05, CON02, AC04 |
-| Adapter, Circuit Breaker y tiempos máximos de espera. | Integrar mapas y limitar el impacto de fallas externas. | QAS01, QAS04, CON03, AC01, AC05 |
-| Autenticación y autorización por roles. | Restringir las operaciones según los permisos del usuario. | PUS06, QAS03, AC03 |
+Para satisfacer los drivers seleccionados se consideran los siguientes conceptos de diseño:
 
+| Concepto seleccionado | Propósito | Drivers relacionados |
+|---|---|---|
+| Domain-Driven Design (DDD) | Organizar las capacidades del negocio mediante bounded contexts con modelos y lenguaje propios. | Mantenibilidad, funcionalidad, bajo acoplamiento |
+| Arquitectura de microservicios | Permitir que las principales capacidades del negocio sean implementadas, desplegadas y evolucionadas de forma independiente. | Escalabilidad, mantenibilidad, disponibilidad |
+| RESTful APIs | Permitir comunicación síncrona cuando un servicio requiere una respuesta inmediata de otro contexto. | Interoperabilidad, funcionalidad |
+| Event-Driven Architecture | Propagar cambios del negocio sin generar dependencias directas entre los servicios. | Rendimiento, escalabilidad, mantenibilidad |
+| Publish–Subscribe | Permitir que diferentes bounded contexts reaccionen independientemente ante eventos relevantes. | Interoperabilidad, bajo acoplamiento |
+| Database per Service | Mantener autonomía sobre los datos y evitar que un bounded context modifique directamente información perteneciente a otro. | Integridad, mantenibilidad |
+| Adapter / Anti-Corruption Layer | Aislar proveedores externos y evitar que sus modelos contaminen el dominio interno. | Interoperabilidad, mantenibilidad |
+| API Gateway | Proporcionar un punto de entrada controlado hacia los servicios de TrackTruck. | Seguridad, mantenibilidad |
+| Identity Provider / Token-Based Authentication | Centralizar autenticación y proporcionar identidad verificable a los servicios protegidos. | Seguridad |
+| Circuit Breaker | Evitar que las fallas de proveedores externos se propaguen al resto de la plataforma. | Disponibilidad, tolerancia a fallos |
+| Idempotencia | Evitar efectos duplicados cuando una operación o evento sea procesado más de una vez. | Integridad, confiabilidad |
+
+La combinación de estos conceptos permite construir una arquitectura distribuida en la que los bounded contexts mantienen responsabilidades claramente delimitadas, mientras que los mecanismos de integración facilitan la colaboración entre ellos.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-| Elemento | Responsabilidad | Interfaces propuestas |
-|---|---|---|
-| Gestión de viajes | Registrar viajes, asignar conductor y camión, y actualizar estados. | `POST /api/v1/viajes`, `GET /api/v1/viajes/{id}`, `PATCH /api/v1/viajes/{id}/estado` |
-| Gestión de flota | Consultar conductores y camiones disponibles. | `GET /api/v1/conductores`, `GET /api/v1/camiones` |
-| Seguimiento | Recibir ubicaciones y registrar paradas e incidencias. | `POST /api/v1/viajes/{id}/ubicaciones`, `POST /api/v1/viajes/{id}/incidencias`, `GET /api/v1/viajes/{id}/seguimiento` |
-| Canal de eventos | Distribuir información a los componentes interesados. | Eventos `UbicacionReportada`, `ParadaRegistrada` e `IncidenciaReportada`. |
-| Adaptador de mapas | Solicitar información geográfica al proveedor. | Interfaz interna `ProveedorMapas`. |
-| Repositorios | Guardar y consultar los datos del negocio. | Interfaces `ViajeRepository`, `FlotaRepository` y `SeguimientoRepository`. |
-| Control de acceso | Autenticar usuarios y validar permisos. | `POST /api/v1/auth/login` y validación de autorización en los endpoints protegidos. |
+A partir de los conceptos seleccionados se instancian inicialmente los siguientes elementos arquitectónicos.
 
+| Elemento arquitectónico | Responsabilidad principal | Interfaces / mecanismos de integración |
+|---|---|---|
+| Identity Service | Autenticar usuarios, administrar roles y proporcionar autorización. | REST, tokens de acceso |
+| Customer Service | Administrar clientes y organizaciones registradas. | REST, eventos de dominio |
+| Shipment Service | Gestionar envíos y cargas durante su ciclo de vida. | REST, eventos de dominio |
+| Warehouse Service | Gestionar recepción, almacenamiento, preparación y salida de mercancías. | REST, eventos de dominio |
+| Fleet Service | Administrar conductores, vehículos y disponibilidad de recursos. | REST, eventos de dominio |
+| Maintenance Service | Administrar mantenimientos y condición técnica de los vehículos. | REST, eventos de dominio |
+| Workforce Service | Gestionar empleados y disponibilidad laboral. | REST, eventos de dominio |
+| Time & Attendance Service | Registrar jornadas, horas trabajadas y descansos. | REST, eventos de dominio |
+| Driver Compliance Service | Evaluar elegibilidad y restricciones operativas del conductor. | REST, eventos de dominio |
+| Dispatch Planning Service | Planificar despachos y recomendar conductor, vehículo y ruta. | REST, eventos de dominio |
+| Trip Execution Service | Administrar la ejecución y estados de los viajes. | REST, eventos de dominio |
+| Tracking Service | Procesar ubicaciones y mantener el seguimiento de los vehículos. | API de ingestión, eventos |
+| Incident Service | Registrar y administrar incidencias operativas. | REST, eventos de dominio |
+| Delivery Service | Confirmar entregas y cerrar el proceso de transporte. | REST, eventos de dominio |
+| Billing Service | Gestionar cobros, pagos y comprobantes. | REST, proveedor de pagos/facturación |
+| Operational History Service | Mantener un historial consultable de eventos y operaciones relevantes. | Suscripción a eventos, consultas |
+| Reporting Service | Generar indicadores, reportes y analítica. | Consultas y consumo de información operacional |
+| API Gateway | Exponer de manera controlada los servicios de TrackTruck a los clientes de la plataforma. | HTTP/REST |
+| Event Broker | Distribuir eventos entre los diferentes bounded contexts. | Publish–Subscribe |
+
+Los bounded contexts mantienen autonomía sobre sus reglas de negocio y persistencia. Ningún servicio debe modificar directamente la base de datos perteneciente a otro contexto.
+
+Las interacciones síncronas se utilizarán principalmente cuando un contexto requiera una respuesta inmediata. Las comunicaciones asíncronas se emplearán para propagar eventos cuyo procesamiento pueda realizarse independientemente.
+
+Ejemplos de eventos:
+
+- `ShipmentCreated`
+- `WarehouseReceptionCompleted`
+- `VehicleMaintenanceRequired`
+- `DriverEligibilityChanged`
+- `DispatchPlanned`
+- `TripStarted`
+- `VehicleLocationUpdated`
+- `IncidentReported`
+- `TripCompleted`
+- `DeliveryConfirmed`
+- `InvoiceGenerated`
+- `PaymentCompleted`
+
+Estos eventos permitirán mantener desacoplados los procesos que forman parte del ciclo completo de una operación logística.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-El diagrama C4 de contenedores muestra las aplicaciones, los servicios, el canal de eventos y la base de datos. El diagrama UML de secuencia muestra cómo se recibe, almacena y publica una ubicación.
+Para representar la estructura definida durante esta iteración se utilizarán diferentes vistas arquitectónicas.
+
+El **Bounded Context Map** muestra las principales capacidades del dominio de TrackTruck y las relaciones generales entre ellas.
+
+![Bounded Context Map - Iteración 1](assets/images/chapter4/iteration1-bounded-context-map.png)
+
+El **C4 Container Diagram** representa las aplicaciones cliente, API Gateway, servicios principales, mecanismos de mensajería y persistencia que forman parte de la solución.
 
 ![C4 de contenedores - Iteración 1](assets/images/chapter4/iteration1-c4-containers.png)
 
-![UML de secuencia de seguimiento - Iteración 1](assets/images/chapter4/iteration1-tracking-sequence.png)
+El **diagrama UML de componentes** representa las dependencias principales entre los servicios y permite visualizar qué componentes proporcionan o consumen interfaces dentro de la arquitectura.
+
+![UML de componentes - Iteración 1](assets/images/chapter4/iteration1-uml-components.png)
+
+Las principales decisiones de diseño registradas durante esta iteración son las siguientes:
 
 | Código | Decisión de diseño | Justificación |
 |---|---|---|
-| DD01 | Separar viajes, flota y seguimiento por responsabilidades. | Facilitar el mantenimiento y la evolución del sistema. |
-| DD02 | Procesar ubicaciones y notificaciones mediante eventos. | Reducir bloqueos y dependencias directas. |
-| DD03 | Aislar el proveedor de mapas mediante un adaptador. | Facilitar cambios de proveedor y controlar sus fallas. |
-| DD04 | Usar persistencia relacional e identificar cada reporte. | Mantener relaciones válidas y evitar registros duplicados. |
-| DD05 | Validar permisos antes de ejecutar operaciones protegidas. | Impedir accesos y modificaciones sin autorización. |
-
+| DD01 | Utilizar Domain-Driven Design para delimitar las capacidades principales mediante bounded contexts. | Reducir el acoplamiento entre áreas del negocio y mantener modelos especializados. |
+| DD02 | Implementar los bounded contexts principales mediante una arquitectura orientada a microservicios. | Facilitar el despliegue independiente, evolución y escalamiento de las capacidades del sistema. |
+| DD03 | Evitar el acceso directo a bases de datos pertenecientes a otros bounded contexts. | Mantener autonomía e integridad de los datos. |
+| DD04 | Utilizar REST para interacciones que requieran respuesta inmediata. | Mantener interfaces simples y explícitas entre servicios. |
+| DD05 | Utilizar eventos para comunicar cambios del negocio que puedan ser procesados de manera independiente. | Reducir dependencias directas y facilitar la extensibilidad. |
+| DD06 | Incorporar un Event Broker para distribuir eventos entre los servicios. | Facilitar integración asíncrona y Publish–Subscribe. |
+| DD07 | Utilizar Adapter o Anti-Corruption Layer para integraciones externas. | Evitar dependencia directa del dominio respecto de proveedores externos. |
+| DD08 | Centralizar el ingreso externo mediante un API Gateway. | Simplificar acceso, seguridad y gestión de interfaces externas. |
+| DD09 | Mantener Identity & Access como una capacidad transversal de la plataforma. | Aplicar autenticación y autorización de manera consistente. |
+| DD10 | Incorporar mecanismos de idempotencia en operaciones sensibles y procesamiento de eventos. | Evitar duplicación de efectos ante reintentos o mensajes repetidos. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-La propuesta define las responsabilidades e interfaces principales de la iteración. Su cumplimiento se revisará mediante los siguientes criterios:
+La arquitectura obtenida permite representar TrackTruck como una plataforma empresarial compuesta por bounded contexts especializados y servicios con responsabilidades claramente delimitadas.
+
+El cumplimiento del objetivo de la iteración se revisará mediante los siguientes criterios:
 
 | Aspecto | Criterio de revisión |
 |---|---|
-| Funcionalidad | Las interfaces cubren las operaciones de PUS01–PUS06. |
-| Disponibilidad | Una falla de mapas permite continuar registrando ubicaciones según QAS01. |
-| Rendimiento | El procesamiento cumple el tiempo establecido en QAS02. |
-| Seguridad | Las solicitudes sin permiso se bloquean según QAS03. |
-| Interoperabilidad | El adaptador procesa los reportes definidos en QAS04. |
-| Integridad | Los reportes duplicados o fuera de orden no alteran incorrectamente el historial. |
+| Cobertura del dominio | Las principales capacidades del proceso logístico están representadas mediante bounded contexts. |
+| Separación de responsabilidades | Cada bounded context posee una responsabilidad claramente diferenciada. |
+| Autonomía | Cada contexto mantiene control sobre sus reglas de negocio y datos. |
+| Bajo acoplamiento | Los servicios no acceden directamente a la persistencia de otros bounded contexts. |
+| Integración | Se identifican mecanismos síncronos y asíncronos de comunicación. |
+| Seguridad | Identity & Access proporciona mecanismos de autenticación y autorización para los servicios protegidos. |
+| Interoperabilidad | Los proveedores externos se encuentran aislados mediante interfaces y adaptadores. |
+| Escalabilidad | Los servicios pueden evolucionar y escalar de manera independiente según su carga. |
+| Trazabilidad | Los principales eventos de una operación pueden conservarse para construir un historial operacional. |
+| Evolución | La arquitectura permite que las siguientes iteraciones profundicen en bounded contexts específicos sin redefinir completamente la estructura global. |
 
-El tablero Kanban permitirá seguir los elementos ADB01–ADB07 mediante las columnas **Por hacer**, **En proceso**, **En revisión** y **Terminado**. Cada elemento pasará a terminado cuando sus interfaces, diagramas y decisiones hayan sido revisados. Las pruebas de calidad quedarán pendientes de validación durante la implementación.
+A partir del análisis realizado, el objetivo de la iteración se considera alcanzado cuando los bounded contexts principales, sus responsabilidades, relaciones y mecanismos generales de integración se encuentran definidos y representados mediante las vistas arquitectónicas correspondientes.
+
+El tablero Kanban permitirá realizar el seguimiento de los elementos **ADB01–ADB09** mediante las columnas **Por hacer**, **En proceso**, **En revisión** y **Terminado**.
+
+Cada elemento podrá considerarse terminado cuando su definición haya sido revisada por el equipo y exista evidencia en los modelos, diagramas o decisiones arquitectónicas correspondientes.
 
 ![Tablero Kanban - Iteración 1](assets/images/chapter4/iteration1-kanban.png)
 
 [Ver tablero Kanban en Trello](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚)
-
 
 <div style="page-break-after: always;"></div>
 
