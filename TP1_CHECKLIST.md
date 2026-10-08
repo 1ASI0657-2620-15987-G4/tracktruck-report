@@ -68,8 +68,9 @@ This checklist is ordered by dependency. A task is marked complete only when its
 
 ## 7. GitFlow closure
 
-- [ ] Push each feature branch.
-- [ ] Open pull requests into `develop`.
-- [ ] Review checks and resolve defects.
-- [ ] Merge only verified work into `develop`.
+- [x] Push the platform, mobile, website, and report feature branches.
+- [x] Open pull requests into `develop`.
+- [x] Review the available gates: GitHub reports no configured CI; local platform and mobile gates pass and the website assets/desktop hero were inspected.
+- [x] Merge the verified platform, mobile, and website migrations into `develop`.
+- [ ] Merge the report migration into `develop` after this checklist update.
 - [ ] Confirm every remote branch and final artifact from a clean checkout.
