@@ -1241,7 +1241,7 @@ TypeScript. (s. f.). *TypeScript documentation*. https://www.typescriptlang.org/
 | Project Report repository | [Open repository](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report) |
 | Landing Page repository | [Open repository](https://github.com/1ASI0657-2620-15987-G4/tracktruck-website) |
 | Web Services repository | [Open repository](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) |
-| Frontend Web Application repository | [Open repository](https://github.com/1ASI0657-2620-15987-G4/tracktruck-webapp) |
+| Mobile Application repository | [Open repository](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) |
 | Product Backlog visual | [Ver artefacto](assets/images/chapter3/product-backlog.svg) |
 | Product Backlog - Trello | [Ver tablero público](https://trello.com/b/FjthiN3e/logigo-tracktruck-product-backlog-av1) |
 | User Personas | [Carlos Mendoza](assets/images/chapter2/user-persona1.svg) · [Andrea Salazar](assets/images/chapter2/user-persona2.svg) |
