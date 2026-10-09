@@ -2396,7 +2396,7 @@ La vista general se actualizará con los 17 contextos, la app Android, los servi
 # Capítulo V: Product Implementation, Validation & Deployment
 
 ## 5.1. Testing Suites & General Patterns
-Las suites acompañarán la implementación de los servicios C# y la app móvil. Esta sección es un plan de verificación de TrackTruck: las ejecuciones de CargoExpress se utilizan exclusivamente como referencia metodológica y no se presentan como resultados de TrackTruck. El plan cubre reglas del dominio, casos de uso, endpoints, persistencia, eventos, adaptadores, interfaz móvil y flujo integrado. Las pruebas se seleccionan según criterios de aceptación y riesgo del incremento.
+Las suites acompañarán la implementación de los servicios C# y la app móvil de TrackTruck. El plan de verificación cubre reglas del dominio, casos de uso, endpoints, persistencia, eventos, adaptadores, interfaz móvil y flujo integrado. Las pruebas se seleccionan según criterios de aceptación y riesgo del incremento.
 
 
 Los apartados siguientes definen el trabajo requerido y los registros que se completarán. Cada evidencia incluirá versión de código, entorno, comando o procedimiento, casos ejecutados, resultado esperado y observado y defectos pendientes. La revisión de las vistas arquitectónicas se documenta en ADD; las evidencias de software se obtienen ejecutando los componentes implementados.
@@ -3186,8 +3186,7 @@ El tablero del Sprint representará tareas de backend C#, app móvil, pruebas, i
 | Terminado | Resultado revisado y evidencia que cumple la Definition of Done. |
 
 
-****Pendiente incorporar:**** enlace verificable, captura del estado del Sprint Review, fechas y tarjetas relacionadas con SB01–SB16 y US comprometidas. El estado de las tarjetas debe reflejar los avances comprobados; no se fija todo como Terminado a partir de este documento.
-
+**Sprint 1 Kanban Board:** [TrackTruck — Sprint 1 Kanban](https://trello.com/invite/b/6ac872b881eb3c6497f3555a/ATTIc0666f9e02553987528127d82e89c2cd65903E70/tracktruck-sprint-1-kanban)
 
 ![Sprint 1 Kanban — pendiente captura actual](assets/images/chapter5/sprint1-kanban-board.png)
 
@@ -3247,7 +3246,7 @@ Herramientas y convenciones del documento base:
 - Lucid Software. (s. f.). *Lucidchart*. [https://www.lucidchart.com/](https://www.lucidchart.com/).
 - UXPressia. (s. f.). *UXPressia*. [https://uxpressia.com/](https://uxpressia.com/).
 
-- **[R14] Informe de CargoSystem/CargoExpress aportado por el usuario.** Se utiliza exclusivamente como referencia de organización de pruebas (Core Entities Unit Tests, Core Integration Tests, Core BDD y Core System Tests), guías UI/UX y convenciones de código. Los integrantes, historias, reglas, bounded contexts, arquitectura, repositorios y resultados de ese proyecto pertenecen al documento de referencia.
+- **[R14] Microsoft Learn. (s. f.). *C# Coding Conventions*.** https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 - **[R15] Microsoft Learn — C# coding conventions.** https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 - **[R16] Kotlin — Coding conventions.** https://kotlinlang.org/docs/coding-conventions.html
 - **[R17] Google — HTML/CSS Style Guide.** https://google.github.io/styleguide/htmlcssguide.html
