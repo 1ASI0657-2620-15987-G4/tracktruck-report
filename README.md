@@ -53,11 +53,15 @@
 
 <h3 align="center">Periodo 202620</h3>
 
+<div style="page-break-after: always;"></div>
+
 <h2 align="center">Registro de Versiones del Informe</h2>
 
 | Versión | Fecha      | Autor | Descripción de modificación                                                                                                                                                                                                                                                              |
 |---------|------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AV1     | 07-09-2026 | LogiGo | Creación del informe. Inclusión de los Capítulos I, II y III, junto con el avance del diseño arquitectónico del Capítulo IV.                                                                                                                                                                                              |
+
+<div style="page-break-after: always;"></div>
 
 <h2 align="center">Project Report Collaboration Insights</h2>
 
@@ -65,10 +69,11 @@
 
 **AV1.** Para la AV1, la elaboración del informe se centró en desarrollar los contenidos establecidos en la rúbrica, incluyendo la presentación de la startup y del producto, el proceso Lean UX, el análisis de competidores, las entrevistas, el Needfinding y la especificación de requisitos mediante User Stories, Impact Map y Product Backlog. Todos los integrantes participaron en la elaboración y revisión del informe, coordinándose mediante reuniones presenciales y reuniones virtuales por Discord, además del uso de GitHub para gestionar y consolidar los avances realizados.
 
+<div style="page-break-after: always;"></div>
+
 ## Contenido
 
 - [Student Outcome](#student-outcome)
-
 - [Capítulo I: Introducción](#capítulo-i-introducción)
     - [1.1. Startup Profile](#11-startup-profile)
         - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
@@ -82,10 +87,9 @@
             - [1.2.3.3. Lean UX Hypothesis](#1233-lean-ux-hypothesis)
             - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
     - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-
 - [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation--analysis)
     - [2.1. Competidores](#21-competidores)
-        - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
+        - [2.1.1. Análisis Competitivo](#211-análisis-competitivo)
         - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
     - [2.2. Entrevistas](#22-entrevistas)
         - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
@@ -96,13 +100,11 @@
         - [2.3.2. User Task Matrix](#232-user-task-matrix)
         - [2.3.3. Empathy Maps](#233-empathy-maps)
         - [2.3.4. As-Is Scenario Mapping](#234-as-is-scenario-mapping)
-
-- [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
+- [Capítulo III: Requirements Elicitation & Analysis](#capítulo-iii-requirements-elicitation--analysis)
     - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
     - [3.2. User Stories](#32-user-stories)
-    - [3.3. Impact Mapping](#33-impact-mapping)
+    - [3.3. Impact Map](#33-impact-map)
     - [3.4. Product Backlog](#34-product-backlog)
-
 - [Capítulo IV: Product Architecture Design](#capítulo-iv-product-architecture-design)
     - [4.1. Design Concepts, ViewPoints & ER Diagrams](#41-design-concepts-viewpoints--er-diagrams)
         - [4.1.1. Principles Statements](#411-principles-statements)
@@ -112,6 +114,12 @@
         - [4.1.5. Relational/Non Relational Database Diagram](#415-relationalnon-relational-database-diagram)
         - [4.1.6. Design Patterns](#416-design-patterns)
         - [4.1.7. Tactics](#417-tactics)
+        - [4.1.8. Product UI/UX Design Guidelines](#418-product-uiux-design-guidelines)
+            - [4.1.8.1. General Style Guidelines](#4181-general-style-guidelines)
+            - [4.1.8.2. Information Architecture](#4182-information-architecture)
+            - [4.1.8.3. Landing Page UI Design](#4183-landing-page-ui-design)
+            - [4.1.8.4. Mobile Applications UX/UI Design](#4184-mobile-applications-uxui-design)
+            - [4.1.8.5. Mobile Applications Prototyping](#4185-mobile-applications-prototyping)
     - [4.2. Architectural Drivers](#42-architectural-drivers)
         - [4.2.1. Design Purpose](#421-design-purpose)
         - [4.2.2. Primary Functionality (Primary User Stories)](#422-primary-functionality-primary-user-stories)
@@ -119,23 +127,80 @@
         - [4.2.4. Constraints](#424-constraints)
         - [4.2.5. Architectural Concerns](#425-architectural-concerns)
     - [4.3. ADD Iterations](#43-add-iterations)
-        - [4.3.1. Iteration 1: Gestión de viajes y seguimiento](#431-iteration-1-gestión-de-viajes-y-seguimiento)
-        - [4.3.2. Iteration 2](#432-iteration-2)
-        - [4.3.3. Iteration 3](#433-iteration-3)
-        - [4.3.4. Iteration 4](#434-iteration-4)
-        - [4.3.5. Iteration 5](#435-iteration-5)
-
+        - [4.3.1. Iteration 1: Global System Structure](#431-iteration-1-global-system-structure)
+            - [4.3.1.1. Architectural Design Backlog 1](#4311-architectural-design-backlog-1)
+            - [4.3.1.2. Establish Iteration Goal by Selecting Drivers](#4312-establish-iteration-goal-by-selecting-drivers)
+            - [4.3.1.3. Choose One or More Elements of the System to Refine](#4313-choose-one-or-more-elements-of-the-system-to-refine)
+            - [4.3.1.4. Choose One or More Design Concepts That Satisfy the Selected Drivers](#4314-choose-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
+            - [4.3.1.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#4315-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+            - [4.3.1.6. Sketch Views (C4 & UML) and Record Design Decisions](#4316-sketch-views-c4--uml-and-record-design-decisions)
+            - [4.3.1.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)](#4317-analysis-of-current-design-and-review-iteration-goal-kanban-board)
+        - [4.3.2. Iteration 2: Shipment and Warehouse Operations](#432-iteration-2-shipment-and-warehouse-operations)
+            - [4.3.2.1. Architectural Design Backlog 2](#4321-architectural-design-backlog-2)
+            - [4.3.2.2. Establish Iteration Goal by Selecting Drivers](#4322-establish-iteration-goal-by-selecting-drivers)
+            - [4.3.2.3. Choose One or More Elements of the System to Refine](#4323-choose-one-or-more-elements-of-the-system-to-refine)
+            - [4.3.2.4. Choose One or More Design Concepts That Satisfy the Selected Drivers](#4324-choose-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
+            - [4.3.2.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#4325-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+            - [4.3.2.6. Sketch Views (C4 & UML) and Record Design Decisions](#4326-sketch-views-c4--uml-and-record-design-decisions)
+            - [4.3.2.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)](#4327-analysis-of-current-design-and-review-iteration-goal-kanban-board)
+        - [4.3.3. Iteration 3: Intelligent Dispatch Planning and Resource Assignment](#433-iteration-3-intelligent-dispatch-planning-and-resource-assignment)
+            - [4.3.3.1. Architectural Design Backlog 3](#4331-architectural-design-backlog-3)
+            - [4.3.3.2. Establish Iteration Goal by Selecting Drivers](#4332-establish-iteration-goal-by-selecting-drivers)
+            - [4.3.3.3. Choose One or More Elements of the System to Refine](#4333-choose-one-or-more-elements-of-the-system-to-refine)
+            - [4.3.3.4. Choose One or More Design Concepts That Satisfy the Selected Drivers](#4334-choose-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
+            - [4.3.3.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#4335-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+            - [4.3.3.6. Sketch Views (C4 & UML) and Record Design Decisions](#4336-sketch-views-c4--uml-and-record-design-decisions)
+            - [4.3.3.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)](#4337-analysis-of-current-design-and-review-iteration-goal-kanban-board)
+        - [4.3.4. Iteration 4: Trip Execution, Tracking and Delivery](#434-iteration-4-trip-execution-tracking-and-delivery)
+            - [4.3.4.1. Architectural Design Backlog 4](#4341-architectural-design-backlog-4)
+            - [4.3.4.2. Establish Iteration Goal by Selecting Drivers](#4342-establish-iteration-goal-by-selecting-drivers)
+            - [4.3.4.3. Choose One or More Elements of the System to Refine](#4343-choose-one-or-more-elements-of-the-system-to-refine)
+            - [4.3.4.4. Choose One or More Design Concepts That Satisfy the Selected Drivers](#4344-choose-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
+            - [4.3.4.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#4345-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+            - [4.3.4.6. Sketch Views (C4 & UML) and Record Design Decisions](#4346-sketch-views-c4--uml-and-record-design-decisions)
+            - [4.3.4.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)](#4347-analysis-of-current-design-and-review-iteration-goal-kanban-board)
+        - [4.3.5. Iteration 5: Billing, Operational History and Analytics](#435-iteration-5-billing-operational-history-and-analytics)
+            - [4.3.5.1. Architectural Design Backlog 5](#4351-architectural-design-backlog-5)
+            - [4.3.5.2. Establish Iteration Goal by Selecting Drivers](#4352-establish-iteration-goal-by-selecting-drivers)
+            - [4.3.5.3. Choose One or More Elements of the System to Refine](#4353-choose-one-or-more-elements-of-the-system-to-refine)
+            - [4.3.5.4. Choose One or More Design Concepts That Satisfy the Selected Drivers](#4354-choose-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
+            - [4.3.5.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#4355-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+            - [4.3.5.6. Sketch Views (C4 & UML) and Record Design Decisions](#4356-sketch-views-c4--uml-and-record-design-decisions)
+            - [4.3.5.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)](#4357-analysis-of-current-design-and-review-iteration-goal-kanban-board)
 - [Capítulo V: Product Implementation, Validation & Deployment](#capítulo-v-product-implementation-validation--deployment)
     - [5.1. Testing Suites & General Patterns](#51-testing-suites--general-patterns)
+        - [5.1.1. Backend Application Core Testing Suite](#511-backend-application-core-testing-suite)
+            - [5.1.1.1. Core Entities Unit Tests](#5111-core-entities-unit-tests)
+            - [5.1.1.2. Core Integration Tests](#5112-core-integration-tests)
+            - [5.1.1.3. Core Behavior-Driven Development](#5113-core-behavior-driven-development)
+            - [5.1.1.4. Core System Tests](#5114-core-system-tests)
+            - [5.1.1.5. Static Testing & Verification](#5115-static-testing--verification)
+        - [5.1.2. Pattern Based Backend Application(s)](#512-pattern-based-backend-applications)
+        - [5.1.3. Pattern Based Custom Software Library](#513-pattern-based-custom-software-library)
+        - [5.1.4. Framework Pattern Driven Refactoring Report](#514-framework-pattern-driven-refactoring-report)
     - [5.2. Software Configuration Management](#52-software-configuration-management)
-    - [5.3. Microservices Implementation](#53-microservices-implementation)
+        - [5.2.1. Software Development Environment Configuration](#521-software-development-environment-configuration)
+        - [5.2.2. Source Code Management](#522-source-code-management)
+        - [5.2.3. Source Code Style Guide & Conventions](#523-source-code-style-guide--conventions)
+            - [5.2.3.1. Backend — .NET y C#](#5231-backend--net-y-c)
+            - [5.2.3.2. Mobile Application — Kotlin y Jetpack Compose](#5232-mobile-application--kotlin-y-jetpack-compose)
+            - [5.2.3.3. Landing Page — HTML, CSS y JavaScript](#5233-landing-page--html-css-y-javascript)
+            - [5.2.3.4. Tests, contratos y revisión](#5234-tests-contratos-y-revisión)
+        - [5.2.4. Software Deployment Configuration](#524-software-deployment-configuration)
+    - [5.3. MicroServices Implementation](#53-microservices-implementation)
         - [5.3.1. Sprint 1](#531-sprint-1)
-
+            - [5.3.1.1. Sprint Backlog 1](#5311-sprint-backlog-1)
+            - [5.3.1.2. Development Evidence for Sprint Review](#5312-development-evidence-for-sprint-review)
+            - [5.3.1.3. Testing Suite Evidence for Sprint Review](#5313-testing-suite-evidence-for-sprint-review)
+            - [5.3.1.4. Execution Evidence for Sprint Review](#5314-execution-evidence-for-sprint-review)
+            - [5.3.1.5. Microservices Documentation Evidence for Sprint Review](#5315-microservices-documentation-evidence-for-sprint-review)
+            - [5.3.1.6. Software Deployment Evidence for Sprint Review](#5316-software-deployment-evidence-for-sprint-review)
+            - [5.3.1.7. Team Collaboration Insights during Sprint](#5317-team-collaboration-insights-during-sprint)
+            - [5.3.1.8. Kanban Board](#5318-kanban-board)
 - [Conclusiones](#conclusiones)
 - [Referencias Bibliográficas](#referencias-bibliográficas)
 - [Anexos](#anexos)
 - [Links](#links)
-
 
 <div style="page-break-after: always;"></div>
 
@@ -159,26 +224,23 @@ En el siguiente cuadro se describen las acciones realizadas y los enunciados de 
 |  | **Conclusiones** | **El equipo actualizó y aplicó conocimientos relacionados con Lean UX, investigación de usuarios, análisis de requisitos y planificación del producto, integrándolos en el desarrollo de los capítulos I, II y III del proyecto.** | **El equipo reconoció la importancia del aprendizaje continuo y autónomo para fortalecer sus competencias y adaptar el desarrollo de soluciones de software a las necesidades de los usuarios y a la evolución del proyecto.** |
 
 
+**Student Outcome para TB1:** pendiente incorporar por integrante los aprendizajes y aplicaciones reales de C#/ASP.NET Core, arquitectura móvil, pruebas, IA e integración, junto con las evidencias correspondientes. Las acciones registradas para AV1 se conservan como antecedentes de esa entrega.
+
 <div style="page-break-after: always;"></div>
 
 # Capítulo I: Introducción
 
-
-<div style="page-break-after: always;"></div>
-
 ## 1.1. Startup Profile
-
-
-<div style="page-break-after: always;"></div>
 
 ### 1.1.1. Descripción de la Startup
 
-LogiGo es una startup tecnológica orientada a mejorar la gestión y supervisión del transporte de carga mediante soluciones digitales. Identificamos que muchas empresas de transporte y logística presentan dificultades para monitorear en tiempo real la ubicación de sus vehículos, conocer el estado de sus rutas y mantener una comunicación directa con los conductores durante el recorrido. Esta falta de visibilidad puede generar demoras en la respuesta ante incidentes, menor control sobre las operaciones y dificultades para evaluar posteriormente lo ocurrido durante cada viaje.
+LogiGo es una startup tecnológica orientada a mejorar la planificación, ejecución y trazabilidad del transporte terrestre de carga. Su propuesta responde a la dispersión de información que puede existir entre clientes, envíos, almacenes, flota, jornadas de conductores, mantenimiento, viajes, entregas y cobros. Esta dispersión dificulta conocer el estado de una operación, asignar recursos adecuados y responder oportunamente ante incidencias.
 
-Frente a esta problemática, LogiGo desarrolla **TrackTruck**, una plataforma orientada a la gestión y monitoreo del transporte de carga en tiempo real. La aplicación utiliza geolocalización para visualizar la ubicación de los camiones, supervisar los recorridos e identificar paradas, retrasos, tráfico, descansos, incidencias o posibles accidentes. Además, incorpora un sistema de comunicación mediante llamadas entre la empresa y los conductores, facilitando una respuesta rápida ante cualquier situación durante el trayecto.
+LogiGo desarrolla **TrackTruck**, una solución compuesta por una aplicación móvil y servicios backend en C#. La app permite acceder a las funciones autorizadas de cada rol; el backend conserva los datos, aplica las reglas del negocio y coordina las integraciones. La arquitectura se organiza en 17 bounded contexts que abarcan el ciclo logístico completo, desde la gestión de clientes y solicitudes de transporte hasta la entrega, facturación y análisis de resultados.
 
-Asimismo, TrackTruck mantiene un registro de las operaciones realizadas, incluyendo información sobre conductores, camiones, rutas, recorridos e incidencias. De esta manera, las empresas pueden consultar el historial de cada viaje, evaluar el desempeño de sus recursos y contar con una mayor trazabilidad de sus operaciones, mejorando el control, la seguridad y la capacidad de respuesta en el transporte de carga.
+La propuesta incorpora planificación asistida por inteligencia artificial dentro de **Dispatch Planning**. El componente de IA apoyará la evaluación de alternativas de conductor, vehículo y ruta mediante información operacional, mientras las reglas obligatorias de disponibilidad, jornada, descansos y mantenimiento controlarán la elegibilidad de los recursos. La decisión final se registrará con la aprobación del responsable de operaciones.
 
+La implementación se desarrollará por incrementos. El objetivo es entregar funciones ejecutables con pruebas y evidencias verificables, manteniendo correspondencia entre requisitos, código, modelos arquitectónicos y resultados de cada Sprint.
 
 <div style="page-break-after: always;"></div>
 
@@ -190,159 +252,137 @@ Asimismo, TrackTruck mantiene un registro de las operaciones realizadas, incluye
 | <img src="assets/images/shared/miembro2.png" width="500"/> | **Nombre:** Anhelo Rodrigo Rocca Leon<br><br>**Código:** U20221C803<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy Anhelo Rodrigo Rocca Leon, estudiante de la carrera de Ingeniería de Software en la UPC. Tengo conocimientos en C++, HTML, CSS, JavaScript, C#, Python, Java y Flutter. Me interesa el desarrollo frontend para aplicaciones web y móviles, enfocándome en crear experiencias dinámicas, funcionales y adaptadas a las necesidades de los usuarios. |
 | <img src="assets/images/shared/miembro3.png" width="500"/> | **Nombre:** Alexander Piero Fernandez Garfias<br><br>**Código:** U202019498<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy Alexander Piero Fernandez Garfias, estudiante de la carrera de Ingeniería de Software en la UPC. Poseo conocimientos en C++, HTML, CSS, JavaScript, C#, Python, Java y Flutter. Me enfoco en el diseño y desarrollo frontend para aplicaciones web y móviles, aplicando creatividad y buenas prácticas para construir soluciones tecnológicas modernas y eficientes. |
 | <img src="assets/images/shared/miembro4.jpg" width="500"/> | **Nombre:** Sebastián De Las Casas Latour<br><br>**Código:** U202213553<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy Sebastián De Las Casas Latour, estudiante de Ingeniería de Software en la UPC. En TrackTruck contribuyo a transformar las necesidades de los segmentos objetivo en User Stories claras, criterios de aceptación verificables y una priorización coherente del producto. Me interesa fortalecer mis competencias en análisis, especificación de requisitos y trabajo colaborativo para construir soluciones de software alineadas con problemas reales.|
-| <img src="assets/images/shared/miembro5.jpeg" width="500"/> | **Nombre:** Aldair Joaquin Ramos Aguirre><br>**Código:** U20201f051<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy estudiante de la carrera de Ingeniería de Software en la UPC. Tengo interés en seguir aprendiendo sobre tecnologías y metodologías relacionadas con el desarrollo de software, contribuyendo al trabajo colaborativo y al cumplimiento de los objetivos del proyecto. |
+| <img src="assets/images/shared/miembro5.jpeg" width="500"/> | **Nombre:** Aldair Joaquin Ramos Aguirre<br>**Código:** U20201f051<br><br>**Carrera:** Ingeniería de Software<br><br>**Acerca de mí:**<br><br>Soy estudiante de la carrera de Ingeniería de Software en la UPC. Tengo interés en seguir aprendiendo sobre tecnologías y metodologías relacionadas con el desarrollo de software, contribuyendo al trabajo colaborativo y al cumplimiento de los objetivos del proyecto. |
 
 
 <div style="page-break-after: always;"></div>
 
 ## 1.2. Solution Profile
 
-
-<div style="page-break-after: always;"></div>
-
 ### 1.2.1. Nombre del producto
 
-**TrackTruck** es el producto digital desarrollado por LogiGo para apoyar la gestión, supervisión y trazabilidad de las operaciones de transporte de carga mediante el seguimiento de vehículos, conductores, rutas, viajes e incidencias.
+**TrackTruck** es el producto digital de LogiGo para gestionar y supervisar operaciones de transporte de carga. Integra la información de clientes, envíos, almacén, flota, personal, jornadas, mantenimiento, despachos, viajes, ubicaciones, incidencias, entregas, cobros e historial operacional.
 
-
-<div style="page-break-after: always;"></div>
+El nombre representa el seguimiento del transporte como parte de una solución logística más amplia. Su frontend será una aplicación móvil Android y su backend se implementará en C# con ASP.NET Core. La planificación asistida por IA será una capacidad de Dispatch Planning, integrada con las fuentes de información operacional y las reglas obligatorias del negocio.
 
 ### 1.2.2. Antecedentes y problemática
 
-**Who (¿Quién?) - ¿A quiénes afecta el problema?**  
-Empresas de transporte de carga y operadores logísticos que necesitan supervisar sus vehículos, conductores y rutas durante el traslado de mercancías.
+**Who (¿Quién?) — ¿A quiénes afecta?**  
+A empresas de transporte de carga y organizaciones que coordinan o contratan servicios logísticos. Los usuarios operativos incluyen administradores, coordinadores, supervisores de flota, conductores y personal de almacén; los clientes requieren visibilidad sobre sus propios envíos.
 
-**What (¿Qué?) - ¿Cuál es el problema exactamente?**  
-La falta de una plataforma centralizada que permita monitorear en tiempo real la ubicación de los vehículos, conocer el estado de los recorridos, mantener comunicación con los conductores y registrar las incidencias ocurridas durante cada viaje. Esto dificulta que las empresas tengan una visión completa y actualizada de sus operaciones de transporte.
+**What (¿Qué?) — ¿Cuál es el problema?**  
+La información de la operación puede mantenerse separada entre hojas de cálculo, rastreo GPS, llamadas y registros manuales. Esto dificulta relacionar el envío con la carga preparada, el conductor disponible, las horas ya trabajadas, el vehículo apto, la ruta, las incidencias y la confirmación de entrega. El problema comprende tanto la visibilidad del viaje como la coordinación previa y el cierre posterior.
 
-**Where (¿Dónde?) - ¿En qué contexto ocurre?**  
-En las operaciones de transporte terrestre de carga, principalmente durante el desplazamiento de camiones entre los puntos de origen y destino de las mercancías, con un enfoque inicial en empresas que operan dentro del mercado peruano.
+**Where (¿Dónde?) — ¿En qué contexto ocurre?**  
+En operaciones terrestres de carga, desde la recepción de una solicitud y la preparación de la mercancía hasta su traslado, entrega y cierre administrativo. El mercado inicial considerado es el peruano.
 
-**When (¿Cuándo?) - ¿En qué momento se manifiesta el problema?**  
-Durante el desarrollo de los viajes y recorridos de transporte, especialmente cuando ocurren paradas no previstas, retrasos, congestión vehicular, problemas en la ruta, accidentes u otras incidencias que requieren una respuesta oportuna por parte de la empresa.
+**When (¿Cuándo?) — ¿Cuándo se manifiesta?**  
+Al crear y preparar envíos, asignar recursos, iniciar viajes, supervisar el recorrido, atender interrupciones, comprobar entregas y revisar cobros o resultados. Se vuelve especialmente relevante cuando existen varias operaciones simultáneas o recursos con restricciones de jornada y mantenimiento.
 
-**Why (¿Por qué?) - ¿Por qué ocurre el problema?**  
-El problema surge debido a la falta de integración entre el seguimiento de vehículos, la comunicación con los conductores y el registro de las operaciones. Cuando esta información se encuentra dispersa o no está disponible en tiempo real, las empresas tienen mayores dificultades para supervisar sus unidades y responder ante situaciones inesperadas.
+**Why (¿Por qué?) — ¿Qué lo origina?**  
+La fragmentación de los datos y la falta de reglas compartidas de coordinación hacen necesario consultar varias fuentes antes de decidir. La disponibilidad administrativa de un conductor o vehículo, por sí sola, no demuestra que pueda ser asignado a un nuevo despacho: también deben revisarse horarios, descansos, reservas y condición técnica.
 
-**How (¿Cómo?) - ¿Cómo impacta en el usuario?**  
-La falta de visibilidad y comunicación dificulta conocer el estado real de los vehículos y conductores, identificar retrasos o incidencias y tomar decisiones oportunas. Además, limita la posibilidad de consultar posteriormente lo ocurrido durante cada recorrido y evaluar el desempeño de los recursos involucrados.
+**How (¿Cómo?) — ¿Cómo afecta al usuario?**  
+El responsable de operaciones dedica tiempo a reunir información, puede detectar tarde un problema y tiene dificultades para reconstruir lo sucedido. Una asignación inadecuada puede obligar a replanificar; una entrega sin confirmación suficiente dificulta el cierre del envío; un historial incompleto limita la evaluación posterior.
 
-**How Much (¿Cuánto?) - ¿Qué tan grande es el problema?**  
-El transporte de carga requiere un seguimiento constante de vehículos, conductores y recorridos para garantizar el cumplimiento de las operaciones. La ausencia de herramientas que centralicen esta información puede generar menor capacidad de supervisión y respuesta ante incidencias. En este contexto, existe una oportunidad para soluciones como **TrackTruck**, que integren geolocalización, comunicación y registro histórico de las operaciones en una misma plataforma.
+**How Much (¿Cuánto?) — ¿Cuál es su magnitud?**  
+El documento base recoge siete entrevistas que describen necesidades de seguimiento, comunicación, organización y seguridad de la carga. Esta muestra permite un análisis exploratorio, sin estimar pérdidas monetarias ni generalizar porcentajes al mercado. Para cuantificar la magnitud se deberá levantar una línea base de tiempos de planificación, consultas manuales, retrasos, incidencias y entregas confirmadas.
 
+**Respuesta propuesta.** TrackTruck centralizará estas capacidades mediante una app móvil y un backend en C#, organizado en bounded contexts. La planificación incorporará recomendaciones de IA sujetas a reglas obligatorias y aprobación humana. La solución se evaluará mediante pruebas del software y validación con usuarios, comparando sus resultados con la línea base obtenida.
 
 <div style="page-break-after: always;"></div>
 
 ### 1.2.3. Lean UX Process
 
 
-<div style="page-break-after: always;"></div>
-
 #### 1.2.3.1. Lean UX Problem Statement
 
-**Problem statement:**  
-Actualmente, muchas empresas dedicadas al transporte de carga enfrentan dificultades para supervisar de manera centralizada y en tiempo real sus vehículos, conductores y rutas. Aunque existen herramientas de geolocalización y comunicación, estas suelen encontrarse separadas, lo que dificulta obtener una visión completa del estado de cada operación y responder de manera rápida ante retrasos, incidencias o posibles accidentes.
+Las empresas de transporte y las organizaciones que utilizan servicios logísticos necesitan coordinar envíos, recursos y entregas con información actualizada. Los resúmenes de las entrevistas registradas describen uso de Excel, herramientas GPS y canales de comunicación separados, además de dificultades para conocer el avance del transporte y mantener organizada la información de la carga.
 
-Esta problemática afecta especialmente a empresas de transporte y operadores logísticos que necesitan conocer constantemente la ubicación de sus camiones, el avance de los recorridos y el estado de sus conductores. La falta de integración entre estas funciones puede generar menor control operativo, dificultades en la comunicación y poca trazabilidad de lo ocurrido durante cada viaje.
+El desafío de TrackTruck es ofrecer una experiencia móvil que permita consultar y gestionar la operación con trazabilidad, apoyada por servicios backend que apliquen las reglas de acceso, jornada, mantenimiento, planificación y ejecución. La ampliación del alcance hacia almacén, gestión laboral, facturación e IA constituye una propuesta de producto que requiere validación adicional con los roles correspondientes.
 
-**TrackTruck** busca atender esta necesidad mediante una plataforma que centralice el monitoreo de vehículos, la geolocalización de rutas, la comunicación con los conductores y el registro histórico de las operaciones. La solución estará orientada inicialmente a empresas de transporte de carga del mercado peruano y priorizará la facilidad de uso, la visualización en tiempo real y el acceso rápido a información relevante para la toma de decisiones.
-
+Se buscará comprobar si la centralización reduce el tiempo necesario para consultar una operación y planificar un despacho, mejora la comprensión de sus estados y permite reconocer incidencias con mayor facilidad. Las mejoras se medirán durante pruebas con usuarios; las hipótesis iniciales se mantendrán abiertas hasta disponer de evidencia suficiente.
 
 <div style="page-break-after: always;"></div>
 
 #### 1.2.3.2. Lean UX Assumptions
 
-Lean UX Assumptions es una técnica que permite identificar las principales suposiciones relacionadas con el negocio, los usuarios y sus necesidades antes de desarrollar completamente una solución. Estas suposiciones permiten orientar las decisiones del equipo y posteriormente validarlas mediante investigación y retroalimentación de los usuarios, reduciendo el riesgo de desarrollar funcionalidades que no respondan a necesidades reales.
+Las siguientes suposiciones orientan la construcción y validación del producto. Se distinguen las necesidades descritas en los registros de entrevistas de las capacidades ampliadas que aún deben contrastarse con usuarios.
 
-#### Business Outcomes
+##### Business Outcomes
 
-**Creemos que nuestros clientes necesitan:**  
-Nuestros clientes necesitan una plataforma que les permita supervisar en tiempo real el transporte de su carga, conocer la ubicación de sus vehículos, visualizar el estado de las rutas, comunicarse directamente con los conductores y consultar el historial de las operaciones realizadas.
+**Creemos que nuestros clientes necesitan:** centralizar el estado de sus envíos y viajes, coordinar conductores y vehículos y conservar evidencia del desarrollo de la operación. Como ampliación del alcance se consideran almacén, jornadas, mantenimiento, entregas, cobros y reportes.
 
-**Estas necesidades se pueden resolver con:**  
-Estas necesidades se pueden resolver mediante **TrackTruck**, una plataforma que integre geolocalización en tiempo real, seguimiento de rutas y recorridos, comunicación mediante llamadas y un registro centralizado de conductores, vehículos, rutas e incidencias.
+**Estas necesidades se pueden resolver con:** una aplicación móvil conectada a servicios C# que mantengan los datos y reglas del negocio, con integraciones de mapas y una capacidad de recomendación de IA dentro de Dispatch Planning.
 
-**Nuestros clientes iniciales son (o serán):**  
-Nuestros clientes iniciales serán empresas de transporte de carga y operadores logísticos que administren vehículos y conductores y necesiten mejorar la supervisión y trazabilidad de sus operaciones.
+**Nuestros clientes iniciales serán:** empresas de transporte de carga y organizaciones que coordinan o contratan servicios logísticos, con operaciones que requieran visibilidad y trazabilidad.
 
-**El valor #1 que un cliente quiere de nuestro servicio es:**  
-El principal valor que nuestros clientes buscan es tener mayor visibilidad y control sobre sus operaciones de transporte, pudiendo conocer en tiempo real dónde se encuentran sus vehículos y cuál es el estado de cada recorrido.
+**El valor principal que busca el cliente es:** tomar decisiones sobre la operación con información relacionada y actualizada, reduciendo consultas manuales entre fuentes dispersas.
 
-**El cliente también puede obtener estos beneficios adicionales:**  
-Además del monitoreo en tiempo real, los clientes podrán mejorar su capacidad de respuesta ante incidencias, mantener comunicación directa con los conductores, consultar el historial de los viajes y evaluar el desempeño de sus vehículos y conductores.
+**Beneficios adicionales esperados:** mayor trazabilidad, asignaciones compatibles con restricciones operativas, atención de incidencias, confirmación de entregas y revisión del desempeño.
 
-**Vamos a adquirir la mayoría de nuestros clientes a través de:**  
-Buscaremos adquirir clientes principalmente mediante estrategias de marketing digital dirigidas a empresas de transporte y logística, presencia en redes profesionales, contacto directo con empresas del sector y alianzas estratégicas relacionadas con el transporte de carga.
+**Adquisición de clientes:** contacto B2B, demostraciones del producto y contenido digital dirigido al sector. Estos canales constituyen una estrategia por validar, con seguimiento de contactos, demostraciones y adopción.
 
-**Haremos dinero a través de:**  
-Generaremos ingresos mediante planes de suscripción dirigidos a empresas, considerando las funcionalidades ofrecidas y las necesidades de gestión de sus operaciones de transporte.
+**Modelo de ingresos:** suscripción empresarial como hipótesis comercial. La tarifa y la unidad de cobro deberán establecerse después de analizar costos, capacidad y disposición de pago. Billing & Payments registra los cargos por los servicios logísticos; el cobro de una suscripción SaaS requerirá una definición comercial expresa.
 
-**Nuestra competencia principal en el mercado será:**  
-Nuestra competencia estará conformada por plataformas de gestión de flotas, sistemas de rastreo GPS y otras soluciones digitales orientadas al seguimiento y administración del transporte de carga.
+**Competencia:** plataformas de visibilidad logística, telemática y gestión de entregas, como FourKites, Powerfleet —antes Fleet Complete— y Tookan.
 
-**Los venceremos debido a:**  
-Buscaremos diferenciarnos mediante una solución que centralice en una misma plataforma el monitoreo de vehículos, seguimiento de recorridos, comunicación con conductores y consulta del historial de operaciones, priorizando además una experiencia de uso clara y accesible.
+**Diferenciación esperada:** una experiencia móvil en español, un flujo operativo claro y recomendaciones que muestren sus criterios. Esta propuesta se contrastará con usuarios; la presencia de IA o GPS por sí sola no demuestra una ventaja competitiva.
 
-**Nuestro mayor riesgo de producto es:**  
-Nuestro principal riesgo es que las empresas no perciban suficiente valor diferencial frente a otras soluciones de rastreo y gestión de flotas existentes, lo que podría dificultar la adopción de TrackTruck.
+**Riesgos del producto:** alcance excesivo para la capacidad del equipo, información operacional incompleta, baja adopción y falta de datos adecuados para evaluar un modelo de IA.
 
-**Resolveremos esto a través de:**  
-Buscaremos reducir este riesgo mediante la validación continua con usuarios, la incorporación de mejoras basadas en sus necesidades y la priorización de funcionalidades que aporten valor directo a la supervisión y gestión de las operaciones.
+**Reducción de riesgos:** implementar incrementos verificables, priorizar historias de mayor valor, probar el flujo móvil con usuarios, revisar la calidad de los datos y comparar la recomendación de IA con una alternativa básica.
 
-#### User Outcomes
+##### User Outcomes
 
-**¿Quién será nuestro usuario?**  
-Nuestros usuarios serán principalmente responsables de empresas de transporte de carga, gestores de flotas y operadores logísticos encargados de supervisar vehículos, conductores y recorridos.
+**Usuarios:** administrador, coordinador de operaciones, supervisor de flota, conductor, personal de almacén y cliente autorizado. Los arquetipos Carlos Mendoza y Andrea Salazar se conservan como base del análisis; los nuevos roles requieren validación específica.
 
-**¿Dónde encaja nuestro producto en su vida?**  
-TrackTruck formará parte de la gestión cotidiana de las operaciones de transporte, permitiendo a los usuarios supervisar desde una plataforma el estado de sus vehículos, conductores y rutas mientras se realizan los viajes.
+**Uso cotidiano:** consultar y gestionar operaciones desde el móvil según el rol y la organización. Las acciones que requieren validación central, como aprobar un despacho, necesitan conexión con el backend.
 
-**¿Qué problemas tiene nuestro usuario y cómo se pueden resolver?**  
-Los usuarios pueden tener dificultades para conocer la ubicación actual de los vehículos, identificar retrasos o incidencias, comunicarse rápidamente con los conductores y consultar posteriormente lo ocurrido durante un recorrido. TrackTruck busca resolver estas necesidades centralizando el monitoreo, la comunicación y el historial de las operaciones.
+**Problemas que se busca resolver:** información dispersa, incertidumbre sobre el viaje, dificultad para contactar al conductor, asignaciones con datos incompletos y falta de evidencia de entrega e historial.
 
-**¿Cómo y cuándo es usado nuestro producto?**  
-TrackTruck será utilizado principalmente durante las operaciones de transporte de carga. Los usuarios podrán consultar la ubicación y recorrido de los camiones, detectar paradas, descansos, retrasos, tráfico o posibles incidencias y comunicarse con los conductores cuando sea necesario. Después de cada viaje, también podrán consultar el historial de la operación.
+**Momentos de uso:** preparación del envío, planificación del despacho, consulta de asignaciones, ejecución del viaje, seguimiento, registro de incidencias, confirmación de entrega y revisión posterior.
 
-**¿Qué problemas puede tener nuestro producto?**  
-Algunos problemas potenciales incluyen una ubicación imprecisa debido a problemas de conectividad o GPS, dificultades de adopción por parte de algunos usuarios, dependencia de una conexión a Internet y la necesidad de mantener actualizada la información de vehículos, conductores y recorridos.
+**Dificultades posibles:** permisos de ubicación, conectividad móvil, datos GPS antiguos, recomendaciones poco claras y formularios demasiado extensos. La app indicará la antigüedad de los datos y el estado de sincronización de los reportes pendientes.
 
-**¿Qué características son importantes?**  
-Las características principales de TrackTruck incluyen geolocalización y seguimiento en tiempo real, visualización de rutas y recorridos, identificación de paradas, descansos, retrasos e incidencias, comunicación mediante llamadas y registro histórico de conductores, vehículos, rutas y operaciones.
-
+**Características prioritarias:** navegación clara, autenticación y acceso por rol, gestión básica de flota y viajes, seguimiento con fecha de actualización, incidencias, historial y planificación explicable. Las funciones adicionales se incorporarán conforme al Product Backlog.
 
 <div style="page-break-after: always;"></div>
 
 #### 1.2.3.3. Lean UX Hypothesis
 
-**Hypothesis Statement 1:**  
-Creemos que proporcionar a las empresas la **ubicación en tiempo real de sus vehículos y la visualización de sus recorridos** mejorará la visibilidad y el control sobre sus operaciones de transporte.  
-Sabremos que esto es cierto cuando los usuarios puedan identificar con mayor facilidad la ubicación y el estado de los vehículos durante un viaje, reduciendo la necesidad de solicitar esta información directamente a los conductores.
+Las metas siguientes son criterios iniciales de validación y no representan resultados obtenidos. El equipo deberá registrar la línea base, el tamaño del piloto, las tareas evaluadas y los resultados antes de aceptar o rechazar cada hipótesis.
 
-**Hypothesis Statement 2:**  
-Creemos que permitir la **identificación de paradas, descansos, retrasos, tráfico e incidencias durante el recorrido** facilitará la detección oportuna de situaciones que puedan afectar una operación de transporte.  
-Sabremos que esto es cierto cuando los usuarios logren reconocer con mayor rapidez desviaciones o problemas durante los recorridos y puedan tomar decisiones a partir de la información proporcionada por TrackTruck.
+| ID | Hipótesis | Validación y criterio inicial de éxito |
+|---|---|---|
+| H01 | Creemos que consultar ubicación, estado y antigüedad del reporte desde la app reducirá las consultas manuales sobre un viaje. | Comparar la misma tarea con el proceso actual y con TrackTruck; meta piloto: reducir al menos 20 % el tiempo mediano de consulta. |
+| H02 | Creemos que relacionar paradas e incidencias con un viaje facilitará reconocer situaciones que requieren atención. | Presentar escenarios controlados; meta: al menos 4 de 5 participantes identifican la incidencia y el viaje afectado sin ayuda. |
+| H03 | Creemos que acceder a los datos de contacto desde el viaje facilitará comunicarse con el conductor. | Medir tiempo y errores al localizar el contacto; meta: al menos 4 de 5 participantes llegan al marcador telefónico correcto sin ayuda. |
+| H04 | Creemos que un historial consolidado facilitará reconstruir lo ocurrido durante una operación. | Solicitar localizar conductor, vehículo, estados e incidencia de un viaje finalizado; meta: al menos 4 de 5 participantes completan la tarea. |
+| H05 | Creemos que usar la información de jornada y mantenimiento antes de asignar recursos reducirá propuestas inválidas. | Ensayar casos válidos e inválidos; meta funcional: bloquear el 100 % de los casos preparados que incumplan una regla obligatoria. |
+| H06 | Creemos que la recomendación asistida por IA, acompañada de criterios y aprobación humana, reducirá el esfuerzo de planificación. | Comparar planificación básica y asistida sobre casos equivalentes; meta piloto: reducir 20 % el tiempo mediano de planificación, respetando todas las reglas obligatorias. |
+| H07 | Creemos que relacionar envío, entrega, comprobante e historial mejorará la comprensión del cierre de la operación. | Prueba de tareas de cierre y consulta; meta: al menos 4 de 5 participantes reconocen qué envío fue entregado y qué registro financiero está asociado. |
 
-**Hypothesis Statement 3:**  
-Creemos que incorporar un **sistema de comunicación mediante llamadas entre la empresa y los conductores** mejorará la capacidad de respuesta ante problemas o situaciones inesperadas durante los viajes.  
-Sabremos que esto es cierto cuando los usuarios puedan comunicarse directamente con los conductores desde la plataforma ante una incidencia, disminuyendo el tiempo necesario para establecer contacto y obtener información sobre lo ocurrido.
-
-**Hypothesis Statement 4:**  
-Creemos que mantener un **historial centralizado de conductores, vehículos, rutas, recorridos e incidencias** permitirá a las empresas contar con una mayor trazabilidad de sus operaciones de transporte.  
-Sabremos que esto es cierto cuando los usuarios puedan consultar viajes anteriores y encontrar fácilmente información relevante sobre los recursos utilizados, los recorridos realizados y las incidencias registradas.
-
-**Hypothesis Statement 5:**  
-Creemos que centralizar el **monitoreo, la comunicación y el registro de las operaciones** en TrackTruck facilitará la gestión del transporte de carga y permitirá evaluar mejor el desempeño de los vehículos y conductores.  
-Sabremos que esto es cierto cuando los usuarios utilicen la información recopilada por la plataforma para supervisar sus operaciones, revisar el desempeño de sus recursos y tomar decisiones con mayor información.
-
+Las metas podrán ajustarse antes del piloto según la línea base y la disponibilidad de participantes. La evidencia deberá diferenciar pruebas de aceptación del software, evaluación técnica del modelo y validación de la experiencia del usuario.
 
 <div style="page-break-after: always;"></div>
 
 #### 1.2.3.4. Lean UX Canvas
 
-El **Lean UX Canvas** de TrackTruck fue elaborado considerando la problemática, los supuestos, las hipótesis y los segmentos objetivo definidos durante el proceso Lean UX.
+El contenido actualizado del Canvas relaciona la problemática inicial con el alcance ampliado de TrackTruck. La figura del documento base deberá actualizarse con la siguiente información.
 
-![Lean UX Canvas](./assets/images/chapter1/lean_ux_canvas.png)
+| Bloque | Contenido |
+|---|---|
+| Business Problem | Información dispersa y dificultades para coordinar, supervisar y reconstruir una operación de transporte. |
+| Business Outcomes | Reducir tiempo de consulta y planificación; mejorar trazabilidad y cumplimiento de reglas; facilitar la confirmación y revisión del cierre. |
+| Users & Customers | Empresas de transporte y organizaciones usuarias de servicios logísticos; administradores, coordinadores, supervisores, conductores, personal de almacén y clientes autorizados. |
+| User Benefits | Información relacionada, acceso móvil, criterios de asignación visibles y registros consultables del viaje y la entrega. |
+| Solutions | App Android, backend C#, 17 bounded contexts, integración con mapas, planificación asistida por IA y conservación del historial. |
+| Hypotheses | H01–H07: consulta, atención de incidencias, contacto, historial, elegibilidad, planificación asistida y cierre. |
+| Most Important Thing to Learn First | Si los usuarios pueden completar el flujo móvil y si los datos disponibles son suficientes para validar asignaciones y evaluar la recomendación. |
+| Least Work to Learn | Probar un flujo operativo mínimo con API y app integradas; utilizar escenarios controlados y un conjunto de evaluación de IA claramente identificado; registrar tiempos, errores y comentarios. |
 
+![Lean UX Canvas — actualizar con el alcance vigente](assets/images/chapter1/lean_ux_canvas.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -350,148 +390,96 @@ El **Lean UX Canvas** de TrackTruck fue elaborado considerando la problemática,
 
 ### Segmento 1: Empresas de transporte de carga
 
-Este segmento está conformado por empresas dedicadas al transporte terrestre de mercancías que administran una flota de vehículos y conductores. Estas organizaciones necesitan supervisar constantemente el desarrollo de sus operaciones para conocer la ubicación de sus unidades, verificar el cumplimiento de las rutas y responder oportunamente ante retrasos, paradas, accidentes u otras incidencias.
-
-TrackTruck busca atender estas necesidades mediante una plataforma que centralice la geolocalización de los vehículos, el seguimiento de los recorridos, la comunicación con los conductores y el registro histórico de las operaciones. De esta manera, las empresas pueden obtener mayor visibilidad y trazabilidad sobre sus viajes y contar con información que facilite la supervisión de sus recursos.
-
-**Segmento Objetivo: Empresas de transporte de carga**
+Empresas que administran vehículos y conductores y requieren organizar despachos, supervisar viajes y conservar trazabilidad. Los registros de Gianfranco Quispe, Diego Cisneros y Valeria Cardenas aportan información exploratoria sobre este segmento.
 
 | Característica | Descripción |
 |---|---|
-| Tipo de cliente | Empresa (B2B) |
-| Sector | Transporte terrestre de carga |
-| Ubicación | Perú |
-| Usuarios principales | Gestores de flota, supervisores y responsables de operaciones |
-| Recursos gestionados | Camiones, conductores, rutas y viajes |
-| Necesidad principal | Supervisar y controlar las operaciones de transporte en tiempo real |
-| Funcionalidades de mayor valor | Geolocalización, seguimiento de rutas, comunicación, incidencias e historial de operaciones |
+| Tipo de cliente | Empresa, relación B2B. |
+| Sector y mercado inicial | Transporte terrestre de carga en Perú. |
+| Usuarios operativos | Administradores, coordinadores, supervisores de flota y conductores. |
+| Necesidades identificadas | Seguimiento, organización de vehículos y viajes, puntualidad, seguridad y comunicación. |
+| Ampliaciones por validar | Jornada y descansos, mantenimiento integrado y planificación asistida por IA. |
+| Capacidades de interés | Fleet Management, Maintenance Management, Workforce Management, Time & Attendance, Driver Safety & Compliance, Dispatch Planning, Trip Execution, Tracking & Geolocation e Incident Management. |
 
-### Segmento 2: Operadores y empresas de logística
+<div style="page-break-after: always;"></div>
 
-Este segmento comprende operadores y empresas de logística que coordinan operaciones relacionadas con el traslado de mercancías y requieren mantener visibilidad sobre el desarrollo del transporte. Debido a que pueden gestionar múltiples rutas, vehículos y operaciones simultáneamente, necesitan acceder de manera rápida a información actualizada que facilite el seguimiento y la toma de decisiones.
+### Segmento 2: Organizaciones que coordinan o contratan servicios logísticos
 
-Para este segmento, TrackTruck permite centralizar la información de los recorridos y consultar el estado de las operaciones en tiempo real. Asimismo, el registro de rutas, conductores, vehículos e incidencias permite mantener la trazabilidad de los viajes y consultar posteriormente lo ocurrido durante cada operación.
-
-**Segmento Objetivo: Operadores y empresas de logística**
+Organizaciones que coordinan el traslado de mercancías o contratan transporte para sus actividades comerciales. Los registros de Rodrigo Guerra, el participante de la empresa de mobiliario, Jael Pinta y Alonso Shovl corresponden principalmente a usuarios comerciales de servicios de transporte. Sus testimonios sustentan necesidades sobre estado del envío, comunicación y seguridad de la mercancía; la experiencia de operadores internos de almacén y despacho deberá validarse con participantes de esos roles.
 
 | Característica | Descripción |
 |---|---|
-| Tipo de cliente | Empresa (B2B) |
-| Sector | Logística y gestión del transporte |
-| Ubicación | Perú |
-| Usuarios principales | Operadores logísticos, coordinadores y responsables de operaciones |
-| Recursos supervisados | Vehículos, conductores, rutas y operaciones de transporte |
-| Necesidad principal | Obtener visibilidad y trazabilidad sobre el transporte de mercancías |
-| Funcionalidades de mayor valor | Monitoreo en tiempo real, seguimiento de recorridos, comunicación, historial e incidencias |
+| Tipo de cliente | Empresa, relación B2B. |
+| Actividad | Coordinación logística, comercialización y contratación de transporte de mercancías. |
+| Usuarios | Coordinadores y representantes comerciales; clientes autorizados para consultar sus propios envíos. |
+| Necesidades identificadas | Conocer estado y avance de la carga, reducir incertidumbre y mantener comunicación y registros. |
+| Ampliaciones por validar | Recepción y preparación de carga, confirmación digital de entrega, cobros y reportes consolidados. |
+| Capacidades de interés | Customer Management, Shipment Management, Warehouse Operations, Delivery Management, Billing & Payments, Operational History y Reporting & Analytics. |
 
+Identity & Access protege las operaciones de ambos segmentos. Los segmentos representan grupos de clientes; los roles representan las responsabilidades y permisos de las personas dentro de la app.
 
 <div style="page-break-after: always;"></div>
 
 # Capítulo II: Requirements Elicitation & Analysis
 
-
-<div style="page-break-after: always;"></div>
-
 ## 2.1. Competidores
 
-Para comprender el entorno competitivo de **TrackTruck**, se analizaron soluciones relacionadas con el monitoreo de vehículos, gestión de flotas y seguimiento de operaciones de transporte. Este análisis permite identificar las principales funcionalidades ofrecidas actualmente en el mercado, así como sus fortalezas y diferencias frente a nuestra propuesta.
-
-Para el análisis competitivo se han considerado competidores directos e indirectos que ofrecen funcionalidades relacionadas con geolocalización, seguimiento de rutas, gestión de conductores y supervisión de operaciones de transporte.
+El análisis considera soluciones que se superponen con distintas capacidades de TrackTruck. Las funciones descritas se contrastaron con páginas oficiales consultadas el 08 de octubre de 2026. Las valoraciones sobre adecuación al segmento son inferencias del equipo y se deberán comprobar mediante demostraciones y cotizaciones.
 
 ### FourKites
 
-**Tipo de competidor: Directo**
+**Tipo: competidor directo en visibilidad logística.** Su propuesta relaciona seguimiento de envíos, información de la cadena de suministro y capacidades predictivas y de IA. Compite especialmente con Shipment Management, Tracking & Geolocation y Reporting & Analytics. [Fuente oficial: FourKites](https://www.fourkites.com/network/).
 
-FourKites ofrece soluciones orientadas a proporcionar visibilidad sobre las operaciones de transporte y la cadena de suministro. Sus herramientas permiten realizar seguimiento de cargas y obtener información sobre su ubicación y progreso durante el transporte, facilitando que las empresas tengan mayor visibilidad sobre sus operaciones.
+### Powerfleet — antes Fleet Complete
 
-Representa un competidor para TrackTruck debido a sus capacidades de seguimiento y visibilidad del transporte. Sin embargo, TrackTruck busca concentrar su propuesta en la supervisión de vehículos y conductores, integrando geolocalización, seguimiento de recorridos, comunicación y registro histórico de operaciones dentro de una misma plataforma.
-
-### Fleet Complete
-
-**Tipo de competidor: Directo**
-
-Fleet Complete es una plataforma orientada a la gestión de flotas que permite a las empresas supervisar vehículos y conductores mediante tecnologías de geolocalización y telemática. Sus funcionalidades están enfocadas en proporcionar información sobre la ubicación de los vehículos, comportamiento de los conductores y desempeño de las operaciones de una flota.
-
-Es uno de los competidores más cercanos a TrackTruck debido a que ambos buscan proporcionar mayor control y visibilidad sobre vehículos y conductores. TrackTruck busca diferenciarse mediante una experiencia centralizada para el seguimiento de recorridos, identificación de incidencias, comunicación directa con los conductores y consulta del historial de las operaciones de transporte.
+**Tipo: competidor directo en gestión de flotas.** La página oficial de Fleet Complete presenta la marca Powerfleet y una plataforma que reúne información de vehículos, telemática, seguridad y cumplimiento. Compite principalmente con Fleet Management, Tracking & Geolocation y las capacidades de análisis de recursos. [Fuente oficial: Powerfleet](https://www.fleetcomplete.com/product/).
 
 ### Tookan
 
-**Tipo de competidor: Indirecto**
-
-Tookan es una plataforma orientada principalmente a la gestión de entregas y operaciones de campo. Permite asignar tareas a conductores o agentes, realizar seguimiento en tiempo real y administrar rutas y entregas desde una plataforma centralizada.
-
-Se considera un competidor indirecto debido a que comparte funcionalidades relacionadas con el seguimiento y gestión de vehículos y conductores, aunque su enfoque está más orientado a la administración de entregas y servicios de última milla. En contraste, TrackTruck se enfoca en la supervisión y trazabilidad de operaciones de transporte de carga, incluyendo vehículos, conductores, rutas, recorridos e incidencias.
-
+**Tipo: competidor directo en despacho y entregas; su grado de sustitución depende de la operación.** Su propuesta incluye asignación, rutas, seguimiento y aplicaciones para actores de la entrega. Coincide con Dispatch Planning, Trip Execution y Delivery Management. [Fuente oficial: Tookan](https://jungleworks.com/tookan/).
 
 <div style="page-break-after: always;"></div>
 
-### 2.1.1. Análisis competitivo
+### 2.1.1. Análisis Competitivo
 
-| | **TrackTruck** | **FourKites** | **Fleet Complete** | **Tookan** |
+| Criterio | TrackTruck | FourKites | Powerfleet / Fleet Complete | Tookan |
 |---|---|---|---|---|
-| **Perfil** | | | | |
-| Overview | Plataforma de gestión y monitoreo del transporte de carga que permite supervisar vehículos y conductores en tiempo real mediante geolocalización, visualizar rutas y recorridos, identificar paradas, retrasos e incidencias, mantener comunicación con los conductores y consultar el historial de las operaciones realizadas. | Plataforma de visibilidad de la cadena de suministro que permite realizar seguimiento de cargas y operaciones de transporte en tiempo real, proporcionando información sobre el estado y progreso de los envíos. | Plataforma de gestión de flotas que permite supervisar vehículos y conductores mediante geolocalización y telemática, además de analizar diferentes aspectos relacionados con el desempeño de las operaciones. | Plataforma orientada a la gestión de entregas y operaciones de campo que permite asignar tareas, administrar conductores, planificar rutas y realizar seguimiento de las operaciones en tiempo real. |
-| Ventaja competitiva | Centralización del monitoreo de vehículos, seguimiento de recorridos, comunicación con conductores, registro de incidencias e historial de operaciones en una plataforma orientada al transporte de carga. | Amplia visibilidad sobre operaciones de transporte y cadenas de suministro, con capacidades avanzadas para el seguimiento y gestión de excepciones. | Gestión integral de flotas con herramientas de seguimiento, telemática y análisis del desempeño de vehículos y conductores. | Facilidad para administrar entregas, asignar tareas y coordinar conductores mediante una plataforma flexible orientada a operaciones de distribución. |
-| **Perfil de Marketing** | | | | |
-| Mercado objetivo | Empresas de transporte de carga y operadores logísticos que necesitan supervisar vehículos, conductores, rutas y operaciones de transporte. | Empresas de logística, transporte y organizaciones que requieren visibilidad sobre sus operaciones y cadenas de suministro. | Empresas que administran flotas de vehículos y requieren herramientas para supervisar sus unidades y conductores. | Empresas de delivery, logística, comercio electrónico y organizaciones que gestionan entregas u operaciones de campo. |
-| Estrategias de marketing | Marketing digital B2B, contacto directo con empresas de transporte y logística, presencia en redes profesionales y alianzas estratégicas con organizaciones relacionadas con el sector. | Posicionamiento empresarial basado en visibilidad de la cadena de suministro, integración tecnológica y optimización de operaciones logísticas. | Posicionamiento basado en eficiencia operativa, seguridad, telemática y optimización de la gestión de flotas. | Posicionamiento basado en facilidad de uso, automatización de operaciones, optimización de entregas y flexibilidad para diferentes tipos de empresas. |
-| **Perfil de Producto** | | | | |
-| Productos & Servicios | Geolocalización y monitoreo de vehículos en tiempo real, visualización de rutas y recorridos, identificación de paradas, descansos, retrasos e incidencias, comunicación mediante llamadas y registro histórico de conductores, vehículos, rutas y operaciones. | Seguimiento de transporte en tiempo real, visibilidad de envíos, gestión de excepciones, alertas y herramientas de análisis para operaciones logísticas. | Seguimiento GPS de vehículos, gestión de flotas, monitoreo de conductores, telemática, mantenimiento y herramientas de análisis operativo. | Planificación y optimización de rutas, asignación de tareas, gestión de conductores, seguimiento de entregas en tiempo real y reportes de desempeño. |
-| Precios & Costos | Modelo de suscripción empresarial. Precios por definir según el alcance y las funcionalidades ofrecidas. | Precios personalizados de acuerdo con las necesidades y características de la operación empresarial. | Precios variables según la solución, cantidad de vehículos y servicios contratados. | Planes de suscripción según las funcionalidades y necesidades de las operaciones gestionadas. |
-| Canales de distribución | Plataforma web responsive y acceso desde dispositivos móviles. | Web y móvil. | Web y móvil. | Web y móvil. |
-| **Análisis SWOT** | | | | |
-| Fortalezas | Plataforma enfocada en transporte de carga; centralización del monitoreo, comunicación e historial de operaciones; seguimiento de recorridos e incidencias; interfaz orientada a facilitar la supervisión de vehículos y conductores. | Plataforma consolidada con amplia capacidad de seguimiento y visibilidad de operaciones logísticas y de transporte. | Amplia variedad de herramientas para la gestión de flotas, vehículos y conductores, además de capacidades de telemática y análisis. | Facilidad de uso, flexibilidad para diferentes operaciones y herramientas especializadas en planificación, asignación y seguimiento de entregas. |
-| Debilidades | Producto nuevo sin una base de clientes consolidada; menor cantidad de funcionalidades avanzadas frente a plataformas internacionales establecidas; dependencia de GPS y conectividad para el monitoreo en tiempo real. | Puede resultar una solución más compleja de implementar para organizaciones pequeñas que únicamente requieren seguimiento básico de vehículos. | La cantidad de funcionalidades disponibles puede incrementar la complejidad de adopción para empresas que buscan una solución sencilla de monitoreo. | Su enfoque principal en entregas y operaciones de última milla puede limitar su adaptación a determinadas operaciones de transporte de carga de mayor recorrido. |
-| Oportunidades | Digitalización de las empresas de transporte de carga; necesidad de mayor trazabilidad de las operaciones; posibilidad de atender empresas peruanas que buscan centralizar el seguimiento de vehículos, conductores y rutas. | Expansión de la digitalización y necesidad de mayor visibilidad en las cadenas de suministro y operaciones de transporte. | Crecimiento de la digitalización de flotas y mayor demanda de herramientas de telemática y gestión vehicular. | Crecimiento del comercio electrónico, delivery y operaciones de última milla que requieren herramientas digitales de coordinación y seguimiento. |
-| Amenazas | Competencia de plataformas internacionales consolidadas; aparición de nuevas soluciones de rastreo y gestión de flotas; riesgos relacionados con seguridad y privacidad de los datos de ubicación. | Competencia creciente de otras plataformas de visibilidad logística y desarrollo de nuevas tecnologías de seguimiento. | Competencia de soluciones de gestión de flotas más económicas y aparición de nuevas tecnologías para monitoreo vehicular. | Competencia de plataformas más especializadas y completas para gestión de flotas y transporte de carga. |
+| Estado | Producto académico en desarrollo. | Solución comercial. | Solución comercial. | Solución comercial. |
+| Foco | Ciclo logístico con app móvil y backend C#. | Visibilidad de la cadena de suministro. | Flota y telemática. | Despacho y entregas. |
+| Capacidades comparadas | 17 contextos como arquitectura objetivo; avance por Sprint. | Seguimiento, información predictiva e IA. | Datos de flota, seguridad y cumplimiento. | Asignación, rutas y seguimiento de entregas. |
+| Propuesta de TrackTruck frente a la alternativa | Flujo móvil en español y criterios de asignación visibles. | Validar adaptación al tamaño y proceso de la empresa. | Validar profundidad requerida de telemática e integración. | Validar requisitos propios del transporte de carga. |
+| Costos | Hipótesis de suscripción; estructura comercial pendiente de validación. | Requerir cotización vigente. | Requerir cotización vigente. | Revisar plan y cotización según uso. |
+| Evidencia para decidir | Probar las mismas tareas con usuarios y registrar tiempos, errores y aceptación. | Demostración del flujo requerido. | Demostración e integración de datos requerida. | Demostración del despacho y entrega requerida. |
 
+**SWOT de TrackTruck.**
+
+| Dimensión | Análisis |
+|---|---|
+| Fortalezas previstas | Responsabilidades del negocio delimitadas; experiencia móvil; trazabilidad y planificación con criterios visibles. Su efectividad requiere implementación y validación. |
+| Debilidades actuales | Producto en desarrollo; recursos limitados; evidencia operativa y datos de entrenamiento aún por completar. |
+| Oportunidades | Atender tareas concretas de las empresas entrevistadas y validar adopción mediante pilotos de alcance controlado. |
+| Amenazas | Competidores establecidos, cambios en servicios externos y dificultad para demostrar suficiente valor con un producto inicial. |
+
+El uso de IA no se presenta como una capacidad exclusiva de TrackTruck. La diferenciación se medirá sobre la utilidad del flujo completo para los segmentos objetivo.
 
 <div style="page-break-after: always;"></div>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-En esta sección se presentan las principales estrategias y tácticas que **TrackTruck** aplicará para competir dentro del mercado de soluciones de monitoreo y gestión del transporte de carga. Estas acciones buscan fortalecer la propuesta de valor de la plataforma, diferenciarla de otras alternativas y responder a las necesidades de las empresas de transporte y operadores logísticos.
-
-## Estrategias
-
-**Diferenciación del producto:**  
-TrackTruck buscará diferenciarse mediante la integración, en una sola plataforma, de funcionalidades orientadas a la supervisión del transporte de carga, como geolocalización en tiempo real, visualización de rutas y recorridos, identificación de paradas, retrasos e incidencias, comunicación con los conductores y consulta del historial de las operaciones.
-
-**Enfoque en la trazabilidad de las operaciones:**  
-Se priorizará el registro y almacenamiento de información relacionada con conductores, vehículos, rutas, recorridos e incidencias. Esto permitirá que las empresas no solo supervisen sus operaciones en tiempo real, sino que también puedan consultar posteriormente lo ocurrido durante cada viaje.
-
-**Experiencia de usuario accesible:**  
-TrackTruck buscará ofrecer una interfaz clara e intuitiva que facilite la supervisión de las operaciones sin requerir conocimientos técnicos avanzados. De esta manera, los responsables de operaciones y gestores de flota podrán acceder rápidamente a la información relevante sobre sus vehículos y conductores.
-
-**Adaptación a las necesidades de las empresas:**  
-La plataforma evolucionará considerando las necesidades identificadas en empresas de transporte de carga y operadores logísticos, priorizando aquellas funcionalidades que aporten mayor valor a la supervisión, comunicación y control de sus operaciones.
-
-## Tácticas
-
-**Implementación de retroalimentación de usuarios:**  
-Se recopilarán y analizarán comentarios de empresas, gestores de flota y operadores logísticos para identificar problemas de uso, nuevas necesidades y oportunidades de mejora. Esta información permitirá priorizar las funcionalidades que generen mayor valor para los usuarios de TrackTruck.
-
-**Monitoreo de la competencia:**  
-Se realizará un seguimiento periódico de plataformas como FourKites, Fleet Complete y Tookan para identificar nuevas funcionalidades, cambios en sus propuestas de valor y tendencias relacionadas con el monitoreo y la gestión del transporte.
-
-**Marketing digital B2B:**  
-Se desarrollarán acciones de marketing digital dirigidas específicamente a empresas de transporte de carga y operadores logísticos, utilizando contenido relacionado con trazabilidad, monitoreo en tiempo real, gestión de flotas y control de operaciones para dar a conocer la propuesta de valor de TrackTruck.
-
-**Contacto y demostraciones con empresas:**  
-Se buscará establecer contacto directo con empresas del sector transporte y logística para presentar el funcionamiento de TrackTruck mediante demostraciones de la plataforma. Esto permitirá mostrar de forma práctica cómo la solución puede facilitar la supervisión de vehículos, conductores y recorridos.
-
-**Mejora continua de la plataforma:**  
-Se realizarán iteraciones constantes sobre TrackTruck a partir de los resultados obtenidos durante las pruebas con usuarios y del análisis del mercado, con el objetivo de mantener una solución competitiva y alineada con las necesidades del sector.
-
+| Estrategia | Táctica | Forma de evaluación |
+|---|---|---|
+| Adecuación al proceso del cliente | Demostrar un envío y viaje completo con datos del escenario del usuario. | Tareas completadas, errores y comentarios del piloto. |
+| Claridad de la experiencia móvil | Reducir pasos innecesarios y mostrar estado, última actualización y acciones por rol. | Tiempo por tarea y solicitudes de ayuda. |
+| Planificación comprensible | Mostrar alternativas elegibles, criterios de recomendación y responsable de aprobación. | Tiempo de planificación y comprensión de la decisión. |
+| Trazabilidad | Relacionar envío, plan, viaje, incidencias, entrega y registro financiero mediante identificadores. | Capacidad de reconstruir una operación de principio a fin. |
+| Evolución gradual | Priorizar funciones verificables y revisar el backlog después de cada Sprint. | Historias aceptadas con evidencia y defectos pendientes. |
+| Validación comercial | Recabar disposición de pago y costos reales de operación antes de fijar tarifas. | Entrevistas comerciales y evaluación de costos del servicio. |
 
 <div style="page-break-after: always;"></div>
 
 ## 2.2. Entrevistas
 
-
-<div style="page-break-after: always;"></div>
-
-## 2.2.1. Diseño de entrevistas
+### 2.2.1. Diseño de entrevistas
 
 Las entrevistas tienen como objetivo conocer las necesidades, dificultades y procesos actuales de los segmentos objetivo de **TrackTruck** en relación con la supervisión de vehículos, conductores, rutas y operaciones de transporte. Asimismo, buscan identificar las herramientas que utilizan actualmente, la manera en que gestionan incidencias y el nivel de importancia que tiene para ellos disponer de información en tiempo real.
 
@@ -514,7 +502,9 @@ La información obtenida permitirá validar las principales suposiciones plantea
 13. ¿Qué funcionalidades consideraría indispensables en una plataforma de gestión y monitoreo del transporte de carga?
 14. ¿Qué factores tomaría en cuenta su empresa antes de adoptar una plataforma como TrackTruck?
 
-### Segmento objetivo 2: Operadores y empresas de logística
+<div style="page-break-after: always;"></div>
+
+### Segmento objetivo 2: Organizaciones que coordinan o contratan servicios logísticos
 
 1. ¿Qué tipo de operaciones logísticas y de transporte gestiona actualmente su empresa?
 2. ¿Con qué frecuencia necesitan supervisar vehículos, rutas o viajes durante el transporte de mercancías?
@@ -561,6 +551,8 @@ Gianfranco Quispe es un empresario con cinco años de experiencia en el sector l
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ### Entrevista 2
 
 | Campo | Detalle |
@@ -577,6 +569,8 @@ Gianfranco Quispe es un empresario con cinco años de experiencia en el sector l
 
 **Resumen:**  
 Diego Cisneros considera que una aplicación móvil permitiría automatizar y optimizar diferentes procesos relacionados con el transporte, brindando mayor control sobre las operaciones. Señala que uno de los principales problemas son los retrasos ocasionados por el mal estado de algunas carreteras. Actualmente utiliza Excel para registrar información sobre los camiones, controlar su estado y programar mantenimientos según el tiempo de uso. Esto demuestra la necesidad de una solución como **TrackTruck**, donde la información de vehículos, viajes, rutas y estados pueda mantenerse centralizada y disponible de manera más rápida.
+
+<div style="page-break-after: always;"></div>
 
 ---
 
@@ -597,16 +591,18 @@ Diego Cisneros considera que una aplicación móvil permitiría automatizar y op
 **Resumen:**  
 Valeria Cardenas cuenta con dos años de experiencia como administradora en el sector de transporte de carga. Menciona que las condiciones geográficas y de infraestructura del país representan dificultades importantes para las operaciones. Actualmente utiliza herramientas como Excel y rastreo satelital para gestionar los envíos y consultar su avance. También considera importantes la seguridad, puntualidad y adecuada gestión de los vehículos y conductores. La entrevista evidencia la necesidad de centralizar la información operativa y mantener un historial de vehículos, viajes y recorridos mediante una solución móvil como **TrackTruck**.
 
+<div style="page-break-after: always;"></div>
+
 ---
 
-## Segmento objetivo 2: Operadores y empresas de logística
+## Segmento objetivo 2: Organizaciones que coordinan o contratan servicios logísticos
 
 ### Entrevista 4
 
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos | Rodrigo Guerra |
-| Segmento objetivo | Operadores y empresas de logística |
+| Segmento objetivo | Organizaciones que coordinan o contratan servicios logísticos |
 | Cargo / actividad | Emprendedor |
 | Duración | 5:49 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAV3DQLGB33SpVkVyUbv9pQAUsYOLoLLNGkZGiAaly_qig?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wJlceN) |
@@ -618,6 +614,8 @@ Valeria Cardenas cuenta con dos años de experiencia como administradora en el s
 **Resumen:**  
 Rodrigo Guerra es un emprendedor que depende de servicios de transporte de mercancías para desarrollar sus actividades comerciales. Durante la entrevista destacó problemas relacionados con la falta de visibilidad de los envíos y el control de los costos. Considera importante poder consultar el estado de un traslado y conocer su avance de forma sencilla. Mostró interés en utilizar una aplicación móvil que mejore la transparencia de las operaciones y destacó que la interfaz debería ser intuitiva y contar con un diseño moderno.
 
+<div style="page-break-after: always;"></div>
+
 ---
 
 ### Entrevista 5
@@ -625,7 +623,7 @@ Rodrigo Guerra es un emprendedor que depende de servicios de transporte de merca
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos | Por completar |
-| Segmento objetivo | Operadores y empresas de logística |
+| Segmento objetivo | Organizaciones que coordinan o contratan servicios logísticos |
 | Cargo / actividad | Personal de empresa de mobiliario |
 | Duración | 3:35 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQCYIb0z_NwBTLbajN-6r4f9AWyuPx7pVcLQDYFiSKfXhjQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ah7IkZ) |
@@ -637,6 +635,8 @@ Rodrigo Guerra es un emprendedor que depende de servicios de transporte de merca
 **Resumen:**  
 El entrevistado trabaja en una empresa dedicada al sector mobiliario y considera fundamental el servicio de transporte para realizar las entregas de sus productos. Entre los principales problemas identifica los retrasos, los posibles daños a la mercancía y la falta de comunicación con los transportistas. Considera útil disponer de una aplicación que permita conocer el estado de los envíos y mejorar la transparencia durante el traslado. También menciona como importante conocer la ubicación y el progreso de la entrega. Sus respuestas muestran interés por una solución que facilite el seguimiento y reduzca la incertidumbre durante las operaciones de transporte.
 
+<div style="page-break-after: always;"></div>
+
 ---
 
 ### Entrevista 6
@@ -644,7 +644,7 @@ El entrevistado trabaja en una empresa dedicada al sector mobiliario y considera
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos | Jael Pinta |
-| Segmento objetivo | Operadores y empresas de logística |
+| Segmento objetivo | Organizaciones que coordinan o contratan servicios logísticos |
 | Cargo / actividad | Comerciante mayorista de prendas |
 | Duración | 4:12 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202218899_upc_edu_pe/IQAz-85vOfF1R46gy8UA0z54AfCV6TF7BxvrpjY63Y2yBAs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=CS9mfl) |
@@ -656,6 +656,8 @@ El entrevistado trabaja en una empresa dedicada al sector mobiliario y considera
 **Resumen:**  
 Jael Pinta se dedica a la venta mayorista de prendas hacia diferentes zonas del interior del país y utiliza servicios de transporte para realizar sus envíos. Su principal preocupación es la seguridad de la mercancía, debido a que en algunas ocasiones los productos no llegan completos o en las mismas condiciones en las que fueron enviados. También menciona que la comunicación mediante canales tradicionales puede resultar lenta y generar pérdida de tiempo al consultar el estado de los envíos. Considera importante contar con mayor información sobre el traslado y mejorar la organización y trazabilidad de las operaciones.
 
+<div style="page-break-after: always;"></div>
+
 ---
 
 ### Entrevista 7
@@ -663,7 +665,7 @@ Jael Pinta se dedica a la venta mayorista de prendas hacia diferentes zonas del 
 | Campo | Detalle |
 |---|---|
 | Nombres y apellidos |  Alonso Shovl |
-| Segmento objetivo | Operadores y empresas de logística |
+| Segmento objetivo | Organizaciones que coordinan o contratan servicios logísticos |
 | Cargo / actividad | Comerciante de equipo de ferretería |
 | Duración | 8:22 |
 | URL del video | [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213553_upc_edu_pe/IQBnolRqUlm5SoIE66MFLH98AU3jHadHbl2VdK9mHX7oo6A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OfYgGa) |
@@ -678,42 +680,46 @@ Alonso habla de las dificultades que tiene a la hora de comunicarse con los cond
 
 <div style="page-break-after: always;"></div>
 
-## 2.2.3. Análisis de entrevistas
+### 2.2.3. Análisis de entrevistas
 
-A partir de las entrevistas realizadas se analizaron las principales características, necesidades, dificultades y expectativas de los participantes pertenecientes a cada segmento objetivo. El análisis considera aspectos objetivos y subjetivos identificados de manera recurrente en las respuestas, los cuales servirán posteriormente como base para la construcción de los User Personas y demás artefactos de Needfinding.
+El registro del documento base contiene **siete entrevistas: tres del segmento 1 y cuatro del segmento 2**. El análisis siguiente se construye a partir de los resúmenes disponibles. Para reportar frecuencias o porcentajes se deberá elaborar una matriz de codificación con preguntas, respuestas y evidencia temporal de cada video; los resúmenes actuales permiten identificar temas de forma cualitativa.
 
+#### Segmento 1: Empresas de transporte de carga
 
-### Segmento objetivo 1: Empresas de transporte de carga
+| Registro | Hallazgo presente en el resumen | Implicación para el producto |
+|---|---|---|
+| Gianfranco Quispe | Utiliza GPS y comunicación en tiempo real; reorganiza recursos cuando cambia la demanda. | Relacionar seguimiento, recursos y planificación de operaciones. |
+| Diego Cisneros | Registra camiones y mantenimiento en Excel; identifica retrasos asociados al estado de carreteras. | Centralizar datos de flota y mantenimiento y conservar la planificación y sus cambios. |
+| Valeria Cardenas | Usa Excel y rastreo satelital; valora seguridad, puntualidad y gestión de los recursos. | Facilitar la consulta móvil del estado del envío y viaje y mantener registros operacionales. |
 
-A partir de las tres entrevistas realizadas a representantes de empresas de transporte de carga, se identificó que el **100 % de los entrevistados considera importante conocer la ubicación de sus vehículos durante el desarrollo de los viajes**. Asimismo, el **66.7 % indicó tener dificultades para obtener de manera inmediata información sobre el estado de un recorrido cuando ocurre un retraso, parada no prevista u otra incidencia**.
+Los tres registros aportan necesidades sobre organización y visibilidad de la operación. La definición de reglas laborales y la utilidad de una recomendación de IA requieren entrevistas específicas y pruebas adicionales.
 
-Respecto a la comunicación, el **100 % señaló que mantiene contacto con los conductores durante las operaciones**, principalmente cuando necesita conocer el estado del viaje o resolver algún inconveniente. Sin embargo, el **66.7 % manifestó interés en contar con una solución que facilite la comunicación y permita relacionarla con la información del recorrido.
+#### Segmento 2: Organizaciones que coordinan o contratan servicios logísticos
 
-En cuanto a la trazabilidad, el **66.7 % indicó que actualmente la información relacionada con vehículos, conductores, rutas e incidencias se encuentra distribuida entre diferentes medios o herramientas**, dificultando la consulta posterior de lo ocurrido durante una operación.
+| Registro | Hallazgo presente en el resumen | Implicación para el producto |
+|---|---|---|
+| Rodrigo Guerra | Falta de visibilidad de envíos y control de costos; interés en una interfaz móvil sencilla. | Consultar estado del envío y datos del servicio con una experiencia clara. |
+| Participante de empresa de mobiliario | Retrasos, posibles daños y comunicación insuficiente con transportistas. | Relacionar seguimiento, incidencias y confirmación de entrega. |
+| Jael Pinta | Preocupación por mercancía incompleta o dañada y demora en consultas por canales tradicionales. | Conservar evidencia de carga, entrega e incidencias e historial de la operación. |
+| Alonso Shovl | Dificultad para comunicarse con conductores y organizar el estado de la carga. | Facilitar el acceso a contacto autorizado y al estado del envío y viaje. |
 
-Finalmente, el **100 % de los entrevistados mostró interés en disponer de una plataforma que centralice la información de sus operaciones de transporte**, destacando como funcionalidades de mayor valor la geolocalización en tiempo real, la visualización de rutas y recorridos, el registro de incidencias, la comunicación con los conductores y el historial de viajes.
+Estos cuatro registros describen principalmente experiencias de empresas que utilizan servicios de transporte. Para representar a coordinadores internos, operarios de almacén y responsables de facturación se deberán incorporar entrevistas de esos perfiles.
 
-Estos resultados permiten identificar como características comunes del segmento la necesidad de **visibilidad en tiempo real, control operativo, comunicación rápida y trazabilidad de los recorridos**. Por ello, TrackTruck podría responder a sus principales necesidades mediante la centralización del monitoreo y la información relacionada con cada operación.
+#### Relación con el alcance ampliado
 
-### Segmento objetivo 2: Operadores y empresas de logística
+| Necesidad | Sustento disponible | Contextos relacionados |
+|---|---|---|
+| Seguimiento y consulta del estado | Resúmenes de los segmentos 1 y 2. | Shipment Management, Trip Execution, Tracking & Geolocation. |
+| Organización de vehículos y mantenimiento | Resúmenes de Diego Cisneros y Valeria Cardenas. | Fleet Management, Maintenance Management. |
+| Comunicación e incidencias | Resúmenes de participantes de ambos segmentos. | Incident Management, Trip Execution y acceso al contacto desde la app. |
+| Seguridad e integridad de la mercancía | Resúmenes de mobiliario y Jael Pinta. | Warehouse Operations, Delivery Management, Operational History. |
+| Costos del servicio | Resumen de Rodrigo Guerra. | Billing & Payments; detalle comercial por validar. |
+| Jornadas, elegibilidad e IA | Ampliación de requisitos del proyecto. | Workforce Management, Time & Attendance, Driver Safety & Compliance, Dispatch Planning; validación de usuarios pendiente. |
 
-A partir de las tres entrevistas realizadas a representantes de operadores y empresas de logística, se identificó que el **100 % de los entrevistados necesita realizar seguimiento de las operaciones de transporte para conocer su estado y progreso**. Asimismo, el **66.7 % manifestó dificultades para supervisar simultáneamente diferentes vehículos, rutas u operaciones utilizando las herramientas disponibles actualmente**.
-
-El **100 % consideró importante disponer de información actualizada sobre la ubicación y el recorrido de los vehículos**, mientras que el **66.7 % señaló que la identificación oportuna de retrasos, paradas o incidencias constituye una necesidad relevante para coordinar adecuadamente las operaciones logísticas.
-
-Respecto a la información histórica, el **66.7 % manifestó que sería útil disponer de un registro centralizado de viajes, rutas, conductores e incidencias**, debido a que permitiría revisar posteriormente lo ocurrido durante una operación y mejorar su trazabilidad.
-
-Finalmente, el **100 % mostró interés en una plataforma que permita consultar desde un mismo lugar la información relacionada con las operaciones de transporte**. Entre las funcionalidades consideradas más importantes se encuentran el monitoreo en tiempo real, la visualización del recorrido, la identificación de incidencias, la comunicación con los conductores y el acceso al historial de las operaciones.
-
-A partir de estos resultados, se identifica que este segmento se caracteriza principalmente por buscar **información centralizada, trazabilidad, supervisión simultánea de operaciones y capacidad de respuesta ante incidencias**. Estas características respaldan el enfoque de TrackTruck como una herramienta orientada a facilitar la supervisión y gestión de las operaciones de transporte.
-
-
-<div style="page-break-after: always;"></div>
+La evidencia permite orientar el backlog inicial. La aceptación del alcance ampliado y de sus reglas se comprobará con investigación adicional y con pruebas de los incrementos implementados.
 
 ## 2.3. Needfinding
 
-
-<div style="page-break-after: always;"></div>
 
 ### 2.3.1. User Personas
 
@@ -721,26 +727,31 @@ Las siguientes fichas de **User Persona** fueron elaboradas en **UXPressia** a p
 
 Para el primer segmento, correspondiente a **empresas de transporte de carga**, se identificó un perfil relacionado con la gestión y supervisión de flotas, cuyo principal objetivo es mantener control sobre los vehículos, conductores y recorridos. Este usuario necesita conocer la ubicación de sus unidades, detectar retrasos o incidencias y mantener comunicación con los conductores para responder oportunamente ante situaciones que puedan afectar el transporte.
 
-Para el segundo segmento, correspondiente a **operadores y empresas de logística**, se identificó un perfil orientado a la coordinación y seguimiento de múltiples operaciones de transporte. Este usuario valora especialmente el acceso rápido a información actualizada, la trazabilidad de los recorridos y la posibilidad de centralizar información sobre vehículos, conductores, rutas e incidencias para facilitar la supervisión y toma de decisiones.
+Para el segundo segmento, correspondiente a **organizaciones que coordinan o contratan servicios logísticos**, se identificó un perfil orientado a la coordinación y seguimiento de múltiples operaciones de transporte. Este usuario valora especialmente el acceso rápido a información actualizada, la trazabilidad de los recorridos y la posibilidad de centralizar información sobre vehículos, conductores, rutas e incidencias para facilitar la supervisión y toma de decisiones.
+
+<div style="page-break-after: always;"></div>
 
 **1. Primer segmento: Empresas de transporte de carga**
 
 ![User Persona - Empresas de transporte de carga](assets/images/chapter2/user-persona1.png)
 
-**2. Segundo segmento: Operadores y empresas de logística**
+<div style="page-break-after: always;"></div>
 
-![User Persona - Operadores y empresas de logística](assets/images/chapter2/user-persona2.png)
+**2. Segundo segmento: Organizaciones que coordinan o contratan servicios logísticos**
+
+![User Persona - Organizaciones que coordinan o contratan servicios logísticos](assets/images/chapter2/user-persona2.png)
 
 
 <div style="page-break-after: always;"></div>
 
-## 2.3.2. User Task Matrix
+### 2.3.2. User Task Matrix
 
 El **User Task Matrix** permite identificar y comparar las principales tareas que realizan los User Personas de los segmentos objetivo de TrackTruck para alcanzar sus objetivos dentro de las operaciones de transporte.
 
-Para este análisis se consideran dos User Personas. **Carlos Mendoza** representa al segmento de empresas de transporte de carga y desempeña funciones relacionadas con la supervisión de vehículos y conductores. Por otro lado, **Andrea Salazar** representa al segmento de operadores y empresas de logística y se encarga principalmente de coordinar y supervisar las operaciones de transporte.
+Para este análisis se consideran dos User Personas. **Carlos Mendoza** representa al segmento de empresas de transporte de carga y desempeña funciones relacionadas con la supervisión de vehículos y conductores. Por otro lado, **Andrea Salazar** representa al segmento de organizaciones que coordinan o contratan servicios logísticos y se encarga principalmente de coordinar y supervisar las operaciones de transporte.
 
 Las tareas presentadas corresponden a actividades propias de cada usuario dentro de su contexto de trabajo, independientemente de la existencia de TrackTruck.
+
 
 | **User Task** | **Carlos Mendoza** | | **Andrea Salazar** | |
 |---|---|---|---|---|
@@ -757,6 +768,9 @@ Las tareas presentadas corresponden a actividades propias de cada usuario dentro
 | Informar sobre el estado y progreso de una operación de transporte | A veces | Media | Siempre | Alta |
 | Evaluar el cumplimiento de una operación al finalizar el recorrido | Siempre | Alta | Siempre | Alta |
 
+<div style="page-break-after: always;"></div>
+
+
 ### Análisis de la User Task Matrix
 
 La matriz evidencia que ambos User Personas comparten como tareas de **alta importancia** la supervisión de los recorridos, la verificación del cumplimiento de las rutas, la identificación de retrasos o incidencias y la evaluación del cumplimiento de las operaciones. Esto demuestra que ambos segmentos requieren mantener visibilidad constante sobre el desarrollo del transporte.
@@ -770,14 +784,13 @@ La principal coincidencia entre ambos perfiles se encuentra en la necesidad de c
 
 <div style="page-break-after: always;"></div>
 
-### 2.3.3. Empathy Mapping
+
+### 2.3.3. Empathy Maps
 
 En esta sección se presentan los **Empathy Maps** elaborados en **UXPressia** para cada uno de los User Personas identificados en los segmentos objetivo de TrackTruck. Estos mapas permiten comprender con mayor profundidad las necesidades, comportamientos, pensamientos, preocupaciones y expectativas de los usuarios dentro de su contexto de trabajo.
 
 Para su elaboración, se colocó a cada User Persona como elemento central y se analizaron las observaciones obtenidas durante las entrevistas. A partir de ello, se organizaron los principales hallazgos considerando qué necesita hacer el usuario, qué dice, qué ve, qué hace, qué escucha y qué piensa o siente. Finalmente, se identificaron sus principales **Pains** y **Gains**, los cuales permiten reconocer los problemas que enfrenta actualmente y los resultados que espera obtener.
 
-
-<div style="page-break-after: always;"></div>
 
 #### 1. Empathy Map del primer segmento: Empresas de transporte de carga
 
@@ -790,14 +803,13 @@ Entre sus principales preocupaciones se encuentran la dificultad para conocer in
 
 <div style="page-break-after: always;"></div>
 
-#### 2. Empathy Map del segundo segmento: Operadores y empresas de logística
+#### 2. Empathy Map del segundo segmento: Organizaciones que coordinan o contratan servicios logísticos
 
-El segundo Empathy Map corresponde a **Andrea Salazar**, coordinadora de operaciones y representante del segmento de operadores y empresas de logística. Este perfil necesita coordinar y supervisar diferentes operaciones de transporte, conocer el progreso de los recorridos e identificar situaciones que puedan afectar el cumplimiento de las operaciones.
+El segundo Empathy Map corresponde a **Andrea Salazar**, coordinadora de operaciones y representante del segmento de organizaciones que coordinan o contratan servicios logísticos. Este perfil necesita coordinar y supervisar diferentes operaciones de transporte, conocer el progreso de los recorridos e identificar situaciones que puedan afectar el cumplimiento de las operaciones.
 
 Sus principales preocupaciones están relacionadas con la dificultad para supervisar simultáneamente diferentes operaciones, la información dispersa entre distintos medios y la necesidad de obtener información actualizada cuando ocurre un retraso o incidencia. Como principales resultados esperados, busca centralizar la información de las operaciones, mejorar la trazabilidad de los recorridos y disponer de información que facilite la toma de decisiones.
 
 ![Empathy Map - Andrea Salazar](assets/images/chapter2/empathy-map2.png)
-
 
 <div style="page-break-after: always;"></div>
 
@@ -810,9 +822,6 @@ Para su elaboración, el equipo inició con una etapa de preparación tomando co
 Finalmente, se identificaron las áreas positivas, negativas y **blank areas** presentes durante la experiencia. Las áreas positivas representan situaciones que actualmente funcionan de manera adecuada; las negativas corresponden a dificultades, frustraciones o problemas experimentados por los usuarios; mientras que las blank areas representan aspectos sobre los cuales todavía es necesario obtener mayor información.
 
 Cada As-Is Scenario Mapping se encuentra organizado mediante las filas **Phases, Doing, Thinking y Feeling**.
-
-
-<div style="page-break-after: always;"></div>
 
 #### 1. As-Is Scenario Mapping del primer segmento: Empresas de transporte de carga
 
@@ -827,9 +836,9 @@ Durante este proceso, Carlos debe consultar diferentes fuentes de información y
 
 <div style="page-break-after: always;"></div>
 
-#### 2. As-Is Scenario Mapping del segundo segmento: Operadores y empresas de logística
+#### 2. As-Is Scenario Mapping del segundo segmento: Organizaciones que coordinan o contratan servicios logísticos
 
-El segundo escenario corresponde a **Andrea Salazar**, coordinadora de operaciones y representante del segmento de operadores y empresas de logística. El escenario representa el proceso actual que realiza para coordinar diferentes operaciones de transporte, realizar seguimiento a los recorridos, gestionar problemas y verificar posteriormente el cumplimiento de las operaciones.
+El segundo escenario corresponde a **Andrea Salazar**, coordinadora de operaciones y representante del segmento de organizaciones que coordinan o contratan servicios logísticos. El escenario representa el proceso actual que realiza para coordinar diferentes operaciones de transporte, realizar seguimiento a los recorridos, gestionar problemas y verificar posteriormente el cumplimiento de las operaciones.
 
 Las fases identificadas para este escenario son **Planificación de operaciones, Coordinación del transporte, Seguimiento de operaciones, Gestión de incidencias y Evaluación de resultados**.
 
@@ -840,427 +849,638 @@ Durante este proceso, Andrea necesita consultar constantemente información sobr
 
 <div style="page-break-after: always;"></div>
 
-# Capítulo III: Requirements Specification
+# Capítulo III: Requirements Elicitation & Analysis
 
 En esta sección se especifican los principales requisitos de **TrackTruck** a partir de la información obtenida durante las entrevistas y el proceso de Needfinding. Los hallazgos identificados permiten comprender las necesidades, dificultades y objetivos de los segmentos analizados y utilizarlos como base para definir las funcionalidades que deberá ofrecer la solución.
 
 La especificación de requisitos comprende el **To-Be Scenario Mapping**, las **User Stories**, el **Impact Map** y el **Product Backlog**, permitiendo transformar las necesidades identificadas en requisitos concretos para el desarrollo de TrackTruck.
 
 
-<div style="page-break-after: always;"></div>
-
 ## 3.1. To-Be Scenario Mapping
 
-En esta sección se presentan los **To-Be Scenario Mapping** elaborados en **LucidChart** para los User Personas de TrackTruck. A diferencia del As-Is Scenario Mapping, que representa la forma en que los usuarios realizan actualmente sus actividades, el escenario To-Be permite representar cómo podría mejorar su experiencia mediante el uso de TrackTruck.
-
-Para su elaboración, el equipo tomó como punto de partida los problemas y oportunidades identificados en los **As-Is Scenario Mapping**. Posteriormente, se realizó una lluvia de ideas individual sobre posibles mejoras en la experiencia de cada usuario. Las propuestas fueron revisadas y agrupadas por el equipo para establecer las fases principales del nuevo escenario.
-
-Finalmente, los escenarios To-Be fueron comparados con los escenarios As-Is para identificar los principales cambios que TrackTruck podría generar en las actividades, pensamientos y emociones de los usuarios. Cada escenario se encuentra organizado mediante las filas **Phases, Doing, Thinking y Feeling**.
-
-
-<div style="page-break-after: always;"></div>
+Los escenarios To-Be conservan los dos arquetipos del documento base y amplían sus tareas con la planificación y trazabilidad del flujo logístico. Las nuevas experiencias son propuestas que se validarán con usuarios. Las figuras se actualizarán con el contenido siguiente.
 
 ### 1. To-Be Scenario Mapping del primer segmento: Empresas de transporte de carga
 
-El primer escenario corresponde a **Carlos Mendoza**, supervisor de flota y representante del segmento de empresas de transporte de carga. El escenario representa cómo podría desarrollar sus actividades de supervisión utilizando TrackTruck para acceder de manera centralizada a información sobre vehículos, conductores y recorridos.
+Carlos Mendoza supervisará la operación desde la app móvil. El backend aplicará las reglas y conservará los cambios, mientras la interfaz mostrará las acciones permitidas y el estado de la información.
 
-Las fases identificadas son **Preparación del viaje, Inicio del recorrido, Monitoreo en tiempo real, Gestión de incidencias y Finalización del viaje**.
+| Phase | Doing | Thinking | Feeling |
+|---|---|---|---|
+| Preparar recursos | Consulta flota, mantenimiento, disponibilidad y jornada. | ¿Qué recursos cumplen las restricciones para este viaje? | Mayor claridad al reunir información relacionada. |
+| Planificar despacho | Revisa alternativas de ruta, conductor y vehículo; consulta los criterios de la recomendación y aprueba el plan. | ¿La propuesta respeta disponibilidad, descansos y mantenimiento? | Confianza condicionada a los datos y explicación disponibles. |
+| Iniciar y supervisar | Verifica el viaje programado y consulta ubicaciones con su fecha de captura. | ¿El vehículo sigue el plan y el reporte es reciente? | Mayor control, con aviso cuando los datos estén antiguos. |
+| Atender incidencias | Consulta el reporte, accede al contacto y solicita replanificación si corresponde. | ¿Qué acción permite continuar de forma adecuada? | Atención enfocada en la situación registrada. |
+| Revisar resultado | Consulta finalización del viaje, entregas e historial. | ¿Qué ocurrió y qué quedó pendiente? | Mejor comprensión del cierre y sus excepciones. |
 
-Con TrackTruck, Carlos podría consultar la ubicación y recorrido de los vehículos desde una misma plataforma, identificar paradas, retrasos o incidencias y comunicarse con los conductores cuando sea necesario. Al finalizar el viaje, podría consultar el historial de la operación y revisar la información registrada durante el recorrido.
-
-En comparación con el escenario As-Is, se busca reducir la necesidad de consultar información mediante diferentes medios y disminuir la incertidumbre sobre el estado de los vehículos durante los recorridos. Como resultado, Carlos tendría mayor visibilidad sobre las operaciones y una mejor capacidad de respuesta ante incidencias.
-
-![To-Be Scenario Mapping - Carlos Mendoza](assets/images/chapter3/to-be-scenario-map1.png)
-
+![To-Be — Carlos Mendoza, pendiente actualizar](assets/images/chapter3/to-be-scenario-map1.png)
 
 <div style="page-break-after: always;"></div>
 
-### 2. To-Be Scenario Mapping del segundo segmento: Operadores y empresas de logística
+### 2. To-Be Scenario Mapping del segundo segmento: Organizaciones que coordinan o contratan servicios logísticos
 
-El segundo escenario corresponde a **Andrea Salazar**, coordinadora de operaciones y representante del segmento de operadores y empresas de logística. El escenario representa cómo podría coordinar y supervisar diferentes operaciones de transporte mediante TrackTruck.
+Andrea Salazar coordinará operaciones y relacionará información del envío, preparación, viaje, entrega e historial. Las consultas financieras estarán disponibles conforme a sus permisos.
 
-Las fases identificadas son **Planificación de operaciones, Coordinación del transporte, Monitoreo de operaciones, Gestión de incidencias y Evaluación de resultados**.
+| Phase | Doing | Thinking | Feeling |
+|---|---|---|---|
+| Registrar operación | Relaciona cliente, solicitud de transporte y carga. | ¿La solicitud tiene información suficiente para procesarse? | Claridad sobre el envío y sus requisitos. |
+| Preparar despacho | Comprueba preparación de carga y revisa prioridad y recursos elegibles. | ¿Qué puede despacharse y qué requiere atención? | Mayor organización de las operaciones. |
+| Coordinar transporte | Aprueba la planificación y consulta el avance de los viajes. | ¿Qué envíos están en curso y qué información está actualizada? | Visibilidad sobre varias operaciones. |
+| Resolver excepciones | Revisa incidencias, interrupciones y entregas parciales o fallidas. | ¿Qué ocurrió y quién debe actuar? | Menor incertidumbre gracias a los registros. |
+| Cerrar y evaluar | Revisa confirmación de entrega, cobros, historial e indicadores. | ¿Qué operación terminó y qué registros respaldan el resultado? | Comprensión del servicio y de sus pendientes. |
 
-Con TrackTruck, Andrea podría consultar desde una misma plataforma la información relacionada con vehículos, conductores, rutas y recorridos. Durante las operaciones podría visualizar su progreso, identificar retrasos o incidencias y comunicarse con los conductores cuando requiera información adicional.
-
-Al finalizar las operaciones, podría consultar el historial de los recorridos y las incidencias registradas, facilitando la revisión de lo ocurrido durante cada viaje y mejorando la trazabilidad de las operaciones.
-
-En comparación con el escenario As-Is, TrackTruck permitiría reducir la dispersión de información y facilitar la supervisión simultánea de las operaciones. De esta manera, Andrea podría acceder con mayor rapidez a información relevante y tomar decisiones con una visión más completa del estado de los transportes.
-
-![To-Be Scenario Mapping - Andrea Salazar](assets/images/chapter3/to-be-scenario-map2.png)
-
+![To-Be — Andrea Salazar, pendiente actualizar](assets/images/chapter3/to-be-scenario-map2.png)
 
 <div style="page-break-after: always;"></div>
 
 ## 3.2. User Stories
 
-En esta sección se presentan los principales requisitos funcionales y arquitectónicos identificados para **TrackTruck** a partir del análisis realizado durante las entrevistas, el Needfinding y los escenarios To-Be.
+Las historias US01–US50 conservan sus identificadores del documento base y se ajustan a los límites del dominio vigente. Se incorporan US51–US80 para cubrir las capacidades ampliadas. Constituyen requisitos para implementar y validar; su inclusión en el informe no establece que estén terminadas.
 
-Las User Stories describen las necesidades de los usuarios utilizando el formato **"Como..., deseo..., para..."**, mientras que los criterios de aceptación permiten establecer las condiciones necesarias para considerar cada historia como completada.
+**Condiciones comunes de aceptación:** el backend valida autenticación, rol y acceso a la organización y recurso para toda operación protegida; valida entradas; conserva auditoría de cambios sensibles; aplica idempotencia donde se requiere; y devuelve errores consistentes. El frontend muestra los estados de carga, datos vacíos y error correspondientes. Las pruebas incluyen casos válidos, inválidos y acceso ajeno conforme al riesgo de cada historia.
 
-Asimismo, se identifican las funcionalidades principales que afectan la estructura de la aplicación, los escenarios de atributos de calidad, las restricciones arquitectónicas y las principales preocupaciones arquitectónicas del sistema.
-
-
-### Primary Functionality (Primary User Stories)
-
-Las siguientes User Stories representan las funcionalidades principales de TrackTruck y los requisitos que tienen mayor influencia sobre la estructura de la aplicación.
-
-| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con |
-|---|---|---|---|---|
-| **EP01** | Gestión de empresa | Epic orientado al registro y administración de la empresa que utilizará TrackTruck. | - | - |
-| US01 | Registrar empresa | Como representante de una empresa de transporte o logística, deseo registrar mi empresa para comenzar a gestionar mis operaciones de transporte en TrackTruck. | **Scenario 1: Registro exitoso** <br> **Given** que ingreso los datos obligatorios de la empresa, <br> **When** confirmo el registro, <br> **Then** el sistema registra la empresa correctamente. | EP01 |
-| US02 | Visualizar información de la empresa | Como responsable de operaciones, deseo consultar la información de mi empresa para verificar los datos registrados. | **Scenario 1: Consulta exitosa** <br> **Given** que la empresa se encuentra registrada, <br> **When** accedo a su información, <br> **Then** el sistema muestra los datos correspondientes. | EP01 |
-| **EP02** | Gestión de vehículos | Epic orientado al registro y administración de los vehículos utilizados en las operaciones de transporte. | - | - |
-| US03 | Registrar vehículo | Como supervisor de flota, deseo registrar un vehículo para incluirlo en las operaciones de transporte de mi empresa. | **Scenario 1: Registro exitoso** <br> **Given** que ingreso los datos obligatorios del vehículo, <br> **When** confirmo el registro, <br> **Then** el sistema almacena el vehículo y lo muestra como disponible. | EP02 |
-| US04 | Consultar vehículos | Como supervisor de flota, deseo visualizar los vehículos registrados para conocer las unidades disponibles de la empresa. | **Scenario 1: Vehículos disponibles** <br> **Given** que existen vehículos registrados, <br> **When** accedo a la sección de vehículos, <br> **Then** el sistema muestra las unidades pertenecientes a la empresa. | EP02 |
-| US05 | Actualizar información de vehículo | Como supervisor de flota, deseo actualizar la información de un vehículo para mantener sus datos correctos. | **Scenario 1: Actualización exitosa** <br> **Given** que selecciono un vehículo existente, <br> **When** modifico sus datos y confirmo los cambios, <br> **Then** el sistema almacena la información actualizada. | EP02 |
-| **EP03** | Gestión de conductores | Epic orientado al registro y administración de los conductores involucrados en las operaciones de transporte. | - | - |
-| US06 | Registrar conductor | Como supervisor de flota, deseo registrar un conductor para asignarlo posteriormente a las operaciones de transporte. | **Scenario 1: Registro exitoso** <br> **Given** que ingreso los datos obligatorios del conductor, <br> **When** confirmo el registro, <br> **Then** el sistema almacena al conductor correctamente. | EP03 |
-| US07 | Consultar conductores | Como supervisor de flota, deseo visualizar los conductores registrados para conocer el personal disponible para las operaciones. | **Scenario 1: Consulta exitosa** <br> **Given** que existen conductores registrados, <br> **When** accedo a la sección de conductores, <br> **Then** el sistema muestra la información correspondiente. | EP03 |
-| US08 | Actualizar información de conductor | Como supervisor de flota, deseo actualizar los datos de un conductor para mantener su información vigente. | **Scenario 1: Actualización exitosa** <br> **Given** que selecciono un conductor registrado, <br> **When** modifico y guardo sus datos, <br> **Then** el sistema actualiza la información del conductor. | EP03 |
-| **EP04** | Gestión de rutas y viajes | Epic orientado a la planificación y administración de los recorridos realizados por los vehículos. | - | - |
-| US09 | Registrar ruta | Como responsable de operaciones, deseo registrar una ruta indicando su origen y destino para utilizarla en las operaciones de transporte. | **Scenario 1: Ruta registrada** <br> **Given** que ingreso información válida sobre el origen y destino, <br> **When** confirmo el registro, <br> **Then** el sistema almacena la ruta correctamente. | EP04 |
-| US10 | Crear viaje | Como responsable de operaciones, deseo crear un viaje para organizar una nueva operación de transporte. | **Scenario 1: Creación exitosa** <br> **Given** que existen los datos necesarios para la operación, <br> **When** creo un nuevo viaje, <br> **Then** el sistema registra la operación correctamente. | EP04 |
-| US11 | Asignar vehículo a viaje | Como responsable de operaciones, deseo asignar un vehículo a un viaje para determinar qué unidad realizará el recorrido. | **Scenario 1: Asignación exitosa** <br> **Given** que existe un viaje y un vehículo disponible, <br> **When** asigno el vehículo, <br> **Then** el sistema relaciona la unidad con el viaje. | EP04 |
-| US12 | Asignar conductor a viaje | Como responsable de operaciones, deseo asignar un conductor a un viaje para establecer quién realizará el recorrido. | **Scenario 1: Asignación exitosa** <br> **Given** que existe un viaje y un conductor disponible, <br> **When** realizo la asignación, <br> **Then** el sistema relaciona al conductor con el viaje. | EP04 |
-| US13 | Consultar viajes activos | Como responsable de operaciones, deseo visualizar los viajes activos para conocer qué operaciones se encuentran actualmente en ejecución. | **Scenario 1: Consulta de viajes** <br> **Given** que existen viajes activos, <br> **When** accedo a las operaciones actuales, <br> **Then** el sistema muestra los viajes que se encuentran en ejecución. | EP04 |
-| **EP05** | Monitoreo en tiempo real | Epic orientado a proporcionar visibilidad sobre la ubicación y el recorrido de los vehículos durante las operaciones. | - | - |
-| US14 | Visualizar ubicación del vehículo | Como supervisor de flota, deseo visualizar la ubicación actual de un vehículo para conocer dónde se encuentra durante el viaje. | **Scenario 1: Ubicación disponible** <br> **Given** que el vehículo está realizando un viaje y existe información de ubicación disponible, <br> **When** consulto la operación, <br> **Then** el sistema muestra su ubicación actual en el mapa. | EP05 |
-| US15 | Visualizar recorrido del viaje | Como responsable de operaciones, deseo visualizar el recorrido realizado por un vehículo para supervisar el progreso de la operación. | **Scenario 1: Recorrido disponible** <br> **Given** que existe información de geolocalización del viaje, <br> **When** visualizo el recorrido, <br> **Then** el sistema representa en el mapa el trayecto registrado. | EP05 |
-| US16 | Identificar paradas durante el recorrido | Como supervisor de flota, deseo identificar las paradas realizadas durante un viaje para comprender mejor el desarrollo del recorrido. | **Scenario 1: Parada registrada** <br> **Given** que el vehículo ha permanecido detenido durante el recorrido, <br> **When** consulto el viaje, <br> **Then** el sistema muestra la parada registrada. | EP05 |
-| US17 | Identificar retrasos en el viaje | Como responsable de operaciones, deseo identificar retrasos durante un viaje para tomar decisiones oportunamente. | **Scenario 1: Retraso identificado** <br> **Given** que el progreso de una operación presenta un retraso registrado, <br> **When** consulto su estado, <br> **Then** el sistema muestra la situación correspondiente. | EP05 |
-| **EP06** | Gestión de incidencias | Epic orientado al registro y consulta de situaciones inesperadas ocurridas durante los viajes. | - | - |
-| US18 | Registrar incidencia | Como conductor, deseo registrar una incidencia durante el recorrido para informar a la empresa sobre una situación que afecta el viaje. | **Scenario 1: Incidencia registrada** <br> **Given** que el conductor se encuentra realizando un viaje, <br> **When** registra la información de una incidencia, <br> **Then** el sistema la relaciona con la operación correspondiente. | EP06 |
-| US19 | Consultar incidencias de un viaje | Como responsable de operaciones, deseo visualizar las incidencias de un viaje para conocer los problemas ocurridos durante el recorrido. | **Scenario 1: Consulta exitosa** <br> **Given** que existen incidencias registradas, <br> **When** consulto el viaje, <br> **Then** el sistema muestra las incidencias asociadas. | EP06 |
-| **EP07** | Comunicación con conductores | Epic orientado a facilitar la comunicación entre los responsables de la empresa y los conductores. | - | - |
-| US20 | Contactar al conductor | Como responsable de operaciones, deseo iniciar una llamada con el conductor asignado para comunicarme rápidamente cuando necesite información sobre el viaje. | **Scenario 1: Inicio de comunicación** <br> **Given** que existe un conductor asignado al viaje, <br> **When** selecciono la opción para contactarlo, <br> **Then** el sistema permite iniciar la comunicación con el conductor. | EP07 |
-| **EP08** | Historial y trazabilidad | Epic orientado a mantener y consultar información histórica sobre las operaciones realizadas. | - | - |
-| US21 | Consultar historial de viajes | Como responsable de operaciones, deseo consultar los viajes realizados anteriormente para revisar las operaciones de transporte de la empresa. | **Scenario 1: Historial disponible** <br> **Given** que existen viajes finalizados, <br> **When** accedo al historial, <br> **Then** el sistema muestra las operaciones anteriores. | EP08 |
-| US22 | Consultar detalle de viaje finalizado | Como responsable de operaciones, deseo consultar el detalle de un viaje finalizado para revisar el vehículo, conductor, ruta, recorrido e incidencias relacionadas. | **Scenario 1: Detalle disponible** <br> **Given** que selecciono un viaje finalizado, <br> **When** solicito visualizar sus detalles, <br> **Then** el sistema muestra la información registrada durante la operación. | EP08 |
-| US23 | Consultar detalle de vehículo | Como supervisor de flota, deseo consultar el detalle de un vehículo para conocer su información y los viajes asociados. | **Scenario 1: Consulta exitosa** <br> **Given** que existe un vehículo registrado, <br> **When** selecciono el vehículo, <br> **Then** el sistema muestra su información disponible. | EP02 |
-| US24 | Consultar detalle de conductor | Como supervisor de flota, deseo consultar el detalle de un conductor para conocer su información y los viajes en los que ha participado. | **Scenario 1: Consulta exitosa** <br> **Given** que existe un conductor registrado, <br> **When** selecciono al conductor, <br> **Then** el sistema muestra su información disponible. | EP03 |
-| US25 | Consultar rutas registradas | Como responsable de operaciones, deseo consultar las rutas registradas para seleccionar o revisar los recorridos utilizados por la empresa. | **Scenario 1: Rutas disponibles** <br> **Given** que existen rutas registradas, <br> **When** accedo a la sección de rutas, <br> **Then** el sistema muestra las rutas disponibles. | EP04 |
-| US26 | Consultar detalle de viaje activo | Como responsable de operaciones, deseo consultar el detalle de un viaje activo para conocer su vehículo, conductor, ruta y estado actual. | **Scenario 1: Viaje activo** <br> **Given** que existe un viaje en ejecución, <br> **When** selecciono el viaje, <br> **Then** el sistema muestra la información actual de la operación. | EP04 |
-| US27 | Iniciar viaje | Como conductor, deseo iniciar el viaje que me fue asignado para indicar que la operación de transporte ha comenzado. | **Scenario 1: Inicio exitoso** <br> **Given** que tengo un viaje asignado pendiente, <br> **When** confirmo el inicio, <br> **Then** el sistema cambia el estado del viaje a en curso. | EP04 |
-| US28 | Finalizar viaje | Como conductor, deseo finalizar mi viaje para indicar que la operación de transporte ha concluido. | **Scenario 1: Finalización exitosa** <br> **Given** que existe un viaje en curso, <br> **When** confirmo su finalización, <br> **Then** el sistema registra el viaje como finalizado. | EP04 |
-| US29 | Visualizar estado de un viaje | Como responsable de operaciones, deseo visualizar el estado de un viaje para conocer si se encuentra pendiente, en curso o finalizado. | **Scenario 1: Estado disponible** <br> **Given** que existe un viaje registrado, <br> **When** consulto su información, <br> **Then** el sistema muestra su estado actual. | EP04 |
-| US30 | Visualizar vehículos en mapa | Como supervisor de flota, deseo visualizar los vehículos que se encuentran realizando viajes en un mapa para supervisar la flota desde una vista centralizada. | **Scenario 1: Vehículos activos** <br> **Given** que existen vehículos realizando viajes, <br> **When** accedo al mapa de monitoreo, <br> **Then** el sistema muestra sus ubicaciones disponibles. | EP05 |
-| US31 | Seleccionar vehículo desde el mapa | Como supervisor de flota, deseo seleccionar un vehículo desde el mapa para consultar rápidamente la información de su operación actual. | **Scenario 1: Selección de vehículo** <br> **Given** que el mapa muestra un vehículo activo, <br> **When** selecciono su marcador, <br> **Then** el sistema muestra información relacionada con el viaje. | EP05 |
-| US32 | Consultar última ubicación conocida | Como responsable de operaciones, deseo consultar la última ubicación conocida de un vehículo para disponer de información cuando no exista una actualización reciente. | **Scenario 1: Sin actualización reciente** <br> **Given** que temporalmente no existe una nueva ubicación, <br> **When** consulto el vehículo, <br> **Then** el sistema muestra la última ubicación registrada e indica que puede estar desactualizada. | EP05 |
-| US33 | Visualizar progreso del recorrido | Como responsable de operaciones, deseo visualizar el progreso de un recorrido para conocer el avance de un vehículo hacia su destino. | **Scenario 1: Viaje en curso** <br> **Given** que el vehículo se encuentra realizando un viaje, <br> **When** consulto el recorrido, <br> **Then** el sistema muestra la información disponible sobre su progreso. | EP05 |
-| US34 | Consultar información de una parada | Como supervisor de flota, deseo consultar una parada identificada durante un recorrido para conocer dónde ocurrió dentro del viaje. | **Scenario 1: Parada disponible** <br> **Given** que existe una parada registrada, <br> **When** selecciono la parada, <br> **Then** el sistema muestra su información asociada. | EP05 |
-| US35 | Visualizar incidencias en el recorrido | Como responsable de operaciones, deseo visualizar las incidencias asociadas al recorrido para identificar dónde ocurrieron los problemas durante el viaje. | **Scenario 1: Incidencias disponibles** <br> **Given** que existen incidencias asociadas al viaje, <br> **When** consulto el recorrido, <br> **Then** el sistema muestra las incidencias registradas. | EP06 |
-| US36 | Consultar detalle de incidencia | Como responsable de operaciones, deseo consultar el detalle de una incidencia para comprender la situación reportada durante el viaje. | **Scenario 1: Consulta exitosa** <br> **Given** que existe una incidencia registrada, <br> **When** selecciono la incidencia, <br> **Then** el sistema muestra su información correspondiente. | EP06 |
-| US37 | Consultar incidencias anteriores | Como supervisor de flota, deseo consultar incidencias ocurridas en operaciones anteriores para revisar los problemas registrados durante los viajes. | **Scenario 1: Historial disponible** <br> **Given** que existen incidencias anteriores, <br> **When** accedo al historial de incidencias, <br> **Then** el sistema muestra los registros disponibles. | EP06 |
-| US38 | Contactar conductor desde un viaje | Como responsable de operaciones, deseo acceder a la opción de llamada desde el detalle de un viaje para contactar rápidamente al conductor asignado. | **Scenario 1: Conductor asignado** <br> **Given** que el viaje tiene un conductor asignado, <br> **When** selecciono la opción de llamada, <br> **Then** el sistema permite iniciar la comunicación con dicho conductor. | EP07 |
-| US39 | Filtrar historial de viajes | Como responsable de operaciones, deseo filtrar los viajes anteriores para encontrar con mayor facilidad una operación específica. | **Scenario 1: Aplicación de filtro** <br> **Given** que existen viajes registrados, <br> **When** aplico un criterio disponible, <br> **Then** el sistema muestra los viajes que cumplen con dicho criterio. | EP08 |
-| US40 | Consultar historial de un vehículo | Como supervisor de flota, deseo consultar los viajes realizados por un vehículo para revisar su participación en operaciones anteriores. | **Scenario 1: Historial disponible** <br> **Given** que el vehículo ha participado en viajes, <br> **When** consulto su historial, <br> **Then** el sistema muestra sus operaciones anteriores. | EP08 |
-| US41 | Consultar historial de un conductor | Como supervisor de flota, deseo consultar los viajes realizados por un conductor para revisar las operaciones en las que participó. | **Scenario 1: Historial disponible** <br> **Given** que el conductor ha participado en viajes, <br> **When** consulto su historial, <br> **Then** el sistema muestra las operaciones asociadas. | EP08 |
-| US42 | Consultar historial de una ruta | Como responsable de operaciones, deseo consultar los viajes realizados sobre una ruta para revisar las operaciones asociadas a dicho recorrido. | **Scenario 1: Operaciones existentes** <br> **Given** que existen viajes asociados a la ruta, <br> **When** consulto su historial, <br> **Then** el sistema muestra las operaciones registradas. | EP08 |
-| **EP09** | Dashboard de operaciones | Epic orientado a proporcionar una vista general del estado de las operaciones de transporte de la empresa. | - | - |
-| US43 | Visualizar resumen de operaciones | Como responsable de operaciones, deseo visualizar un resumen de las operaciones para conocer rápidamente el estado general de los transportes gestionados. | **Scenario 1: Información disponible** <br> **Given** que existen operaciones registradas, <br> **When** accedo al dashboard, <br> **Then** el sistema muestra un resumen del estado de las operaciones. | EP09 |
-| US44 | Visualizar viajes activos en dashboard | Como responsable de operaciones, deseo visualizar los viajes activos desde el dashboard para acceder rápidamente a las operaciones que requieren seguimiento. | **Scenario 1: Viajes activos** <br> **Given** que existen viajes en ejecución, <br> **When** accedo al dashboard, <br> **Then** el sistema muestra las operaciones activas. | EP09 |
-| US45 | Visualizar incidencias actuales | Como responsable de operaciones, deseo visualizar las incidencias asociadas a operaciones activas para identificar situaciones que requieren atención. | **Scenario 1: Incidencias existentes** <br> **Given** que existen incidencias en operaciones activas, <br> **When** accedo al resumen de operaciones, <br> **Then** el sistema muestra las incidencias correspondientes. | EP09 |
-| **EP10** | Acceso y cuentas | Epic orientado al acceso de los usuarios autorizados a la plataforma TrackTruck. | - | - |
-| US46 | Iniciar sesión | Como usuario registrado, deseo iniciar sesión para acceder a las funciones de TrackTruck correspondientes a mi cuenta. | **Scenario 1: Credenciales válidas** <br> **Given** que ingreso credenciales válidas, <br> **When** solicito iniciar sesión, <br> **Then** el sistema permite el acceso a la plataforma. <br><br> **Scenario 2: Credenciales inválidas** <br> **Given** que ingreso credenciales incorrectas, <br> **When** intento iniciar sesión, <br> **Then** el sistema rechaza el acceso e informa que las credenciales no son válidas. | EP10 |
-| US47 | Cerrar sesión | Como usuario autenticado, deseo cerrar mi sesión para finalizar de forma segura mi acceso a TrackTruck. | **Scenario 1: Cierre exitoso** <br> **Given** que tengo una sesión activa, <br> **When** selecciono cerrar sesión, <br> **Then** el sistema finaliza mi sesión y restringe el acceso a las funciones protegidas. | EP10 |
-| US48 | Recuperar contraseña | Como usuario registrado, deseo recuperar mi contraseña para volver a acceder a TrackTruck si olvido mis credenciales. | **Scenario 1: Solicitud válida** <br> **Given** que mi correo se encuentra registrado, <br> **When** solicito recuperar mi contraseña, <br> **Then** el sistema inicia el procedimiento de recuperación. | EP10 |
-| US49 | Consultar perfil | Como usuario autenticado, deseo consultar mi perfil para visualizar la información asociada a mi cuenta. | **Scenario 1: Perfil disponible** <br> **Given** que tengo una sesión activa, <br> **When** accedo a mi perfil, <br> **Then** el sistema muestra la información correspondiente a mi cuenta. | EP10 |
-| US50 | Actualizar perfil | Como usuario autenticado, deseo actualizar la información de mi perfil para mantener mis datos vigentes. | **Scenario 1: Actualización exitosa** <br> **Given** que modifico información válida de mi perfil, <br> **When** guardo los cambios, <br> **Then** el sistema actualiza mis datos. | EP10 |
-
+Los datos de perfil de acceso permanecen en Identity & Access; las fichas de cliente, empleado y conductor tienen propietarios distintos. Las llamadas utilizan el marcador nativo del móvil. Las rutas y selección de recursos pertenecen a Dispatch Planning, mientras Trip Execution conserva el plan aprobado utilizado por el viaje.
 
 <div style="page-break-after: always;"></div>
 
-## 3.3. Impact Mapping
+### Primary Functionality (Primary User Stories)
 
-El **Impact Map** de TrackTruck fue elaborado en **UXPressia**. Este permite relacionar el objetivo de negocio del producto con los actores involucrados, los impactos esperados y las funcionalidades necesarias para alcanzarlos.
+| Epic / Story ID | Título | Descripción | Criterios de aceptación | Bounded context responsable | Relacionado con |
+| --- | --- | --- | --- | --- | --- |
+| **EP01** | **Gestión de organizaciones y clientes** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP01 |
+| US01 | Registrar empresa | Como representante de una empresa de transporte o logística, deseo registrar mi empresa para comenzar a gestionar mis operaciones de transporte en TrackTruck. | **Scenario 1: Registro exitoso** <br> **Given** que ingreso los datos obligatorios de la empresa, <br> **When** confirmo el registro, <br> **Then** el sistema registra la empresa correctamente. | Customer Management | EP01 |
+| US02 | Visualizar información de la empresa | Como responsable de operaciones, deseo consultar la información de mi empresa para verificar los datos registrados. | **Scenario 1: Consulta exitosa** <br> **Given** que la empresa se encuentra registrada, <br> **When** accedo a su información, <br> **Then** el sistema muestra los datos correspondientes. | Customer Management | EP01 |
+| US53 | Registrar cliente del servicio | Como responsable de operaciones, deseo registrar los clientes del servicio logístico para relacionarlos con sus envíos y cobros. | **Scenario 1:** **Given** datos válidos del cliente y organización propietaria; **When** registro el cliente; **Then** Customer Management conserva su ficha y datos de contacto.<br>**Scenario 2:** Given datos obligatorios ausentes; When guardo; Then se rechaza sin crear un cliente incompleto. | Customer Management | EP01 |
+| **EP02** | **Gestión de vehículos** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP02 |
+| US03 | Registrar vehículo | Como supervisor de flota, deseo registrar un vehículo para incluirlo en las operaciones de transporte de mi empresa. | **Scenario 1:** **Given** datos válidos, placa no repetida en la organización y capacidad positiva; **When** registro el vehículo; **Then** se crea con estado administrativo ACTIVE.<br>**Scenario 2:** Given datos inválidos o placa repetida; When registro; Then se rechaza sin crear otro vehículo. La aptitud para despacho se evalúa con mantenimiento y reservas. | Fleet Management | EP02 |
+| US04 | Consultar vehículos | Como supervisor de flota, deseo visualizar los vehículos registrados para conocer las unidades disponibles de la empresa. | **Scenario 1: Vehículos disponibles** <br> **Given** que existen vehículos registrados, <br> **When** accedo a la sección de vehículos, <br> **Then** el sistema muestra las unidades pertenecientes a la empresa. | Fleet Management | EP02 |
+| US05 | Actualizar información de vehículo | Como supervisor de flota, deseo actualizar la información de un vehículo para mantener sus datos correctos. | **Scenario 1: Actualización exitosa** <br> **Given** que selecciono un vehículo existente, <br> **When** modifico sus datos y confirmo los cambios, <br> **Then** el sistema almacena la información actualizada. | Fleet Management | EP02 |
+| US23 | Consultar detalle de vehículo | Como supervisor de flota, deseo consultar el detalle de un vehículo para conocer su información y los viajes asociados. | **Scenario 1: Consulta exitosa** <br> **Given** que existe un vehículo registrado, <br> **When** selecciono el vehículo, <br> **Then** el sistema muestra su información disponible. | Fleet Management | EP02 |
+| **EP03** | **Gestión de conductores** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP03 |
+| US06 | Registrar conductor | Como supervisor de flota, deseo registrar un conductor para asignarlo posteriormente a las operaciones de transporte. | **Scenario 1:** **Given** datos de conductor válidos y licencia no repetida en la organización; **When** registro el conductor; **Then** se crea su ficha operativa.<br>**Scenario 2:** Given datos inválidos o una licencia repetida; When registro; Then se rechaza la operación. | Fleet Management | EP03 |
+| US07 | Consultar conductores | Como supervisor de flota, deseo consultar las fichas de conductores para conocer sus datos y estado administrativo. | **Scenario 1:** **Given** conductores registrados en mi organización; **When** consulto la lista; **Then** se muestran sus datos y estado; la elegibilidad para un despacho se consulta por separado. | Fleet Management | EP03 |
+| US08 | Actualizar información de conductor | Como supervisor de flota, deseo actualizar los datos de un conductor para mantener su información vigente. | **Scenario 1: Actualización exitosa** <br> **Given** que selecciono un conductor registrado, <br> **When** modifico y guardo sus datos, <br> **Then** el sistema actualiza la información del conductor. | Fleet Management | EP03 |
+| US24 | Consultar detalle de conductor | Como supervisor de flota, deseo consultar el detalle de un conductor para conocer su información y los viajes en los que ha participado. | **Scenario 1: Consulta exitosa** <br> **Given** que existe un conductor registrado, <br> **When** selecciono al conductor, <br> **Then** el sistema muestra su información disponible. | Fleet Management | EP03 |
+| **EP04** | **Ejecución de viajes** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP04 |
+| US10 | Registrar viaje programado | Como responsable de operaciones, deseo registrar un viaje a partir de un plan aprobado para ejecutar el transporte con recursos definidos. | **Scenario 1:** **Given** un plan aprobado y no utilizado para crear otro viaje; **When** confirmo el registro del viaje; **Then** Trip Execution crea un viaje SCHEDULED con referencias a plan, conductor, vehículo y envíos.<br>**Scenario 2:** Given el mismo identificador de aprobación reenviado; When se procesa; Then se recupera el mismo viaje sin duplicarlo. | Trip Execution | EP04 |
+| US13 | Consultar viajes activos | Como responsable de operaciones, deseo visualizar los viajes activos para conocer qué operaciones se encuentran actualmente en ejecución. | **Scenario 1: Consulta de viajes** <br> **Given** que existen viajes activos, <br> **When** accedo a las operaciones actuales, <br> **Then** el sistema muestra los viajes que se encuentran en ejecución. | Trip Execution | EP04 |
+| US26 | Consultar detalle de viaje activo | Como responsable de operaciones, deseo consultar el detalle de un viaje activo para conocer su vehículo, conductor, ruta y estado actual. | **Scenario 1: Viaje activo** <br> **Given** que existe un viaje en ejecución, <br> **When** selecciono el viaje, <br> **Then** el sistema muestra la información actual de la operación. | Trip Execution | EP04 |
+| US27 | Iniciar viaje | Como conductor, deseo iniciar el viaje que me fue asignado para indicar que la operación de transporte ha comenzado. | **Scenario 1:** **Given** un viaje SCHEDULED, conductor autorizado y validaciones obligatorias vigentes; **When** confirmo el inicio; **Then** el backend cambia a IN_PROGRESS, guarda startedAt y publica TripStarted.<br>**Scenario 2:** Given un estado distinto o una restricción impeditiva; When inicio; Then se rechaza sin cambiar el viaje. | Trip Execution | EP04 |
+| US28 | Finalizar viaje | Como conductor, deseo finalizar la ejecución del viaje para registrar el término del recorrido. | **Scenario 1:** **Given** un viaje IN_PROGRESS que puedo operar; **When** confirmo la finalización del recorrido; **Then** se cambia a COMPLETED, se guarda completedAt y se publica TripCompleted.<br>**Scenario 2:** Given una solicitud repetida; When se procesa; Then no se duplica el cambio. Delivery Management conserva por separado la confirmación de cada envío. | Trip Execution | EP04 |
+| US29 | Visualizar estado de un viaje | Como responsable de operaciones, deseo visualizar el estado de un viaje para conocer si se encuentra pendiente, en curso o finalizado. | **Scenario 1:** **Given** un viaje que puedo consultar; **When** visualizo su detalle; **Then** se muestra SCHEDULED, IN_PROGRESS, COMPLETED o CANCELLED con su etiqueta y fechas correspondientes. | Trip Execution | EP04 |
+| US71 | Cancelar viaje programado | Como responsable de operaciones, deseo cancelar un viaje programado con motivo para liberar recursos y mantener el registro de la decisión. | **Scenario 1:** **Given** un viaje SCHEDULED y permiso de cancelación; **When** confirmo el motivo; **Then** se cambia a CANCELLED y Dispatch Planning libera las reservas según el evento.<br>**Scenario 2:** Given un viaje COMPLETED; When intento cancelarlo; Then se rechaza la transición. | Trip Execution | EP04 |
+| **EP05** | **Seguimiento y geolocalización** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP05 |
+| US14 | Visualizar ubicación del vehículo | Como supervisor de flota, deseo visualizar la ubicación actual de un vehículo para conocer dónde se encuentra durante el viaje. | **Scenario 1:** **Given** un viaje accesible y una ubicación válida recibida; **When** consulto el mapa; **Then** se muestra la última posición y su fecha de captura.<br>**Scenario 2:** Given que no existe ubicación; When consulto; Then se muestra el estado sin datos de posición. | Tracking & Geolocation | EP05 |
+| US15 | Visualizar recorrido del viaje | Como responsable de operaciones, deseo visualizar el recorrido realizado por un vehículo para supervisar el progreso de la operación. | **Scenario 1: Recorrido disponible** <br> **Given** que existe información de geolocalización del viaje, <br> **When** visualizo el recorrido, <br> **Then** el sistema representa en el mapa el trayecto registrado. | Tracking & Geolocation | EP05 |
+| US16 | Identificar paradas durante el recorrido | Como supervisor de flota, deseo identificar las paradas realizadas durante un viaje para comprender mejor el desarrollo del recorrido. | **Scenario 1:** **Given** reportes válidos que demuestran inmovilidad durante al menos 10 minutos conforme al umbral configurado; **When** el backend procesa el seguimiento; **Then** se registra una parada con ubicación e inicio.<br>**Scenario 2:** Given ausencia de reportes o inmovilidad menor al umbral; When se evalúa; Then no se confirma automáticamente una parada. | Tracking & Geolocation | EP05 |
+| US17 | Identificar retrasos en el viaje | Como responsable de operaciones, deseo identificar retrasos durante un viaje para tomar decisiones oportunamente. | **Scenario 1:** **Given** un viaje con referencia de llegada estimada y datos suficientes de seguimiento; **When** se evalúa su avance; **Then** Trip Execution informa el retraso estimado, su referencia temporal y la fecha de evaluación.<br>**Scenario 2:** Given datos insuficientes; When consulto; Then se informa que la estimación no está disponible. | Trip Execution | EP05 |
+| US30 | Visualizar vehículos en mapa | Como supervisor de flota, deseo visualizar los vehículos que se encuentran realizando viajes en un mapa para supervisar la flota desde una vista centralizada. | **Scenario 1: Vehículos activos** <br> **Given** que existen vehículos realizando viajes, <br> **When** accedo al mapa de monitoreo, <br> **Then** el sistema muestra sus ubicaciones disponibles. | Tracking & Geolocation | EP05 |
+| US31 | Seleccionar vehículo desde el mapa | Como supervisor de flota, deseo seleccionar un vehículo desde el mapa para consultar rápidamente la información de su operación actual. | **Scenario 1: Selección de vehículo** <br> **Given** que el mapa muestra un vehículo activo, <br> **When** selecciono su marcador, <br> **Then** el sistema muestra información relacionada con el viaje. | Tracking & Geolocation | EP05 |
+| US32 | Consultar última ubicación conocida | Como responsable de operaciones, deseo consultar la última ubicación conocida de un vehículo para disponer de información cuando no exista una actualización reciente. | **Scenario 1:** **Given** no hay un reporte reciente y existe una posición anterior; **When** consulto el vehículo; **Then** se muestra la última posición conocida, recordedAt y un aviso de antigüedad; no se presenta como ubicación actual confirmada. | Tracking & Geolocation | EP05 |
+| US33 | Visualizar progreso del recorrido | Como responsable de operaciones, deseo visualizar el progreso de un recorrido para conocer el avance de un vehículo hacia su destino. | **Scenario 1: Viaje en curso** <br> **Given** que el vehículo se encuentra realizando un viaje, <br> **When** consulto el recorrido, <br> **Then** el sistema muestra la información disponible sobre su progreso. | Tracking & Geolocation | EP05 |
+| US34 | Consultar información de una parada | Como supervisor de flota, deseo consultar una parada identificada durante un recorrido para conocer dónde ocurrió dentro del viaje. | **Scenario 1: Parada disponible** <br> **Given** que existe una parada registrada, <br> **When** selecciono la parada, <br> **Then** el sistema muestra su información asociada. | Tracking & Geolocation | EP05 |
+| US72 | Sincronizar reportes de ubicación pendientes | Como conductor, deseo conservar temporalmente reportes cuando pierdo conexión y reenviarlos al recuperarla para mantener el seguimiento sin duplicaciones. | **Scenario 1:** **Given** captura autorizada y pérdida de conexión; **When** se recupera una conexión permitida por el sistema operativo; **Then** la app reenvía reportes persistidos con reportId y recordedAt originales.<br>**Scenario 2:** Given reportes repetidos o fuera de orden; When llegan; Then el backend deduplica y mantiene la posición más reciente por fecha de captura. | Tracking & Geolocation | EP05 |
+| US73 | Actualizar motivo de parada | Como responsable autorizado, deseo registrar o corregir el motivo de una parada para distinguir descansos, esperas e incidencias. | **Scenario 1:** **Given** una parada existente y permiso de edición; **When** actualizo su motivo; **Then** se conserva el motivo y la auditoría del cambio sin alterar tiempos registrados.<br>**Scenario 2:** Given una parada ajena; When intento editar; Then se restringe el acceso. | Tracking & Geolocation | EP05 |
+| **EP06** | **Gestión de incidencias** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP06 |
+| US18 | Registrar incidencia | Como conductor, deseo registrar una incidencia durante el recorrido para informar a la empresa sobre una situación que afecta el viaje. | **Scenario 1: Incidencia registrada** <br> **Given** que el conductor se encuentra realizando un viaje, <br> **When** registra la información de una incidencia, <br> **Then** el sistema la relaciona con la operación correspondiente. | Incident Management | EP06 |
+| US19 | Consultar incidencias de un viaje | Como responsable de operaciones, deseo visualizar las incidencias de un viaje para conocer los problemas ocurridos durante el recorrido. | **Scenario 1: Consulta exitosa** <br> **Given** que existen incidencias registradas, <br> **When** consulto el viaje, <br> **Then** el sistema muestra las incidencias asociadas. | Incident Management | EP06 |
+| US35 | Visualizar incidencias en el recorrido | Como responsable de operaciones, deseo visualizar las incidencias asociadas al recorrido para identificar dónde ocurrieron los problemas durante el viaje. | **Scenario 1: Incidencias disponibles** <br> **Given** que existen incidencias asociadas al viaje, <br> **When** consulto el recorrido, <br> **Then** el sistema muestra las incidencias registradas. | Incident Management | EP06 |
+| US36 | Consultar detalle de incidencia | Como responsable de operaciones, deseo consultar el detalle de una incidencia para comprender la situación reportada durante el viaje. | **Scenario 1: Consulta exitosa** <br> **Given** que existe una incidencia registrada, <br> **When** selecciono la incidencia, <br> **Then** el sistema muestra su información correspondiente. | Incident Management | EP06 |
+| US37 | Consultar incidencias anteriores | Como supervisor de flota, deseo consultar incidencias ocurridas en operaciones anteriores para revisar los problemas registrados durante los viajes. | **Scenario 1: Historial disponible** <br> **Given** que existen incidencias anteriores, <br> **When** accedo al historial de incidencias, <br> **Then** el sistema muestra los registros disponibles. | Incident Management | EP06 |
+| **EP07** | **Contacto con conductores desde la app** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP07 |
+| US20 | Abrir marcador para contactar al conductor | Como responsable de operaciones, deseo iniciar una llamada con el conductor asignado para comunicarme rápidamente cuando necesite información sobre el viaje. | **Scenario 1:** **Given** el conductor del viaje tiene un teléfono disponible y tengo permiso para consultarlo; **When** elijo llamar; **Then** la app abre el marcador telefónico del dispositivo con ese número.<br>**Scenario 2:** Given que no hay teléfono; When consulto la acción; Then se informa su indisponibilidad. El usuario confirma la llamada en el marcador. | Trip Execution; Fleet Management; app móvil | EP07 |
+| US38 | Consultar contacto desde el viaje | Como responsable de operaciones, deseo consultar los datos de contacto del conductor desde el viaje para identificar a quién comunicarme. | **Scenario 1:** **Given** un viaje con conductor y permiso de consulta; **When** abro su contacto; **Then** se muestran el nombre y teléfono disponible del conductor asignado.<br>**Scenario 2:** Given un cambio de conductor aprobado; When actualizo la consulta; Then se muestran los datos de la asignación vigente. | Trip Execution; Fleet Management; app móvil | EP07 |
+| **EP08** | **Historial operacional** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP08 |
+| US21 | Consultar historial de viajes | Como responsable de operaciones, deseo consultar los viajes realizados anteriormente para revisar las operaciones de transporte de la empresa. | **Scenario 1: Historial disponible** <br> **Given** que existen viajes finalizados, <br> **When** accedo al historial, <br> **Then** el sistema muestra las operaciones anteriores. | Operational History | EP08 |
+| US22 | Consultar detalle de viaje finalizado | Como responsable de operaciones, deseo consultar el detalle de un viaje finalizado para revisar el vehículo, conductor, ruta, recorrido e incidencias relacionadas. | **Scenario 1: Detalle disponible** <br> **Given** que selecciono un viaje finalizado, <br> **When** solicito visualizar sus detalles, <br> **Then** el sistema muestra la información registrada durante la operación. | Operational History | EP08 |
+| US39 | Filtrar historial de viajes | Como responsable de operaciones, deseo filtrar los viajes anteriores para encontrar con mayor facilidad una operación específica. | **Scenario 1: Aplicación de filtro** <br> **Given** que existen viajes registrados, <br> **When** aplico un criterio disponible, <br> **Then** el sistema muestra los viajes que cumplen con dicho criterio. | Operational History | EP08 |
+| US40 | Consultar historial de un vehículo | Como supervisor de flota, deseo consultar los viajes realizados por un vehículo para revisar su participación en operaciones anteriores. | **Scenario 1: Historial disponible** <br> **Given** que el vehículo ha participado en viajes, <br> **When** consulto su historial, <br> **Then** el sistema muestra sus operaciones anteriores. | Operational History | EP08 |
+| US41 | Consultar historial de un conductor | Como supervisor de flota, deseo consultar los viajes realizados por un conductor para revisar las operaciones en las que participó. | **Scenario 1: Historial disponible** <br> **Given** que el conductor ha participado en viajes, <br> **When** consulto su historial, <br> **Then** el sistema muestra las operaciones asociadas. | Operational History | EP08 |
+| US42 | Consultar historial de una ruta | Como responsable de operaciones, deseo consultar los viajes realizados sobre una ruta para revisar las operaciones asociadas a dicho recorrido. | **Scenario 1: Operaciones existentes** <br> **Given** que existen viajes asociados a la ruta, <br> **When** consulto su historial, <br> **Then** el sistema muestra las operaciones registradas. | Operational History | EP08 |
+| US79 | Consultar historial consolidado | Como responsable de operaciones, deseo consultar los eventos relacionados de envío, plan, viaje, entrega y cobro para reconstruir la operación completa. | **Scenario 1:** **Given** eventos autorizados recibidos de varios contextos; **When** consulto la operación; **Then** se muestran eventId, origen, momento del hecho y correlación con fecha de actualización.<br>**Scenario 2:** Given un evento repetido; When se procesa; Then aparece una sola vez; el orden se reconstruye con origen y secuencia del agregado. | Operational History | EP08 |
+| **EP09** | **Resumen e indicadores** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP09 |
+| US43 | Visualizar resumen de operaciones | Como responsable de operaciones, deseo visualizar un resumen de las operaciones para conocer rápidamente el estado general de los transportes gestionados. | **Scenario 1: Información disponible** <br> **Given** que existen operaciones registradas, <br> **When** accedo al dashboard, <br> **Then** el sistema muestra un resumen del estado de las operaciones. | Reporting & Analytics | EP09 |
+| US44 | Visualizar viajes activos en dashboard | Como responsable de operaciones, deseo visualizar los viajes activos desde el dashboard para acceder rápidamente a las operaciones que requieren seguimiento. | **Scenario 1: Viajes activos** <br> **Given** que existen viajes en ejecución, <br> **When** accedo al dashboard, <br> **Then** el sistema muestra las operaciones activas. | Reporting & Analytics | EP09 |
+| US45 | Visualizar incidencias actuales | Como responsable de operaciones, deseo visualizar las incidencias asociadas a operaciones activas para identificar situaciones que requieren atención. | **Scenario 1: Incidencias existentes** <br> **Given** que existen incidencias en operaciones activas, <br> **When** accedo al resumen de operaciones, <br> **Then** el sistema muestra las incidencias correspondientes. | Reporting & Analytics | EP09 |
+| US80 | Consultar indicadores operacionales | Como responsable de operaciones, deseo consultar indicadores definidos sobre viajes, incidencias y entregas para evaluar los resultados del servicio. | **Scenario 1:** **Given** datos procesados del período y filtros autorizados; **When** consulto el indicador; **Then** se muestran valor, definición, período y fecha de actualización.<br>**Scenario 2:** Given un período sin datos; When consulto; Then se indica ausencia de datos sin inventar valores. | Reporting & Analytics | EP09 |
+| **EP10** | **Identidad y acceso** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP10 |
+| US46 | Iniciar sesión | Como usuario registrado, deseo iniciar sesión para acceder a las funciones de TrackTruck correspondientes a mi cuenta. | **Scenario 1:** **Given** credenciales válidas y cuenta activa; **When** solicito acceso; **Then** Identity & Access entrega credenciales de sesión con expiración y organización autorizada.<br>**Scenario 2:** Given credenciales inválidas o cuenta inactiva; When solicito acceso; Then se rechaza sin revelar cuál dato fue incorrecto. | Identity & Access | EP10 |
+| US47 | Cerrar sesión | Como usuario autenticado, deseo cerrar mi sesión para finalizar de forma segura mi acceso a TrackTruck. | **Scenario 1:** **Given** una sesión activa; **When** cierro sesión; **Then** se revoca la sesión de renovación y se eliminan las credenciales locales.<br>**Scenario 2:** Given un token de acceso emitido previamente; When se utiliza; Then su validez se controla hasta expiración o revocación adicional según la política documentada. | Identity & Access | EP10 |
+| US48 | Recuperar contraseña | Como usuario registrado, deseo recuperar mi contraseña para volver a acceder a TrackTruck si olvido mis credenciales. | **Scenario 1:** **Given** una solicitud de recuperación; **When** se procesa el correo proporcionado; **Then** la respuesta evita revelar la existencia de la cuenta y, si procede, se envía un token de un solo uso con expiración.<br>**Scenario 2:** Given un token vencido o ya utilizado; When intento cambiar la contraseña; Then se rechaza. | Identity & Access | EP10 |
+| US49 | Consultar perfil | Como usuario autenticado, deseo consultar los datos básicos de mi cuenta para revisar mi información de acceso y contacto. | **Scenario 1: Perfil disponible** <br> **Given** que tengo una sesión activa, <br> **When** accedo a mi perfil, <br> **Then** el sistema muestra la información correspondiente a mi cuenta. | Identity & Access | EP10 |
+| US50 | Actualizar perfil | Como usuario autenticado, deseo actualizar los datos básicos permitidos de mi cuenta para mantener vigente mi información de contacto. | **Scenario 1:** **Given** datos válidos de mi propia cuenta; **When** guardo los cambios permitidos; **Then** Identity & Access actualiza esos campos.<br>**Scenario 2:** Given un intento de cambiar mis roles, organización o datos laborales desde el perfil; When guardo; Then se rechaza la modificación no autorizada. | Identity & Access | EP10 |
+| US51 | Gestionar roles y permisos | Como administrador, deseo administrar roles y permisos de la organización para controlar las operaciones autorizadas. | **Scenario 1:** **Given** un administrador autorizado; **When** asigno o retiro un permiso; **Then** el backend aplica la política a las operaciones protegidas.<br>**Scenario 2:** Given un usuario sin permiso; When intenta modificar roles; Then se rechaza con 403. | Identity & Access | EP10 |
+| US52 | Habilitar cuenta de usuario | Como administrador, deseo habilitar una cuenta y su pertenencia a la organización para dar acceso al personal autorizado. | **Scenario 1:** **Given** un administrador autorizado y datos de cuenta válidos; **When** habilito la cuenta; **Then** se registra una identidad vinculada a la organización y a roles permitidos.<br>**Scenario 2:** Given una invitación o correo duplicado según la política; When registro; Then se evita una cuenta duplicada. | Identity & Access | EP10 |
+| **EP11** | **Gestión de envíos** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP11 |
+| US54 | Crear solicitud de envío | Como responsable de operaciones, deseo registrar un envío con cliente, carga, origen y destino para iniciar el servicio de transporte. | **Scenario 1:** **Given** cliente accesible y carga con cantidades y unidades válidas; **When** creo el envío; **Then** se registra con estado CREATED e identificador único.<br>**Scenario 2:** Given cantidades no positivas o referencias no válidas; When creo; Then se rechaza. | Shipment Management | EP11 |
+| US55 | Consultar estado del envío | Como cliente autorizado, deseo consultar el estado de mis envíos para conocer su avance hasta la entrega. | **Scenario 1:** **Given** un envío vinculado al cliente y organización autorizados; **When** consulto su estado; **Then** se muestra su estado consolidado y fecha de actualización.<br>**Scenario 2:** Given un envío ajeno; When intento consultarlo; Then se restringe el acceso sin revelar información. | Shipment Management | EP11 |
+| **EP12** | **Operaciones de almacén** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP12 |
+| US56 | Registrar recepción de carga | Como personal de almacén, deseo registrar la recepción y ubicación de mercancía asociada a un envío para mantener control de la carga recibida. | **Scenario 1:** **Given** un envío válido y unidades verificadas; **When** registro la recepción; **Then** Warehouse Operations conserva cantidades, ubicación y recepción identificada.<br>**Scenario 2:** Given la misma solicitud repetida; When se procesa; Then se conserva una sola recepción. | Warehouse Operations | EP12 |
+| US57 | Preparar carga para despacho | Como personal de almacén, deseo preparar y liberar la carga para despacho para informar que el envío puede planificarse. | **Scenario 1:** **Given** carga recibida y cantidades suficientes; **When** confirmo la preparación; **Then** se publica CargoPrepared; Shipment Management actualiza su estado y publica ShipmentReadyForDispatch.<br>**Scenario 2:** Given diferencias de cantidad o carga no recibida; When libero; Then se rechaza y se registra el motivo. | Warehouse Operations | EP12 |
+| **EP13** | **Mantenimiento** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP13 |
+| US58 | Programar y cerrar mantenimiento | Como responsable de mantenimiento, deseo registrar mantenimientos preventivos y correctivos para conocer la condición técnica y restricciones del vehículo. | **Scenario 1:** **Given** un vehículo accesible; **When** registro el mantenimiento y su condición; **Then** Maintenance Management conserva el trabajo y comunica restricciones vigentes.<br>**Scenario 2:** Given una restricción crítica abierta; When se solicita aptitud; Then el vehículo no se considera apto. | Maintenance Management | EP13 |
+| US59 | Registrar kilometraje | Como responsable de mantenimiento, deseo registrar lecturas de kilometraje y su fecha para evaluar intervalos de mantenimiento. | **Scenario 1:** **Given** una lectura con vehículo, fecha y procedencia; **When** registro kilometraje; **Then** se conserva la lectura válida y se revisa el umbral de mantenimiento.<br>**Scenario 2:** Given una lectura inconsistente o un reinicio de odómetro sin justificar; When guardo; Then se rechaza o requiere corrección auditada. | Maintenance Management | EP13 |
+| **EP14** | **Gestión de personal** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP14 |
+| US60 | Registrar empleado | Como responsable de personal, deseo registrar empleados y su relación operativa para organizar el personal de la empresa. | **Scenario 1:** **Given** datos válidos y permiso de gestión; **When** registro al empleado; **Then** se conserva su ficha laboral; la cuenta de acceso y ficha de conductor se relacionan por referencia.<br>**Scenario 2:** Given un registro duplicado; When guardo; Then se evita duplicación. | Workforce Management | EP14 |
+| US61 | Gestionar disponibilidad laboral | Como responsable de personal, deseo registrar disponibilidad y asignaciones laborales para planificar recursos sin conflictos de horario. | **Scenario 1:** **Given** empleado e intervalo válidos; **When** registro disponibilidad o ausencia; **Then** se conserva el intervalo y su motivo para consulta de planificación.<br>**Scenario 2:** Given intervalos incompatibles; When guardo; Then se identifica y resuelve el conflicto antes de confirmar. | Workforce Management | EP14 |
+| **EP15** | **Jornadas y asistencia** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP15 |
+| US62 | Registrar jornada trabajada | Como empleado autorizado, deseo registrar el inicio y cierre de mi jornada para mantener las horas de trabajo disponibles para validación. | **Scenario 1:** **Given** empleado autorizado e intervalo válido; **When** registro o cierro la jornada; **Then** se conservan horas y fecha sin intervalos superpuestos.<br>**Scenario 2:** Given cierre anterior al inicio o doble jornada incompatible; When guardo; Then se rechaza. | Time & Attendance | EP15 |
+| US63 | Registrar descansos | Como empleado autorizado, deseo registrar descansos dentro de la jornada para permitir la evaluación de mis restricciones operativas. | **Scenario 1:** **Given** una jornada y un intervalo de descanso válidos; **When** registro el descanso; **Then** queda separado del tiempo trabajado y disponible para Compliance.<br>**Scenario 2:** Given intervalos superpuestos o fuera de la jornada; When guardo; Then se rechaza. | Time & Attendance | EP15 |
+| US64 | Registrar horas adicionales | Como responsable de personal, deseo registrar horas adicionales separadas de las ordinarias para consultarlas y preparar su liquidación al cierre de mes. | **Scenario 1:** **Given** horas adicionales justificadas y aprobadas conforme a la política; **When** registro su clasificación; **Then** las horas ordinarias y adicionales se muestran por separado y ambas se consideran en el total para elegibilidad.<br>**Scenario 2:** Given doble contabilización del mismo intervalo; When proceso; Then se rechaza. La liquidación se exporta al proceso de planilla definido por la empresa. | Time & Attendance | EP15 |
+| **EP16** | **Seguridad y elegibilidad del conductor** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP16 |
+| US65 | Evaluar elegibilidad del conductor | Como coordinador, deseo evaluar disponibilidad, jornada, descansos y restricciones del conductor para considerar únicamente recursos válidos para un despacho. | **Scenario 1:** **Given** datos vigentes del conductor y del intervalo propuesto; **When** solicito elegibilidad; **Then** se entrega decisión, motivos, versión de reglas y fecha de evaluación.<br>**Scenario 2:** Given ausencia de datos obligatorios o incumplimiento; When se evalúa; Then se informa no elegible o no evaluable sin autorizar el despacho. | Driver Safety & Compliance | EP16 |
+| **EP17** | **Planificación de despachos** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP17 |
+| US09 | Registrar alternativa de ruta | Como responsable de operaciones, deseo registrar origen, destino y una alternativa de ruta dentro de la planificación para organizar el transporte. | **Scenario 1:** **Given** ubicaciones válidas; **When** solicito una alternativa de ruta; **Then** Dispatch Planning conserva su distancia, duración, fuente y fecha de cálculo.<br>**Scenario 2:** Given que el proveedor no responde; When solicito la ruta; Then se informa la indisponibilidad y un borrador manual queda identificado como tal. | Dispatch Planning | EP17 |
+| US11 | Seleccionar vehículo para el despacho | Como responsable de operaciones, deseo seleccionar un vehículo para el plan de despacho para utilizar una unidad apta y sin reservas superpuestas. | **Scenario 1:** **Given** un plan en preparación y un vehículo activo, apto y de capacidad suficiente; **When** selecciono la unidad; **Then** Dispatch Planning incluye y reserva el vehículo según el proceso de aprobación.<br>**Scenario 2:** Given una restricción crítica o reserva superpuesta; When confirmo; Then el backend rechaza la asignación. | Dispatch Planning | EP17 |
+| US12 | Seleccionar conductor para el despacho | Como responsable de operaciones, deseo seleccionar un conductor elegible para el plan de despacho para asignar el recorrido respetando su jornada y disponibilidad. | **Scenario 1:** **Given** un conductor elegible, disponible para el intervalo y sin reserva superpuesta; **When** selecciono al conductor; **Then** Dispatch Planning incorpora la propuesta y valida su elegibilidad al aprobar.<br>**Scenario 2:** Given jornada excedida, descanso incumplido o datos obligatorios ausentes; When apruebo; Then se rechaza la asignación. | Dispatch Planning | EP17 |
+| US25 | Consultar rutas registradas | Como responsable de operaciones, deseo consultar las rutas registradas para seleccionar o revisar los recorridos utilizados por la empresa. | **Scenario 1: Rutas disponibles** <br> **Given** que existen rutas registradas, <br> **When** accedo a la sección de rutas, <br> **Then** el sistema muestra las rutas disponibles. | Dispatch Planning | EP17 |
+| US66 | Solicitar recomendación asistida por IA | Como coordinador, deseo obtener alternativas de conductor, vehículo y ruta con una recomendación asistida por IA para reducir el esfuerzo de planificación. | **Scenario 1:** **Given** envío listo, datos suficientes y recursos previamente elegibles; **When** solicito recomendación; **Then** se muestran alternativas, estimación y criterios; el backend registra el resultado y la versión del modelo.<br>**Scenario 2:** Given una alternativa inválida; When el motor recomienda; Then se descarta antes de presentarla como aprobable. | Dispatch Planning | EP17 |
+| US67 | Aprobar plan de despacho | Como coordinador autorizado, deseo aprobar una alternativa de despacho para confirmar los recursos y permitir el registro del viaje. | **Scenario 1:** **Given** plan vigente y recursos nuevamente validados; **When** apruebo la alternativa; **Then** se confirman las reservas, se registra el responsable y se publica DispatchPlanApproved.<br>**Scenario 2:** Given cambios de elegibilidad o conflicto de reservas; When apruebo; Then se rechaza y solicita actualizar el plan. | Dispatch Planning | EP17 |
+| US68 | Continuar con planificación básica | Como coordinador, deseo usar una estrategia básica cuando la IA no está disponible para mantener la planificación con las mismas reglas obligatorias. | **Scenario 1:** **Given** la IA falla y hay datos obligatorios suficientes; **When** solicito alternativas; **Then** se muestra una propuesta basada en reglas e identificada como modo básico.<br>**Scenario 2:** Given datos críticos ausentes; When se solicita fallback; Then no se confirma una asignación. | Dispatch Planning | EP17 |
+| US69 | Evitar reservas superpuestas | Como coordinador, deseo reservar conductor y vehículo por intervalo para evitar asignarlos a viajes simultáneos incompatibles. | **Scenario 1:** **Given** dos solicitudes concurrentes para un recurso en intervalos superpuestos; **When** se aprueban los planes; **Then** una reserva se confirma y la otra devuelve conflicto sin duplicar asignaciones.<br>**Scenario 2:** Given un reintento con la misma clave; When se procesa; Then se recupera el resultado existente. | Dispatch Planning | EP17 |
+| US70 | Replanificar ante una excepción | Como coordinador, deseo solicitar una nueva planificación cuando exista una interrupción justificada para continuar la operación conservando el historial. | **Scenario 1:** **Given** una incidencia o interrupción documentada; **When** apruebo la sustitución; **Then** se valida el nuevo recurso y se registra la revisión del plan y el cambio operativo.<br>**Scenario 2:** Given una propuesta que incumple jornada o mantenimiento; When apruebo; Then se rechaza. | Dispatch Planning | EP17 |
+| **EP18** | **Gestión de entregas** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP18 |
+| US74 | Confirmar entrega | Como responsable de entrega, deseo registrar recepción, cantidades y evidencia de entrega para confirmar el resultado del envío. | **Scenario 1:** **Given** envío en transporte y datos válidos de recepción; **When** confirmo la entrega; **Then** Delivery Management conserva evidencia y publica DeliveryConfirmed para que Shipment Management actualice su estado.<br>**Scenario 2:** Given una solicitud repetida; When se procesa; Then no se duplica la entrega. | Delivery Management | EP18 |
+| US75 | Registrar entrega parcial o fallida | Como responsable de entrega, deseo registrar cantidades entregadas y motivo de una excepción para mantener el estado real de la mercancía. | **Scenario 1:** **Given** entrega con diferencia o rechazo; **When** registro el resultado y su motivo; **Then** se conserva la excepción y se comunica el resultado a Shipment Management.<br>**Scenario 2:** Given cantidades superiores a la carga pendiente; When guardo; Then se rechaza. | Delivery Management | EP18 |
+| **EP19** | **Facturación y pagos** | Epic del producto. | Se acepta a través de las historias relacionadas. | — | EP19 |
+| US76 | Cotizar servicio logístico | Como responsable de facturación, deseo registrar precio y condiciones del servicio para conocer el importe antes del cobro. | **Scenario 1:** **Given** un servicio, moneda y condiciones válidas; **When** registro la cotización; **Then** se conserva el importe y su relación con el cliente y envío.<br>**Scenario 2:** Given un importe negativo o moneda ausente; When guardo; Then se rechaza. | Billing & Payments | EP19 |
+| US77 | Emitir comprobante del servicio | Como responsable de facturación, deseo solicitar boleta o factura con los datos de la operación para documentar el cobro del servicio. | **Scenario 1:** **Given** datos de facturación completos y condición contractual cumplida; **When** solicito el comprobante; **Then** se registra solicitud, estado y referencia devuelta por el proveedor configurado.<br>**Scenario 2:** Given timeout o respuesta incierta; When se reintenta; Then se consulta y usa la misma clave para evitar duplicación; un sandbox se identifica como evidencia de prueba. | Billing & Payments | EP19 |
+| US78 | Registrar pago del servicio | Como responsable de facturación, deseo registrar o confirmar un pago para mantener el estado financiero de la operación. | **Scenario 1:** **Given** un cargo válido y confirmación autorizada; **When** registro el pago o verifico el callback del proveedor; **Then** se actualiza el estado una sola vez y se conserva su referencia.<br>**Scenario 2:** Given callback duplicado o firma inválida; When llega; Then se deduplica o rechaza según el caso. | Billing & Payments | EP19 |
 
-![Impact Map - TrackTruck](assets/images/chapter3/impact-map.png)
+### Requisitos de calidad y técnicos
 
-## Business Goal
+| ID | Requisito | Escenario o restricción relacionada | Criterio de comprobación |
+|---|---|---|---|
+| NFR01 | Mantener seguimiento básico ante falla del proveedor de mapas. | QAS01. | Prueba de interrupción y conservación de reportes recibidos. |
+| NFR02 | Procesar la carga de ubicaciones definida para el piloto. | QAS02. | Informe de carga con volumen, duración y percentil 95. |
+| NFR03 | Aplicar autorización por rol, organización y recurso. | QAS03. | Casos 401/403 y acceso cruzado con datos de prueba controlados. |
+| NFR04 | Mantener contratos de API y eventos documentados y versionados. | QAS04. | Pruebas de contrato y comparación de campos y errores. |
+| NFR05 | Respetar reglas obligatorias en modo IA y básico, mostrando su procedencia. | QAS05, QAS06. | Casos de recursos inválidos, fallo de IA, explicación y auditoría del plan. |
+| NFR06 | Evitar efectos duplicados y reservas incompatibles. | QAS07. | Pruebas de reintentos, eventos repetidos y aprobación concurrente. |
+| NFR07 | Conservar reportes móviles autorizados pendientes de sincronización. | QAS08. | Prueba en dispositivo de pérdida y recuperación de conexión. |
+| NFR08 | Permitir correlacionar solicitudes, eventos y resultados operacionales. | QAS09. | Reconstrucción de una operación por correlationId sin exponer credenciales. |
+| NFR09 | Implementar y probar backend C# y app móvil con evidencia por incremento. | CON01–CON04. | Compilación, suites ejecutadas, flujo integrado y artefactos identificables. |
 
-Mejorar la visibilidad, el control y la trazabilidad de las operaciones de transporte de carga.
+<div style="page-break-after: always;"></div>
 
-## Personas
+## 3.3. Impact Map
 
-- **Carlos Mendoza:** Supervisor de flota de una empresa de transporte de carga.
-- **Andrea Salazar:** Coordinadora de operaciones de una empresa logística.
+El Impact Map relaciona el objetivo de negocio con cambios esperados en las tareas de los usuarios y los incrementos que los habilitan. La figura del documento base se actualizará con esta relación.
 
-## Impacts
+**Objetivo de negocio:** mejorar la coordinación, visibilidad y trazabilidad del transporte de carga, reduciendo el tiempo de consulta y planificación y evitando asignaciones que incumplan las reglas operativas. Las metas de H01–H07 se evaluarán durante el piloto.
 
-**Carlos Mendoza**
-- Tener mayor visibilidad sobre la ubicación de los vehículos.
-- Detectar retrasos, paradas e incidencias con mayor rapidez.
-- Mejorar la comunicación con los conductores.
-- Mantener mayor control sobre vehículos y viajes.
+| Actor | Impacto esperado | Entregable | Historias relacionadas |
+|---|---|---|---|
+| Administrador | Mantener acceso acorde con responsabilidades y organización. | Gestión de cuentas, roles y autorización en API y app. | US46–US52. |
+| Carlos Mendoza — supervisor de flota | Revisar recursos, seguimiento e incidencias con información relacionada. | Flota, mantenimiento, mapa con fecha de actualización y detalle del viaje. | US03–US08, US14–US19, US23–US24, US58–US59. |
+| Andrea Salazar — coordinadora | Planificar con recursos válidos y comprender la recomendación. | Envíos listos, consulta de elegibilidad, alternativas de despacho y aprobación. | US09–US12, US54–US57, US65–US70. |
+| Conductor — rol adicional por validar | Consultar asignaciones, registrar incidencias y mantener reportes pendientes. | Viajes, registro móvil de incidencias y sincronización autorizada. | US18, US27–US28, US62–US64, US72–US73. |
+| Personal de almacén — rol adicional por validar | Relacionar preparación de carga con envío y despacho. | Recepción, preparación y liberación de carga. | US56–US57. |
+| Cliente autorizado — rol adicional por validar | Consultar sus envíos y reconocer la evidencia de entrega. | Consulta de envío y resultado de entrega. | US53–US55, US74–US75. |
+| Responsable de facturación — rol adicional por validar | Relacionar servicio, importe, documento y pago. | Cotización, comprobante y registro de pago. | US76–US78. |
+| Responsable de operaciones | Reconstruir el flujo y revisar resultados. | Historial consolidado e indicadores con definiciones y fecha de actualización. | US21–US22, US39–US45, US79–US80. |
 
-**Andrea Salazar**
-- Supervisar varias operaciones desde un mismo lugar.
-- Centralizar la información de los viajes.
-- Mejorar la trazabilidad de las operaciones.
-- Tomar decisiones con información más actualizada.
+<div style="page-break-after: always;"></div>
 
-## Deliverables
-
-- Monitoreo de vehículos en tiempo real.
-- Visualización de rutas y recorridos.
-- Gestión de paradas, retrasos e incidencias.
-- Comunicación con conductores.
-- Gestión de vehículos, conductores, rutas y viajes.
-- Dashboard de operaciones.
-- Historial de viajes.
-
-## User Stories
-
-Algunas User Stories relacionadas con el Impact Map son:
-
-- **US14:** Visualizar ubicación del vehículo.
-- **US15:** Visualizar recorrido del viaje.
-- **US17:** Identificar retrasos en el viaje.
-- **US18:** Registrar incidencia.
-- **US20:** Contactar al conductor.
-- **US21:** Consultar historial de viajes.
-- **US30:** Visualizar vehículos en mapa.
-- **US43:** Visualizar resumen de operaciones.
-
+![Impact Map — pendiente actualizar con los nuevos contextos](assets/images/chapter3/impact-map.png)
 
 <div style="page-break-after: always;"></div>
 
 ## 3.4. Product Backlog
 
-El Product Backlog de **TrackTruck** reúne y prioriza las User Stories identificadas para el desarrollo del producto. El orden se establece principalmente según el valor que cada historia aporta a las empresas de transporte de carga y operadores logísticos, priorizando las funcionalidades relacionadas con el monitoreo, seguimiento de viajes, gestión de incidencias y trazabilidad de las operaciones.
+El Product Backlog reúne las **80 historias** especificadas en 3.2. Se conserva la estimación original de US01–US50 y se añade la historia US31, que estaba ausente del backlog del documento base. Las estimaciones de historias incorporadas y su Sprint sugerido son propuestas iniciales que el equipo deberá revisar durante la planificación. Los Story Points expresan complejidad relativa y no equivalen directamente a horas.
 
-La estimación se realiza mediante **Story Points**, utilizando los valores 1, 2, 3, 5 y 8 según la complejidad relativa de cada historia.
+El estado **Pendiente contrastar evidencia** significa que este archivo no incluye el código, commit, pruebas ni aceptación necesarios para establecer el estado real de implementación. El equipo debe trasladar al tablero los avances comprobados y mantener correspondencia con la revisión de cada Sprint.
 
-| **# Orden** | **User Story Id** | **Título** | **Descripción** | **Story Points** |
-|---:|---|---|---|---:|
-| 1 | US14 | Visualizar ubicación del vehículo | Como supervisor de flota, deseo visualizar la ubicación actual de un vehículo para conocer dónde se encuentra durante el viaje. | 8 |
-| 2 | US30 | Visualizar vehículos en mapa | Como supervisor de flota, deseo visualizar los vehículos que se encuentran realizando viajes en un mapa para supervisar la flota desde una vista centralizada. | 8 |
-| 3 | US15 | Visualizar recorrido del viaje | Como responsable de operaciones, deseo visualizar el recorrido realizado por un vehículo para supervisar el progreso de la operación. | 8 |
-| 4 | US10 | Crear viaje | Como responsable de operaciones, deseo crear un viaje para organizar una nueva operación de transporte. | 5 |
-| 5 | US13 | Consultar viajes activos | Como responsable de operaciones, deseo visualizar los viajes activos para conocer qué operaciones se encuentran actualmente en ejecución. | 5 |
-| 6 | US26 | Consultar detalle de viaje activo | Como responsable de operaciones, deseo consultar el detalle de un viaje activo para conocer su vehículo, conductor, ruta y estado actual. | 5 |
-| 7 | US17 | Identificar retrasos en el viaje | Como responsable de operaciones, deseo identificar retrasos durante un viaje para tomar decisiones oportunamente. | 5 |
-| 8 | US16 | Identificar paradas durante el recorrido | Como supervisor de flota, deseo identificar las paradas realizadas durante un viaje para comprender mejor el desarrollo del recorrido. | 5 |
-| 9 | US18 | Registrar incidencia | Como conductor, deseo registrar una incidencia durante el recorrido para informar a la empresa sobre una situación que afecta el viaje. | 5 |
-| 10 | US19 | Consultar incidencias de un viaje | Como responsable de operaciones, deseo visualizar las incidencias de un viaje para conocer los problemas ocurridos durante el recorrido. | 3 |
-| 11 | US35 | Visualizar incidencias en el recorrido | Como responsable de operaciones, deseo visualizar las incidencias asociadas al recorrido para identificar dónde ocurrieron los problemas durante el viaje. | 5 |
-| 12 | US20 | Contactar al conductor | Como responsable de operaciones, deseo iniciar una llamada con el conductor asignado para comunicarme rápidamente cuando necesite información sobre el viaje. | 5 |
-| 13 | US43 | Visualizar resumen de operaciones | Como responsable de operaciones, deseo visualizar un resumen de las operaciones para conocer rápidamente el estado general de los transportes gestionados. | 5 |
-| 14 | US44 | Visualizar viajes activos en dashboard | Como responsable de operaciones, deseo visualizar los viajes activos desde el dashboard para acceder rápidamente a las operaciones que requieren seguimiento. | 3 |
-| 15 | US45 | Visualizar incidencias actuales | Como responsable de operaciones, deseo visualizar las incidencias asociadas a operaciones activas para identificar situaciones que requieren atención. | 3 |
-| 16 | US33 | Visualizar progreso del recorrido | Como responsable de operaciones, deseo visualizar el progreso de un recorrido para conocer el avance de un vehículo hacia su destino. | 5 |
-| 17 | US09 | Registrar ruta | Como responsable de operaciones, deseo registrar una ruta indicando su origen y destino para utilizarla en las operaciones de transporte. | 3 |
-| 18 | US11 | Asignar vehículo a viaje | Como responsable de operaciones, deseo asignar un vehículo a un viaje para determinar qué unidad realizará el recorrido. | 3 |
-| 19 | US12 | Asignar conductor a viaje | Como responsable de operaciones, deseo asignar un conductor a un viaje para establecer quién realizará el recorrido. | 3 |
-| 20 | US27 | Iniciar viaje | Como conductor, deseo iniciar el viaje que me fue asignado para indicar que la operación de transporte ha comenzado. | 3 |
-| 21 | US28 | Finalizar viaje | Como conductor, deseo finalizar mi viaje para indicar que la operación de transporte ha concluido. | 3 |
-| 22 | US29 | Visualizar estado de un viaje | Como responsable de operaciones, deseo visualizar el estado de un viaje para conocer si se encuentra pendiente, en curso o finalizado. | 2 |
-| 23 | US32 | Consultar última ubicación conocida | Como responsable de operaciones, deseo consultar la última ubicación conocida de un vehículo para disponer de información cuando no exista una actualización reciente. | 3 |
-| 24 | US34 | Consultar información de una parada | Como supervisor de flota, deseo consultar una parada identificada durante un recorrido para conocer dónde ocurrió dentro del viaje. | 3 |
-| 25 | US36 | Consultar detalle de incidencia | Como responsable de operaciones, deseo consultar el detalle de una incidencia para comprender la situación reportada durante el viaje. | 2 |
-| 26 | US38 | Contactar conductor desde un viaje | Como responsable de operaciones, deseo acceder a la opción de llamada desde el detalle de un viaje para contactar rápidamente al conductor asignado. | 3 |
-| 27 | US21 | Consultar historial de viajes | Como responsable de operaciones, deseo consultar los viajes realizados anteriormente para revisar las operaciones de transporte de la empresa. | 5 |
-| 28 | US22 | Consultar detalle de viaje finalizado | Como responsable de operaciones, deseo consultar el detalle de un viaje finalizado para revisar el vehículo, conductor, ruta, recorrido e incidencias relacionadas. | 5 |
-| 29 | US39 | Filtrar historial de viajes | Como responsable de operaciones, deseo filtrar los viajes anteriores para encontrar con mayor facilidad una operación específica. | 3 |
-| 30 | US40 | Consultar historial de un vehículo | Como supervisor de flota, deseo consultar los viajes realizados por un vehículo para revisar su participación en operaciones anteriores. | 3 |
-| 31 | US41 | Consultar historial de un conductor | Como supervisor de flota, deseo consultar los viajes realizados por un conductor para revisar las operaciones en las que participó. | 3 |
-| 32 | US42 | Consultar historial de una ruta | Como responsable de operaciones, deseo consultar los viajes realizados sobre una ruta para revisar las operaciones asociadas a dicho recorrido. | 3 |
-| 33 | US37 | Consultar incidencias anteriores | Como supervisor de flota, deseo consultar incidencias ocurridas en operaciones anteriores para revisar los problemas registrados durante los viajes. | 3 |
-| 34 | US03 | Registrar vehículo | Como supervisor de flota, deseo registrar un vehículo para incluirlo en las operaciones de transporte de mi empresa. | 3 |
-| 35 | US04 | Consultar vehículos | Como supervisor de flota, deseo visualizar los vehículos registrados para conocer las unidades disponibles de la empresa. | 2 |
-| 36 | US05 | Actualizar información de vehículo | Como supervisor de flota, deseo actualizar la información de un vehículo para mantener sus datos correctos. | 2 |
-| 37 | US23 | Consultar detalle de vehículo | Como supervisor de flota, deseo consultar el detalle de un vehículo para conocer su información y los viajes asociados. | 3 |
-| 38 | US06 | Registrar conductor | Como supervisor de flota, deseo registrar un conductor para asignarlo posteriormente a las operaciones de transporte. | 3 |
-| 39 | US07 | Consultar conductores | Como supervisor de flota, deseo visualizar los conductores registrados para conocer el personal disponible para las operaciones. | 2 |
-| 40 | US08 | Actualizar información de conductor | Como supervisor de flota, deseo actualizar los datos de un conductor para mantener su información vigente. | 2 |
-| 41 | US24 | Consultar detalle de conductor | Como supervisor de flota, deseo consultar el detalle de un conductor para conocer su información y los viajes en los que ha participado. | 3 |
-| 42 | US25 | Consultar rutas registradas | Como responsable de operaciones, deseo consultar las rutas registradas para seleccionar o revisar los recorridos utilizados por la empresa. | 2 |
-| 43 | US01 | Registrar empresa | Como representante de una empresa de transporte o logística, deseo registrar mi empresa para comenzar a gestionar sus operaciones de transporte en TrackTruck. | 5 |
-| 44 | US02 | Visualizar información de la empresa | Como responsable de operaciones, deseo consultar la información de mi empresa para verificar los datos registrados. | 2 |
-| 45 | US46 | Iniciar sesión | Como usuario registrado, deseo iniciar sesión para acceder a las funciones de TrackTruck correspondientes a mi cuenta. | 3 |
-| 46 | US47 | Cerrar sesión | Como usuario autenticado, deseo cerrar mi sesión para finalizar de forma segura mi acceso a TrackTruck. | 1 |
-| 47 | US48 | Recuperar contraseña | Como usuario registrado, deseo recuperar mi contraseña para volver a acceder a TrackTruck si olvido mis credenciales. | 3 |
-| 48 | US49 | Consultar perfil | Como usuario autenticado, deseo consultar mi perfil para visualizar la información asociada a mi cuenta. | 2 |
-| 49 | US50 | Actualizar perfil | Como usuario autenticado, deseo actualizar la información de mi perfil para mantener mis datos vigentes. | 2 |
+| Orden | Story ID | Título | Contexto responsable | Prioridad | Story Points | Incremento sugerido | Estado documental |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | US46 | Iniciar sesión | Identity & Access | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 2 | US52 | Habilitar cuenta de usuario | Identity & Access | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 3 | US51 | Gestionar roles y permisos | Identity & Access | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 4 | US01 | Registrar empresa | Customer Management | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 5 | US02 | Visualizar información de la empresa | Customer Management | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
+| 6 | US03 | Registrar vehículo | Fleet Management | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 7 | US04 | Consultar vehículos | Fleet Management | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
+| 8 | US06 | Registrar conductor | Fleet Management | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 9 | US07 | Consultar conductores | Fleet Management | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
+| 10 | US09 | Registrar alternativa de ruta | Dispatch Planning | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 11 | US65 | Evaluar elegibilidad del conductor | Driver Safety & Compliance | Alta | 8 | Sprint 1 | Pendiente contrastar evidencia |
+| 12 | US11 | Seleccionar vehículo para el despacho | Dispatch Planning | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 13 | US12 | Seleccionar conductor para el despacho | Dispatch Planning | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 14 | US69 | Evitar reservas superpuestas | Dispatch Planning | Alta | 8 | Sprint 1 | Pendiente contrastar evidencia |
+| 15 | US67 | Aprobar plan de despacho | Dispatch Planning | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 16 | US10 | Registrar viaje programado | Trip Execution | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 17 | US26 | Consultar detalle de viaje activo | Trip Execution | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 18 | US27 | Iniciar viaje | Trip Execution | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 19 | US14 | Visualizar ubicación del vehículo | Tracking & Geolocation | Alta | 8 | Sprint 1 | Pendiente contrastar evidencia |
+| 20 | US13 | Consultar viajes activos | Trip Execution | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 21 | US18 | Registrar incidencia | Incident Management | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 22 | US19 | Consultar incidencias de un viaje | Incident Management | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 23 | US20 | Abrir marcador para contactar al conductor | Trip Execution; Fleet Management; app móvil | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
+| 24 | US29 | Visualizar estado de un viaje | Trip Execution | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
+| 25 | US28 | Finalizar viaje | Trip Execution | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
+| 26 | US47 | Cerrar sesión | Identity & Access | Alta | 1 | Sprint 1 | Pendiente contrastar evidencia |
+| 27 | US49 | Consultar perfil | Identity & Access | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
+| 28 | US05 | Actualizar información de vehículo | Fleet Management | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
+| 29 | US08 | Actualizar información de conductor | Fleet Management | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
+| 30 | US15 | Visualizar recorrido del viaje | Tracking & Geolocation | Media | 8 | Sprint 2 | Pendiente contrastar evidencia |
+| 31 | US16 | Identificar paradas durante el recorrido | Tracking & Geolocation | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 32 | US17 | Identificar retrasos en el viaje | Trip Execution | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 33 | US23 | Consultar detalle de vehículo | Fleet Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 34 | US24 | Consultar detalle de conductor | Fleet Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 35 | US25 | Consultar rutas registradas | Dispatch Planning | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
+| 36 | US30 | Visualizar vehículos en mapa | Tracking & Geolocation | Media | 8 | Sprint 2 | Pendiente contrastar evidencia |
+| 37 | US31 | Seleccionar vehículo desde el mapa | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 38 | US32 | Consultar última ubicación conocida | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 39 | US33 | Visualizar progreso del recorrido | Tracking & Geolocation | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 40 | US34 | Consultar información de una parada | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 41 | US35 | Visualizar incidencias en el recorrido | Incident Management | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 42 | US36 | Consultar detalle de incidencia | Incident Management | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
+| 43 | US38 | Consultar contacto desde el viaje | Trip Execution; Fleet Management; app móvil | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 44 | US48 | Recuperar contraseña | Identity & Access | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 45 | US50 | Actualizar perfil | Identity & Access | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
+| 46 | US53 | Registrar cliente del servicio | Customer Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 47 | US54 | Crear solicitud de envío | Shipment Management | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 48 | US55 | Consultar estado del envío | Shipment Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 49 | US56 | Registrar recepción de carga | Warehouse Operations | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 50 | US57 | Preparar carga para despacho | Warehouse Operations | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 51 | US58 | Programar y cerrar mantenimiento | Maintenance Management | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 52 | US59 | Registrar kilometraje | Maintenance Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 53 | US60 | Registrar empleado | Workforce Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 54 | US61 | Gestionar disponibilidad laboral | Workforce Management | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 55 | US62 | Registrar jornada trabajada | Time & Attendance | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 56 | US63 | Registrar descansos | Time & Attendance | Alta | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 57 | US64 | Registrar horas adicionales | Time & Attendance | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 58 | US66 | Solicitar recomendación asistida por IA | Dispatch Planning | Alta | 8 | Sprint 2 | Pendiente contrastar evidencia |
+| 59 | US68 | Continuar con planificación básica | Dispatch Planning | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
+| 60 | US70 | Replanificar ante una excepción | Dispatch Planning | Media | 8 | Sprint 2 | Pendiente contrastar evidencia |
+| 61 | US71 | Cancelar viaje programado | Trip Execution | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 62 | US72 | Sincronizar reportes de ubicación pendientes | Tracking & Geolocation | Alta | 8 | Sprint 2 | Pendiente contrastar evidencia |
+| 63 | US73 | Actualizar motivo de parada | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
+| 64 | US21 | Consultar historial de viajes | Operational History | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
+| 65 | US22 | Consultar detalle de viaje finalizado | Operational History | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
+| 66 | US37 | Consultar incidencias anteriores | Incident Management | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
+| 67 | US39 | Filtrar historial de viajes | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
+| 68 | US40 | Consultar historial de un vehículo | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
+| 69 | US41 | Consultar historial de un conductor | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
+| 70 | US42 | Consultar historial de una ruta | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
+| 71 | US43 | Visualizar resumen de operaciones | Reporting & Analytics | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
+| 72 | US44 | Visualizar viajes activos en dashboard | Reporting & Analytics | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
+| 73 | US45 | Visualizar incidencias actuales | Reporting & Analytics | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
+| 74 | US74 | Confirmar entrega | Delivery Management | Alta | 5 | Sprint 3 | Pendiente contrastar evidencia |
+| 75 | US75 | Registrar entrega parcial o fallida | Delivery Management | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
+| 76 | US76 | Cotizar servicio logístico | Billing & Payments | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
+| 77 | US77 | Emitir comprobante del servicio | Billing & Payments | Media | 8 | Sprint 3 | Pendiente contrastar evidencia |
+| 78 | US78 | Registrar pago del servicio | Billing & Payments | Media | 8 | Sprint 3 | Pendiente contrastar evidencia |
+| 79 | US79 | Consultar historial consolidado | Operational History | Alta | 8 | Sprint 3 | Pendiente contrastar evidencia |
+| 80 | US80 | Consultar indicadores operacionales | Reporting & Analytics | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
+
+<div style="page-break-after: always;"></div>
+
+### Plan de tres Sprints
+
+| Sprint | Objetivo propuesto | Incremento esperado y evidencia |
+|---|---|---|
+| Sprint 1 | Construir el flujo operativo mínimo protegido: acceso, flota, selección y aprobación de recursos, viaje, seguimiento e incidencia. | Servicios C# ejecutables, primer flujo Android integrado y pruebas de las reglas y endpoints implementados. Las fuentes auxiliares simuladas se identificarán expresamente y no se contarán como contextos implementados. |
+| Sprint 2 | Ampliar envíos, almacén, mantenimiento, personal y jornada; incorporar IA en Dispatch Planning y mayor cobertura móvil. | Datos y validaciones de recursos integradas con servicios reales del incremento; componente IA evaluado, fallback comprobado y pruebas de integración y sincronización. |
+| Sprint 3 | Completar el cierre de operación, historial e indicadores comprometidos; integrar, probar y desplegar la versión final. | APK final, backend integrado, entrega y registros financieros del alcance acordado, pruebas de calidad, documentación y evidencia de despliegue. |
+
+Las historias sugeridas no constituyen compromisos automáticos de capacidad. En el Sprint Planning se fijarán fechas, duración, capacidad disponible, historias seleccionadas y dependencias. Cualquier porcentaje de avance debe indicar el conjunto de historias evaluadas y la evidencia de aceptación correspondiente a la versión C# y a la app móvil.
+
+
+<div style="page-break-after: always;"></div>
 
 ### Product Backlog en Trello
 
-El Product Backlog de **TrackTruck** fue gestionado en **Trello**, donde las User Stories fueron organizadas y priorizadas de acuerdo con el valor que aportan al negocio. Asimismo, se realizó la estimación de cada historia mediante Story Points utilizando los valores 1, 2, 3, 5 y 8.
+El tablero existente deberá actualizarse con la revisión de historias, sus estimaciones, dependencias y estado real. El enlace proporcionado en el documento base es una invitación; su acceso debe revisarse antes de usarlo como evidencia de consulta del informe.
 
-A continuación, se presenta la captura del Product Backlog gestionado en Trello:
+![Product Backlog — pendiente actualizar](assets/images/chapter3/product-backlog.png)
 
-![Product Backlog - TrackTruck](assets/images/chapter3/product-backlog.png)
-
-**Enlace público del Product Backlog:**  
-https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello
-
+[Tablero registrado en el documento base](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello)
 
 <div style="page-break-after: always;"></div>
 
 # Capítulo IV: Product Architecture Design
 
-
-<div style="page-break-after: always;"></div>
-
 ## 4.1. Design Concepts, ViewPoints & ER Diagrams
-
-
-<div style="page-break-after: always;"></div>
 
 ### 4.1.1. Principles Statements
 
-Los principios de LogiGo / TrackTruck orientan el diseño y la evolución del sistema a largo plazo. Se basan en el objetivo de mejorar la visibilidad y el control del transporte de carga, considerando la disponibilidad, interoperabilidad, rendimiento y seguridad.
+Los principios orientan la arquitectura objetivo y su implementación incremental. Los atributos prioritarios son disponibilidad, interoperabilidad, rendimiento y seguridad; la mantenibilidad, integridad y trazabilidad apoyan su realización.
 
-| Principio | Aplicación en el proyecto |
+| Principio | Aplicación |
 |---|---|
-| **Priorizar la disponibilidad de las funciones esenciales.** | Mantener operativas la gestión de viajes y el seguimiento, procurando que las fallas de servicios externos tengan un impacto limitado. |
-| **Preferir llamadas asincrónicas cuando no se necesite una respuesta inmediata.** | Procesar reportes de ubicación, incidencias y notificaciones sin bloquear otras operaciones del sistema. |
-| **Separar las responsabilidades del negocio.** | Organizar la gestión de viajes, conductores, camiones y seguimiento en componentes con responsabilidades claras para facilitar su mantenimiento. |
-| **Integrar servicios mediante interfaces definidas.** | Utilizar contratos documentados para comunicarse con proveedores de geolocalización y otros sistemas, facilitando futuras integraciones. |
-| **Aplicar seguridad desde el diseño.** | Restringir el acceso a la información y a las operaciones según el rol del usuario, protegiendo los datos de conductores y viajes. |
-| **Conservar la trazabilidad de los viajes.** | Mantener un historial de estados, paradas e incidencias para revisar lo ocurrido y evaluar el servicio después de cada viaje. |
-| **Elegir bibliotecas estables y con soporte.** | Priorizar herramientas con documentación y mantenimiento activo para facilitar la continuidad y evolución del proyecto. |
-
+| Separar responsabilidades del negocio | Mantener los 17 bounded contexts con modelos y reglas propios y una terminología consistente. |
+| Mantener un propietario para cada dato | Cada servicio modifica sus datos y publica resultados mediante contratos; las referencias externas no se convierten en relaciones físicas entre bases. |
+| Validar las decisiones en el backend | La app orienta al usuario; C# aplica permisos, estados, restricciones y consistencia. |
+| Mantener el dominio independiente | Entidades, agregados y Value Objects conservan reglas del negocio; HTTP, EF Core y proveedores se sitúan en capas externas. |
+| Aplicar restricciones antes de recomendar | Jornada, descanso, disponibilidad y mantenimiento delimitan las opciones que la IA puede evaluar y que el usuario puede aprobar. |
+| Diseñar con acceso limitado por rol y organización | Las API verifican identidad, permiso y pertenencia del recurso para cada operación protegida. |
+| Tolerar fallas delimitadas | Timeouts, reintentos seguros, Circuit Breaker, almacenamiento de reportes pendientes y fallback mantienen las capacidades que puedan continuar. |
+| Conservar trazabilidad | Identificar solicitudes, eventos, cambios de estado, aprobaciones y resultados del modelo con fechas y correlación. |
+| Implementar y comprobar por incrementos | Relacionar requisitos con código, pruebas, ejecución móvil y artefactos de cada Sprint. |
 
 <div style="page-break-after: always;"></div>
 
 ### 4.1.2. Approaches Statements Architectural Styles & Patterns
 
-LogiGo / TrackTruck considera los siguientes enfoques, estilos y patrones para facilitar su mantenimiento y el seguimiento del transporte.
+**Domain-Driven Design.** Se adopta la delimitación de 17 bounded contexts del apartado 4.3.1.3. Cada contexto conserva su lenguaje, agregados, reglas y propiedad de datos. La arquitectura objetivo propone servicios asociados a esas capacidades; su condición de servicio desplegable deberá quedar reflejada en el código, configuración y vistas C4 del incremento.
 
-#### Enfoque de desarrollo
+**Backend en C# con ASP.NET Core.** Los servicios se organizan mediante Clean Architecture con capas Domain, Application, Infrastructure y API. Domain contiene agregados, entidades y Value Objects; Application define casos de uso, commands, queries y puertos; Infrastructure implementa persistencia y adaptadores; API expone y valida contratos HTTP. Las dependencias de negocio apuntan hacia Domain. La composición de implementaciones se realiza en el arranque de la API.
 
-- **Domain Driven Design (DDD):** organizar el sistema según las áreas del negocio: viajes, flota y seguimiento, utilizando un lenguaje común.
+**CQRS.** Los commands y sus handlers se sitúan en Application y producen cambios mediante el modelo de dominio. Las queries proporcionan consultas autorizadas. Esta separación puede utilizar la misma base del servicio; bases de lectura adicionales se incorporarán solamente cuando se justifique su necesidad. Los commands no se ubican en Domain.
 
-#### Estilos arquitectónicos
+**Microservicios y eventos.** REST se utiliza para respuestas inmediatas y APIs de consulta o comando. Los eventos de integración comunican hechos ya persistidos y permiten que otros servicios actualicen sus propias proyecciones. Los eventos de dominio locales y los de integración tienen propósitos distintos. La publicación confiable utiliza Outbox y los consumidores aplican deduplicación; se diseña para entrega al menos una vez. La separación de modelos y casos de uso se apoya en los patrones DDD/CQRS documentados por Microsoft [R03].
 
-- **Arquitectura por capas:** separar presentación, aplicación, dominio e infraestructura para mantener claras las responsabilidades.
-- **Arquitectura orientada a eventos:** comunicar ubicaciones, paradas e incidencias de forma asincrónica, reduciendo el acoplamiento.
+**App móvil Android.** Se adopta Kotlin, Jetpack Compose y Material 3 como elección técnica. La app usa MVVM, un flujo de estado unidireccional y separación de presentación, casos de uso y acceso a datos. ViewModel expone estados de carga, datos, vacío y error. El repositorio de datos implementa el acceso a la API y la persistencia local de reportes pendientes; se propone Room para esos reportes [R07]. Android recomienda separar UI y datos y usar repositorios y ViewModel [R04].
 
-#### Patrones de apoyo
+**Persistencia.** Se propone PostgreSQL con EF Core para los servicios transaccionales. Cada servicio mantiene su base o almacenamiento privado y sus migraciones. Los servicios se integran por identificadores, contratos y eventos. No se realizan joins ni claves foráneas entre bases de distintos servicios.
 
-- **Repository:** separar el acceso a los datos de las reglas del negocio, apoyando la arquitectura por capas.
-- **Adapter:** integrar proveedores externos mediante interfaces propias, manteniendo sus detalles en infraestructura.
-- **Publish–Subscribe:** distribuir eventos a los componentes interesados, apoyando la arquitectura orientada a eventos.
+**IA en Dispatch Planning.** Un componente interno implementará la recomendación asistida por un modelo evaluado, detrás de una interfaz de Application. Se propone ML.NET como opción compatible con C#; su incorporación requiere un conjunto de datos identificado, entrenamiento y evaluación [R06]. Las reglas de elegibilidad y la aprobación del responsable conservan autoridad sobre el resultado final.
 
+**Patrones de apoyo.** Repository, Adapter y Anti-Corruption Layer, Strategy, Publish–Subscribe, Outbox/Inbox, idempotencia y Circuit Breaker se aplicarán conforme a las interacciones documentadas. Una biblioteca técnica BuildingBlocks reunirá únicamente componentes comunes estables; los modelos del negocio permanecen en su contexto propietario.
 
 <div style="page-break-after: always;"></div>
 
 ### 4.1.3. Context Diagram
 
-El diagrama presenta a TrackTruck como el sistema de LogiGo que permite gestionar y monitorear el transporte de carga. Muestra a sus usuarios y al sistema externo con el que interactúa.
+El contexto C4 nivel 1 representa TrackTruck como un solo sistema, sus personas usuarias y sus dependencias externas. El detalle de app, gateway, servicios, broker y datos se representa en el nivel de contenedores.
 
-```mermaid
-flowchart TB
-    operador["Operador de transporte<br/>Gestiona viajes y supervisa la operación"]
-    conductor["Conductor<br/>Consulta viajes y reporta incidencias"]
-    administrador["Administrador<br/>Gestiona usuarios, conductores y camiones"]
-
-    sistema["TrackTruck<br/>Sistema de gestión y seguimiento<br/>del transporte de carga"]
-
-    mapas["Proveedor de mapas y geolocalización<br/>Sistema externo"]
-
-    operador -->|"Registra viajes y consulta ubicaciones,<br/>paradas e incidencias"| sistema
-    conductor -->|"Consulta asignaciones y reporta<br/>ubicación e incidencias"| sistema
-    administrador -->|"Administra usuarios y flota"| sistema
-    sistema -->|"Solicita mapas e información geográfica"| mapas
-    mapas -->|"Devuelve mapas e información geográfica"| sistema
-```
-
-El sistema centraliza la información de los viajes para facilitar el control operativo. El proveedor externo aporta los mapas y la información geográfica utilizada para visualizar el seguimiento.
-
+| Actor o sistema externo | Interacción con TrackTruck |
+|---|---|
+| Administrador | Habilita usuarios, pertenencia a organización y permisos. |
+| Coordinador y supervisor de flota | Gestionan recursos, envíos, despachos, viajes e incidencias y consultan historial. |
+| Conductor | Consulta asignaciones, opera su viaje y registra reportes e incidencias autorizados. |
+| Personal de almacén, mantenimiento y gestión laboral | Registra operaciones de sus áreas conforme a permisos. |
+| Cliente autorizado | Consulta sus envíos y resultados de entrega. |
+| Responsable de entrega y facturación | Registra entrega, excepciones y operaciones financieras permitidas. |
+| Proveedor de mapas y rutas | Proporciona mapa, alternativas de ruta, distancia y duración según su contrato. |
+| Fuente externa de posicionamiento, cuando se integre | Envía telemetría identificada de vehículos. La captura móvil es otra fuente prevista. |
+| Proveedor de pagos | Procesa pagos y comunica estados verificados mediante contrato. |
+| Proveedor de facturación electrónica | Procesa solicitudes de comprobante y devuelve estado y referencias. |
+| Servicio de correo, si se utiliza | Entrega mensajes de habilitación o recuperación de acceso. |
 
 <div style="page-break-after: always;"></div>
 
-### 4.1.4. Approach driven ViewPoints Diagrams
+**Figura a actualizar:** `assets/images/chapter4/context-diagram.png`. Debe representar estos actores, el límite del sistema y sus relaciones; C# y Kotlin corresponden al nivel tecnológico de contenedores. Los proveedores de pago y facturación se identificarán como sandbox cuando su integración sea de prueba.
 
-Los siguientes diagramas UML muestran el flujo de seguimiento, los estados de un viaje y las principales clases del negocio. Su organización se relaciona con el enfoque DDD propuesto para TrackTruck.
+![C4 Context Diagram — pendiente actualizar](assets/images/chapter4/context-diagram.png)
 
-#### Diagrama de actividad
+<div style="page-break-after: always;"></div>
 
-Representa el seguimiento de un viaje, desde su inicio hasta su finalización, incluyendo la actualización de ubicaciones y el registro de paradas e incidencias.
+### 4.1.4. Approach Driven ViewPoints Diagrams
 
-![Diagrama de actividad - TrackTruck](assets/images/chapter4/activity-diagram.png)
+Las vistas se organizan según la pregunta que responde cada una y se mantendrán consistentes con los contratos y el código del incremento.
 
-#### Diagrama de estado
+| Vista | Elementos que representa | Criterio de revisión |
+|---|---|---|
+| C4 Context | TrackTruck, personas y sistemas externos. | Límite del sistema y accesos por actor. |
+| C4 Containers | App Android, gateway, servicios C#, broker y almacenamiento por servicio. | Distinguir arquitectura objetivo y componentes realmente ejecutables del Sprint. |
+| C4 Components | Componentes de un servicio: endpoints, handlers, agregados, repositorios y adaptadores. | Coherencia con las capas y dependencias del código. |
+| UML Activity | Recepción, preparación, planificación, viaje y entrega, con alternativas y rechazos. | Las decisiones utilizan las reglas del propietario correspondiente. |
+| UML State | Estados y transiciones de un agregado, especialmente Trip y Shipment. | No confundir fin del recorrido con confirmación de entrega. |
+| UML Class | Agregados y Value Objects de cada contexto. | Los agregados de otros contextos se representan como referencias. |
+| UML Sequence | Aprobación de despacho, inicio de viaje, ingestión de ubicación y cierre de entrega. | Separar llamadas síncronas, eventos, validación y reintentos. |
+| Deployment | APK, APIs, contenedores, broker, datos y acceso a proveedores. | Puertos, configuración y endpoints coinciden con el entorno probado. |
 
-Muestra los estados de un viaje: programado, en curso, completado y cancelado, junto con las acciones que permiten cambiar entre ellos.
+<div style="page-break-after: always;"></div>
 
-![Diagrama de estado - TrackTruck](assets/images/chapter4/state-diagram.png)
+**Estados de Trip Execution:**
 
-#### Diagrama de clases
+```mermaid
+stateDiagram-v2
+    [*] --> SCHEDULED
+    SCHEDULED --> IN_PROGRESS: StartTrip
+    SCHEDULED --> CANCELLED: CancelTrip
+    IN_PROGRESS --> COMPLETED: CompleteTrip
+    COMPLETED --> [*]
+    CANCELLED --> [*]
+```
 
-Presenta las clases principales del dominio y sus relaciones, agrupadas en gestión de flota, gestión de viajes y seguimiento.
+Una interrupción durante IN_PROGRESS se registra como hecho operacional y puede solicitar una revisión del plan. La sustitución autorizada conserva el historial de asignación. Las restricciones y efectos de cada comando se comprueban en el backend.
 
-![Diagrama de clases - TrackTruck](assets/images/chapter4/class-diagram.png)
+<div style="page-break-after: always;"></div>
 
+**Figuras del documento base que deben actualizarse:**
+
+![UML Activity — pendiente actualizar](assets/images/chapter4/activity-diagram.png)
+
+![UML State — revisar contra las transiciones anteriores](assets/images/chapter4/state-diagram.png)
+
+![UML Class — separar modelos de los 17 contextos](assets/images/chapter4/class-diagram.png)
 
 <div style="page-break-after: always;"></div>
 
 ### 4.1.5. Relational/Non Relational Database Diagram
 
-Se propone una base de datos relacional para persistir la información de TrackTruck. Las tablas se organizan según los bounded contexts de gestión de flota, gestión de viajes y seguimiento.
+Se propone persistencia relacional con PostgreSQL y EF Core para los servicios transaccionales. El modelo siguiente es un diseño inicial que se refinará mediante migraciones del servicio correspondiente. No se requiere una base no relacional para el incremento inicial; la necesidad de otra tecnología se justificará con carga y consultas observadas.
 
-#### Tablas y columnas
+**Propiedad y referencias.** Cada servicio mantiene almacenamiento privado. Una clave foránea física se utiliza únicamente entre tablas del mismo servicio. Campos terminados en `_ref` representan identificadores de otro contexto: se validan mediante contratos y procesos de integración, sin claves foráneas ni acceso directo a su base. El mismo identificador de organización se propaga para aplicar aislamiento y autorización.
 
-| Bounded context | Tabla | Columnas |
-|---|---|---|
-| Gestión de flota | conductor | id UUID PK, nombre VARCHAR(100) NOT NULL, licencia VARCHAR(20) UNIQUE NOT NULL |
-| Gestión de flota | camion | id UUID PK, placa VARCHAR(10) UNIQUE NOT NULL, capacidad DECIMAL(10,2) NOT NULL CHECK (capacidad > 0) |
-| Gestión de viajes | viaje | id UUID PK, conductor_id UUID FK NOT NULL, camion_id UUID FK NOT NULL, origen VARCHAR(200) NOT NULL, destino VARCHAR(200) NOT NULL, fecha_programada TIMESTAMP NOT NULL, estado VARCHAR(20) NOT NULL |
-| Seguimiento | ubicacion | id UUID PK, viaje_id UUID FK NOT NULL, latitud DECIMAL(9,6) NOT NULL, longitud DECIMAL(9,6) NOT NULL, fecha_hora TIMESTAMP NOT NULL |
-| Seguimiento | parada | id UUID PK, viaje_id UUID FK NOT NULL, inicio TIMESTAMP NOT NULL, fin TIMESTAMP NULL, motivo VARCHAR(100) NOT NULL |
-| Seguimiento | incidencia | id UUID PK, viaje_id UUID FK NOT NULL, descripcion TEXT NOT NULL, fecha_hora TIMESTAMP NOT NULL |
+| Bounded context | Tablas propuestas | Campos principales y relaciones locales |
+| --- | --- | --- |
+| Identity & Access | users; roles; user_roles; refresh_sessions | users: id, organization_id_ref, email, password_hash, status. refresh_sessions: id, user_id FK local, token_hash, expires_at, revoked_at. |
+| Customer Management | organizations; customers; customer_contacts | organization: id, name, contact. customer: id, organization_id FK local, name, document_reference, status. |
+| Shipment Management | shipments; shipment_items | shipment: id, organization_id_ref, customer_id_ref, origin, destination, priority, status. item: id, shipment_id FK local, description, quantity, unit, weight_kg. |
+| Warehouse Operations | warehouse_receipts; receipt_items; storage_locations; cargo_preparations | receipt: id, organization_id_ref, shipment_id_ref, received_at. item: id, receipt_id FK local, quantity, unit, location_id FK local. preparation: id, shipment_id_ref, status. |
+| Fleet Management | drivers; vehicles | driver: id, organization_id_ref, employee_id_ref, user_id_ref opcional, full_name, license_number, phone, status. vehicle: id, organization_id_ref, plate, capacity_kg, status. |
+| Maintenance Management | maintenance_orders; mileage_readings; vehicle_restrictions | order: id, vehicle_id_ref, type, status, scheduled_at, completed_at. reading: id, vehicle_id_ref, kilometers, recorded_at, source. restriction: id, vehicle_id_ref, reason, active. |
+| Workforce Management | employees; labor_availability; labor_assignments | employee: id, organization_id_ref, user_id_ref opcional, name, status. availability: id, employee_id FK local, starts_at, ends_at, type. |
+| Time & Attendance | work_sessions; work_intervals; break_intervals; overtime_entries | session: id, employee_id_ref, local_work_date, started_at, ended_at. interval: id, session_id FK local, starts_at, ends_at, classification. break: id, session_id FK local, starts_at, ends_at. overtime: intervalo local referenciado y estado de aprobación. |
+| Driver Safety & Compliance | compliance_policies; driver_eligibility_evaluations | policy: id, organization_id_ref, version, parameters, effective_from. evaluation: id, driver_id_ref, requested_interval, eligible, reasons, evaluated_at, policy_version, inputs_version. |
+| Dispatch Planning | dispatch_plans; plan_alternatives; resource_reservations; recommendation_evaluations | plan: id, shipment_id_ref, status, revision, approved_by_ref, approved_at. alternative: id, plan_id FK local, driver_id_ref, vehicle_id_ref, route_snapshot. reservation: recurso, intervalo y estado. evaluation: model_version, input_snapshot, predicted_value, explanation, mode. |
+| Trip Execution | trips; trip_shipment_refs; trip_assignment_changes | trip: id, organization_id_ref, plan_id_ref, driver_id_ref, vehicle_id_ref, status, scheduled_at, started_at, completed_at, concurrency_version. shipment_ref: trip_id FK local y shipment_id_ref externo. |
+| Tracking & Geolocation | trip_trackings; position_reports; tracking_stops | tracking: id, trip_id_ref, vehicle_id_ref, started_at, ended_at. report: id, tracking_id FK local, report_id, latitude, longitude, recorded_at, received_at, accuracy_m opcional. stop: id, tracking_id FK local, started_at, ended_at, reason. |
+| Incident Management | incidents; incident_actions | incident: id, trip_id_ref, organization_id_ref, type, description, status, reported_at. action: id, incident_id FK local, action, recorded_at, actor_id_ref. |
+| Delivery Management | deliveries; delivery_items; delivery_evidence | delivery: id, shipment_id_ref, trip_id_ref, status, delivered_at, receiver_reference. item: id, delivery_id FK local, quantity. evidence: id, delivery_id FK local, storage_reference, checksum. |
+| Billing & Payments | quotes; charges; invoices; payment_transactions | quote: id, customer_id_ref, shipment_id_ref, amount, currency. invoice: id, charge_id FK local, type, provider_reference, status. payment: id, charge_id FK local, idempotency_key, provider_reference, status, amount. |
+| Operational History | operational_events; operation_timelines | event: event_id, source, aggregate_id_ref, aggregate_version, occurred_at, received_at, correlation_id, organization_id_ref, payload. timeline: operación, última actualización y referencias. |
+| Reporting & Analytics | operation_read_models; indicator_snapshots | read_model: organización, operación y campos proyectados. indicator: definición, período, value, calculated_at, source_checkpoint. |
+
+<div style="page-break-after: always;"></div>
 
 #### Relaciones y restricciones
 
-- Cada viaje referencia a un conductor y un camión mediante `conductor_id` y `camion_id`.
-- Cada ubicación, parada e incidencia referencia a un viaje mediante `viaje_id`.
-- Un conductor y un camión pueden participar en varios viajes a lo largo del tiempo.
-- Un viaje puede tener múltiples ubicaciones, paradas e incidencias.
-- El estado del viaje se restringe mediante `CHECK` a: `PROGRAMADO`, `EN_CURSO`, `COMPLETADO` o `CANCELADO`.
-- La latitud se restringe mediante `CHECK` entre -90 y 90, y la longitud entre -180 y 180.
-- El fin de una parada puede ser nulo mientras continúe activa; mediante `CHECK`, si existe, debe ser mayor o igual al inicio.
-- Las claves foráneas impiden registrar referencias inexistentes y se restringe la eliminación de registros que tengan información relacionada.
+- Identificadores UUID para entidades y referencias; cantidades y valores monetarios con precisión decimal y unidad o moneda explícita.
+- Índices y unicidad según el propietario: placa y licencia por organización en Fleet; reportId por fuente/seguimiento en Tracking; eventId por consumidor; idempotencyKey en las operaciones definidas.
+- Latitud entre −90 y 90, longitud entre −180 y 180 y tiempos de cierre mayores o iguales al inicio. Se conserva la precisión disponible del origen.
+- Instantes en UTC mediante columnas compatibles; la jornada utiliza además fecha laboral y zona horaria de la organización para evaluar los límites por día.
+- Las referencias entre Trip, Fleet, Shipment y Delivery no producen relaciones físicas entre sus bases. La aplicación valida referencias y conserva snapshots cuando necesita reconstruir decisiones históricas.
+- Dispatch Planning aplica control transaccional de reservas en su propio almacenamiento para impedir intervalos incompatibles. Se revalida la información obligatoria al confirmar el plan y al iniciar el viaje.
+- Cada servicio que publica eventos persiste el cambio y la salida Outbox en su misma transacción. Los consumidores registran Inbox o una clave deduplicadora propia antes de aplicar nuevamente un efecto.
+- Concurrency tokens permiten detectar cambios simultáneos de agregados. Los conflictos se traducen a una respuesta controlada, sin sobrescribir silenciosamente cambios previos.
+- El historial conserva los eventos relevantes para trazabilidad. Esto no exige reconstruir todos los agregados mediante Event Sourcing.
+
+<div style="page-break-after: always;"></div>
 
 #### Diagrama de base de datos
 
-El diagrama muestra las tablas, sus columnas, las claves primarias y foráneas, y las relaciones uno a muchos que permiten conservar el historial de cada viaje.
+El diagrama se elaborará por contexto para que puedan identificarse claves locales y referencias externas. Las vistas de la arquitectura objetivo deberán coincidir con las migraciones de los servicios implementados. El diagrama anterior de tres áreas deberá actualizarse para retirar claves foráneas entre servicios y separar Incident Management de Tracking & Geolocation.
 
-![Diagrama de base de datos relacional - TrackTruck](assets/images/chapter4/database-diagram.png)
-
+![Database Diagram — pendiente actualizar por contexto](assets/images/chapter4/database-diagram.png)
 
 <div style="page-break-after: always;"></div>
 
 ### 4.1.6. Design Patterns
 
-TrackTruck propone utilizar los siguientes patrones para separar responsabilidades y facilitar el mantenimiento y la integración del sistema.
-
-| Patrón | Aplicación en TrackTruck |
+| Patrón | Aplicación y límite |
 |---|---|
-| **Repository.** | Encapsular el acceso a los datos de viajes, conductores, camiones y seguimiento, separándolo de las reglas del negocio. |
-| **Adapter.** | Adaptar los servicios externos de mapas y geolocalización a las interfaces del sistema. |
-| **Publish–Subscribe.** | Distribuir eventos de ubicación, paradas e incidencias a los componentes interesados sin generar dependencias directas entre ellos. |
-| **Circuit Breaker.** | Suspender temporalmente las llamadas a proveedores que presenten fallas y permitir su recuperación antes de reanudar las solicitudes. |
+| Repository | Interfaces de persistencia de agregados; EF Core implementa el acceso sin trasladar entidades de base de otros contextos al dominio. |
+| Adapter / Anti-Corruption Layer | Convierte contratos de mapas, pagos, facturación, IA y otros servicios a modelos propios. |
+| Strategy | Intercambia recomendación asistida por IA y selección básica manteniendo el mismo filtro de elegibilidad. |
+| Publish–Subscribe | Distribuye hechos de integración a los consumidores interesados. |
+| Outbox / Inbox | Mantiene publicación recuperable y deduplicación en la integración asíncrona. |
+| Idempotencia | Conserva el resultado de solicitudes repetidas y evita duplicar viajes, reservas, pagos o entregas. |
+| Circuit Breaker y timeout | Limita fallas repetidas y espera máxima de proveedores; sus valores se registran en configuración. |
+| Máquina de estados | Controla transiciones de Trip, Shipment, cargo y documentos según el agregado propietario. Su implementación se mantiene tan simple como permitan las reglas. |
+| Modelos de lectura | Reporting y Operational History mantienen proyecciones autorizadas sin consultar bases ajenas. |
 
+CQRS y Clean Architecture se utilizan para organizar responsabilidades y dependencias. Se reportarán como aplicados en código únicamente cuando existan las clases, configuraciones y pruebas que lo demuestren.
 
 <div style="page-break-after: always;"></div>
 
 ### 4.1.7. Tactics
 
-Las siguientes tácticas apoyan los atributos de calidad priorizados para TrackTruck.
+| Atributo | Táctica | Realización prevista | Evidencia necesaria |
+|---|---|---|---|
+| Disponibilidad | Detectar y aislar fallas | Health checks, timeouts y Circuit Breaker en adaptadores. | Falla controlada y recuperación registrada. |
+| Disponibilidad | Mantener funciones degradadas | Tracking conserva reportes sin mapas; Dispatch usa fallback cuando hay datos obligatorios suficientes. | QAS01 y QAS05. |
+| Rendimiento | Reducir trabajo de consultas | Paginación, índices por organización/viaje/fecha y proyecciones de lectura. | Medición de consulta y carga. |
+| Rendimiento | Controlar recursos | Concurrencia y tamaño de lotes limitados en ingestión y consumidores. | QAS02 con parámetros de entorno. |
+| Seguridad | Autenticar y autorizar | Validación de token, permisos, organización y pertenencia del recurso en cada servicio. | Casos 401/403 y acceso cruzado. |
+| Seguridad | Reducir exposición | TLS, credenciales por entorno, hashing de secretos persistidos y registros sin tokens. | Revisión de configuración y pruebas pertinentes. |
+| Interoperabilidad | Mantener contratos explícitos | OpenAPI para API; esquemas de eventos con versión, identificador, origen y correlación. | QAS04 y compatibilidad de consumidores. |
+| Interoperabilidad | Aislar traducciones | ACL y Adapter para proveedores y modelos externos. | Pruebas de adaptador con respuestas válidas e inválidas. |
+| Integridad y trazabilidad | Detectar duplicación y concurrencia | Outbox/Inbox, idempotencia, reservas y concurrency tokens. | QAS07 y reconstrucción por correlationId. |
+| Explicabilidad y control de IA | Registrar entradas y procedencia | Versiones del modelo y reglas, criterios y responsable de aprobación. | QAS06 y evaluación del conjunto de prueba. |
 
-| Atributo de calidad | Táctica | Aplicación en TrackTruck |
+<div style="page-break-after: always;"></div>
+
+### 4.1.8. Product UI/UX Design Guidelines
+
+Esta sección complementa el diseño arquitectónico con las guías de la landing page y de la aplicación móvil. Se adapta la organización de estilos, arquitectura de información, wireframes, wireflows, mock-ups y prototipado del documento de referencia [R14]. Las pantallas, permisos y flujos corresponden a TrackTruck y a sus 17 bounded contexts. La marca del producto es TrackTruck y la startup es LogiGo.
+
+Los elementos siguientes constituyen la guía de diseño y los entregables previstos. Los wireframes, mock-ups, prototipos y capturas de implementación se incorporarán cuando estén disponibles; su descripción no acredita que ya hayan sido construidos o validados.
+
+#### 4.1.8.1. General Style Guidelines
+
+**Color.** Se adopta la paleta de la referencia para las interfaces de TrackTruck. Los colores se implementarán como tokens compartidos dentro de cada frontend, para mantener consistencia entre pantallas.
+
+| Token | Color | Aplicación |
 |---|---|---|
-| **Disponibilidad.** | Detección de fallas y recuperación. | Supervisar los servicios y reiniciar los componentes que fallen para recuperar su funcionamiento. |
-| **Disponibilidad.** | Limitar tiempos de espera. | Establecer tiempos máximos para las llamadas a proveedores externos y evitar bloqueos prolongados. |
-| **Rendimiento.** | Gestión de recursos. | Procesar eventos mediante colas y limitar la concurrencia según la capacidad del sistema. |
-| **Rendimiento.** | Reducir el costo de las consultas. | Crear índices en los campos utilizados para consultar el seguimiento y el historial de los viajes. |
-| **Seguridad.** | Autenticación y autorización. | Verificar la identidad del usuario y permitir únicamente las operaciones correspondientes a su rol. |
-| **Seguridad.** | Protección de la información. | Cifrar las comunicaciones y registrar las operaciones sensibles para permitir su auditoría. |
-| **Interoperabilidad.** | Estandarización de interfaces. | Definir contratos y formatos de intercambio consistentes para integrar servicios externos. |
+| Primary | `#F1F504` | Acciones principales, acentos e identificación de la sección activa. |
+| PrimaryVariant | `#E0E200` | Variante para interacción y fondos de énfasis moderado. |
+| TextPrimary | `#000000` | Texto, iconos principales y contraste sobre el amarillo. |
+| Background | `#FFFFFF` | Fondo principal y superficies de lectura. |
+| Neutral | `#D3D3D3` | Bordes, divisores y superficies secundarias; evitarlo para texto de lectura. |
 
+Las confirmaciones, advertencias y errores combinarán texto, icono y color semántico. Cada combinación deberá comprobar su contraste. Un botón amarillo utilizará texto negro; el estado de un viaje o de un envío se expresará también con su nombre, de forma que pueda comprenderse sin distinguir colores.
+
+**Typography.** Se conserva la distribución de familias de la referencia. Las fuentes se declararán en el tema de Compose y en los estilos de la landing; los tamaños móviles se expresarán en `sp` y los web en unidades relativas.
+
+| Elemento | Familia y peso | Criterio de aplicación |
+|---|---|---|
+| Titulares | Roboto Regular / Light | Jerarquía clara; Light se reservará para titulares grandes con contraste suficiente. |
+| Párrafos | Rubik Regular | Lectura de descripciones, instrucciones y detalles operativos. |
+| Enlaces | Rubik Light Italic | Enlaces identificados también mediante subrayado o señal visual equivalente. |
+| Campos de entrada | Open Sans Regular | Etiquetas visibles, valores y mensajes de ayuda. |
+| Botones | Rubik Medium | Acciones con verbos claros y consistentes. |
+
+**Branding.** Se utilizarán el nombre y los recursos gráficos propios de TrackTruck/LogiGo. Las secciones de equipo mostrarán a los cinco integrantes registrados en 1.1.2. El logo, sus variantes y los archivos de fuente deberán quedar identificados en los recursos del proyecto.
+
+**Spacing y Grid System.** Se toma el espaciado de referencia como base, adaptando `px/rem` a la web y `dp` a Android. La app admitirá desplazamiento vertical y crecimiento de texto; las fichas operativas no dependerán de una anchura fija.
+
+| Elemento | Espaciado base |
+|---|---|
+| Padding vertical de botones | 12–16. |
+| Padding horizontal de botones | 24–32. |
+| Separación entre textos relacionados | 8–12. |
+| Separación entre elementos | 16–20. |
+| Separación entre secciones | 48–64 en landing; ajustar a la densidad de información de la app. |
+
+La landing utilizará una grilla adaptable que pase de varias columnas a una columna en pantallas estrechas. La app agrupará información mediante tarjetas y listas; las acciones importantes deberán permanecer accesibles al abrir el teclado o ampliar el texto.
+
+**Buttons.** El botón primario resalta la acción principal; el secundario permite cancelar, volver o consultar. Se representarán los estados habilitado, deshabilitado, foco, interacción y procesamiento. Durante una operación en curso se mostrará progreso y se evitarán envíos repetidos accidentales. La API seguirá aplicando idempotencia cuando corresponda.
+
+**Input System.** Los formularios tendrán etiqueta, ayuda, valor y error identificables. Se utilizará el tipo de teclado apropiado para correo, teléfono, cantidades y números. La validación local ayuda al usuario; el backend conserva la validación definitiva y la autorización. Ante un error recuperable se preservarán los valores ingresados y se mostrará cómo continuar.
+
+<div style="page-break-after: always;"></div>
+
+#### 4.1.8.2. Information Architecture
+
+La información se organiza de forma jerárquica para localizar funciones, secuencial para completar operaciones y tabular para comparar alternativas cuando el tamaño de pantalla lo permita. Los historiales se presentan cronológicamente; los recursos y clientes permiten orden alfabético y filtros por estado, fecha o identificación.
+
+| Rol o función operativa | Agrupación de navegación | Contextos que respaldan las operaciones |
+|---|---|---|
+| Cliente autorizado | Mis envíos, seguimiento, entregas, documentos y pagos. | Customer, Shipment, Tracking, Delivery, Billing. |
+| Coordinación logística | Envíos, almacén, planificación, viajes e incidencias. | Shipment, Warehouse, Dispatch, Trip, Incident. |
+| Conductor | Viaje asignado, ruta, jornada, incidencias y confirmación de entrega. | Trip, Tracking, Time & Attendance, Incident, Delivery. |
+| Administración operativa | Flota, mantenimiento, personal, jornadas y elegibilidad. | Fleet, Maintenance, Workforce, Time & Attendance, Compliance. |
+| Administración comercial | Clientes, comprobantes, pagos e indicadores autorizados. | Customer, Billing, Reporting. |
+| Funciones transversales | Cuenta, permisos, historial y reportes autorizados. | Identity, Operational History, Reporting. |
+
+Estas agrupaciones sirven para diseñar pantallas; la autorización concreta se define en Identity & Access y se aplica en las APIs. Un usuario puede recibir varios permisos. Ocultar una opción en la app no reemplaza el control de acceso del backend.
+
+**Labeling Systems.** Se utilizarán nombres de negocio comprensibles: “Envíos”, “Almacén”, “Flota”, “Mantenimiento”, “Jornada”, “Planificar despacho”, “Viajes”, “Incidencias”, “Entregas”, “Comprobantes” e “Historial”. Los nombres técnicos de microservicios, eventos o modelos permanecerán en la documentación de desarrollo.
+
+**Searching Systems.** Las listas operativas incorporarán búsqueda y filtros pertinentes: envío o viaje por identificador; vehículo por placa; conductor por nombre; historial por fecha y estado. Cada consulta mostrará resultados, estado vacío, carga y error. Se conservarán los filtros al regresar desde un detalle. El mapa y la última ubicación incluirán fecha de captura y estado de actualización.
+
+**Navigation Systems.** La landing enlaza sus secciones mediante navegación visible. La app presenta las funciones de mayor frecuencia según permisos y mantiene una ruta clara de regreso. Las operaciones extensas separan consulta, edición y confirmación; los errores recuperables permitirán continuar sin perder información.
+
+**SEO y metadatos.** El título HTML, la descripción, la jerarquía de encabezados y los textos alternativos se aplican a la landing. La app nativa utiliza nombre, descripción, recursos de publicación y etiquetas de accesibilidad; su navegación no depende de etiquetas HTML.
+
+<div style="page-break-after: always;"></div>
+
+#### 4.1.8.3. Landing Page UI Design
+
+**Landing Page Wireframe.** Se conserva la estructura de cinco secciones de la referencia, con contenido propio de TrackTruck.
+
+| Sección | Contenido de TrackTruck | Acción o propósito |
+|---|---|---|
+| Inicio | Nombre del producto y propuesta de valor para coordinar el transporte de carga. | Acceder a información de la app o solicitar una demostración, según el mecanismo que implemente el equipo. |
+| Servicio | Envíos, planificación asistida, seguimiento, incidencias y entrega; distinguir funciones implementadas de las previstas. | Comprender el servicio y consultar sus beneficios. |
+| Sobre nosotros | Descripción de LogiGo y del problema que aborda. | Presentar la startup y el objetivo del proyecto. |
+| Integrantes | Los cinco integrantes del informe original. | Mostrar los perfiles autorizados del equipo. |
+| Contáctanos | Información de contacto verificada y formulario, si se implementa. | Consultar sobre el servicio y recibir confirmación del envío. |
+
+La página incluirá cabecera, navegación y pie; sus imágenes tendrán descripción y sus textos mantendrán una jerarquía legible. La implementación deberá funcionar con teclado y en diferentes anchuras. Un formulario de contacto deberá informar carga, éxito y error de acuerdo con su comportamiento real.
+
+**Landing Page Mock-up.** El mock-up aplicará la paleta, tipografías, grilla y estados de componentes de 4.1.8.1 al wireframe aprobado. El documento registrará enlace o archivo, versión y fecha. Las imágenes y cifras del servicio deberán corresponder a recursos autorizados y resultados verificables.
+
+**Pendiente:** wireframe y mock-up desktop/mobile, recursos gráficos, enlace de diseño y capturas de la landing implementada. La landing presenta el producto; las funciones operativas del frontend requerido se implementan en la aplicación móvil.
+
+<div style="page-break-after: always;"></div>
+
+#### 4.1.8.4. Mobile Applications UX/UI Design
+
+**Mobile Applications Wireframes.** Se toma de la referencia la separación de pantallas de acceso, operación y consulta. El catálogo se adapta a las historias de TrackTruck y se implementará por incrementos.
+
+| Grupo de pantallas | Contenido requerido | Relación con la arquitectura |
+|---|---|---|
+| Acceso y cuenta | Inicio de sesión, recuperación y gestión de cuenta según el alcance; mensajes de credenciales inválidas y sesión vencida. | Identity & Access. |
+| Clientes y envíos | Datos del cliente, creación/consulta del envío, carga y estado. | Customer y Shipment. |
+| Almacén | Recepción, preparación y salida, con cantidades y estados visibles. | Warehouse Operations. |
+| Recursos | Conductores, vehículos, mantenimiento, personal y disponibilidad. | Fleet, Maintenance y Workforce. |
+| Jornada y elegibilidad | Horas registradas, descansos y resultado de restricciones operativas. | Time & Attendance y Driver Safety & Compliance. |
+| Planificación | Alternativas de conductor, vehículo y ruta; prioridad, duración estimada y motivos; aprobación autorizada. | Dispatch Planning, con IA interna y reglas obligatorias. |
+| Viaje y mapa | Viaje asignado, inicio, estado, posición actualizada y reportes pendientes de sincronización. | Trip Execution y Tracking & Geolocation. |
+| Incidencia y entrega | Registro de incidencia, atención, cantidades entregadas, resultado y evidencia. | Incident y Delivery. |
+| Documentos y consulta | Comprobantes, pagos, historial e indicadores visibles según permisos. | Billing, Operational History y Reporting. |
+
+**Mobile Applications Wireflow Diagrams.** Cada wireflow combinará pantallas y decisiones. Para coordinación: envío preparado → solicitud de alternativas → revisión → aprobación o ajuste → viaje programado. Para conductor: viaje asignado → inicio → seguimiento y posibles incidencias → finalización del recorrido y registro de entrega correspondiente. Para cliente: consulta de envío → detalle → seguimiento, evidencia y documentos autorizados. El diagrama representará también falta de recursos aptos, conflicto de reserva, sesión vencida y desconexión.
+
+**Mobile Applications Mock-ups.** Los mock-ups aplicarán el tema de TrackTruck a las pantallas priorizadas. Se documentarán estados normal, carga, vacío, validación, error, procesamiento y sin conexión. La UI mostrará la última fecha de ubicación; una lectura antigua no se presentará como información actual. Las recomendaciones de IA se mostrarán como alternativas que requieren aprobación.
+
+**Mobile Applications User Flow Diagrams.** Los flujos describirán el objetivo, actor, precondiciones, decisiones, recuperación y resultado. Las funciones de inicio/finalización de viaje, confirmación de entrega y aprobación de despacho mostrarán sus consecuencias antes de confirmar. La finalización del recorrido y la entrega mantienen sus responsabilidades y estados propios.
+
+**Pendiente:** archivos y enlaces de wireframes, wireflows, mock-ups y user flows; versión, historias cubiertas y revisión de consistencia con permisos y contratos. El diseño de pantallas no modifica la propiedad de datos de los bounded contexts.
+
+<div style="page-break-after: always;"></div>
+
+#### 4.1.8.5. Mobile Applications Prototyping
+
+Se elaborará un prototipo navegable de los flujos comprometidos para el incremento. La revisión comprobará que el usuario identifica la acción principal, entiende el estado, puede corregir errores y distingue una operación pendiente de otra confirmada. La aceptación del prototipo se registrará por tarea y observación; las pruebas de sistema de 5.1.1 comprobarán posteriormente la app conectada al backend.
+
+**Registro por completar:** herramienta, enlace accesible, versión/fecha, pantallas e historias incluidas, participantes, tareas, observaciones, ajustes y resultado de revisión. Los participantes y resultados se incorporarán desde actividades reales del equipo.
 
 <div style="page-break-after: always;"></div>
 
@@ -1268,1534 +1488,1682 @@ Las siguientes tácticas apoyan los atributos de calidad priorizados para TrackT
 
 Los drivers arquitectónicos de TrackTruck orientan las decisiones de diseño según los objetivos del negocio, las funcionalidades requeridas y los atributos de calidad prioritarios: disponibilidad, interoperabilidad, rendimiento y seguridad.
 
-
-<div style="page-break-after: always;"></div>
-
 ### 4.2.1. Design Purpose
 
-El propósito del proceso de diseño es definir una arquitectura que permita implementar de forma coherente la gestión de viajes, flota y seguimiento del transporte de carga.
+El propósito del diseño es establecer una arquitectura implementable para la app móvil y los servicios C# de TrackTruck, organizada en los 17 bounded contexts y comprobable mediante pruebas e incrementos desplegados.
 
-Para ello, se establecen las responsabilidades, interfaces y relaciones de los componentes, manteniendo la correspondencia entre la implementación y las entidades representadas en los modelos y vistas arquitectónicas.
+La arquitectura debe sostener tanto el flujo operacional mínimo como su ampliación progresiva: cliente y envío, preparación de carga, planificación con recursos elegibles, ejecución y seguimiento, incidencias, entrega y cierre financiero e histórico. La IA apoya la recomendación y las reglas obligatorias y la aprobación autorizada controlan el despacho.
 
-El diseño busca facilitar el mantenimiento y la evolución del sistema, proteger la información y permitir un seguimiento oportuno y disponible para apoyar el control operativo de LogiGo.
+| Driver de negocio | Resultado esperado | Relación con el diseño |
+|---|---|---|
+| BD01 — Visibilidad | Consultar estado de envío y viaje y antigüedad de la ubicación. | Shipment, Trip, Tracking y app móvil. |
+| BD02 — Continuidad y seguridad operacional | Considerar jornada, descanso, disponibilidad y aptitud técnica antes de asignar. | Workforce, Time & Attendance, Compliance, Maintenance y Dispatch. |
+| BD03 — Trazabilidad | Reconstruir decisiones, recorrido, incidencias y entrega. | Eventos de integración y Operational History. |
+| BD04 — Eficiencia de coordinación | Reducir consultas dispersas y esfuerzo de planificación. | Contratos entre contextos y recomendación asistida por IA. |
+| BD05 — Control del cierre | Relacionar entrega, cargo, comprobante y pago. | Delivery, Shipment y Billing & Payments. |
 
+Las metas de negocio se medirán durante el piloto. Los objetivos de calidad de 4.2.3 son condiciones de prueba y no resultados obtenidos.
 
 <div style="page-break-after: always;"></div>
 
 ### 4.2.2. Primary Functionality (Primary User Stories)
 
-Las siguientes historias de usuario representan funcionalidades que afectan la estructura de TrackTruck, ya que requieren componentes de gestión, seguimiento, integración y control de acceso.
+Las PUS agrupan historias existentes para identificar su influencia arquitectónica. La trazabilidad se conserva mediante los identificadores US de 3.2; las PUS no sustituyen ni duplican historias del backlog.
 
-| Código | Historia de usuario | Impacto en la arquitectura |
+| Código | Funcionalidad y US relacionadas | Impacto arquitectónico |
 |---|---|---|
-| PUS01 | Como operador, quiero registrar viajes y asignar conductores y camiones para organizar el transporte de carga. | Requiere integrar la gestión de viajes con la gestión de flota y validar las asignaciones. |
-| PUS02 | Como operador, quiero visualizar la ubicación de los camiones para supervisar el avance de los viajes. | Requiere recibir y almacenar ubicaciones, actualizar el seguimiento e integrar un proveedor de mapas. |
-| PUS03 | Como operador, quiero consultar las paradas e incidencias de un viaje para identificar problemas durante el traslado. | Requiere componentes para registrar eventos y relacionarlos con el viaje correspondiente. |
-| PUS04 | Como conductor, quiero reportar incidencias para informar al operador sobre problemas durante el viaje. | Requiere recibir reportes y distribuir notificaciones mediante eventos. |
-| PUS05 | Como operador, quiero consultar el historial de un viaje para evaluar lo ocurrido después de su finalización. | Requiere persistir y consultar estados, ubicaciones, paradas e incidencias. |
-| PUS06 | Como administrador, quiero gestionar usuarios y sus roles para controlar el acceso al sistema. | Requiere autenticación y autorización en las interfaces y operaciones de la aplicación. |
-
+| PUS01 | Acceso y permisos: US46–US52. | Identity & Access, autorización en cada servicio y manejo de sesión móvil. |
+| PUS02 | Organización, cliente y envío: US01–US02, US53–US55. | Propiedad diferenciada de datos y consulta limitada al cliente autorizado. |
+| PUS03 | Recepción y preparación: US56–US57. | Warehouse informa CargoPrepared; Shipment publica disponibilidad de envío. |
+| PUS04 | Flota, mantenimiento y kilometraje: US03–US08, US23–US24, US58–US59. | Fichas operativas y condición técnica en propietarios distintos. |
+| PUS05 | Personal, disponibilidad, jornada y elegibilidad: US60–US65. | Datos laborales y evaluación versionada para la asignación. |
+| PUS06 | Planificación y recomendación: US09, US11–US12, US25, US66–US70. | Dispatch, IA interna, proveedor de rutas, reservas, fallback y aprobación. |
+| PUS07 | Registro y ejecución de viaje: US10, US13, US17, US26–US29, US71. | Estados de Trip, plan aprobado e integración de inicio/finalización. |
+| PUS08 | Seguimiento y paradas: US14–US16, US30–US34, US72–US73. | Ingestión, deduplicación, fechas, persistencia móvil y actualización de ubicación. |
+| PUS09 | Incidencias y contacto: US18–US20, US35–US38. | Incident, consulta de asignación y datos de contacto, marcador móvil. |
+| PUS10 | Entrega y cierre financiero: US74–US78. | Delivery, Shipment, Billing y adaptadores de pago/facturación. |
+| PUS11 | Historial y análisis: US21–US22, US39–US45, US79–US80. | Proyecciones propias, consumidores idempotentes e indicadores definidos. |
 
 <div style="page-break-after: always;"></div>
 
 ### 4.2.3. Quality Attribute Scenarios
 
-Se proponen los siguientes escenarios para evaluar la disponibilidad, rendimiento, seguridad e interoperabilidad de TrackTruck. Las medidas representan objetivos que deberán comprobarse mediante pruebas.
+Los escenarios utilizan fuente, estímulo, ambiente, artefacto, respuesta y medida. Disponibilidad, rendimiento, seguridad e interoperabilidad son los atributos prioritarios; se añaden escenarios sobre IA, concurrencia, continuidad móvil y trazabilidad por su impacto en el alcance. Todas las medidas son objetivos iniciales de prueba y requieren un informe con versión y condiciones de ejecución.
 
 #### QAS01: Disponibilidad
 
 | Parte | Descripción |
-|---|---|
-| Fuente de estímulo | Proveedor de mapas. |
-| Estímulo | Deja de responder. |
-| Medioambiente | Operación normal con viajes en curso. |
-| Artefacto | Integración con mapas. |
-| Respuesta | Informa la falla y mantiene el registro de ubicaciones. |
-| Medida de respuesta | Detectar la falla en máximo 5 segundos y guardar todos los reportes válidos recibidos durante una interrupción de 10 minutos. |
+| --- | --- |
+| Fuente de estímulo | Proveedor de mapas y rutas |
+| Estímulo | Deja de responder durante una operación. |
+| Medioambiente | Viajes en curso y reportes GPS válidos llegando al backend. |
+| Artefacto | Adaptador externo y Tracking. |
+| Respuesta | Se informa indisponibilidad del mapa sin detener la persistencia de reportes. |
+| Medida de respuesta | Respuesta controlada de falla en máximo 5 s; todos los reportes válidos aceptados por la API durante una interrupción de 10 min quedan persistidos sin duplicación. |
 
 #### QAS02: Rendimiento
 
 | Parte | Descripción |
-|---|---|
-| Fuente de estímulo | Dispositivos de 100 vehículos. |
-| Estímulo | Envían una ubicación por vehículo cada 10 segundos. |
-| Medioambiente | Los 100 vehículos están activos durante 30 minutos. |
-| Artefacto | Servicio de seguimiento. |
-| Respuesta | Procesa las ubicaciones y las deja disponibles para consulta. |
-| Medida de respuesta | El 95 % de las ubicaciones queda disponible en máximo 3 segundos desde su recepción. |
+| --- | --- |
+| Fuente de estímulo | 100 fuentes de ubicación |
+| Estímulo | Cada fuente envía un reporte cada 10 s. |
+| Medioambiente | Carga controlada durante 30 min; infraestructura y versión registradas. |
+| Artefacto | Ingestión y consulta de Tracking. |
+| Respuesta | Valida, persiste y deja consultables los reportes. |
+| Medida de respuesta | Al menos 95 % de reportes queda disponible para consulta en ≤ 3 s desde su recepción en el servidor; registrar errores, percentiles y volumen efectivo. |
 
 #### QAS03: Seguridad
 
 | Parte | Descripción |
-|---|---|
-| Fuente de estímulo | Conductor autenticado. |
-| Estímulo | Intenta administrar usuarios sin permiso. |
-| Medioambiente | Operación normal. |
-| Artefacto | Control de acceso. |
-| Respuesta | Rechaza la solicitud sin mostrar ni modificar datos protegidos. |
-| Medida de respuesta | Bloquear el 100 % de 20 solicitudes de prueba realizadas sin el permiso requerido. |
+| --- | --- |
+| Fuente de estímulo | Usuario sin el permiso requerido o de otra organización |
+| Estímulo | Solicita una operación o dato protegido. |
+| Medioambiente | Cuentas y recursos de prueba de dos organizaciones. |
+| Artefacto | API protegidas e Identity & Access. |
+| Respuesta | Rechaza la solicitud sin modificar ni revelar el recurso protegido. |
+| Medida de respuesta | 100 % de los casos de acceso ajeno y permisos insuficientes se rechaza; credenciales ausentes o inválidas producen 401, y permiso insuficiente 403 según contrato. |
+
+<div style="page-break-after: always;"></div>
 
 #### QAS04: Interoperabilidad
 
 | Parte | Descripción |
-|---|---|
-| Fuente de estímulo | Sistema externo de geolocalización. |
-| Estímulo | Envía reportes de ubicación según el contrato acordado. |
-| Medioambiente | Operación normal con la integración habilitada. |
-| Artefacto | Adaptador de geolocalización. |
-| Respuesta | Valida y transforma los reportes al formato interno. |
-| Medida de respuesta | Procesar correctamente 100 de 100 reportes válidos de prueba, conservando el identificador del vehículo, las coordenadas y la fecha de captura. |
+| --- | --- |
+| Fuente de estímulo | App Android y fuente de posición |
+| Estímulo | Envían solicitudes y reportes según contrato; también envían entradas inválidas. |
+| Medioambiente | Versiones de contrato registradas y entorno de integración. |
+| Artefacto | OpenAPI, endpoint de ingestión y adaptador. |
+| Respuesta | Acepta entradas válidas y rechaza las inválidas con error documentado. |
+| Medida de respuesta | 100/100 reportes válidos conservan identidad, coordenadas y recordedAt; el conjunto inválido se rechaza sin persistir datos incorrectos. |
 
+#### QAS05: Disponibilidad de planificación
+
+| Parte | Descripción |
+| --- | --- |
+| Fuente de estímulo | Motor de recomendación de IA |
+| Estímulo | Falla o supera su tiempo máximo. |
+| Medioambiente | Existe información obligatoria suficiente y recursos elegibles. |
+| Artefacto | Dispatch Planning y Strategy. |
+| Respuesta | Activa la estrategia básica, identifica el modo y conserva las validaciones. |
+| Medida de respuesta | En los casos preparados, entrega alternativa básica en ≤ 5 s y ninguna utiliza recursos inválidos; si faltan datos críticos no autoriza el plan. |
+
+#### QAS06: Control y trazabilidad de IA
+
+| Parte | Descripción |
+| --- | --- |
+| Fuente de estímulo | Coordinador de operaciones |
+| Estímulo | Solicita y aprueba una recomendación. |
+| Medioambiente | Modelo, datos y reglas identificados; conjunto de evaluación separado. |
+| Artefacto | Planning Recommendation Engine y registro del plan. |
+| Respuesta | Registra resultado del modelo, criterios, entradas relevantes, versiones y aprobación. |
+| Medida de respuesta | Todas las recomendaciones aprobables respetan restricciones en los casos de prueba. La evaluación del modelo registra MAE en minutos y comparación con la línea base; objetivo inicial: mejorar esa línea base antes de aceptar el componente como útil. |
+
+<div style="page-break-after: always;"></div>
+
+#### QAS07: Integridad y concurrencia
+
+| Parte | Descripción |
+| --- | --- |
+| Fuente de estímulo | Dos solicitudes concurrentes y reintentos |
+| Estímulo | Intentan aprobar planes que reservan el mismo recurso en intervalos superpuestos. |
+| Medioambiente | Servicios operativos y persistencia de Dispatch disponible. |
+| Artefacto | Reservas y handlers de aprobación. |
+| Respuesta | Confirma una reserva, rechaza la incompatible y conserva resultados idempotentes. |
+| Medida de respuesta | Una sola reserva incompatible se confirma; la otra recibe 409 según contrato. Reenviar la misma clave recupera el resultado sin duplicarlo. |
+
+#### QAS08: Continuidad móvil
+
+| Parte | Descripción |
+| --- | --- |
+| Fuente de estímulo | Dispositivo Android con permisos concedidos |
+| Estímulo | Pierde conexión, conserva reportes y recupera conexión con la app en primer plano. |
+| Medioambiente | Veinte reportes identificados; captura autorizada durante el viaje. |
+| Artefacto | Persistencia local y sincronización con Tracking. |
+| Respuesta | Conserva y reenvía reportes con reportId y recordedAt originales. |
+| Medida de respuesta | 20/20 reportes válidos llegan una sola vez en efecto al backend dentro de 60 s del reintento activo; la fecha de captura determina la última posición. Se documenta aparte el comportamiento permitido en segundo plano. |
+
+#### QAS09: Trazabilidad
+
+| Parte | Descripción |
+| --- | --- |
+| Fuente de estímulo | Responsable de operaciones |
+| Estímulo | Consulta una operación que produjo eventos en varios servicios. |
+| Medioambiente | Conjunto de diez eventos controlados, procesados por consumidores. |
+| Artefacto | Operational History y registros correlacionados. |
+| Respuesta | Reconstruye los hechos y su origen mediante identificadores y secuencias. |
+| Medida de respuesta | Los diez eventos son consultables sin duplicados con eventId, origen, occurredAt y correlationId; los logs no incluyen contraseñas ni tokens completos. |
 
 <div style="page-break-after: always;"></div>
 
 ### 4.2.4. Constraints
 
-Las siguientes restricciones delimitan el diseño y la implementación de TrackTruck.
-
-| Código | Restricción | Implicación arquitectónica |
+| Código | Restricción o decisión vigente | Implicación |
 |---|---|---|
-| CON01 | Implementar los servicios mediante interfaces REST. | Las operaciones deben exponerse mediante endpoints y contratos definidos. |
-| CON02 | Utilizar una base de datos relacional para la persistencia propuesta. | Los datos deben organizarse en tablas con claves y relaciones que aseguren su integridad. |
-| CON03 | Integrarse con un proveedor externo de mapas. | La integración debe respetar sus formatos, límites de uso y mecanismos de acceso. |
-| CON04 | Utilizar GitHub para el control de versiones, conforme a los lineamientos del curso. | El desarrollo debe seguir GitFlow, Conventional Commits y versionado semántico. |
+| CON01 | Backend implementado en C#, según la rectificación del alcance. | Se adopta ASP.NET Core y un SDK .NET con soporte; código, ejecución y pruebas corresponden a esa implementación. |
+| CON02 | Frontend mediante app móvil. | Se adopta Android con Kotlin y Jetpack Compose como elección del proyecto; se entrega un APK identificable y el flujo integrado. |
+| CON03 | Pruebas de software del incremento. | Se ejecutan pruebas de dominio, API/integración, app y flujo end-to-end pertinentes; el informe conserva sus resultados reales. |
+| CON04 | Despliegue y documentación del incremento implementado. | Se registra entorno, versión, servicios, configuración reproducible y evidencia de ejecución. |
+| CON05 | API y eventos con contratos explícitos. | REST/JSON y OpenAPI para HTTP; esquemas y versiones para eventos. |
+| CON06 | Autonomía de persistencia. | Datos privados del servicio, migraciones propias y referencias externas sin FK entre bases. |
+| CON07 | Acceso según rol, organización y recurso. | Autorización en cada servicio además de los controles de la app y gateway. |
+| CON08 | IA como capacidad de Dispatch Planning. | Modelo y evaluación identificados; filtro obligatorio, explicación, aprobación humana y fallback. |
+| CON09 | Reglas laborales del caso. | Se modelan 8 h ordinarias y un límite total de 14 h al día como reglas configurables del producto. Las adicionales se registran separadas y los descansos se planifican. |
+| CON10 | Control de versiones del equipo. | Repositorios identificables, GitFlow, Conventional Commits, versiones y trazabilidad por historia. |
+| CON11 | Condiciones de integración externa y Android. | Se respetan contratos, permisos de ubicación y restricciones del sistema operativo; las fuentes simuladas y sandbox se identifican. |
 
+CON09 refleja los parámetros del caso de estudio y no establece una equivalencia con límites legales. Driver Safety & Compliance conserva la política aplicable y su versión. Time & Attendance conserva las horas ordinarias, adicionales y descansos; el total trabajado utiliza ambos tipos de horas para evaluar elegibilidad. El cálculo de planilla y pago de remuneraciones requiere su proceso propio, distinto de Billing & Payments del servicio logístico.
 
 <div style="page-break-after: always;"></div>
 
 ### 4.2.5. Architectural Concerns
 
-Las siguientes preocupaciones representan aspectos de alto impacto que deben abordarse durante el diseño de TrackTruck.
-
-| Código | Preocupación | Orientación de diseño |
+| Código | Preocupación | Orientación y comprobación |
 |---|---|---|
-| AC01 | Las fallas del proveedor de mapas pueden afectar la operación. | Aislar la integración y mantener el registro de seguimiento durante la interrupción. |
-| AC02 | El aumento de vehículos puede retrasar el procesamiento de ubicaciones. | Procesar eventos de forma asincrónica y permitir ampliar la capacidad del seguimiento. |
-| AC03 | Los usuarios podrían acceder a información u operaciones sin autorización. | Aplicar autenticación y permisos según el rol del usuario. |
-| AC04 | Los reportes duplicados o fuera de orden pueden generar un historial incorrecto. | Identificar los reportes y considerar su fecha de captura al procesarlos. |
-| AC05 | Los cambios en un proveedor pueden afectar las reglas del negocio. | Mantener los detalles externos separados mediante adaptadores e interfaces propias. |
-
+| AC01 | Falla de proveedor de mapas, pagos o IA. | Adaptadores, timeout, Circuit Breaker y respuesta controlada; QAS01 y QAS05. |
+| AC02 | Aumento de carga de posicionamiento. | Índices, ingestión con recursos limitados y medición de QAS02. |
+| AC03 | Acceso por rol o a otra organización. | Autorización de recurso en API y pruebas de QAS03. |
+| AC04 | Reportes y eventos repetidos o fuera de orden. | Identificadores, fechas de captura, secuencia del agregado e Inbox; QAS04 y QAS09. |
+| AC05 | Cambios de proveedor o contrato. | ACL, versionado y pruebas de adaptador y contrato. |
+| AC06 | Elegibilidad desactualizada entre propuesta y aprobación. | Registrar vigencia y fuentes; revalidar datos críticos al aprobar e iniciar. |
+| AC07 | Reservas simultáneas y consistencia entre servicios. | Reserva transaccional en Dispatch, idempotencia y compensación de fallos del flujo; QAS07. |
+| AC08 | Datos insuficientes o evaluación inadecuada de IA. | Dataset identificado, separación de entrenamiento y evaluación, baseline, métricas y modo básico explícito. |
+| AC09 | Captura móvil afectada por permisos, batería o conectividad. | Estado visible, almacenamiento autorizado de reportes y pruebas en dispositivo; QAS08. |
+| AC10 | Confundir viaje completado con envío entregado. | Trip y Delivery conservan estados propios; Shipment actualiza su estado con eventos de entrega. |
+| AC11 | Alcance empresarial excesivo para los Sprints. | Mantener arquitectura objetivo y acordar historias de cada incremento con capacidad y evidencia. |
+| AC12 | Declarar un patrón o resultado sin implementación comprobable. | Vincular clases, commits, pruebas y ejecución; mantener pendientes los datos no disponibles. |
 
 <div style="page-break-after: always;"></div>
 
 ## 4.3. ADD Iterations
 
-Se aplicará ADD v3 mediante iteraciones que refinan la arquitectura de TrackTruck según sus funcionalidades principales, atributos de calidad, restricciones y preocupaciones arquitectónicas.
+Se aplica ADD mediante cinco iteraciones de diseño. Cada una selecciona drivers, refina elementos, define conceptos, responsabilidades e interfaces y establece criterios de revisión. Las iteraciones ADD refinan la arquitectura; los Sprints implementan incrementos de software y no tienen una correspondencia uno a uno con ellas.
 
-
-<div style="page-break-after: always;"></div>
-
+Las vistas y decisiones siguientes constituyen diseño documentado. Sus diagramas, revisiones, tableros y realización en código se completarán con evidencia del equipo. Se conservan los temas logísticos del informe y se alinean con C#, app móvil, pruebas y los 17 contextos.
 ### 4.3.1. Iteration 1: Global System Structure
 
-Esta primera iteración tiene como propósito establecer la estructura arquitectónica global de **TrackTruck**, identificando las principales capacidades del dominio logístico y delimitándolas mediante bounded contexts. Asimismo, se definen sus responsabilidades, relaciones y mecanismos generales de integración, proporcionando una base arquitectónica sobre la cual se realizarán los refinamientos de las siguientes iteraciones.
-
-La descomposición busca representar el flujo completo de una operación logística, desde el registro del cliente y la recepción de un envío hasta su almacenamiento, planificación, transporte, seguimiento, entrega, facturación y posterior análisis de la operación.
-
-<div style="page-break-after: always;"></div>
+Definir la estructura global del producto, su frontend móvil, backend C# y mecanismos de integración, identificando los 17 bounded contexts y un flujo implementable por incrementos.
 
 #### 4.3.1.1. Architectural Design Backlog 1
 
-El Architectural Design Backlog de esta iteración reúne las principales decisiones de diseño necesarias para obtener una primera estructura global de TrackTruck.
-
-| Código | Trabajo de diseño | Drivers relacionados | Prioridad |
-|---|---|---|---|
-| ADB01 | Identificar y delimitar los bounded contexts principales de TrackTruck. | Funcionalidad primaria, mantenibilidad, separación de responsabilidades | Alta |
-| ADB02 | Definir las responsabilidades principales y límites de cada bounded context. | Funcionalidad primaria, mantenibilidad | Alta |
-| ADB03 | Definir las relaciones e intercambio de información entre los bounded contexts. | Interoperabilidad, trazabilidad, consistencia | Alta |
-| ADB04 | Establecer una arquitectura orientada a microservicios alineada con los bounded contexts identificados. | Mantenibilidad, escalabilidad, disponibilidad | Alta |
-| ADB05 | Definir mecanismos generales de comunicación síncrona y asíncrona entre servicios. | Rendimiento, disponibilidad, interoperabilidad | Alta |
-| ADB06 | Identificar los principales sistemas externos requeridos por TrackTruck. | Interoperabilidad, disponibilidad | Alta |
-| ADB07 | Definir Identity & Access como capacidad transversal para proteger las operaciones del sistema. | Seguridad, control de acceso | Alta |
-| ADB08 | Definir criterios de autonomía de datos para evitar el acceso directo entre las bases de datos de los bounded contexts. | Integridad, mantenibilidad, bajo acoplamiento | Alta |
-| ADB09 | Establecer mecanismos generales para mantener la trazabilidad de eventos durante el ciclo completo de una operación logística. | Trazabilidad, confiabilidad | Alta |
-
-<div style="page-break-after: always;"></div>
+| ID | Trabajo de diseño | Drivers relacionados | Prioridad |
+| --- | --- | --- | --- |
+| ADB01 | Delimitar los 17 contextos y su lenguaje | PUS01–PUS11; BD01–BD05 | Alta |
+| ADB02 | Definir propietarios de modelos, reglas y datos | CON06; AC10 | Alta |
+| ADB03 | Definir relaciones, contratos y eventos entre contextos | QAS04; AC04 | Alta |
+| ADB04 | Definir servicios C# y estructura Clean Architecture/CQRS | CON01; CON04 | Alta |
+| ADB05 | Definir REST, broker y publicación Outbox/consumo idempotente | QAS01; QAS04; QAS07 | Alta |
+| ADB06 | Definir adaptadores de mapas, posicionamiento, pagos y facturación | AC01; AC05; CON11 | Alta |
+| ADB07 | Definir Identity & Access y acceso móvil por rol y organización | PUS01; QAS03 | Alta |
+| ADB08 | Definir almacenamiento privado y referencias entre servicios | CON06; QAS07 | Alta |
+| ADB09 | Definir trazabilidad, vistas C4/UML y comprobación por incremento | QAS09; CON03; CON04 | Alta |
 
 #### 4.3.1.2. Establish Iteration Goal by Selecting Drivers
 
-El objetivo de esta iteración es **definir la estructura arquitectónica global de TrackTruck**, identificando las capacidades principales del dominio logístico, organizándolas mediante bounded contexts y estableciendo sus mecanismos iniciales de integración.
-
-La iteración prioriza aquellos drivers que tienen un impacto directo sobre la estructura general del sistema.
+Establecer un mapa coherente de responsabilidades, aplicaciones, servicios y contratos que permita implementar el primer incremento protegido y mantener una arquitectura objetivo con crecimiento gradual.
 
 | Tipo | Drivers seleccionados |
-|---|---|
-| Funcionalidades principales | Gestión de clientes, envíos, almacén, flota, mantenimiento, personal, planificación de despachos, ejecución de viajes, seguimiento, incidencias, entregas, facturación, historial y reportes. |
-| Atributos de calidad | Disponibilidad, rendimiento, seguridad, interoperabilidad, mantenibilidad, escalabilidad y trazabilidad. |
-| Restricciones | Arquitectura orientada a microservicios, interfaces REST, persistencia independiente por contexto, integración con proveedores externos y uso de mecanismos de comunicación basados en eventos cuando corresponda. |
-| Preocupaciones arquitectónicas | Desacoplamiento entre dominios, consistencia de información, crecimiento del sistema, aislamiento de datos, seguridad, integración con terceros y trazabilidad de operaciones. |
-
-Los drivers seleccionados permiten definir primero una visión global de la solución antes de profundizar en decisiones específicas relacionadas con almacenamiento, planificación inteligente, seguimiento, facturación u otros procesos particulares.
+| --- | --- |
+| Funcionalidad | PUS01–PUS11: ciclo logístico completo y acceso por rol. |
+| Calidad prioritaria | QAS01–QAS04: disponibilidad, rendimiento, seguridad e interoperabilidad. |
+| Calidad complementaria | QAS07–QAS09: integridad, continuidad móvil y trazabilidad. |
+| Restricciones | CON01–CON08: C#, app móvil, pruebas, despliegue, contratos y datos privados. |
+| Preocupaciones | AC03, AC04, AC11 y AC12: aislamiento, duplicación, capacidad y evidencia. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.3. Choose One or More Elements of the System to Refine
 
-En esta iteración se refinará inicialmente el sistema **TrackTruck** como elemento arquitectónico principal, descomponiéndolo según las capacidades del dominio.
+Se refina TrackTruck como sistema y se separan sus modelos según las siguientes capacidades. Estas definiciones son la referencia del resto del informe.
 
-Los siguientes bounded contexts forman parte de la estructura global propuesta:
+| Código | Bounded context | Responsabilidad | Límite principal |
+| --- | --- | --- | --- |
+| BC01 | Identity & Access | Usuarios, credenciales, pertenencia, roles, permisos y sesiones. | No administra fichas laborales, flota ni clientes del servicio. |
+| BC02 | Customer Management | Organizaciones usuarias y clientes del servicio logístico. | Distingue la organización propietaria del cliente remitente o contratante. |
+| BC03 | Shipment Management | Envíos, cargas y solicitudes de transporte hasta su entrega. | Es propietario del estado del envío y consume resultados de almacén, viaje y entrega. |
+| BC04 | Warehouse Operations | Recepción, ubicación, almacenamiento, preparación y salida de mercancía. | Conserva cantidades físicas y operaciones de almacén; informa preparación al contexto de envíos. |
+| BC05 | Fleet Management | Fichas operativas de conductores y vehículos y estado administrativo. | La elegibilidad laboral y condición de mantenimiento tienen propietarios distintos. |
+| BC06 | Maintenance Management | Mantenimiento preventivo y correctivo, kilometraje y aptitud técnica. | Publica restricciones del vehículo; no asigna recursos a viajes. |
+| BC07 | Workforce Management | Empleados, relación operativa, asignaciones laborales y disponibilidad. | Mantiene el calendario laboral; Dispatch Planning conserva las reservas de despacho. |
+| BC08 | Time & Attendance | Jornadas, intervalos trabajados, descansos y horas adicionales. | Registra hechos y clasificaciones de tiempo; Compliance evalúa las restricciones operativas. |
+| BC09 | Driver Safety & Compliance | Políticas operativas y evaluación de elegibilidad del conductor. | Utiliza jornada y disponibilidad y devuelve decisión, motivos y versión de reglas. |
+| BC10 | Dispatch Planning | Alternativas de conductor, vehículo y ruta, recomendaciones de IA, reservas y aprobación. | Aplica restricciones antes de recomendar y revalida antes de aprobar; conserva revisiones del plan. |
+| BC11 | Trip Execution | Inicio, ejecución, estados, cambios autorizados y finalización del viaje. | Conserva una referencia al plan aprobado; el fin del recorrido y la entrega del envío son hechos distintos. |
+| BC12 | Tracking & Geolocation | Reportes de ubicación, última posición conocida, recorrido y paradas. | Registra fecha de captura y recepción; no administra incidencias ni aprueba recursos. |
+| BC13 | Incident Management | Incidencias, emergencias, clasificación, atención y resolución operativa. | Puede iniciar una solicitud de replanificación; no modifica directamente el viaje. |
+| BC14 | Delivery Management | Confirmación, cantidades, recepción y evidencia de entrega y sus excepciones. | Publica resultados para actualizar el envío; no emite facturas. |
+| BC15 | Billing & Payments | Precios, cotizaciones, cargos, pagos, boletas, facturas y comprobantes. | Gestiona ingresos del servicio logístico; la liquidación de horas laborales se deriva al proceso de planilla. |
+| BC16 | Operational History | Historial consolidado de eventos relevantes de una operación. | Construye una proyección consultable y conserva el origen; cada contexto mantiene sus datos fuente. |
+| BC17 | Reporting & Analytics | Indicadores, reportes y análisis operacional. | Consume eventos o contratos y construye sus propios modelos de lectura. |
 
-- **Identity & Access:** gestiona autenticación, autorización, usuarios, roles y permisos de acceso.
-- **Customer Management:** administra la información de los clientes y organizaciones que utilizan los servicios de LogiGo.
-- **Shipment Management:** administra los envíos, cargas y solicitudes de transporte desde su creación hasta su entrega.
-- **Warehouse Operations:** controla la recepción, almacenamiento, preparación y salida de mercancía.
-- **Fleet Management:** administra la información operativa de conductores y vehículos.
-- **Maintenance Management:** controla mantenimientos preventivos y correctivos, kilometraje y condición técnica de los vehículos.
-- **Workforce Management:** administra empleados, asignaciones y disponibilidad laboral.
-- **Time & Attendance:** registra jornadas, horas trabajadas, descansos y horas adicionales.
-- **Driver Safety & Compliance:** evalúa restricciones operativas, condiciones de elegibilidad y cumplimiento de reglas aplicables a los conductores.
-- **Dispatch Planning:** planifica los despachos y selecciona las alternativas adecuadas de conductor, vehículo y ruta.
-- **Trip Execution:** controla el inicio, ejecución, cambios de estado y finalización de los viajes.
-- **Tracking & Geolocation:** procesa y mantiene la ubicación de los vehículos durante las operaciones.
-- **Incident Management:** administra incidencias, emergencias y situaciones excepcionales durante las operaciones.
-- **Delivery Management:** controla la entrega de la mercancía, su confirmación y el cierre de la operación.
-- **Billing & Payments:** administra precios, cobros, pagos, boletas, facturas y comprobantes.
-- **Operational History:** conserva el historial consolidado de los eventos relevantes producidos durante una operación.
-- **Reporting & Analytics:** genera indicadores, reportes y análisis sobre la información operacional.
-
-La separación propuesta permite que cada capacidad del negocio evolucione de manera independiente y evita concentrar todas las reglas del sistema en un único modelo de dominio.
-
-![Bounded Context Map - Iteración 1](assets/images/chapter4/iteration1-bounded-context-map.png)
+Fleet conserva la ficha del conductor; Workforce su relación laboral y disponibilidad; Time & Attendance los intervalos de tiempo; Compliance la evaluación de elegibilidad. La IA queda como componente de Dispatch Planning. No se añade un contexto independiente de IA, Profiles o Route Planning a esta versión del mapa.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Para satisfacer los drivers seleccionados se consideran los siguientes conceptos de diseño:
-
-| Concepto seleccionado | Propósito | Drivers relacionados |
-|---|---|---|
-| Domain-Driven Design (DDD) | Organizar las capacidades del negocio mediante bounded contexts con modelos y lenguaje propios. | Mantenibilidad, funcionalidad, bajo acoplamiento |
-| Arquitectura de microservicios | Permitir que las principales capacidades del negocio sean implementadas, desplegadas y evolucionadas de forma independiente. | Escalabilidad, mantenibilidad, disponibilidad |
-| RESTful APIs | Permitir comunicación síncrona cuando un servicio requiere una respuesta inmediata de otro contexto. | Interoperabilidad, funcionalidad |
-| Event-Driven Architecture | Propagar cambios del negocio sin generar dependencias directas entre los servicios. | Rendimiento, escalabilidad, mantenibilidad |
-| Publish–Subscribe | Permitir que diferentes bounded contexts reaccionen independientemente ante eventos relevantes. | Interoperabilidad, bajo acoplamiento |
-| Database per Service | Mantener autonomía sobre los datos y evitar que un bounded context modifique directamente información perteneciente a otro. | Integridad, mantenibilidad |
-| Adapter / Anti-Corruption Layer | Aislar proveedores externos y evitar que sus modelos contaminen el dominio interno. | Interoperabilidad, mantenibilidad |
-| API Gateway | Proporcionar un punto de entrada controlado hacia los servicios de TrackTruck. | Seguridad, mantenibilidad |
-| Identity Provider / Token-Based Authentication | Centralizar autenticación y proporcionar identidad verificable a los servicios protegidos. | Seguridad |
-| Circuit Breaker | Evitar que las fallas de proveedores externos se propaguen al resto de la plataforma. | Disponibilidad, tolerancia a fallos |
-| Idempotencia | Evitar efectos duplicados cuando una operación o evento sea procesado más de una vez. | Integridad, confiabilidad |
-
-La combinación de estos conceptos permite construir una arquitectura distribuida en la que los bounded contexts mantienen responsabilidades claramente delimitadas, mientras que los mecanismos de integración facilitan la colaboración entre ellos.
+| Concepto | Aplicación |
+| --- | --- |
+| DDD | Definir los límites del lenguaje y reglas por contexto. |
+| Microservicios | Proponer unidades desplegables independientes, reflejando solo las implementadas en la vista del Sprint. |
+| Clean Architecture y CQRS | Separar Domain, Application, Infrastructure y API; commands y queries en Application. |
+| MVVM y flujo unidireccional | Organizar la app Android por estados, casos de uso y repositorios. |
+| REST y OpenAPI | Definir solicitudes, respuestas, errores y autorización explícitos. |
+| Eventos y Outbox/Inbox | Propagar hechos persistidos, recuperar publicación y deduplicar consumidores. |
+| Almacenamiento privado | Evitar bases compartidas y claves foráneas entre servicios. |
+| Adapter / ACL | Aislar proveedores y contratos externos. |
+| Gateway y autorización de servicio | Centralizar entrada y conservar validación de acceso en cada API. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-A partir de los conceptos seleccionados se instancian inicialmente los siguientes elementos arquitectónicos.
+| Elemento propuesto | Contexto/capa | Responsabilidad | Interfaces propuestas |
+| --- | --- | --- | --- |
+| IdentityService | Identity & Access | Usuarios, credenciales, pertenencia, roles, permisos y sesiones. | POST /api/v1/auth/login; /refresh; /logout; GET/POST /api/v1/users; roles y permisos. |
+| CustomerService | Customer Management | Organizaciones usuarias y clientes del servicio logístico. | GET/POST /api/v1/organizations; GET/POST /api/v1/customers. |
+| ShipmentService | Shipment Management | Envíos, cargas y solicitudes de transporte hasta su entrega. | GET/POST /api/v1/shipments; GET /api/v1/shipments/{id}; comando de disponibilidad. |
+| WarehouseService | Warehouse Operations | Recepción, ubicación, almacenamiento, preparación y salida de mercancía. | POST /api/v1/warehouse/receipts; POST /api/v1/warehouse/preparations. |
+| FleetService | Fleet Management | Fichas operativas de conductores y vehículos y estado administrativo. | GET/POST /api/v1/drivers; GET/POST /api/v1/vehicles; actualización autorizada. |
+| MaintenanceService | Maintenance Management | Mantenimiento preventivo y correctivo, kilometraje y aptitud técnica. | GET/POST /api/v1/maintenance/orders; POST /api/v1/maintenance/mileage; consulta de aptitud. |
+| WorkforceService | Workforce Management | Empleados, relación operativa, asignaciones laborales y disponibilidad. | GET/POST /api/v1/workforce/employees; calendario de disponibilidad. |
+| TimeAttendanceService | Time & Attendance | Jornadas, intervalos trabajados, descansos y horas adicionales. | POST /api/v1/attendance/sessions; /breaks; /overtime; consulta de jornada. |
+| DriverComplianceService | Driver Safety & Compliance | Políticas operativas y evaluación de elegibilidad del conductor. | POST /api/v1/compliance/eligibility-evaluations; consulta de política vigente. |
+| DispatchPlanningService | Dispatch Planning | Alternativas de conductor, vehículo y ruta, recomendaciones de IA, reservas y aprobación. | POST /api/v1/dispatch/plans; /recommendations; /{id}/approval; /{id}/revisions. |
+| TripExecutionService | Trip Execution | Inicio, ejecución, estados, cambios autorizados y finalización del viaje. | GET/POST /api/v1/trips; POST /api/v1/trips/{id}/start; /completion; /cancellation. |
+| TrackingService | Tracking & Geolocation | Reportes de ubicación, última posición conocida, recorrido y paradas. | POST /api/v1/tracking/positions; GET /api/v1/tracking/trips/{tripId}; actualización de motivo de parada. |
+| IncidentService | Incident Management | Incidencias, emergencias, clasificación, atención y resolución operativa. | GET/POST /api/v1/incidents; acciones y resolución autorizadas. |
+| DeliveryService | Delivery Management | Confirmación, cantidades, recepción y evidencia de entrega y sus excepciones. | POST /api/v1/deliveries; GET /api/v1/deliveries/{id}; evidencia y resultado. |
+| BillingService | Billing & Payments | Precios, cotizaciones, cargos, pagos, boletas, facturas y comprobantes. | POST /api/v1/billing/quotes; /invoices; /payments; callback verificado. |
+| OperationalHistoryService | Operational History | Historial consolidado de eventos relevantes de una operación. | GET /api/v1/history/operations/{id}; consumidores de eventos. |
+| ReportingService | Reporting & Analytics | Indicadores, reportes y análisis operacional. | GET /api/v1/reports/operations; indicadores y filtros autorizados. |
+| Android App | Frontend móvil | Pantallas, estado, captura autorizada y sincronización. | API por HTTPS y repositorio local. |
+| API Gateway | Infraestructura | Entrada, enrutamiento y políticas generales. | Rutas de los servicios publicados. |
+| Event Broker | Infraestructura | Distribuir eventos y conservar mensajes según configuración. | Publish–Subscribe y reintentos definidos. |
 
-| Elemento arquitectónico | Responsabilidad principal | Interfaces / mecanismos de integración |
-|---|---|---|
-| Identity Service | Autenticar usuarios, administrar roles y proporcionar autorización. | REST, tokens de acceso |
-| Customer Service | Administrar clientes y organizaciones registradas. | REST, eventos de dominio |
-| Shipment Service | Gestionar envíos y cargas durante su ciclo de vida. | REST, eventos de dominio |
-| Warehouse Service | Gestionar recepción, almacenamiento, preparación y salida de mercancías. | REST, eventos de dominio |
-| Fleet Service | Administrar conductores, vehículos y disponibilidad de recursos. | REST, eventos de dominio |
-| Maintenance Service | Administrar mantenimientos y condición técnica de los vehículos. | REST, eventos de dominio |
-| Workforce Service | Gestionar empleados y disponibilidad laboral. | REST, eventos de dominio |
-| Time & Attendance Service | Registrar jornadas, horas trabajadas y descansos. | REST, eventos de dominio |
-| Driver Compliance Service | Evaluar elegibilidad y restricciones operativas del conductor. | REST, eventos de dominio |
-| Dispatch Planning Service | Planificar despachos y recomendar conductor, vehículo y ruta. | REST, eventos de dominio |
-| Trip Execution Service | Administrar la ejecución y estados de los viajes. | REST, eventos de dominio |
-| Tracking Service | Procesar ubicaciones y mantener el seguimiento de los vehículos. | API de ingestión, eventos |
-| Incident Service | Registrar y administrar incidencias operativas. | REST, eventos de dominio |
-| Delivery Service | Confirmar entregas y cerrar el proceso de transporte. | REST, eventos de dominio |
-| Billing Service | Gestionar cobros, pagos y comprobantes. | REST, proveedor de pagos/facturación |
-| Operational History Service | Mantener un historial consultable de eventos y operaciones relevantes. | Suscripción a eventos, consultas |
-| Reporting Service | Generar indicadores, reportes y analítica. | Consultas y consumo de información operacional |
-| API Gateway | Exponer de manera controlada los servicios de TrackTruck a los clientes de la plataforma. | HTTP/REST |
-| Event Broker | Distribuir eventos entre los diferentes bounded contexts. | Publish–Subscribe |
+Los endpoints son contratos iniciales para refinar en OpenAPI; no establecen que ya estén publicados. Commands, queries y sus handlers pertenecen a Application. Ningún servicio escribe en la base de otro. Los envelopes de integración conservan eventId, schemaVersion, occurredAt, source, aggregateId, aggregateVersion, organizationId y correlationId.
 
-Los bounded contexts mantienen autonomía sobre sus reglas de negocio y persistencia. Ningún servicio debe modificar directamente la base de datos perteneciente a otro contexto.
-
-Las interacciones síncronas se utilizarán principalmente cuando un contexto requiera una respuesta inmediata. Las comunicaciones asíncronas se emplearán para propagar eventos cuyo procesamiento pueda realizarse independientemente.
-
-Ejemplos de eventos:
-
-- `ShipmentCreated`
-- `WarehouseReceptionCompleted`
-- `VehicleMaintenanceRequired`
-- `DriverEligibilityChanged`
-- `DispatchPlanned`
-- `TripStarted`
-- `VehicleLocationUpdated`
-- `IncidentReported`
-- `TripCompleted`
-- `DeliveryConfirmed`
-- `InvoiceGenerated`
-- `PaymentCompleted`
-
-Estos eventos permitirán mantener desacoplados los procesos que forman parte del ciclo completo de una operación logística.
+| Relación | Mecanismo | Propietario del resultado |
+| --- | --- | --- |
+| Identity → API y app | Autenticación y autorización | Identity conserva cuentas; cada servicio verifica acceso. |
+| Warehouse → Shipment → Dispatch | CargoPrepared y ShipmentReadyForDispatch | Cada servicio cambia su propio estado. |
+| Fleet / Workforce / Attendance / Compliance / Maintenance → Dispatch | Consultas y hechos de cambio | Dispatch conserva el plan y reservas, fuentes conservan datos. |
+| Dispatch → Trip | Consulta/contrato de plan aprobado y evento de aprobación | Trip valida y registra el viaje mediante comando idempotente. |
+| Trip → Tracking | TripStarted y TripCompleted | Tracking controla su stream y reportes. |
+| Delivery → Shipment / Billing | Resultado de entrega y datos del servicio | Shipment y Billing aplican sus reglas respectivas. |
+| Contextos → History / Reporting | Eventos y proyecciones | Cada consumidor mantiene su lectura privada. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-Para representar la estructura definida durante esta iteración se utilizarán diferentes vistas arquitectónicas.
+| Vista | Archivo previsto | Contenido a revisar |
+| --- | --- | --- |
+| Bounded Context Map | assets/images/chapter4/iteration1-bounded-context-map.png | 17 contextos, propietarios y relaciones de colaboración. |
+| C4 Containers | assets/images/chapter4/iteration1-c4-containers.png | App Android, gateway, APIs C#, broker y bases privadas; distinguir objetivo e incremento. |
+| UML Components | assets/images/chapter4/iteration1-uml-components.png | Puertos y dependencias entre componentes de servicio y adaptadores. |
 
-El **Bounded Context Map** muestra las principales capacidades del dominio de TrackTruck y las relaciones generales entre ellas.
+Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
-![Bounded Context Map - Iteración 1](assets/images/chapter4/iteration1-bounded-context-map.png)
+![Bounded Context Map — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-bounded-context-map.png)
 
-El **C4 Container Diagram** representa las aplicaciones cliente, API Gateway, servicios principales, mecanismos de mensajería y persistencia que forman parte de la solución.
+![C4 Containers — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-c4-containers.png)
 
-![C4 de contenedores - Iteración 1](assets/images/chapter4/iteration1-c4-containers.png)
+<div style="page-break-after: always;"></div>
 
-El **diagrama UML de componentes** representa las dependencias principales entre los servicios y permite visualizar qué componentes proporcionan o consumen interfaces dentro de la arquitectura.
+![UML Components — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-uml-components.png)
 
-![UML de componentes - Iteración 1](assets/images/chapter4/iteration1-uml-components.png)
-
-Las principales decisiones de diseño registradas durante esta iteración son las siguientes:
-
-| Código | Decisión de diseño | Justificación |
-|---|---|---|
-| DD01 | Utilizar Domain-Driven Design para delimitar las capacidades principales mediante bounded contexts. | Reducir el acoplamiento entre áreas del negocio y mantener modelos especializados. |
-| DD02 | Implementar los bounded contexts principales mediante una arquitectura orientada a microservicios. | Facilitar el despliegue independiente, evolución y escalamiento de las capacidades del sistema. |
-| DD03 | Evitar el acceso directo a bases de datos pertenecientes a otros bounded contexts. | Mantener autonomía e integridad de los datos. |
-| DD04 | Utilizar REST para interacciones que requieran respuesta inmediata. | Mantener interfaces simples y explícitas entre servicios. |
-| DD05 | Utilizar eventos para comunicar cambios del negocio que puedan ser procesados de manera independiente. | Reducir dependencias directas y facilitar la extensibilidad. |
-| DD06 | Incorporar un Event Broker para distribuir eventos entre los servicios. | Facilitar integración asíncrona y Publish–Subscribe. |
-| DD07 | Utilizar Adapter o Anti-Corruption Layer para integraciones externas. | Evitar dependencia directa del dominio respecto de proveedores externos. |
-| DD08 | Centralizar el ingreso externo mediante un API Gateway. | Simplificar acceso, seguridad y gestión de interfaces externas. |
-| DD09 | Mantener Identity & Access como una capacidad transversal de la plataforma. | Aplicar autenticación y autorización de manera consistente. |
-| DD10 | Incorporar mecanismos de idempotencia en operaciones sensibles y procesamiento de eventos. | Evitar duplicación de efectos ante reintentos o mensajes repetidos. |
+| ID | Decisión documentada | Justificación |
+| --- | --- | --- |
+| DD01 | Conservar los 17 contextos como arquitectura objetivo | Los modelos de negocio tienen propietarios claros. |
+| DD02 | Implementar servicios C# y app Android por incrementos | Permite entregar código ejecutable y comprobar el flujo móvil. |
+| DD03 | Mantener datos privados por servicio | Reduce dependencia de persistencia y mantiene integridad local. |
+| DD04 | Usar REST para respuestas inmediatas | Contratos y errores verificables por cliente y API. |
+| DD05 | Publicar hechos del negocio mediante eventos de integración | Los consumidores conservan modelos propios. |
+| DD06 | Utilizar Outbox y deduplicación al integrar servicios | Se recuperan fallas de publicación y reintentos. |
+| DD07 | Aislar modelos externos mediante adaptadores | Se limita el efecto de cambios de proveedor. |
+| DD08 | Utilizar gateway como entrada de servicios publicados | Simplifica rutas externas sin sustituir autorización de cada servicio. |
+| DD09 | Aplicar identidad, permisos y organización en las API | El control de acceso se mantiene aunque un servicio se invoque directamente. |
+| DD10 | Vincular historias, código, pruebas y evidencia del incremento | Evita equiparar diseño documentado con software aceptado. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.1.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-La arquitectura obtenida permite representar TrackTruck como una plataforma empresarial compuesta por bounded contexts especializados y servicios con responsabilidades claramente delimitadas.
+El diseño se revisará con los criterios siguientes. Los resultados de revisión, responsables y evidencias se completarán cuando el equipo valide las vistas y decisiones. La definición escrita es un avance de diseño y debe distinguirse de la implementación y sus pruebas.
 
-El cumplimiento del objetivo de la iteración se revisará mediante los siguientes criterios:
+| Aspecto | Criterio de revisión | Estado |
+| --- | --- | --- |
+| Cobertura | Los 17 contextos tienen responsabilidad, límites y propietario. | Pendiente revisión y evidencia |
+| Dependencias | Modelos externos ingresan mediante contratos y ACL. | Pendiente revisión y evidencia |
+| Datos | Solo relaciones físicas locales y referencias externas. | Pendiente revisión y evidencia |
+| Tecnologías | C# y frontend móvil se reflejan en contenedores y entorno. | Pendiente revisión y evidencia |
+| Seguridad | Cada servicio protege rol, organización y recurso. | Pendiente revisión y evidencia |
+| Entrega | El primer incremento tiene criterios de prueba y evidencia. | Pendiente revisión y evidencia |
 
-| Aspecto | Criterio de revisión |
-|---|---|
-| Cobertura del dominio | Las principales capacidades del proceso logístico están representadas mediante bounded contexts. |
-| Separación de responsabilidades | Cada bounded context posee una responsabilidad claramente diferenciada. |
-| Autonomía | Cada contexto mantiene control sobre sus reglas de negocio y datos. |
-| Bajo acoplamiento | Los servicios no acceden directamente a la persistencia de otros bounded contexts. |
-| Integración | Se identifican mecanismos síncronos y asíncronos de comunicación. |
-| Seguridad | Identity & Access proporciona mecanismos de autenticación y autorización para los servicios protegidos. |
-| Interoperabilidad | Los proveedores externos se encuentran aislados mediante interfaces y adaptadores. |
-| Escalabilidad | Los servicios pueden evolucionar y escalar de manera independiente según su carga. |
-| Trazabilidad | Los principales eventos de una operación pueden conservarse para construir un historial operacional. |
-| Evolución | La arquitectura permite que las siguientes iteraciones profundicen en bounded contexts específicos sin redefinir completamente la estructura global. |
+El tablero de esta iteración seguirá ADB01–ADB09 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-A partir del análisis realizado, el objetivo de la iteración se considera alcanzado cuando los bounded contexts principales, sus responsabilidades, relaciones y mecanismos generales de integración se encuentran definidos y representados mediante las vistas arquitectónicas correspondientes.
+![Kanban — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-kanban.png)
 
-El tablero Kanban permitirá realizar el seguimiento de los elementos **ADB01–ADB09** mediante las columnas **Por hacer**, **En proceso**, **En revisión** y **Terminado**.
+[Tablero de Iteración 1 registrado en el documento base; revisar nombre y alcance](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚)
 
-Cada elemento podrá considerarse terminado cuando su definición haya sido revisada por el equipo y exista evidencia en los modelos, diagramas o decisiones arquitectónicas correspondientes.
-
-![Tablero Kanban - Iteración 1](assets/images/chapter4/iteration1-kanban.png)
-
-[Ver tablero Kanban en Trello](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚)
 
 <div style="page-break-after: always;"></div>
 
 ### 4.3.2. Iteration 2: Shipment and Warehouse Operations
 
-Esta iteración tiene como objetivo refinar la gestión de envíos y las operaciones de almacén de **TrackTruck**, considerando el proceso desde el registro del envío hasta que la carga se encuentra preparada para su posterior planificación de despacho.
-
-<div style="page-break-after: always;"></div>
+Refinar clientes, envíos y operaciones de almacén hasta disponer de carga preparada para planificar el despacho, con contratos y estados consistentes.
 
 #### 4.3.2.1. Architectural Design Backlog 2
 
-El Architectural Design Backlog de esta iteración reúne los principales elementos que deben ser refinados para gestionar correctamente los envíos y las operaciones realizadas dentro del almacén.
-
-| ID | Elemento de diseño | Prioridad |
-|---|---|---|
-| ADB10 | Definir las responsabilidades de Shipment Management y Warehouse Operations. | Alta |
-| ADB11 | Definir el ciclo de vida de un envío. | Alta |
-| ADB12 | Diseñar el proceso de recepción y almacenamiento de carga. | Alta |
-| ADB13 | Diseñar la preparación y liberación de carga para despacho. | Alta |
-| ADB14 | Definir la comunicación entre Shipment Management y Warehouse Operations. | Alta |
-| ADB15 | Definir los principales eventos generados durante el proceso. | Media |
-| ADB16 | Definir mecanismos para mantener consistencia y evitar operaciones duplicadas. | Media |
-
-<div style="page-break-after: always;"></div>
+| ID | Trabajo de diseño | Drivers relacionados | Prioridad |
+| --- | --- | --- | --- |
+| ADB10 | Definir límites entre cliente, envío y operación física de almacén | PUS02–PUS03; CON06 | Alta |
+| ADB11 | Definir estados y comandos del envío | US54–US55; AC10 | Alta |
+| ADB12 | Definir recepción, cantidades, ubicación y almacenamiento de carga | US56; QAS07 | Alta |
+| ADB13 | Definir preparación, liberación y salida de carga | US57 | Alta |
+| ADB14 | Definir integración Warehouse–Shipment y disponibilidad para Dispatch | QAS04 | Alta |
+| ADB15 | Definir CargoPrepared y ShipmentReadyForDispatch con sus propietarios | QAS09; AC04 | Media |
+| ADB16 | Definir idempotencia y consistencia local de operaciones | QAS07; AC07 | Alta |
 
 #### 4.3.2.2. Establish Iteration Goal by Selecting Drivers
 
-El objetivo de esta iteración es establecer una arquitectura que permita gestionar el ciclo de vida de los envíos y las operaciones realizadas sobre la carga dentro del almacén.
+Permitir que un envío mantenga datos y estados válidos, que el almacén registre sus operaciones físicas y que Dispatch reciba una disponibilidad publicada por Shipment Management.
 
-Los principales drivers seleccionados son:
-
-| Driver | Aplicación |
-|---|---|
-| Funcionalidad | Registrar envíos, recibir carga, almacenarla, prepararla y dejarla disponible para despacho. |
-| Integridad | Mantener estados válidos durante el proceso. |
-| Trazabilidad | Registrar los principales cambios realizados sobre el envío y la carga. |
-| Interoperabilidad | Permitir comunicación entre los diferentes servicios involucrados. |
-| Mantenibilidad | Mantener separadas las responsabilidades de envíos y almacén. |
-| Confiabilidad | Evitar operaciones duplicadas o inconsistentes. |
-
-<div style="page-break-after: always;"></div>
+| Tipo | Drivers seleccionados |
+| --- | --- |
+| Funcionalidad | PUS02–PUS03; US53–US57. |
+| Calidad | QAS03, QAS04 y QAS07: autorización, contratos e integridad. |
+| Restricciones | CON01, CON03 y CON06: C#, pruebas y almacenamiento privado. |
+| Preocupaciones | AC04 y AC10: duplicación y separación de estados. |
 
 #### 4.3.2.3. Choose One or More Elements of the System to Refine
 
-Los principales elementos seleccionados para ser refinados durante esta iteración son:
-
-- **Shipment Management:** administra la información y el ciclo de vida de los envíos.
-- **Warehouse Operations:** administra la recepción, almacenamiento, preparación y liberación de la carga.
-- **Customer Management:** proporciona la información del cliente relacionado con el envío.
-- **Dispatch Planning:** recibe la información cuando una carga se encuentra preparada para ser despachada.
-- **Operational History:** conserva los eventos relevantes generados durante el proceso.
-
-La iteración busca establecer límites claros entre estos elementos y definir cómo intercambian información sin compartir directamente sus datos internos.
-
-<div style="page-break-after: always;"></div>
+- Customer Management: ficha del cliente y organización.
+- Shipment Management: envío, carga solicitada, prioridad y estado consolidado.
+- Warehouse Operations: recepción, cantidades, ubicación y preparación.
+- Dispatch Planning: consume la disponibilidad del envío.
+- Identity & Access y Operational History: acceso autorizado y trazabilidad.
 
 #### 4.3.2.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Para satisfacer los drivers seleccionados se consideran los siguientes conceptos y patrones:
-
-| Concepto / Patrón | Aplicación |
-|---|---|
-| Domain-Driven Design | Separar Shipment Management y Warehouse Operations en bounded contexts independientes. |
-| Microservices Architecture | Mantener servicios con responsabilidades específicas y autonomía. |
-| RESTful APIs | Gestionar operaciones que necesitan una respuesta inmediata. |
-| Event-Driven Architecture | Comunicar cambios importantes del estado del envío. |
-| Publish–Subscribe | Permitir que diferentes servicios reaccionen a los eventos publicados. |
-| Database per Service | Mantener la persistencia independiente por servicio. |
-| Repository | Separar el dominio del mecanismo de persistencia. |
-| Idempotency | Evitar que una misma solicitud genere efectos duplicados. |
-
-Estos conceptos permiten reducir el acoplamiento entre los servicios y mantener claramente separadas las responsabilidades del proceso logístico.
+| Concepto | Aplicación |
+| --- | --- |
+| Agregados y máquina de estados | Shipment y recepción/preparación validan sus transiciones locales. |
+| Repository y transacción local | Datos de almacén y envíos se persisten dentro del servicio propietario. |
+| REST y eventos de integración | Los comandos responden al usuario; los hechos informan cambios a otros contextos. |
+| Outbox e idempotencia | Evitar que una recepción o liberación repetida duplique cantidades. |
+| ACL | Traducir la preparación física al estado del envío según sus reglas. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
+| Elemento | Responsabilidad | Interfaz o integración |
+| --- | --- | --- |
+| CustomerService | Validar referencia de cliente accesible | GET /customers/{id}; DTO de ficha autorizada |
+| ShipmentService | Crear y consultar envíos y publicar disponibilidad | POST/GET /shipments; ShipmentCreated y ShipmentReadyForDispatch |
+| WarehouseService | Recibir, almacenar, preparar y registrar salida | POST /warehouse/receipts y /preparations; CargoStored y CargoPrepared |
+| DispatchPlanningService | Recibir envíos disponibles | Consumo ShipmentReadyForDispatch |
+| OperationalHistoryService | Proyectar hechos de la operación | Consumo idempotente de eventos |
 
-| Elemento | Responsabilidad | Integración |
-|---|---|---|
-| Customer Service | Gestionar información de clientes. | REST |
-| Shipment Service | Gestionar envíos y sus estados. | REST / Eventos |
-| Warehouse Service | Gestionar recepción, almacenamiento y preparación de carga. | REST / Eventos |
-| Dispatch Planning Service | Recibir información de cargas disponibles para planificación. | Eventos / REST |
-| Operational History Service | Registrar eventos relevantes de la operación. | Eventos |
-| Event Broker | Distribuir eventos entre los servicios. | Publish–Subscribe |
+Warehouse publica CargoPrepared después de guardar la preparación. Shipment consume ese hecho, valida su transición y publica ShipmentReadyForDispatch. Los envíos que no utilizan almacén siguen una transición de disponibilidad autorizada definida por Shipment; no se inventa una recepción física.
 
-Los principales eventos definidos para esta iteración son:
-
-- `ShipmentCreated`
-- `ShipmentReceived`
-- `CargoStored`
-- `CargoPrepared`
-- `ShipmentReadyForDispatch`
-- `ShipmentCancelled`
-
-El evento `ShipmentReadyForDispatch` permite informar a **Dispatch Planning** que una carga se encuentra disponible para iniciar el proceso de planificación del transporte.
+| Evento | Productor | Contenido/efecto |
+| --- | --- | --- |
+| ShipmentCreated | Shipment Management | Datos mínimos y referencia del cliente. |
+| CargoStored | Warehouse Operations | Recepción y ubicación confirmadas. |
+| CargoPrepared | Warehouse Operations | Cantidades preparadas y referencia del envío. |
+| ShipmentReadyForDispatch | Shipment Management | Envío autorizado para planificación. |
+| ShipmentCancelled | Shipment Management | Cancelación y motivo; los consumidores aplican sus efectos locales. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-Durante esta iteración se elaboran vistas arquitectónicas que permiten representar los servicios involucrados y sus principales interacciones.
+| Vista | Archivo previsto | Contenido a revisar |
+| --- | --- | --- |
+| C4 Containers | assets/images/chapter4/iteration2-c4-containers.png | Cliente, Shipment, Warehouse, Dispatch y datos privados. |
+| UML Sequence | assets/images/chapter4/iteration2-shipment-sequence.png | Registro, recepción, preparación, actualización de envío y publicación de disponibilidad. |
 
-El C4 Container Diagram muestra la relación entre Shipment Management, Warehouse Operations y los demás servicios relacionados.
+Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
-![C4 de contenedores - Iteración 2](assets/images/chapter4/iteration2-c4-containers.png)
+![C4 Containers — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-c4-containers.png)
 
-El UML Sequence Diagram representa el flujo principal desde la creación del envío hasta que la carga queda preparada para despacho.
+![UML Sequence — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-shipment-sequence.png)
 
-![UML de secuencia - Iteración 2](assets/images/chapter4/iteration2-shipment-sequence.png)
-
-Las principales decisiones arquitectónicas registradas son:
-
-| ID | Decisión | Justificación |
-|---|---|---|
-| DD11 | Separar Shipment Management de Warehouse Operations. | Cada contexto posee responsabilidades y reglas diferentes. |
-| DD12 | Mantener persistencia independiente por servicio. | Evita dependencias directas entre bounded contexts. |
-| DD13 | Utilizar eventos para comunicar cambios importantes. | Reduce el acoplamiento entre servicios. |
-| DD14 | Utilizar REST para operaciones que requieren respuesta inmediata. | Facilita interacciones síncronas entre servicios. |
-| DD15 | Aplicar idempotencia en operaciones sensibles. | Evita efectos duplicados ante reintentos. |
-| DD16 | Utilizar `ShipmentReadyForDispatch` para comunicar la disponibilidad de la carga. | Permite integrar Warehouse Operations con Dispatch Planning de forma desacoplada. |
+| ID | Decisión documentada | Justificación |
+| --- | --- | --- |
+| DD11 | Mantener Shipment separado de Warehouse | El envío y las operaciones físicas poseen reglas diferentes. |
+| DD12 | Separar clientes de usuarios de acceso | Una cuenta no sustituye la ficha del cliente ni su relación comercial. |
+| DD13 | Asignar dueño explícito a cada estado y evento | Warehouse informa preparación; Shipment confirma disponibilidad. |
+| DD14 | Evitar FK entre servicios | Las referencias se validan mediante contratos y eventos. |
+| DD15 | Deduplicar recepción y preparación | Los reintentos no modifican dos veces las cantidades. |
+| DD16 | Conservar el flujo sin almacén cuando corresponda | El diseño soporta transporte directo sin registrar movimientos inexistentes. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.2.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-El diseño obtenido permite separar la administración del envío de las operaciones físicas realizadas sobre la carga dentro del almacén.
+El diseño se revisará con los criterios siguientes. Los resultados de revisión, responsables y evidencias se completarán cuando el equipo valide las vistas y decisiones. La definición escrita es un avance de diseño y debe distinguirse de la implementación y sus pruebas.
 
-La revisión de la iteración considera los siguientes aspectos:
+| Aspecto | Criterio de revisión | Estado |
+| --- | --- | --- |
+| Estados | Solo el propietario cambia el estado de su agregado. | Pendiente revisión y evidencia |
+| Cantidades | Recepción y preparación respetan las cantidades y unidades. | Pendiente revisión y evidencia |
+| Eventos | Se distinguen CargoPrepared y ShipmentReadyForDispatch. | Pendiente revisión y evidencia |
+| Reintentos | Una solicitud repetida conserva un solo efecto. | Pendiente revisión y evidencia |
+| Acceso | Cliente y personal consultan únicamente datos autorizados. | Pendiente revisión y evidencia |
 
-| Aspecto | Resultado |
-|---|---|
-| Separación de responsabilidades | Cumplido |
-| Gestión del ciclo de vida del envío | Cumplido |
-| Comunicación entre servicios | Cumplido |
-| Persistencia independiente | Cumplido |
-| Uso de eventos | Cumplido |
-| Trazabilidad del proceso | Cumplido |
-| Preparación para Dispatch Planning | Cumplido |
+El tablero de esta iteración seguirá ADB10–ADB16 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-La iteración permite establecer el flujo necesario para que un envío pueda ser registrado, recibido, almacenado y preparado hasta encontrarse disponible para su planificación de despacho.
+![Kanban — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-kanban.png)
 
-El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban de la iteración.
-
-![Tablero Kanban - Iteración 2](assets/images/chapter4/iteration2-kanban.png)
-
-**URL del tablero:** [Iteration 2 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
+**Enlace del tablero de Iteración 2:** pendiente incorporar el enlace verificable.
 
 <div style="page-break-after: always;"></div>
 
 ### 4.3.3. Iteration 3: Intelligent Dispatch Planning and Resource Assignment
 
-Esta iteración tiene como objetivo refinar la planificación del despacho de **TrackTruck**, considerando la selección de conductor, vehículo y ruta antes del inicio de una operación de transporte.
-
-<div style="page-break-after: always;"></div>
+Refinar la planificación con datos de personal, jornada, mantenimiento, envío y rutas; incorporar la IA dentro de Dispatch Planning y conservar aprobación humana y control obligatorio de elegibilidad.
 
 #### 4.3.3.1. Architectural Design Backlog 3
 
-El Architectural Design Backlog de esta iteración reúne los elementos necesarios para definir el proceso de planificación y asignación de recursos.
-
-| ID | Elemento de diseño | Prioridad |
-|---|---|---|
-| ADB17 | Definir los datos requeridos por Dispatch Planning. | Alta |
-| ADB18 | Definir las reglas de elegibilidad de conductores. | Alta |
-| ADB19 | Definir las reglas de disponibilidad y condición de vehículos. | Alta |
-| ADB20 | Integrar información de Time & Attendance y Driver Safety & Compliance. | Alta |
-| ADB21 | Integrar información de Maintenance Management. | Alta |
-| ADB22 | Definir la integración con el proveedor de mapas y rutas. | Alta |
-| ADB23 | Diseñar el mecanismo de recomendación de conductor, vehículo y ruta. | Alta |
-| ADB24 | Definir un mecanismo alternativo cuando el componente inteligente no se encuentre disponible. | Media |
-| ADB25 | Registrar y comunicar el resultado aprobado de la planificación. | Alta |
-
-<div style="page-break-after: always;"></div>
+| ID | Trabajo de diseño | Drivers relacionados | Prioridad |
+| --- | --- | --- | --- |
+| ADB17 | Definir entradas del envío, recursos, rutas y su vigencia | PUS04–PUS06; AC06 | Alta |
+| ADB18 | Definir reglas de elegibilidad del conductor y día laboral | US65; CON09 | Alta |
+| ADB19 | Definir aptitud, capacidad, kilometraje y reservas del vehículo | US58–US59; US69 | Alta |
+| ADB20 | Integrar Workforce, Time & Attendance y Compliance | US60–US65; CON09 | Alta |
+| ADB21 | Integrar restricciones y proyección de kilometraje de Maintenance | US58–US59 | Alta |
+| ADB22 | Definir contrato del adaptador de rutas y errores | US09; QAS04 | Alta |
+| ADB23 | Definir modelo, datos, evaluación y motor de recomendación de IA | US66; QAS06 | Alta |
+| ADB24 | Definir Strategy básica y respuesta ante falla o datos insuficientes | US68; QAS05 | Alta |
+| ADB25 | Definir aprobación, reservas, versiones y revisión excepcional | US67; US69–US70; QAS07 | Alta |
 
 #### 4.3.3.2. Establish Iteration Goal by Selecting Drivers
 
-El objetivo de esta iteración es diseñar un proceso de planificación que permita seleccionar recursos válidos y recomendar una combinación adecuada de conductor, vehículo y ruta para cada envío preparado para despacho.
+Obtener alternativas válidas de conductor, vehículo y ruta, evaluar su utilidad mediante IA y registrar una aprobación que conserve restricciones, procedencia y reservas de recursos.
 
-Los principales drivers seleccionados son:
-
-| Driver | Aplicación |
-|---|---|
-| Funcionalidad | Generar una planificación previa al inicio del viaje. |
-| Seguridad operacional | Evitar asignar conductores o vehículos que no cumplan las restricciones establecidas. |
-| Interoperabilidad | Obtener información de diferentes bounded contexts y proveedores externos. |
-| Disponibilidad | Mantener una alternativa de planificación cuando un servicio externo o componente inteligente no esté disponible. |
-| Rendimiento | Procesar las alternativas de planificación en un tiempo adecuado para la operación. |
-| Trazabilidad | Registrar los criterios y recursos considerados durante la planificación. |
-| Mantenibilidad | Mantener separadas las reglas obligatorias del mecanismo de recomendación. |
+| Tipo | Drivers seleccionados |
+| --- | --- |
+| Funcionalidad | PUS04–PUS06; US58–US70. |
+| Calidad prioritaria | QAS03–QAS05: seguridad, interoperabilidad y disponibilidad. |
+| IA e integridad | QAS06–QAS07: evaluación, explicación y reservas. |
+| Restricciones | CON08–CON09: IA interna y reglas laborales del caso. |
+| Preocupaciones | AC01, AC06–AC08: fallas, datos antiguos, concurrencia y datos de entrenamiento. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.3. Choose One or More Elements of the System to Refine
 
-Los principales elementos seleccionados para esta iteración son:
-
-- **Dispatch Planning:** responsable de coordinar la planificación del despacho.
-- **Fleet Management:** proporciona información sobre conductores y vehículos disponibles.
-- **Maintenance Management:** informa la condición y restricciones de los vehículos.
-- **Time & Attendance:** proporciona información sobre jornadas y horas trabajadas.
-- **Driver Safety & Compliance:** determina si un conductor puede ser considerado elegible.
-- **Shipment Management:** proporciona información del envío, prioridad y características de la carga.
-- **Maps & Routes Provider:** proporciona alternativas de ruta, distancia y duración estimada.
-- **Trip Execution:** recibe la planificación aprobada para posteriormente iniciar el viaje.
-
-La planificación se realiza únicamente después de que el envío haya sido marcado como disponible para despacho.
-
-<div style="page-break-after: always;"></div>
+- Dispatch Planning: planes, alternativas, recomendaciones, reservas y aprobación.
+- Fleet Management: identidad y estado administrativo de los recursos.
+- Maintenance Management: kilometraje, condición y restricciones del vehículo.
+- Workforce Management: disponibilidad laboral del empleado.
+- Time & Attendance: intervalos trabajados, descansos y horas adicionales.
+- Driver Safety & Compliance: política y resultado de elegibilidad.
+- Shipment Management y Warehouse Operations: prioridad, carga y disponibilidad para despacho.
+- Adaptador de mapas/rutas y Planning Recommendation Engine: alternativas geográficas y predicción/recomendación.
+- Trip Execution: registra el viaje con referencia al plan aprobado.
 
 #### 4.3.3.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Para satisfacer los drivers seleccionados se consideran los siguientes conceptos, patrones y tácticas:
-
-| Concepto / Patrón | Aplicación |
-|---|---|
-| Domain-Driven Design | Mantener Dispatch Planning separado de Fleet, Maintenance y demás bounded contexts. |
-| Rule-Based Validation | Aplicar reglas obligatorias antes de generar recomendaciones. |
-| Strategy Pattern | Permitir diferentes estrategias de selección y recomendación de recursos. |
-| Adapter | Aislar la integración con proveedores externos de rutas. |
-| Anti-Corruption Layer | Transformar los datos externos antes de utilizarlos dentro del dominio. |
-| Circuit Breaker | Evitar que una falla del proveedor externo afecte continuamente la planificación. |
-| Fallback | Mantener una alternativa basada en reglas cuando el componente inteligente no esté disponible. |
-| Event-Driven Architecture | Comunicar la disponibilidad del envío y el resultado de la planificación. |
-| Repository | Gestionar la persistencia de los planes de despacho. |
-
-Las reglas obligatorias se evalúan antes del mecanismo de recomendación. De esta manera, el componente inteligente únicamente analiza alternativas que previamente cumplen con las restricciones definidas por el negocio.
+| Concepto | Aplicación |
+| --- | --- |
+| Filtros determinísticos | Aplicar reglas obligatorias antes del modelo y nuevamente antes de aprobar. |
+| Strategy | Usar una interfaz para recomendación asistida y modo básico. |
+| Modelo supervisado evaluado | Proponer ML.NET para estimar duración o demora y apoyar comparación de alternativas. |
+| Snapshots versionados | Conservar datos, reglas y modelo utilizados en cada evaluación. |
+| Reserva transaccional | Evitar intervalos incompatibles dentro de Dispatch Planning. |
+| Adapter / ACL | Separar contratos de Compliance, Maintenance y rutas. |
+| Timeout, Circuit Breaker y fallback | Controlar fallas sin aprobar con datos críticos ausentes. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
+| Elemento | Responsabilidad | Interfaz o integración |
+| --- | --- | --- |
+| DispatchPlanningService | Coordinar entradas, filtros, reservas y aprobación | POST /dispatch/plans, /recommendations y /{id}/approval |
+| Fleet / Workforce | Proporcionar ficha operativa y disponibilidad laboral | Consultas autorizadas por referencia y ventana temporal |
+| TimeAttendanceService | Proporcionar horas ordinarias, adicionales y descansos | Consulta por empleado, fecha laboral e intervalo |
+| DriverComplianceService | Evaluar política y devolver motivos y vigencia | POST /compliance/eligibility-evaluations |
+| MaintenanceService | Evaluar aptitud técnica y kilometraje proyectado | Consulta de restricciones y mantenimiento |
+| RouteProviderAdapter | Obtener alternativas, duración y distancia | Contrato externo transformado a RouteAlternative |
+| PlanningRecommendationEngine | Estimar y comparar alternativas ya elegibles | IPlanningRecommendationEngine en Application; implementación de IA en Infrastructure |
+| BasicPlanningStrategy | Mantener comparación básica con las mismas restricciones | Strategy identificada como BASIC |
+| TripExecutionService | Registrar viaje basado en plan aprobado | CreateTrip validado e idempotente |
 
-| Elemento | Responsabilidad | Integración |
-|---|---|---|
-| Dispatch Planning Service | Coordinar el proceso de planificación y generar propuestas de asignación. | REST / Eventos |
-| Fleet Service | Proporcionar conductores y vehículos disponibles. | REST |
-| Maintenance Service | Informar si un vehículo puede participar en una operación. | REST |
-| Time & Attendance Service | Proporcionar información de jornada laboral. | REST |
-| Driver Compliance Service | Evaluar restricciones y elegibilidad del conductor. | REST |
-| Route Provider Adapter | Obtener alternativas de rutas desde un proveedor externo. | API externa |
-| Planning Recommendation Engine | Evaluar alternativas válidas y generar una recomendación. | Componente interno |
-| Trip Execution Service | Recibir el plan aprobado para iniciar posteriormente el viaje. | Eventos / REST |
+Dispatch obtiene las fuentes necesarias, verifica su vigencia y pide elegibilidad y aptitud. Filtra candidatos inválidos, obtiene alternativas de ruta y evalúa las válidas. Presenta criterios y modo de recomendación. Al aprobar, vuelve a validar y confirma reservas en su almacenamiento; el registro del viaje utiliza el plan aprobado.
 
-El proceso de planificación considera primero las reglas obligatorias relacionadas con disponibilidad, mantenimiento, jornada laboral y cumplimiento del conductor.
+| Evento | Productor | Contenido/efecto |
+| --- | --- | --- |
+| DriverEligibilityChanged | Driver Safety & Compliance | Cambio en elegibilidad y motivos. |
+| VehicleMaintenanceRequired | Maintenance Management | Restricción o mantenimiento requerido. |
+| DispatchPlanned | Dispatch Planning | Propuesta y revisión del plan. |
+| DispatchPlanApproved | Dispatch Planning | Alternativa, recursos, intervalo y aprobación. |
+| TripReplanningRequested | Trip Execution | Solicitud de revisión justificada, conservando el origen. |
 
-Posteriormente, el mecanismo de recomendación puede considerar factores como:
+##### Diseño del componente IA y de las reglas operativas
 
-- distancia de la ruta;
-- duración estimada;
-- condiciones de tráfico;
-- capacidad del vehículo;
-- ubicación actual de los recursos;
-- horas trabajadas;
-- historial operativo;
-- prioridad del envío.
+1. **Recopilar datos vigentes.** Envío, prioridad, capacidad y peso de carga, recursos disponibles, intervalos laborales, horas acumuladas, descansos, restricciones técnicas, kilometraje y alternativas de ruta. Cada evaluación conserva referencias y fecha de los datos utilizados.
+2. **Aplicar restricciones.** Compliance considera horas ya trabajadas —ordinarias y adicionales— y duración prevista de las asignaciones del día. La jornada ordinaria de 8 h y límite total de 14 h son parámetros del caso; no se reinician al comenzar otro viaje. Descansos y reservas se revisan por intervalo. Maintenance valida restricciones críticas y el kilometraje previsto respecto del próximo mantenimiento.
+3. **Evaluar alternativas con el modelo.** Se propone un modelo supervisado de estimación de duración o demora en ML.NET. Las entradas disponibles pueden incluir distancia, duración del proveedor, franja horaria y registros históricos comparables; la etiqueta corresponde al resultado observado del transporte. El motor utiliza esa estimación para comparar alternativas elegibles junto con prioridad, carga laboral y margen de mantenimiento.
+4. **Representar riesgo operacional.** La relación con fatiga se expresa mediante horas acumuladas, descansos y declaración o restricciones registradas del conductor. El kilometraje y las restricciones técnicas provienen de Maintenance. Estos criterios tienen reglas explícitas; una comprobación por umbral no se contabiliza por sí sola como un modelo de IA.
+5. **Evaluar y versionar.** Se conserva origen, período, variables y versión del dataset; la evaluación utiliza viajes separados de los usados para entrenamiento y evita incluir información del resultado dentro de las entradas. Para duración se registra MAE en minutos y se compara con una estimación básica. Dataset, modelo, métricas y commit quedan pendientes hasta la implementación.
+6. **Mostrar y aprobar.** La app presenta recursos, ruta, resultado estimado, criterios relevantes y modo utilizado. El responsable confirma la propuesta; Dispatch revalida fuentes obligatorias y reservas y registra la decisión y la versión del modelo.
+7. **Continuar en modo básico cuando corresponda.** El fallo del modelo activa otra Strategy, conservando todas las restricciones. Si faltan datos necesarios para comprobar jornada, aptitud o duración del servicio, se informa que el plan no puede aprobarse.
 
-Los principales eventos considerados son:
-
-- `ShipmentReadyForDispatch`
-- `DriverEligibilityChanged`
-- `VehicleMaintenanceRequired`
-- `DispatchPlanned`
-- `DispatchPlanApproved`
+Los datos sintéticos sirven para probar contratos y flujo del componente; una evaluación con ellos deberá identificarse y no se usará para atribuir eficacia operacional a datos reales. El componente de IA se considerará implementado cuando exista el modelo o integración real, su evaluación y su consumo desde Dispatch Planning; una interfaz vacía o selección por reglas deja esa parte pendiente.
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-El C4 Container Diagram representa los servicios involucrados en la planificación y las dependencias necesarias para obtener información de conductores, vehículos, mantenimiento y rutas.
+| Vista | Archivo previsto | Contenido a revisar |
+| --- | --- | --- |
+| C4 Components / Containers | assets/images/chapter4/iteration3-c4-containers.png | Dispatch, motor IA interno, fuentes de elegibilidad, rutas y datos. |
+| UML Sequence | assets/images/chapter4/iteration3-dispatch-sequence.png | Consultas, filtro, modelo, propuesta, revalidación, reserva y aprobación. |
 
-![C4 de contenedores - Iteración 3](assets/images/chapter4/iteration3-c4-containers.png)
+Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
-El UML Sequence Diagram representa el proceso desde la recepción de un envío disponible para despacho hasta la aprobación de una combinación de conductor, vehículo y ruta.
+![C4 Components / Containers — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-c4-containers.png)
 
-![UML de secuencia - Iteración 3](assets/images/chapter4/iteration3-dispatch-sequence.png)
+![UML Sequence — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-dispatch-sequence.png)
 
-Las principales decisiones arquitectónicas de esta iteración son:
+<div style="page-break-after: always;"></div>
 
-| ID | Decisión | Justificación |
-|---|---|---|
-| DD17 | Centralizar la planificación en Dispatch Planning. | Evita distribuir la lógica de asignación entre diferentes bounded contexts. |
-| DD18 | Evaluar primero las reglas obligatorias de elegibilidad. | Una recomendación no debe utilizar recursos inválidos. |
-| DD19 | Mantener el mecanismo inteligente dentro de Dispatch Planning. | La recomendación forma parte de la capacidad de planificación. |
-| DD20 | Utilizar Adapter y ACL para el proveedor de rutas. | Evita dependencia directa del modelo externo. |
-| DD21 | Implementar una estrategia de fallback. | Permite continuar con una planificación básica ante fallas del componente inteligente. |
-| DD22 | Mantener separadas las reglas determinísticas y el mecanismo de recomendación. | Facilita mantenimiento, validación y evolución independiente. |
-| DD23 | Registrar la decisión final de planificación. | Permite trazabilidad sobre los recursos asignados. |
-| DD24 | Considerar estable una asignación una vez iniciado el viaje. | Evita cambios innecesarios durante la ejecución. |
-| DD25 | Permitir replanificación únicamente ante situaciones excepcionales. | Mantiene estabilidad operativa sin impedir responder ante incidentes graves. |
+| ID | Decisión documentada | Justificación |
+| --- | --- | --- |
+| DD17 | Mantener la coordinación en Dispatch Planning | Las fuentes conservan sus datos y el plan centraliza la decisión. |
+| DD18 | Evaluar restricciones antes y después de recomendar | Los cambios de datos no deben convertir una propuesta antigua en asignación válida. |
+| DD19 | Mantener la IA como componente de Dispatch | Su responsabilidad es apoyar la planificación, dentro de ese contexto. |
+| DD20 | Obtener rutas mediante un adaptador | La planificación mantiene modelos propios. |
+| DD21 | Aplicar Strategy básica ante falla de IA | La continuidad respeta las mismas restricciones y muestra el modo. |
+| DD22 | Separar reglas y predicción del modelo | Facilita pruebas de elegibilidad y evaluación de utilidad por separado. |
+| DD23 | Registrar versión, entradas, criterios y aprobación | Permite reconstruir por qué se eligió una alternativa. |
+| DD24 | Confirmar reservas antes del viaje | Evita asignaciones superpuestas y permite liberar recursos ante cancelación. |
+| DD25 | Conservar revisiones para sustituciones justificadas | Mantiene historial de conductor, vehículo y motivo de cambio. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.3.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-El diseño obtenido permite que TrackTruck evalúe diferentes fuentes de información antes de generar una propuesta de despacho.
+El diseño se revisará con los criterios siguientes. Los resultados de revisión, responsables y evidencias se completarán cuando el equipo valide las vistas y decisiones. La definición escrita es un avance de diseño y debe distinguirse de la implementación y sus pruebas.
 
-La separación entre validaciones obligatorias y mecanismos de recomendación evita que una decisión generada automáticamente ignore restricciones operativas importantes.
+| Aspecto | Criterio de revisión | Estado |
+| --- | --- | --- |
+| Jornada | Incluye horas normales y adicionales acumuladas del día y duración planificada. | Pendiente revisión y evidencia |
+| Descanso | Usa intervalos y política vigente; no asume elegibilidad si faltan datos. | Pendiente revisión y evidencia |
+| Mantenimiento | Revisa restricciones y kilometraje previsto del servicio. | Pendiente revisión y evidencia |
+| IA | El modelo y su conjunto de evaluación están identificados y comparados con baseline. | Pendiente revisión y evidencia |
+| Aprobación | El responsable confirma una alternativa válida con reservas compatibles. | Pendiente revisión y evidencia |
+| Fallback | El modo básico está identificado y no omite validaciones. | Pendiente revisión y evidencia |
 
-La revisión de la iteración considera los siguientes aspectos:
+El tablero de esta iteración seguirá ADB17–ADB25 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-| Aspecto | Resultado |
-|---|---|
-| Validación de conductores | Cumplido |
-| Validación de vehículos | Cumplido |
-| Integración con mantenimiento | Cumplido |
-| Integración con jornada laboral | Cumplido |
-| Integración con proveedor de rutas | Cumplido |
-| Separación entre reglas y recomendación | Cumplido |
-| Mecanismo de fallback | Cumplido |
-| Trazabilidad de la planificación | Cumplido |
-| Comunicación con Trip Execution | Cumplido |
+![Kanban — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-kanban.png)
 
-La iteración se considera satisfactoria cuando Dispatch Planning puede recibir un envío preparado, obtener recursos disponibles, descartar alternativas inválidas, generar una recomendación y registrar una planificación aprobada para el posterior inicio del viaje.
-
-El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban correspondiente.
-
-![Tablero Kanban - Iteración 3](assets/images/chapter4/iteration3-kanban.png)
-
-**URL del tablero:** [Iteration 3 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
+**Enlace del tablero de Iteración 3:** pendiente incorporar el enlace verificable.
 
 <div style="page-break-after: always;"></div>
-
-
 
 ### 4.3.4. Iteration 4: Trip Execution, Tracking and Delivery
 
-Esta iteración tiene como objetivo refinar la ejecución del viaje, el seguimiento en tiempo real, la gestión de incidencias y la confirmación de entrega dentro de **TrackTruck**.
-
-<div style="page-break-after: always;"></div>
+Refinar ejecución de viaje, posicionamiento, paradas, incidencias y entrega, incluyendo integración móvil, sincronización y cambios excepcionales de asignación.
 
 #### 4.3.4.1. Architectural Design Backlog 4
 
-El Architectural Design Backlog de esta iteración reúne los elementos necesarios para controlar una operación desde el inicio del viaje hasta la entrega de la carga.
-
-| ID | Elemento de diseño | Prioridad |
-|---|---|---|
-| ADB26 | Definir el ciclo de vida del viaje. | Alta |
-| ADB27 | Definir el procesamiento de actualizaciones de ubicación. | Alta |
-| ADB28 | Diseñar el registro de paradas durante el viaje. | Alta |
-| ADB29 | Diseñar la gestión de incidencias operativas. | Alta |
-| ADB30 | Definir el manejo de ubicaciones duplicadas o fuera de orden. | Media |
-| ADB31 | Definir la comunicación entre Trip Execution y Tracking & Geolocation. | Alta |
-| ADB32 | Diseñar la confirmación de entrega. | Alta |
-| ADB33 | Definir la respuesta ante interrupciones o situaciones excepcionales. | Media |
-| ADB34 | Registrar eventos relevantes para historial y trazabilidad. | Alta |
-
-<div style="page-break-after: always;"></div>
+| ID | Trabajo de diseño | Drivers relacionados | Prioridad |
+| --- | --- | --- | --- |
+| ADB26 | Definir estados de Trip y validaciones al iniciar y terminar | US10; US27–US29; US71 | Alta |
+| ADB27 | Definir ingestión y fecha de última ubicación conocida | US14–US15; US32; QAS02 | Alta |
+| ADB28 | Definir parada por inmovilidad y actualización de motivo | US16; US34; US73 | Alta |
+| ADB29 | Definir reporte, atención y resolución de incidencia | US18–US19; US35–US37 | Alta |
+| ADB30 | Definir deduplicación y sincronización móvil de reportes | US72; QAS08 | Media |
+| ADB31 | Definir TripStarted/TripCompleted y activación/cierre de Tracking | QAS04; AC04 | Alta |
+| ADB32 | Definir evidencia y resultados de entrega | US74–US75 | Alta |
+| ADB33 | Definir interrupción y sustitución autorizada de recursos | US70; AC06 | Media |
+| ADB34 | Definir eventos y proyección del historial de la operación | US79; QAS09 | Alta |
 
 #### 4.3.4.2. Establish Iteration Goal by Selecting Drivers
 
-El objetivo de esta iteración es diseñar una arquitectura que permita controlar la ejecución de un viaje, registrar su ubicación, gestionar incidencias y finalizar correctamente la operación mediante la confirmación de entrega.
+Controlar el recorrido y sus excepciones y registrar un resultado de entrega comprobable, conservando el estado real de viaje y envío y la procedencia temporal del seguimiento.
 
-Los principales drivers seleccionados son:
-
-| Driver | Aplicación |
-|---|---|
-| Funcionalidad | Iniciar, ejecutar y finalizar viajes, además de registrar seguimiento e incidencias. |
-| Disponibilidad | Mantener el registro de información aun cuando existan fallas temporales en servicios externos. |
-| Rendimiento | Procesar actualizaciones frecuentes de ubicación sin afectar el funcionamiento general. |
-| Integridad | Mantener estados válidos del viaje y evitar registros inconsistentes. |
-| Interoperabilidad | Permitir comunicación entre Trip Execution, Tracking, Incident y Delivery. |
-| Seguridad | Restringir operaciones según usuarios y responsabilidades autorizadas. |
-| Trazabilidad | Conservar los principales eventos ocurridos durante el viaje. |
+| Tipo | Drivers seleccionados |
+| --- | --- |
+| Funcionalidad | PUS07–PUS10; ejecución, seguimiento, incidencia y entrega. |
+| Calidad prioritaria | QAS01–QAS04: continuidad, ingestión, acceso y contratos. |
+| Calidad complementaria | QAS07–QAS09: deduplicación, app móvil e historial. |
+| Restricciones | CON02–CON03, CON06 y CON11: móvil, pruebas, propiedad y permisos. |
+| Preocupaciones | AC04, AC09 y AC10: orden de reportes, Android y cierre diferenciado. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.3. Choose One or More Elements of the System to Refine
 
-Los principales elementos seleccionados para esta iteración son:
-
-- **Trip Execution:** administra el ciclo de vida y estado del viaje.
-- **Tracking & Geolocation:** recibe y procesa las ubicaciones del vehículo.
-- **Incident Management:** registra incidencias producidas durante la operación.
-- **Delivery Management:** gestiona la confirmación de entrega.
-- **Dispatch Planning:** proporciona la planificación aprobada utilizada para iniciar el viaje.
-- **Operational History:** conserva los eventos relevantes de la operación.
-- **Maps & Routes Provider:** proporciona información complementaria de rutas cuando sea requerida.
-
-La asignación de conductor y vehículo se considera estable después de iniciado el viaje, salvo que ocurra una situación excepcional que requiera una nueva planificación.
-
-<div style="page-break-after: always;"></div>
+- Trip Execution: estados, tiempos y cambios autorizados.
+- Tracking & Geolocation: stream de posiciones, última posición y paradas.
+- Incident Management: incidencias y acciones de resolución.
+- Delivery Management: cantidades recibidas, evidencia y excepciones.
+- Shipment Management: estado consolidado actualizado a partir de resultados.
+- Dispatch Planning: reservas y revisiones autorizadas.
+- App Android: pantallas por rol, captura autorizada y reportes pendientes.
+- Operational History: trazabilidad del viaje y resultados.
 
 #### 4.3.4.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Para satisfacer los drivers seleccionados se consideran los siguientes conceptos y patrones:
-
-| Concepto / Patrón | Aplicación |
-|---|---|
-| State Pattern | Controlar las transiciones permitidas durante el ciclo de vida del viaje. |
-| Event-Driven Architecture | Comunicar cambios relevantes entre los servicios. |
-| Publish–Subscribe | Distribuir eventos de seguimiento, incidencias y finalización. |
-| Idempotency | Evitar que mensajes repetidos produzcan registros duplicados. |
-| Repository | Encapsular el acceso a los datos propios de cada bounded context. |
-| Database per Service | Mantener autonomía de persistencia entre los servicios. |
-| Adapter | Aislar la integración con proveedores externos. |
-| Circuit Breaker | Limitar el impacto de fallas producidas por servicios externos. |
-
-Estos conceptos permiten mantener separados el control del viaje, el seguimiento, las incidencias y la entrega.
+| Concepto | Aplicación |
+| --- | --- |
+| Máquina de estados | SCHEDULED, IN_PROGRESS, COMPLETED y CANCELLED en Trip. |
+| Outbox y consumidores idempotentes | Comunicar inicio, cierre e incidencias con recuperación. |
+| Fecha de captura y reportId | Deduplicar y ordenar sin convertir una posición antigua en actual. |
+| Persistencia local y reintento autorizado | Mantener reportes pendientes según condiciones de Android. |
+| Separación de agregados | El viaje y la entrega del envío conservan estados propios. |
+| Snapshot y revisión de asignación | Guardar recursos y motivos de sustitución sin borrar la historia. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
+| Elemento | Responsabilidad | Interfaz o integración |
+| --- | --- | --- |
+| TripExecutionService | Validar inicio, ejecución y cierre del recorrido | POST /trips/{id}/start, /completion y /cancellation |
+| TrackingService | Procesar posición, parada y última ubicación | POST /tracking/positions; GET /tracking/trips/{tripId} |
+| IncidentService | Registrar incidencia, acciones y resultado | POST/GET /incidents |
+| DeliveryService | Confirmar entrega total, parcial o fallida | POST /deliveries; referencias de evidencia |
+| ShipmentService | Actualizar estado del envío | Consumo de DeliveryConfirmed y DeliveryExceptionReported |
+| App Android | Consultar viaje, mapa, incidencias y entrega autorizada | API y repositorio local de reportes |
+| OperationalHistoryService | Consultar los hechos relacionados | Consumo de eventos con origen y correlación |
 
-| Elemento | Responsabilidad | Integración |
-|---|---|---|
-| Trip Execution Service | Gestionar el inicio, ejecución, estados y finalización del viaje. | REST / Eventos |
-| Tracking Service | Recibir y almacenar actualizaciones de ubicación. | REST / Eventos |
-| Incident Service | Registrar y gestionar incidencias operativas. | REST / Eventos |
-| Delivery Service | Confirmar la entrega de la carga. | REST / Eventos |
-| Operational History Service | Registrar los eventos relevantes generados durante el viaje. | Eventos |
-| Route Provider Adapter | Consultar información complementaria de ruta cuando sea necesario. | API externa |
-| Event Broker | Distribuir eventos entre los diferentes servicios. | Publish–Subscribe |
+StartTrip valida estado, usuario y restricciones vigentes y publica TripStarted. Tracking abre el seguimiento y conserva los reportes válidos. CompleteTrip registra término del recorrido y publica TripCompleted. Delivery registra por separado el resultado de cada envío y publica su confirmación o excepción. Shipment actualiza su estado y los consumidores completan el historial.
 
-Los principales eventos definidos para esta iteración son:
-
-- `TripStarted`
-- `VehicleLocationUpdated`
-- `StopDetected`
-- `IncidentReported`
-- `TripInterrupted`
-- `TripCompleted`
-- `DeliveryConfirmed`
-- `TripReplanningRequested`
-
-El evento `TripReplanningRequested` podrá utilizarse cuando una situación excepcional, como una avería grave o interrupción de la ruta, requiera solicitar una nueva planificación.
+| Evento | Productor | Contenido/efecto |
+| --- | --- | --- |
+| TripStarted | Trip Execution | TripId, recursos, plan y momento de inicio. |
+| VehicleLocationUpdated | Tracking & Geolocation | Referencia del viaje, posición y momento de captura. |
+| StopDetected | Tracking & Geolocation | Parada confirmada, inicio y ubicación. |
+| IncidentReported | Incident Management | Incidencia, tipo, viaje y fecha. |
+| TripCompleted | Trip Execution | Finalización del recorrido. |
+| DeliveryConfirmed | Delivery Management | Envío, cantidades y resultado de entrega. |
+| DeliveryExceptionReported | Delivery Management | Entrega parcial o fallida con motivo. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-El C4 Container Diagram representa la interacción entre Trip Execution, Tracking & Geolocation, Incident Management y Delivery Management durante la operación.
+| Vista | Archivo previsto | Contenido a revisar |
+| --- | --- | --- |
+| C4 Containers | assets/images/chapter4/iteration4-c4-containers.png | App, Trip, Tracking, Incident, Delivery, Shipment y persistencia privada. |
+| UML Sequence | assets/images/chapter4/iteration4-tracking-sequence.png | Inicio, posición, incidencia, finalización y entrega, incluyendo reintentos. |
 
-![C4 de contenedores - Iteración 4](assets/images/chapter4/iteration4-c4-containers.png)
+Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
-El UML Sequence Diagram representa el flujo desde el inicio del viaje, el registro de ubicaciones e incidencias, hasta la confirmación de la entrega.
+![C4 Containers — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-c4-containers.png)
 
-![UML de secuencia - Iteración 4](assets/images/chapter4/iteration4-tracking-sequence.png)
+![UML Sequence — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-tracking-sequence.png)
 
-Las principales decisiones arquitectónicas de esta iteración son:
+<div style="page-break-after: always;"></div>
 
-| ID | Decisión | Justificación |
-|---|---|---|
-| DD26 | Separar Trip Execution de Tracking & Geolocation. | El control del viaje y el procesamiento de ubicaciones poseen responsabilidades diferentes. |
-| DD27 | Utilizar eventos para comunicar actualizaciones relevantes. | Reduce dependencias directas entre servicios. |
-| DD28 | Aplicar idempotencia sobre actualizaciones y eventos. | Evita efectos duplicados ante reintentos. |
-| DD29 | Mantener las coordenadas registradas aunque el proveedor de mapas no esté disponible. | Permite conservar el seguimiento básico del viaje. |
-| DD30 | Gestionar incidencias mediante un bounded context independiente. | Facilita el tratamiento y seguimiento de situaciones excepcionales. |
-| DD31 | Mantener estable la asignación del viaje una vez iniciado. | Evita cambios operativos innecesarios. |
-| DD32 | Solicitar replanificación únicamente ante eventos excepcionales. | Mantiene estabilidad sin impedir la recuperación ante problemas importantes. |
-| DD33 | Separar Delivery Management de Trip Execution. | Permite gestionar de forma independiente la confirmación de entrega. |
-| DD34 | Publicar eventos hacia Operational History. | Mantiene trazabilidad del ciclo completo del viaje. |
+| ID | Decisión documentada | Justificación |
+| --- | --- | --- |
+| DD26 | Separar Trip de Tracking | Estados de viaje y procesamiento de telemetría requieren responsabilidades distintas. |
+| DD27 | Comunicar inicio y cierre con eventos | Tracking y otros consumidores actualizan sus modelos propios. |
+| DD28 | Deduplicar por reportId y ordenar por recordedAt | Un reintento o reporte antiguo no reemplaza la posición más reciente. |
+| DD29 | Conservar coordenadas sin depender de la visualización del mapa | La persistencia continúa ante falla del proveedor. |
+| DD30 | Mantener Incident como contexto propietario | Registro y resolución de la excepción son independientes del posicionamiento. |
+| DD31 | Registrar sustituciones como revisiones auditadas | El historial conserva los recursos anteriores y su intervalo. |
+| DD32 | Persistir reportes pendientes en la app | La pérdida de red no elimina muestras ya capturadas y autorizadas. |
+| DD33 | Separar resultado de entrega de cierre del viaje | Un recorrido finalizado puede incluir un envío pendiente o una entrega fallida. |
+| DD34 | Mantener evidencia y correlación para el historial | Permite reconstruir el recorrido y resultado del servicio. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.4.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-El diseño obtenido permite controlar la operación de transporte desde el inicio del viaje hasta la confirmación de entrega, manteniendo separadas las responsabilidades de ejecución, seguimiento, incidencias y entrega.
+El diseño se revisará con los criterios siguientes. Los resultados de revisión, responsables y evidencias se completarán cuando el equipo valide las vistas y decisiones. La definición escrita es un avance de diseño y debe distinguirse de la implementación y sus pruebas.
 
-La revisión de la iteración considera los siguientes aspectos:
+| Aspecto | Criterio de revisión | Estado |
+| --- | --- | --- |
+| Estado | Las transiciones inválidas se rechazan y el resultado permanece consistente. | Pendiente revisión y evidencia |
+| Posiciones | Las muestras válidas se conservan, deduplican y ordenan por fecha de captura. | Pendiente revisión y evidencia |
+| Paradas | Inmovilidad se comprueba con muestras suficientes y umbral configurado. | Pendiente revisión y evidencia |
+| Móvil | Pérdida de conexión y permisos producen estados visibles y pruebas en dispositivo. | Pendiente revisión y evidencia |
+| Entrega | La confirmación y excepciones actualizan Shipment por contrato. | Pendiente revisión y evidencia |
+| Historial | Se conservan cambios de recursos y hechos con correlación. | Pendiente revisión y evidencia |
 
-| Aspecto | Resultado |
-|---|---|
-| Ciclo de vida del viaje | Cumplido |
-| Procesamiento de ubicaciones | Cumplido |
-| Registro de paradas | Cumplido |
-| Gestión de incidencias | Cumplido |
-| Manejo de eventos duplicados | Cumplido |
-| Separación entre Trip Execution y Tracking | Cumplido |
-| Confirmación de entrega | Cumplido |
-| Replanificación excepcional | Cumplido |
-| Trazabilidad operacional | Cumplido |
+El tablero de esta iteración seguirá ADB26–ADB34 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-La iteración se considera satisfactoria cuando el sistema puede representar el inicio del viaje, mantener su seguimiento, registrar situaciones relevantes y cerrar la operación mediante la confirmación de entrega.
+![Kanban — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-kanban.png)
 
-El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban correspondiente.
-
-![Tablero Kanban - Iteración 4](assets/images/chapter4/iteration4-kanban.png)
-
-**URL del tablero:** [Iteration 4 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
+**Enlace del tablero de Iteración 4:** pendiente incorporar el enlace verificable.
 
 <div style="page-break-after: always;"></div>
-
 
 ### 4.3.5. Iteration 5: Billing, Operational History and Analytics
 
-Esta iteración tiene como objetivo refinar el cierre del proceso logístico de **TrackTruck**, considerando facturación, pagos, historial operativo y generación de información para análisis y reportes.
-
-<div style="page-break-after: always;"></div>
+Refinar cotización, cobros y comprobantes del servicio, el historial consolidado y los indicadores, con contratos de proveedores y protección de operaciones sensibles.
 
 #### 4.3.5.1. Architectural Design Backlog 5
 
-El Architectural Design Backlog de esta iteración reúne los principales elementos necesarios para completar el procesamiento posterior a la entrega.
-
-| ID | Elemento de diseño | Prioridad |
-|---|---|---|
-| ADB35 | Definir el proceso de facturación posterior a la entrega. | Alta |
-| ADB36 | Definir la integración con el proveedor de pagos. | Alta |
-| ADB37 | Definir la integración con el proveedor de facturación electrónica. | Alta |
-| ADB38 | Diseñar el registro del historial operativo. | Alta |
-| ADB39 | Definir los eventos utilizados para construir el historial. | Alta |
-| ADB40 | Diseñar las consultas y reportes operativos. | Media |
-| ADB41 | Definir mecanismos de idempotencia para pagos y documentos. | Alta |
-| ADB42 | Definir mecanismos de tolerancia ante fallas de proveedores externos. | Alta |
-
-<div style="page-break-after: always;"></div>
+| ID | Trabajo de diseño | Drivers relacionados | Prioridad |
+| --- | --- | --- | --- |
+| ADB35 | Definir cotización, cargo y condición de facturación | US76–US77 | Alta |
+| ADB36 | Definir pago, confirmación y callback verificado | US78; QAS03 | Alta |
+| ADB37 | Definir contrato y estado del comprobante electrónico | US77; QAS04 | Alta |
+| ADB38 | Definir historial con identidad, origen y orden por agregado | US79; QAS09 | Alta |
+| ADB39 | Definir eventos financieros y de la operación | AC04 | Alta |
+| ADB40 | Definir indicadores, períodos, filtros y fecha de actualización | US80 | Media |
+| ADB41 | Definir idempotencia y conciliación de respuestas inciertas | QAS07; AC01 | Alta |
+| ADB42 | Definir protección y recuperación ante fallas de proveedores | QAS01; QAS03 | Alta |
 
 #### 4.3.5.2. Establish Iteration Goal by Selecting Drivers
 
-El objetivo de esta iteración es diseñar la arquitectura necesaria para completar las operaciones financieras, conservar el historial de la actividad logística y proporcionar información útil para reportes y análisis.
+Relacionar el resultado del servicio con sus cargos y registros financieros, preservar el historial completo y ofrecer indicadores con definiciones y fuentes claras.
 
-Los principales drivers seleccionados son:
-
-| Driver | Aplicación |
-|---|---|
-| Funcionalidad | Gestionar facturación, pagos, historial y reportes. |
-| Integridad | Evitar cobros, pagos o documentos duplicados. |
-| Confiabilidad | Mantener consistencia ante fallas o reintentos. |
-| Interoperabilidad | Integrar proveedores externos de pagos y facturación. |
-| Seguridad | Proteger información financiera y restringir operaciones sensibles. |
-| Trazabilidad | Conservar los eventos importantes de las operaciones. |
-| Disponibilidad | Evitar que fallas externas detengan procesos que puedan continuar posteriormente. |
-| Rendimiento | Permitir consultas eficientes sobre historial y reportes. |
+| Tipo | Drivers seleccionados |
+| --- | --- |
+| Funcionalidad | PUS10–PUS11; US76–US80. |
+| Calidad prioritaria | QAS01, QAS03 y QAS04: recuperación, acceso y proveedores. |
+| Integridad y trazabilidad | QAS07 y QAS09: duplicación y reconstrucción de hechos. |
+| Restricciones | CON03, CON06 y CON11: pruebas, datos propios y sandbox explícito. |
+| Preocupaciones | AC01, AC04, AC10 y AC12: fallas, orden, cierre y evidencia. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.3. Choose One or More Elements of the System to Refine
 
-Los principales elementos seleccionados para esta iteración son:
-
-- **Billing & Payments:** administra cobros, pagos y documentos asociados al servicio.
-- **Operational History:** consolida los eventos relevantes producidos durante las operaciones.
-- **Reporting & Analytics:** permite consultar indicadores y reportes derivados de la información operacional.
-- **Delivery Management:** comunica la confirmación de entrega necesaria para completar procesos posteriores.
-- **Shipment Management:** proporciona información relacionada con el servicio y envío realizado.
-- **Payment Provider:** procesa pagos mediante un servicio externo.
-- **Electronic Billing Provider:** permite generar documentos electrónicos mediante un proveedor externo.
-
-<div style="page-break-after: always;"></div>
+- Billing & Payments: cotización, cargo, documento, pago y conciliación.
+- Delivery y Shipment: resultado y referencias del servicio facturable.
+- Operational History: proyección cronológica con origen y secuencia.
+- Reporting & Analytics: indicadores y modelos de lectura propios.
+- Adaptadores de pago y facturación: solicitudes, callbacks y consulta de estado.
+- Identity & Access: permisos para información financiera e histórica.
 
 #### 4.3.5.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Para satisfacer los drivers seleccionados se consideran los siguientes conceptos y patrones:
-
-| Concepto / Patrón | Aplicación |
-|---|---|
-| Event-Driven Architecture | Procesar eventos de entrega, facturación, pagos e historial de forma desacoplada. |
-| Publish–Subscribe | Permitir que Operational History y Reporting reciban eventos de otros servicios. |
-| Adapter | Encapsular la integración con proveedores de pagos y facturación. |
-| Anti-Corruption Layer | Evitar que los modelos de proveedores externos ingresen directamente al dominio. |
-| Circuit Breaker | Limitar el impacto de fallas de proveedores externos. |
-| Retry | Reintentar operaciones temporales que hayan fallado. |
-| Idempotency | Evitar pagos, documentos o eventos duplicados. |
-| Database per Service | Mantener persistencia independiente para Billing, History y Reporting. |
-| CQRS / Read Model | Facilitar consultas y generación de reportes sin afectar los servicios operacionales. |
-
-Estos conceptos permiten separar el procesamiento financiero de las funciones de historial y análisis, manteniendo integración mediante contratos y eventos.
+| Concepto | Aplicación |
+| --- | --- |
+| Adapter / ACL | Traducir solicitudes y resultados de proveedores sin acoplar el dominio. |
+| Idempotencia y conciliación | Consultar resultado incierto antes de repetir un cobro o documento. |
+| Outbox/Inbox | Propagar resultados persistidos y actualizar proyecciones una sola vez en efecto. |
+| Modelos de lectura | Construir historial e indicadores sin joins a bases ajenas. |
+| Autorización y correlación | Proteger las consultas y registrar quién ejecutó una operación sensible. |
+| Retry acotado y Circuit Breaker | Reintentar fallas transitorias solamente cuando la operación sea segura. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-A partir de los conceptos seleccionados se establecen los siguientes elementos arquitectónicos:
+| Elemento | Responsabilidad | Interfaz o integración |
+| --- | --- | --- |
+| BillingService | Cotizar, registrar cargos, documentos y pagos | POST /billing/quotes, /invoices y /payments |
+| PaymentProviderAdapter | Verificar solicitudes, callbacks y estados inciertos | API/sandbox identificado y firma de callback según contrato |
+| ElectronicBillingAdapter | Procesar solicitud y estado de boleta o factura | API/sandbox identificado y referencia del proveedor |
+| OperationalHistoryService | Mantener hechos consultables por operación | Consumo idempotente y GET /history/operations/{id} |
+| ReportingService | Calcular indicadores y consultas autorizadas | Modelos propios y GET /reports/operations |
+| Delivery / Shipment | Comunicar resultado y datos del servicio | Eventos y consulta por contrato |
 
-| Elemento | Responsabilidad | Integración |
-|---|---|---|
-| Billing Service | Gestionar facturación, cargos y estado de pagos. | REST / Eventos |
-| Payment Provider Adapter | Integrar TrackTruck con el proveedor externo de pagos. | API externa |
-| Electronic Billing Adapter | Integrar la generación de documentos electrónicos. | API externa |
-| Operational History Service | Conservar eventos relevantes del proceso logístico. | Eventos |
-| Reporting & Analytics Service | Generar consultas, indicadores y reportes. | Eventos / REST |
-| Event Broker | Distribuir eventos entre los diferentes servicios. | Publish–Subscribe |
-| Delivery Service | Comunicar la confirmación de entrega. | Eventos |
+Billing registra precio, condiciones y cargo según el servicio. La entrega puede activar la condición de facturación cuando así lo establece el contrato. Pago y comprobante mantienen estados propios. Ante respuesta incierta, el adaptador consulta la referencia y conserva la misma clave de idempotencia. History y Reporting consumen hechos y muestran su fecha de actualización.
 
-Los principales eventos considerados en esta iteración son:
-
-- `DeliveryConfirmed`
-- `InvoiceGenerated`
-- `PaymentRequested`
-- `PaymentCompleted`
-- `PaymentFailed`
-- `BillingDocumentGenerated`
-- `OperationalEventRecorded`
-
-Operational History podrá consumir eventos generados por diferentes bounded contexts para construir una visión cronológica de cada operación.
-
-Reporting & Analytics utilizará información procesada para generar indicadores y consultas sin acceder directamente a las bases de datos de otros servicios.
+| Evento | Productor | Contenido/efecto |
+| --- | --- | --- |
+| InvoiceGenerated | Billing & Payments | Comprobante y estado confirmado por el proveedor. |
+| PaymentRequested | Billing & Payments | Solicitud de pago identificada. |
+| PaymentCompleted | Billing & Payments | Confirmación y referencia del pago. |
+| PaymentFailed | Billing & Payments | Falla confirmada y motivo. |
+| OperationalEventRecorded | Operational History, si se requiere | Confirmación de registro en la proyección; no sustituye el hecho origen. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.6. Sketch Views (C4 & UML) and Record Design Decisions
 
-El C4 Container Diagram representa los servicios involucrados en facturación, pagos, historial y analítica, incluyendo sus relaciones con proveedores externos.
+| Vista | Archivo previsto | Contenido a revisar |
+| --- | --- | --- |
+| C4 Containers | assets/images/chapter4/iteration5-c4-containers.png | Billing, proveedores, History, Reporting y modelos privados. |
+| UML Sequence | assets/images/chapter4/iteration5-billing-sequence.png | Condición de cargo, documento, pago, callback y conciliación de reintento. |
 
-![C4 de contenedores - Iteración 5](assets/images/chapter4/iteration5-c4-containers.png)
+Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
-El UML Sequence Diagram representa el flujo desde la confirmación de entrega hasta la generación del documento de facturación y el procesamiento del pago.
+![C4 Containers — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-c4-containers.png)
 
-![UML de secuencia - Iteración 5](assets/images/chapter4/iteration5-billing-sequence.png)
+![UML Sequence — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-billing-sequence.png)
 
-Las principales decisiones arquitectónicas de esta iteración son:
+<div style="page-break-after: always;"></div>
 
-| ID | Decisión | Justificación |
-|---|---|---|
-| DD35 | Separar Billing & Payments de Delivery Management. | Las responsabilidades financieras no deben formar parte del proceso de entrega. |
-| DD36 | Utilizar adaptadores para proveedores externos. | Permite reemplazar proveedores sin modificar directamente el dominio. |
-| DD37 | Aplicar idempotencia en pagos y generación de documentos. | Evita operaciones financieras duplicadas. |
-| DD38 | Aplicar Circuit Breaker y Retry sobre integraciones externas. | Mejora la tolerancia frente a fallas temporales. |
-| DD39 | Implementar Operational History como consumidor de eventos. | Permite construir trazabilidad sin acoplarse directamente a otros servicios. |
-| DD40 | Separar Reporting & Analytics de los servicios transaccionales. | Evita que consultas analíticas afecten operaciones principales. |
-| DD41 | Utilizar modelos de lectura para consultas y reportes. | Facilita el acceso eficiente a información consolidada. |
-| DD42 | Mantener persistencia independiente para cada servicio. | Conserva la autonomía de los bounded contexts. |
+| ID | Decisión documentada | Justificación |
+| --- | --- | --- |
+| DD35 | Separar fin de entrega y estado financiero | Su relación depende de condiciones del servicio y datos autorizados. |
+| DD36 | Aislar proveedores en adaptadores | El dominio utiliza contratos propios de pago y comprobante. |
+| DD37 | Mantener una clave en reintentos y conciliar estados inciertos | Se evita duplicar cargos o documentos. |
+| DD38 | Usar reintentos acotados y Circuit Breaker | Se limita impacto de fallas temporales. |
+| DD39 | Construir historial conservando origen y secuencia | Los hechos de servicios diferentes no se ordenan solo por llegada al broker. |
+| DD40 | Mantener modelos de lectura de Reporting | Las consultas analíticas no acceden a bases transaccionales ajenas. |
+| DD41 | Definir fórmula, período y antigüedad de indicadores | Los valores se interpretan de forma consistente. |
+| DD42 | Identificar sandbox y entorno en la evidencia | Las pruebas de integración no se presentan como comprobantes o pagos de producción. |
 
 <div style="page-break-after: always;"></div>
 
 #### 4.3.5.7. Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
-El diseño obtenido permite completar el flujo logístico mediante servicios especializados para facturación, pagos, historial operativo y análisis de información.
+El diseño se revisará con los criterios siguientes. Los resultados de revisión, responsables y evidencias se completarán cuando el equipo valide las vistas y decisiones. La definición escrita es un avance de diseño y debe distinguirse de la implementación y sus pruebas.
 
-La revisión de la iteración considera los siguientes aspectos:
+| Aspecto | Criterio de revisión | Estado |
+| --- | --- | --- |
+| Finanzas | Importes, monedas, referencias y estados son consistentes. | Pendiente revisión y evidencia |
+| Proveedores | Callbacks y reintentos se validan por contrato. | Pendiente revisión y evidencia |
+| Idempotencia | Respuesta incierta y mensaje repetido no duplican efectos. | Pendiente revisión y evidencia |
+| Historia | Se conserva eventId, fuente, versión, instante y correlación. | Pendiente revisión y evidencia |
+| Indicadores | Fórmula, período y actualización están documentados. | Pendiente revisión y evidencia |
+| Evidencia | Entorno y alcance financiero probado están identificados. | Pendiente revisión y evidencia |
 
-| Aspecto | Resultado |
-|---|---|
-| Gestión de facturación | Cumplido |
-| Integración con pagos | Cumplido |
-| Integración con facturación electrónica | Cumplido |
-| Idempotencia de operaciones financieras | Cumplido |
-| Tolerancia ante fallas externas | Cumplido |
-| Historial operacional | Cumplido |
-| Generación de reportes | Cumplido |
-| Separación entre operaciones y analítica | Cumplido |
-| Trazabilidad del proceso | Cumplido |
+El tablero de esta iteración seguirá ADB35–ADB42 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-La iteración se considera satisfactoria cuando TrackTruck puede representar el cierre financiero de una operación, conservar su historial y disponer de información consolidada para futuras consultas y análisis.
+![Kanban — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-kanban.png)
 
-El avance de los elementos del Architectural Design Backlog se gestiona mediante el tablero Kanban correspondiente.
-
-![Tablero Kanban - Iteración 5](assets/images/chapter4/iteration5-kanban.png)
-
-**URL del tablero:** [Iteration 5 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
-
-<div style="page-break-after: always;"></div>
+**Enlace del tablero de Iteración 5:** pendiente incorporar el enlace verificable.
 
 
 ### Vista arquitectónica general de TrackTruck
 
-![Archi - TrackTruck](assets/images/chapter3/arquitectura-tracktruck-completa.png)
+La vista general se actualizará con los 17 contextos, la app Android, los servicios C#, la IA interna de Dispatch y el almacenamiento privado. Se indicarán los componentes de arquitectura objetivo y los ya implementados en el incremento.
 
+![Arquitectura general — pendiente actualizar](assets/images/chapter3/arquitectura-tracktruck-completa.png)
 
 <div style="page-break-after: always;"></div>
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
-
-<div style="page-break-after: always;"></div>
-
 ## 5.1. Testing Suites & General Patterns
 
-En esta sección se definen las estrategias de validación y los patrones generales que permitirán comprobar que la arquitectura propuesta para **TrackTruck** satisface las funcionalidades y atributos de calidad establecidos.
+Las suites acompañarán la implementación de los servicios C# y la app móvil. El plan cubre reglas del dominio, casos de uso, endpoints, persistencia, eventos, adaptadores, interfaz móvil y flujo integrado. Las pruebas se seleccionan según criterios de aceptación y riesgo del incremento.
 
-Debido a que el alcance del proyecto se centra en el diseño arquitectónico de la solución, las suites de pruebas se presentan como una propuesta de validación para una futura implementación de los microservicios.
-
-<div style="page-break-after: always;"></div>
+Los apartados siguientes definen el trabajo requerido y los registros que se completarán. Cada evidencia incluirá versión de código, entorno, comando o procedimiento, casos ejecutados, resultado esperado y observado y defectos pendientes. La revisión de las vistas arquitectónicas se documenta en ADD; las evidencias de software se obtienen ejecutando los componentes implementados.
 
 ### 5.1.1. Backend Application Core Testing Suite
 
-La Backend Application Core Testing Suite define los escenarios que deberían validarse sobre los principales servicios y reglas de negocio de TrackTruck durante una futura implementación.
+#### Niveles y herramientas
 
-La estrategia considera pruebas sobre las capacidades centrales del sistema y sobre las decisiones arquitectónicas definidas durante las iteraciones ADD.
+| Nivel | Alcance | Herramienta o enfoque | Evidencia |
+|---|---|---|---|
+| Unitario del dominio | Value Objects, agregados, transiciones y reglas. | xUnit para C# y datos de prueba explícitos [R10]. | Casos y reporte del runner. |
+| Casos de uso | Commands/queries y resultados de validación. | xUnit y dobles de puertos para aislar la regla. | Resultado y dependencias sustituidas identificadas. |
+| Integración de API | Autenticación, autorización, contrato HTTP y handlers. | WebApplicationFactory y Microsoft.AspNetCore.Mvc.Testing [R02]. | Solicitud, respuesta y reporte automatizado. |
+| Persistencia | Migraciones, índices, restricciones y concurrencia. | PostgreSQL de prueba aislado, con el mismo proveedor previsto del servicio. | Versión y configuración del motor y casos ejecutados. |
+| Contratos y eventos | Esquemas, errores, versiones, Outbox/Inbox y duplicación. | Pruebas de contrato, consumidores y broker de prueba. | Eventos y efectos registrados. |
+| Adaptadores | Mapas, IA, pagos y comprobantes. | Respuestas controladas y sandbox identificado. | Entradas, salidas y tratamiento de falla. |
+| App móvil | ViewModel, estado, navegación, validación e interacción. | Pruebas locales Kotlin y pruebas de UI de Compose [R05]. | Reportes y dispositivo/emulador utilizado. |
+| BDD | Comportamiento expresado en Given/When/Then y automatización de escenarios. | Gherkin y runner a registrar al implementarlo. | Feature, steps y resultado trazado a la historia. |
+| End-to-end | App → API C# → datos y flujo entre servicios del incremento. | Escenario reproducible en el entorno de revisión. | Video/capturas y datos persistidos correlacionados. |
+| Atributos de calidad | QAS01–QAS09 aplicables al incremento. | Carga, fallas controladas, acceso y concurrencia. | Métricas y límites del ensayo. |
 
-| Área a validar | Prueba propuesta | Resultado esperado |
+<div style="page-break-after: always;"></div>
+
+#### 5.1.1.1. Core Entities Unit Tests
+
+Las pruebas unitarias se organizan con xUnit, tomando de la referencia la presentación por entidad y por escenario [R14]. En TrackTruck deben comprobar invariantes, transiciones y resultados de dominio de forma aislada. Las operaciones que consultan una base de datos se evaluarán en la suite de integración.
+
+Los métodos utilizarán el formato `Method_Scenario_ExpectedOutcome`, con Arrange, Act y Assert, datos explícitos y casos independientes. `[Fact]` identifica un escenario y `[Theory]` permite comprobar combinaciones y límites. La tabla define nombres y resultados previstos; su ejecución y las clases definitivas están pendientes.
+
+| Contexto | Prueba propuesta | Resultado esperado |
 |---|---|---|
-| Shipment Management | Registrar un envío con información válida. | El envío es creado con un estado inicial válido. |
-| Warehouse Operations | Registrar la recepción y preparación de una carga. | La carga avanza únicamente mediante estados permitidos. |
-| Fleet Management | Consultar conductores y vehículos disponibles. | Solo se muestran recursos operativamente disponibles. |
-| Driver Safety & Compliance | Evaluar un conductor considerando sus horas trabajadas y restricciones. | El sistema determina correctamente si puede ser considerado para una nueva asignación. |
-| Maintenance Management | Evaluar el estado técnico de un vehículo. | Un vehículo con una restricción crítica no puede ser considerado disponible. |
-| Dispatch Planning | Evaluar alternativas de conductor, vehículo y ruta. | Se obtiene una recomendación que respeta las restricciones del negocio. |
-| Trip Execution | Iniciar y finalizar un viaje. | El viaje realiza únicamente transiciones de estado permitidas. |
-| Tracking & Geolocation | Procesar actualizaciones de ubicación. | Las ubicaciones válidas quedan asociadas al viaje correspondiente. |
-| Incident Management | Registrar una incidencia durante un viaje. | La incidencia queda relacionada con la operación y puede ser consultada. |
-| Delivery Management | Confirmar la entrega de un envío. | La entrega se registra y permite cerrar el proceso de transporte. |
-| Billing & Payments | Generar el proceso de facturación después de una operación válida. | La información necesaria para el cobro queda disponible. |
-| Operational History | Recibir eventos producidos por otros bounded contexts. | El historial conserva los eventos relevantes de la operación. |
+| Identity & Access | `Authorize_UserWithoutPermission_ReturnsDenied` | Rechazar una operación sin permiso. |
+| Customer Management | `CreateCustomer_MissingRequiredData_ReturnsValidationError` | No crear un cliente incompleto. |
+| Shipment Management | `CreateShipment_NonPositiveQuantity_ReturnsValidationError` | Rechazar una cantidad inválida. |
+| Warehouse Operations | `PrepareCargo_QuantityExceedsAvailable_ReturnsConflict` | No preparar más mercancía que la disponible. |
+| Fleet Management | `RegisterVehicle_NonPositiveCapacity_ReturnsValidationError` | Rechazar capacidad inválida. |
+| Maintenance Management | `EvaluateVehicle_CriticalMaintenanceRestriction_ReturnsUnavailable` | Mantener la restricción técnica. |
+| Workforce Management | `CheckAvailability_OverlappingAbsence_ReturnsUnavailable` | Reflejar la ausencia en el intervalo solicitado. |
+| Time & Attendance | `RegisterWorkInterval_OverlappingEntry_ReturnsConflict` | Evitar intervalos superpuestos. |
+| Driver Safety & Compliance | `EvaluateEligibility_ProjectedHoursExceedConfiguredLimit_ReturnsIneligible` | Rechazar según la política configurada y registrar motivos. |
+| Dispatch Planning | `BuildPlan_IneligibleCandidate_ExcludesCandidate` | Excluir recursos que incumplen reglas obligatorias. |
+| Trip Execution | `StartTrip_AlreadyCompleted_ReturnsInvalidTransition` | Rechazar el inicio de un viaje finalizado. |
+| Tracking & Geolocation | `CreatePosition_LatitudeOutOfRange_ReturnsValidationError` | Rechazar coordenadas fuera de rango. |
+| Incident Management | `ResolveIncident_AlreadyResolved_PreservesResolvedState` | Evitar una transición contradictoria. |
+| Delivery Management | `ConfirmDelivery_QuantityExceedsPending_ReturnsValidationError` | Rechazar una cantidad superior a la pendiente. |
+| Billing & Payments | `CalculateAmount_NegativePrice_ReturnsValidationError` | Rechazar precio inválido. |
+| Operational History | `CreateHistoryEntry_MissingEventId_ReturnsValidationError` | Exigir identidad del evento. |
+| Reporting & Analytics | `CalculateIndicator_EmptyDataset_ReturnsNoData` | Mostrar ausencia de datos de acuerdo con la fórmula definida. |
 
-Además de las funcionalidades del dominio, se propone validar los principales atributos de calidad definidos para la arquitectura.
+Los dobles sustituyen puertos externos en pruebas del caso de uso. Las pruebas del modelo de IA separan preprocesamiento, inferencia y evaluación; la precisión se mide con viajes reservados para evaluación, sin reutilizar el conjunto de entrenamiento como evidencia de calidad.
 
-| Atributo de calidad | Validación propuesta |
+<div style="page-break-after: always;"></div>
+
+#### 5.1.1.2. Core Integration Tests
+
+Se toma de la referencia el uso de una base de pruebas común y los escenarios de creación, consulta, modificación y recurso inexistente. La implementación propuesta de `IntegrationTestBase` preparará la API C#, datos aislados y limpieza determinística. `WebApplicationFactory` permitirá comprobar HTTP, middleware, autorización y persistencia [R02]. El motor de prueba será PostgreSQL cuando corresponda al servicio [R08].
+
+| Suite/caso propuesto | Comprobación |
 |---|---|
-| Disponibilidad | Verificar que una falla temporal de un proveedor externo no detenga funcionalidades que puedan continuar independientemente. |
-| Rendimiento | Verificar que las operaciones críticas respondan dentro de los tiempos definidos en los Quality Attribute Scenarios. |
-| Seguridad | Verificar que usuarios sin permisos no puedan acceder a recursos protegidos. |
-| Interoperabilidad | Verificar que los servicios puedan intercambiar información utilizando los contratos definidos. |
-| Integridad | Verificar que eventos duplicados o solicitudes repetidas no produzcan información inconsistente. |
-| Escalabilidad | Evaluar el comportamiento esperado ante un incremento en la cantidad de envíos, viajes y actualizaciones de ubicación. |
-| Trazabilidad | Verificar que los eventos relevantes puedan relacionarse con la operación logística correspondiente. |
+| `CustomerIntegrationTests.CreateCustomer_WithValidData_ShouldSucceed` | Alta autorizada, respuesta y consulta posterior coherentes. |
+| `ShipmentIntegrationTests.GetShipmentById_WithUnknownId_ReturnsNotFound` | Contrato HTTP de recurso inexistente, sin información ajena. |
+| `FleetIntegrationTests.UpdateVehicle_WithValidData_ShouldPersistChange` | Cambio válido y persistencia posterior. |
+| `TripIntegrationTests.CreateTrip_WithApprovedPlan_ShouldSucceed` | Creación desde un plan válido, referencias y estado inicial. |
+| `TripIntegrationTests.GetAllTrips_WithAuthorizedScope_ReturnsOwnTrips` | Consultar únicamente el ámbito permitido. |
+| `DispatchIntegrationTests.ApprovePlan_WithConcurrentReservation_ReturnsConflict` | Una aprobación efectiva y conflicto de disponibilidad. |
+| `TrackingIntegrationTests.SubmitPosition_WithDuplicateReportId_PersistsOnce` | Deduplicación y orden por fecha de captura. |
+| `HistoryIntegrationTests.ConsumeEvent_WithDuplicateEventId_RecordsOnce` | Historial consolidado sin duplicar el evento. |
+| `DeliveryIntegrationTests.ConfirmDelivery_WithValidEvidence_PersistsOutcome` | Resultado, cantidades y evidencia consistentes. |
 
-Estas pruebas constituyen una guía para validar posteriormente que la implementación de los microservicios respete las decisiones arquitectónicas, reglas del dominio y atributos de calidad definidos durante el diseño de TrackTruck.
+Los repositorios pueden representar una ausencia con un valor vacío según su contrato; la API debe convertirla en la respuesta HTTP documentada. La autenticación de prueba y los adaptadores simulados se identificarán expresamente. Una prueba HTTP con proveedores sustituidos acredita ese alcance; el flujo integrado se verifica con los componentes efectivamente conectados.
+
+<div style="page-break-after: always;"></div>
+
+#### 5.1.1.3. Core Behavior-Driven Development
+
+Se adopta Gherkin para expresar comportamientos de negocio con `Given`, `When` y `Then`, siguiendo la estructura BDD de la referencia. Cada escenario se vincula a una historia de TrackTruck. Los step definitions, el runner y el reporte se documentarán cuando se implemente la automatización.
+
+**Plantillas de escenarios; ejecución pendiente:**
+
+```gherkin
+Feature: Aprobar un despacho con recursos aptos
+  Scenario: Aprobar una alternativa disponible
+    Given un envio preparado de mi organizacion
+      And un conductor elegible y un vehiculo disponible para el intervalo
+      And una alternativa de planificacion presentada al coordinador autorizado
+    When el coordinador aprueba esa alternativa
+    Then se confirma una reserva de conductor y vehiculo
+      And el plan queda aprobado con sus motivos registrados
+      And puede generarse el viaje programado desde el plan aprobado
+```
+
+```gherkin
+Feature: Aplicar restricciones de jornada a la planificacion
+  Scenario: Rechazar una asignacion que excede el limite configurado
+    Given una politica de prueba con limite diario de 14 horas totales
+      And un conductor con 8 horas ordinarias y 4 horas adicionales registradas
+    When se evalua una asignacion de 3 horas para el mismo dia
+    Then el conductor se considera no elegible por proyectar 15 horas
+      And la recomendacion de IA no puede seleccionar al conductor
+```
+
+```gherkin
+Feature: Consultar el seguimiento de un envio autorizado
+  Scenario: Impedir la consulta de un envio de otro cliente
+    Given un cliente autenticado con acceso a sus propios envios
+      And un envio que pertenece a otro cliente
+    When intenta consultar el seguimiento de ese envio
+    Then la API deniega la consulta segun su contrato
+      And la app muestra un mensaje comprensible sin revelar los datos ajenos
+```
+
+El límite de jornada del ejemplo es un dato configurable del caso de prueba. Los escenarios positivos también comprobarán descanso, disponibilidad, mantenimiento y permisos. Las recomendaciones, errores y reintentos tendrán escenarios propios según las historias del Sprint.
+
+<div style="page-break-after: always;"></div>
+
+#### 5.1.1.4. Core System Tests
+
+Se adopta la presentación de pruebas de sistema por historia y flujo de usuario de la referencia. Para la app Android con Kotlin/Jetpack Compose se utilizarán pruebas instrumentadas con Compose UI Test [R05]. Espresso se utilizará cuando existan componentes basados en Android Views o pruebas de una interfaz mixta [R18]. Las pruebas de ViewModel y repositorio local complementarán estas verificaciones.
+
+| Flujo TrackTruck | Trazabilidad | Comprobación de sistema |
+|---|---|---|
+| Iniciar sesión y consultar operaciones autorizadas. | US46–US47; TC01, TC24 | Credenciales, sesión, carga, permisos, error y respuesta de la API real del entorno. |
+| Crear/consultar viaje e iniciar/finalizar su recorrido autorizado. | US10, US13, US27–US28; TC11, TC26 | Acciones visibles, transición persistida y mensajes coherentes. |
+| Reportar ubicación y recuperar conectividad. | US14, US72; TC12, TC21 | Reporte pendiente, reenvío seguro y fecha de captura correctamente mostrada. |
+| Registrar y consultar una incidencia. | US18–US19; TC13 | Datos, confirmación y acceso al viaje permitido. |
+| Confirmar entrega total, parcial o fallida. | US74–US75; TC14 | Cantidades, evidencia, resultado y cierre de la operación según sus reglas. |
+| Consultar historial propio y denegar acceso ajeno. | US79; TC16, TC27 | Cronología, origen y alcance autorizado. |
+
+La ejecución registrará commit/backend, build y APK de la app, dispositivo o emulador, versión Android, datos, red y servicios utilizados. Se conservarán capturas o video y el reporte del runner. Los ensayos con API simulada se registrarán como pruebas de UI con dobles; la evidencia end-to-end incluirá backend y persistencia del incremento.
+
+Las verificaciones de la landing comprobarán navegación por secciones, adaptación a pantallas, legibilidad, foco de teclado, validación y estados de contacto si el formulario se implementa. Se registrarán navegador, dimensiones, versión y resultado observado.
+
+<div style="page-break-after: always;"></div>
+
+#### 5.1.1.5. Static Testing & Verification
+
+Se adapta de la referencia la revisión de convenciones, calidad, seguridad y PRs. En C# se configurarán analizadores y formato; en Android, lint y el análisis adoptado por el equipo; en la landing se revisarán estructura semántica, estilos y scripts. SonarQube podrá incorporarse si el equipo configura y documenta su uso.
+
+La revisión comprobará nombres, responsabilidades, manejo de errores, consultas parametrizadas, secretos fuera del código y dependencias vigentes. La cobertura se reportará con herramienta, alcance y exclusiones; una meta de cobertura requiere acuerdo del equipo y casos significativos, y no acredita por sí sola la corrección del sistema.
+
+Cada PR indicará historia, cambio y validaciones, y recibirá revisión de otro integrante antes de integrar. **Pendiente:** configuración real, PRs, observaciones, resultados de análisis y correcciones. Las comprobaciones estáticas se complementan con las suites ejecutadas.
+
+<div style="page-break-after: always;"></div>
+
+#### Casos iniciales por contexto
+
+| ID | Contexto | Historias | Escenario y resultado esperado |
+| --- | --- | --- | --- |
+| TC01 | Identity & Access | US46–US52 | Acceso válido e inválido, expiración y permisos; rechazar acceso ajeno. |
+| TC02 | Customer Management | US01–US02, US53 | Organización y cliente válidos; entradas incompletas o consulta no autorizada. |
+| TC03 | Shipment Management | US54–US55 | Crear envío y aplicar transición válida; rechazar cantidades y estados inválidos. |
+| TC04 | Warehouse Operations | US56–US57 | Recepción y preparación consistentes; reintento no duplica cantidades. |
+| TC05 | Fleet Management | US03–US08, US23–US24 | Capacidad positiva y placa/licencia válidas; unicidad según organización. |
+| TC06 | Maintenance Management | US58–US59 | Kilometraje y restricciones; vehículo con restricción crítica no se declara apto. |
+| TC07 | Workforce Management | US60–US61 | Disponibilidad por intervalo; ausencia y conflictos se reflejan en la consulta. |
+| TC08 | Time & Attendance | US62–US64 | Intervalos, descansos y horas clasificadas sin superposición ni doble contabilización. |
+| TC09 | Driver Safety & Compliance | US65 | Horas del día más asignación prevista y descanso; decisión y motivos conforme a política. |
+| TC10 | Dispatch Planning | US09, US11–US12, US25, US66–US70 | Filtrar recursos, recomendar, aprobar y reservar; IA y fallback respetan restricciones. |
+| TC11 | Trip Execution | US10, US13, US17, US26–US29, US71 | SCHEDULED → IN_PROGRESS → COMPLETED o cancelación programada; rechazar transición inválida. |
+| TC12 | Tracking & Geolocation | US14–US16, US30–US34, US72–US73 | Coordenadas válidas, última posición por fecha, parada y motivo; muestras insuficientes no confirman parada. |
+| TC13 | Incident Management | US18–US19, US35–US37 | Registrar, consultar y atender incidencia propia; rechazar operación sobre viaje ajeno. |
+| TC14 | Delivery Management | US74–US75 | Entrega total, parcial o fallida con evidencia; cantidades coherentes y reintentos seguros. |
+| TC15 | Billing & Payments | US76–US78 | Importe, moneda, documentos y callbacks válidos; duplicados no producen doble efecto. |
+| TC16 | Operational History | US21–US22, US39–US42, US79 | Eventos de varias fuentes y reintentos; identidad y correlación conservadas una vez por eventId. |
+| TC17 | Reporting & Analytics | US43–US45, US80 | Indicadores con fórmula y filtros conocidos; período sin información se identifica. |
+
+<div style="page-break-after: always;"></div>
+
+#### Casos críticos de integración y calidad
+
+| ID | Trazabilidad | Escenario | Resultado esperado |
+| --- | --- | --- | --- |
+| TC18 | US69; QAS07 | Dos aprobaciones concurrentes reservan un conductor en intervalos incompatibles. | Una reserva confirmada y un conflicto; el reintento con la misma clave recupera el mismo resultado. |
+| TC19 | US62–US65; CON09 | 8 h ordinarias + 4 h adicionales + 3 h de trabajo planificado en el mismo día. | Se rechaza por proyectar 15 h. El caso de 14 h se comprueba como límite solo si también cumple descansos, disponibilidad y demás reglas. |
+| TC20 | US16; QAS02 | Muestras válidas demuestran inmovilidad durante 9 min 59 s y luego alcanzan 10 min. | No se confirma parada antes del umbral; se registra al cumplirlo. Ausencia de muestras no sustituye evidencia de inmovilidad. |
+| TC21 | US72; QAS08 | Reportes persisten sin red y llegan luego repetidos y fuera de orden. | Una sola persistencia por reportId; recordedAt determina la última posición; se registra receivedAt por separado. |
+| TC22 | US14; QAS04 | Reporte con latitud 91 o longitud fuera de rango. | El endpoint lo rechaza con el error documentado; no se persiste una coordenada inválida. |
+| TC23 | QAS01; QAS09 | El broker se interrumpe después de persistir un cambio y su Outbox. | Al recuperarse se publica el hecho pendiente; el consumidor deduplica un eventual reenvío. |
+| TC24 | US46–US47; QAS03 | Token vencido y renovación revocada después de logout. | El acceso vencido y la renovación revocada se rechazan; se comprueba la política real del token aún vigente. |
+| TC25 | US66; QAS06 | Modelo evaluado sobre viajes no usados para entrenarlo. | Se registra MAE, baseline, dataset/modelo y alcance de datos; se comprueba si se cumple la meta de utilidad. |
+| TC26 | US46, US10, US27–US28; CON02 | Flujo de app: acceso, consulta/creación de viaje autorizado, inicio y finalización. | La UI refleja las respuestas reales del backend y muestra error o conflicto de forma controlada. |
+| TC27 | US55, US79; QAS03 | Un cliente consulta un envío ajeno o un historial de otra organización. | La API restringe el acceso según contrato sin exponer datos del recurso. |
+
+Los TC son grupos de escenarios iniciales. El equipo deberá convertirlos en casos positivos, negativos y de límite con datos concretos según el incremento implementado. Las suites de contextos posteriores se ejecutarán cuando su código forme parte del Sprint; los casos de dependencias simuladas se reportarán como tales.
+
+<div style="page-break-after: always;"></div>
+
+#### Registro de resultados por completar
+
+| Campo | Valor a incorporar |
+|---|---|
+| Fecha y responsable | Pendiente. |
+| Repositorio, rama, versión y commit | Pendiente. |
+| Suite y casos ejecutados | Pendiente. |
+| Comando/procedimiento y entorno | Pendiente. |
+| Resultado esperado y observado | Pendiente. |
+| Casos aprobados, fallidos y omitidos | Pendiente; registrar conteos reales. |
+| Cobertura, si se mide | Pendiente; indicar herramienta, alcance y exclusiones. |
+| Defectos y acciones | Pendiente. |
+| Archivo o enlace de evidencia | Pendiente. |
 
 <div style="page-break-after: always;"></div>
 
 ### 5.1.2. Pattern Based Backend Application(s)
 
-La arquitectura backend propuesta para **TrackTruck** utiliza patrones arquitectónicos y de diseño con el propósito de mantener responsabilidades claramente separadas, reducir el acoplamiento entre bounded contexts y facilitar la evolución de la solución.
+Los servicios C# se construirán con los patrones y dependencias definidos en el capítulo IV. El informe conservará evidencia de su realización en clases, configuración y pruebas.
 
-Debido a que el alcance del proyecto se concentra en el diseño arquitectónico, esta sección presenta la aplicación propuesta de los patrones sobre los microservicios y componentes definidos para TrackTruck.
-
-Los principales patrones considerados son los siguientes:
-
-| Patrón | Aplicación en TrackTruck | Beneficio arquitectónico |
+| Elemento | Realización requerida | Evidencia de implementación |
 |---|---|---|
-| Domain-Driven Design | El sistema se divide en bounded contexts como Shipment Management, Warehouse Operations, Fleet Management, Dispatch Planning, Trip Execution y Tracking & Geolocation. | Permite separar las capacidades del negocio y mantener modelos especializados. |
-| Microservices Architecture | Los bounded contexts principales se plantean como servicios independientes. | Permite evolución, despliegue y escalamiento independiente. |
-| Repository | Cada bounded context encapsula el acceso a sus propios datos mediante repositorios. | Separa las reglas del dominio de los mecanismos de persistencia. |
-| Adapter | Los proveedores externos, como mapas, rutas, pagos y facturación, se integran mediante adaptadores. | Evita acoplar el dominio a tecnologías o proveedores específicos. |
-| Anti-Corruption Layer | Los modelos de servicios externos se transforman antes de ingresar al dominio de TrackTruck. | Protege el modelo interno frente a cambios externos. |
-| Publish–Subscribe | Los microservicios publican eventos para que otros bounded contexts puedan reaccionar independientemente. | Reduce dependencias directas entre servicios. |
-| Event-Driven Architecture | Cambios como `ShipmentReadyForDispatch`, `TripStarted` o `DeliveryConfirmed` se propagan mediante eventos. | Facilita integración asíncrona y escalabilidad. |
-| Circuit Breaker | Las llamadas hacia proveedores externos pueden suspenderse temporalmente cuando presentan fallas reiteradas. | Evita que una falla externa afecte a toda la plataforma. |
-| API Gateway | Las aplicaciones cliente utilizan un punto de entrada común hacia los servicios de TrackTruck. | Centraliza el acceso y facilita la aplicación de políticas de seguridad. |
-| Database per Service | Cada microservicio mantiene autonomía sobre sus datos. | Evita compartir directamente modelos de persistencia entre bounded contexts. |
-| Idempotency | Las operaciones sensibles y los eventos consideran identificadores que permiten detectar reintentos. | Evita duplicidad de efectos y mejora la consistencia. |
+| Domain | Agregados, entidades y Value Objects con invariantes. | Código y pruebas de dominio. |
+| Application | Commands, queries, handlers y puertos. | Caso de uso trazado a una US y pruebas del handler. |
+| Infrastructure | Repositorios EF Core, migraciones y adaptadores. | Implementación del puerto y prueba pertinente. |
+| API | Endpoints, contratos, autorización y errores. | OpenAPI y prueba HTTP sobre la API. |
+| CQRS | Separación de operaciones de cambio y consulta. | Clases de Application y autorización de consultas. |
+| Eventos | Outbox local, publicación, envelope e Inbox/deduplicación. | Falla/reintento y efecto único comprobado. |
+| Strategy de planificación | Motor IA y modo básico detrás de la misma interfaz. | Resultado de modelo, versión y caso de fallback. |
+| App móvil | Compose, ViewModel, casos de uso y repositorio de datos. | Pantalla conectada y prueba de estado/interacción. |
 
-La combinación de estos patrones permite que TrackTruck mantenga una arquitectura distribuida en la que cada bounded context conserva sus responsabilidades y puede comunicarse con otros servicios mediante contratos definidos.
+**Organización propuesta de un servicio:**
 
-La aplicación general de los patrones puede representarse mediante la siguiente vista:
+```text
+src/DispatchPlanning/
+  DispatchPlanning.Domain/
+  DispatchPlanning.Application/
+    Commands/
+    Queries/
+    Ports/
+  DispatchPlanning.Infrastructure/
+    Persistence/
+    Integrations/
+    Recommendations/
+  DispatchPlanning.Api/
+tests/
+  DispatchPlanning.Domain.Tests/
+  DispatchPlanning.Application.Tests/
+  DispatchPlanning.IntegrationTests/
+```
 
-![Pattern Based Backend Architecture](assets/images/chapter5/pattern-based-backend-architecture.png)
+La organización se repetirá cuando resulte útil para cada servicio. La app se organizará por funcionalidades, con presentation, domain y data y componentes compartidos de UI. La estructura elegida deberá facilitar entender el caso de uso sin incorporar capas o abstracciones sin función concreta.
+
+<div style="page-break-after: always;"></div>
+
+**Evidencia pendiente:** rutas reales de clases, commits y captura/diagrama actualizado de los patrones aplicados.
+
+![Pattern Based Backend Application — pendiente evidencia de código](assets/images/chapter5/pattern-based-backend-architecture.png)
 
 <div style="page-break-after: always;"></div>
 
 ### 5.1.3. Pattern Based Custom Software Library
 
-Como parte del diseño arquitectónico de **TrackTruck**, se propone una librería de software personalizada que reúna componentes técnicos reutilizables por los diferentes microservicios de la plataforma.
+Se propone implementar **TrackTruck.BuildingBlocks**, una biblioteca técnica C# reutilizable por los servicios. Su alcance comprende contratos y utilidades técnicas comunes y mantiene los modelos de negocio dentro de sus propietarios.
 
-Esta librería tiene como objetivo mantener convenciones comunes entre los servicios sin compartir directamente las reglas de negocio pertenecientes a cada bounded context. De esta manera, los microservicios pueden reutilizar estructuras técnicas manteniendo su autonomía.
+| Componente propuesto | Función | Patrón o convención | Prueba prevista |
+|---|---|---|---|
+| IntegrationEventEnvelope | Identidad, origen, esquema, versión, fechas y correlación de un hecho. | Contrato de integración / mensajería. | Serialización y validación de campos obligatorios. |
+| IClock y adaptador de reloj | Proporcionar un instante controlable a casos de uso. | Adapter e inyección de dependencia. | Pruebas determinísticas de expiración y límites temporales. |
+| CorrelationContext | Propagar identificación de una operación. | Convención de trazabilidad. | Conservar correlación entre solicitud y evento. |
+| PagedResult | Mantener un formato común para consultas paginadas. | Contrato técnico de respuesta. | Límites y metadatos de paginación. |
+| Abstracción de idempotencia | Permitir registrar y recuperar un resultado repetido. | Puerto y Adapter de almacenamiento. | Repetición recupera el mismo resultado dentro de su ámbito. |
 
-La librería propuesta se denomina **TrackTruck Shared Kernel Library**.
+La biblioteca se realizará como proyecto Class Library .NET con tests propios y referencia controlada desde los servicios. Su identidad, versión, compatibilidad y distribución se documentarán en el repositorio. Las implementaciones que dependan de ASP.NET Core o EF Core se separarán de las abstracciones que utilice el dominio.
 
-| Componente reutilizable | Propósito |
-|---|---|
-| `DomainEvent` | Definir una estructura común para representar eventos de dominio generados por los diferentes servicios. |
-| `EventId` | Proporcionar un identificador único para cada evento. |
-| `EventMetadata` | Mantener información asociada al evento, como fecha de creación, servicio de origen y tipo de evento. |
-| `CorrelationId` | Permitir relacionar solicitudes y eventos que pertenecen a una misma operación logística. |
-| `IdempotencyKey` | Identificar operaciones procesadas previamente para evitar efectos duplicados. |
-| `ErrorResponse` | Estandarizar la estructura de los errores expuestos por los servicios. |
-| `PageResult` | Proporcionar una estructura reutilizable para resultados paginados. |
-| `AuditableEvent` | Mantener información necesaria para la trazabilidad y auditoría de operaciones. |
+Shipment, Driver, Vehicle, Employee, Trip, Invoice y sus reglas se conservarán en sus contextos. La biblioteca técnica no administrará reservas, jornada, precios ni modelos de entrenamiento. La compatibilidad del envelope no convierte en compartido el significado de cada evento, que conserva su propietario.
 
-La librería podrá ser utilizada por servicios como **Shipment Management**, **Fleet Management**, **Warehouse Operations**, **Dispatch Planning**, **Trip Execution**, **Tracking & Geolocation** y otros microservicios que necesiten estas capacidades técnicas comunes.
+**Pendiente incorporar:** proyecto real, componentes finalmente implementados, versión, pruebas ejecutadas y ejemplo de consumo por un servicio.
 
-Cada bounded context continuará manteniendo de manera independiente sus entidades, agregados, Value Objects, reglas de negocio y estructuras de persistencia.
-
-Por esta razón, elementos como `Shipment`, `Vehicle`, `Driver`, `Trip`, `Invoice` o `Payment` no formarán parte de la librería compartida, ya que pertenecen a modelos de dominio específicos y compartirlos produciría un mayor acoplamiento entre los servicios.
-
-La propuesta aplica el concepto de **Shared Kernel** de forma limitada, incluyendo únicamente elementos técnicos estables y realmente comunes a la plataforma.
-
-Debido a que el alcance del proyecto se concentra en el diseño arquitectónico, la librería representa una propuesta para una futura implementación de los microservicios de TrackTruck.
-
-![Pattern Based Custom Software Library](assets/images/chapter5/pattern-based-custom-software-library.png)
+![Custom Software Library — pendiente evidencia](assets/images/chapter5/pattern-based-custom-software-library.png)
 
 <div style="page-break-after: always;"></div>
-
 
 ### 5.1.4. Framework Pattern Driven Refactoring Report
 
-Durante el proceso de diseño arquitectónico de **TrackTruck** se realizaron diferentes refinamientos sobre la estructura inicial de la solución con el objetivo de mejorar la separación de responsabilidades, reducir el acoplamiento y mantener coherencia con los patrones arquitectónicos seleccionados.
+La revisión del informe documenta refinamientos del diseño: ampliación a 17 contextos, separación de jornada y elegibilidad, propiedad de datos, IA interna de Dispatch y distinción entre cierre del recorrido y entrega. El refactoring de software se reportará con el código anterior y posterior y sus pruebas.
 
-Debido a que el alcance del proyecto se concentra en el diseño de arquitectura y no en la implementación de código, el refactoring presentado en esta sección corresponde a cambios realizados sobre la estructura arquitectónica, los bounded contexts, las responsabilidades de los servicios y sus mecanismos de integración.
-
-Los principales refinamientos realizados fueron los siguientes:
-
-| Situación inicial | Refactorización aplicada | Patrón / principio utilizado | Resultado |
+| Problema a revisar en código | Cambio previsto | Patrón o principio | Evidencia para cerrar |
 |---|---|---|---|
-| La solución estaba centrada principalmente en viajes, flota y seguimiento. | Se amplió la arquitectura para representar el ciclo logístico completo mediante bounded contexts especializados. | Domain-Driven Design | Se obtuvo una arquitectura con mayor cobertura del negocio y responsabilidades más claras. |
-| Shipment Management y Warehouse Operations podían concentrarse dentro de una misma responsabilidad. | Se separaron ambos bounded contexts. | Separation of Concerns / DDD | Cada contexto mantiene sus propias reglas, estados y datos. |
-| La planificación de viajes podía depender directamente de diferentes servicios operativos. | Se definió Dispatch Planning como el contexto responsable de centralizar la planificación y consumir información de otros servicios. | Service Decomposition / DDD | La lógica de planificación queda separada del resto de capacidades. |
-| La información de horas trabajadas y restricciones del conductor podía mantenerse dentro de Fleet Management. | Se separaron Time & Attendance y Driver Safety & Compliance. | Single Responsibility Principle | Se diferencia el registro de jornada de la evaluación de elegibilidad del conductor. |
-| El acceso a proveedores externos podía realizarse directamente desde la lógica principal. | Se propuso el uso de Adapter y Anti-Corruption Layer. | Adapter / Anti-Corruption Layer | El dominio queda desacoplado de proveedores de mapas, pagos y facturación. |
-| Los servicios podían depender directamente unos de otros para comunicar cambios de estado. | Se incorporó Event-Driven Architecture y Publish–Subscribe mediante un Event Broker. | Publish–Subscribe / Event-Driven Architecture | Se reduce el acoplamiento entre microservicios. |
-| Los servicios podían compartir directamente estructuras de persistencia. | Se adoptó Database per Service. | Database per Service | Cada bounded context mantiene autonomía sobre sus datos. |
-| Las aplicaciones cliente podían conectarse directamente con múltiples servicios. | Se incorporó un API Gateway como punto de entrada. | API Gateway | Se simplifica el acceso a los servicios y se centralizan controles comunes. |
-| Las fallas de proveedores externos podían afectar el funcionamiento de otros componentes. | Se incorporaron tiempos máximos de espera y Circuit Breaker. | Circuit Breaker / Fault Tolerance | Se limita la propagación de fallas externas. |
-| Un mismo evento o solicitud podía procesarse más de una vez ante reintentos. | Se incorporó el uso de identificadores únicos e idempotencia. | Idempotency Pattern | Se reduce el riesgo de duplicidad e inconsistencias. |
-| Diferentes microservicios podían definir estructuras técnicas similares de forma independiente. | Se propuso TrackTruck Shared Kernel Library. | Shared Kernel | Se reutilizan elementos técnicos comunes sin compartir reglas específicas del dominio. |
+| Reglas de asignación dentro de un endpoint o de Fleet. | Llevar el caso de uso a Dispatch y la evaluación a Compliance. | DDD, Clean Architecture y responsabilidad única. | Archivo/commit antes y después y casos de elegibilidad. |
+| Commands dentro de Domain. | Ubicarlos en Application y mantener reglas en el agregado. | CQRS y separación de dependencias. | Compilación y prueba del caso de uso. |
+| Datos de otros servicios obtenidos por joins o FK cruzadas. | Usar contratos, referencias y proyecciones locales. | Autonomía de datos / ACL. | Migración y prueba de integración. |
+| Recomendación y restricciones mezcladas. | Separar filtro obligatorio y Strategy de recomendación. | Strategy y control de reglas. | Casos de IA y fallback con recursos inválidos. |
+| Llamadas a proveedores en el dominio. | Introducir puertos y adaptadores de Infrastructure. | Adapter / Clean Architecture. | Prueba del adaptador y error externo. |
+| Efectos duplicados por reintentos. | Registrar idempotencia y Outbox/Inbox. | Integridad de integración. | Caso de repetición y recuperación. |
+| Lógica de red o reglas críticas dentro de un Composable. | Llevar acceso a datos al repositorio y estado al ViewModel. | MVVM y flujo unidireccional. | Prueba de estado y pantalla conectada. |
 
-Uno de los principales cambios realizados fue evolucionar desde una arquitectura enfocada principalmente en la gestión de viajes y seguimiento hacia una arquitectura empresarial que representa capacidades como gestión de clientes, envíos, almacén, flota, mantenimiento, personal, planificación, ejecución de viajes, seguimiento, entregas, facturación, historial y analítica.
+**Registro real de refactorización:** pendiente completar fecha, US, problema observado, archivos, PR/commit, comparación antes/después, tests ejecutados y resultado. Los cambios previstos se aceptarán como refactoring realizado cuando exista esa evidencia.
 
-El proceso de refactorización permitió establecer límites más claros entre los bounded contexts y definir mecanismos de comunicación adecuados según el tipo de interacción requerida.
-
-Las operaciones que necesitan una respuesta inmediata utilizan principalmente interfaces síncronas mediante REST, mientras que los cambios de estado que pueden ser procesados de manera independiente se comunican mediante eventos.
-
-También se estableció que cada bounded context mantendrá autonomía sobre sus datos y reglas de negocio, evitando que un servicio acceda directamente a la persistencia de otro contexto.
-
-Estos refinamientos permiten que la arquitectura propuesta para TrackTruck pueda evolucionar de manera progresiva y que cambios realizados sobre una capacidad específica generen un impacto limitado sobre el resto de la plataforma.
-
-![Framework Pattern Driven Refactoring Report](assets/images/chapter5/framework-pattern-refactoring.png)
+![Refactoring Report — pendiente evidencia de código](assets/images/chapter5/framework-pattern-refactoring.png)
 
 <div style="page-break-after: always;"></div>
-
 
 ## 5.2. Software Configuration Management
 
-En esta sección se describen las herramientas, configuraciones y convenciones utilizadas para organizar y mantener el proyecto **TrackTruck** de forma consistente durante su desarrollo.
-
-<div style="page-break-after: always;"></div>
+La configuración debe permitir reproducir el incremento de backend C# y app móvil, identificar sus fuentes y relacionar cada entrega con código y pruebas. Se describen decisiones de trabajo y campos que se completarán con la configuración real del equipo.
 
 ### 5.2.1. Software Development Environment Configuration
 
-Para el desarrollo de **TrackTruck** se utilizan distintas herramientas para organizar, diseñar, documentar y gestionar el proyecto.
-
-| Actividad | Herramienta | Propósito |
+| Área | Tecnología/herramienta propuesta | Configuración que deberá registrarse |
 |---|---|---|
-| Project Management | Trello | Gestionar tareas mediante tableros Kanban. |
-| Requirements Management | GitHub / Markdown | Documentar requisitos y User Stories. |
-| Domain Modeling | Miro | Elaborar Bounded Context Maps. |
-| Architecture Design | Structurizr | Elaborar diagramas C4. |
-| UML Modeling | Lucidchart | Elaborar diagramas UML. |
-| Version Control | Git / GitHub | Gestionar cambios y versiones del proyecto. |
-| Documentation | Markdown | Elaborar y mantener el informe. |
+| Backend | C#, ASP.NET Core y .NET 10 LTS como base propuesta [R01]. | SDK/runtime y paquetes exactos en el repositorio; instrucciones de compilación. |
+| Persistencia | PostgreSQL y EF Core. | Versión del motor/proveedor, migraciones y conexión de cada servicio. |
+| Eventos | RabbitMQ como broker propuesto y Outbox/Inbox por servicio. | Versión, colas, rutas, persistencia, reintentos y mensajes no procesables. |
+| IDE de backend | Visual Studio, Rider o VS Code con soporte C#. | Herramienta utilizada por el equipo y requisitos del SDK. |
+| App móvil | Android Studio, Kotlin, Jetpack Compose y Material 3. | Android SDK, dispositivo de referencia y versiones compatibles del proyecto. |
+| Compilación Android | Gradle/Android Gradle Plugin y JDK compatibles. | Versiones fijadas del proyecto y procedimiento para generar APK. |
+| Pruebas backend | xUnit y herramientas de integración ASP.NET Core. | Runner, versiones, ubicación de suites y comandos. |
+| Pruebas móvil | Pruebas locales Kotlin y UI de Compose. | API de pruebas, emulador/dispositivo, API level y reportes. |
+| IA | ML.NET como opción propuesta para modelo supervisado. | Dataset, pipeline, variables, modelo, versión y métricas reales. |
+| API | OpenAPI y cliente HTTP para revisión. | Documento versionado y ejemplos de errores/autorización. |
+| Ejecución local | Docker y Compose para servicios del incremento, cuando se adopten. | Servicios, puertos, volúmenes y configuración del entorno de revisión. |
+| Gestión | Git, GitHub y Trello. | Repositorios, estrategia de ramas, historias y tableros. |
+| Diseño | Structurizr, PlantUML/Lucidchart y Miro. | Fuentes de diagramas, exportaciones y relación con el incremento. |
+| Documentación | Markdown. | Informe, contratos, README y evidencias por Sprint. |
+
+Las tecnologías propuestas se confirmarán contra las dependencias reales del repositorio. La implementación y los ensayos registrarán la combinación exacta utilizada. El archivo `.NET` y las dependencias Android deberán permitir reproducir la compilación.
 
 <div style="page-break-after: always;"></div>
 
-
 ### 5.2.2. Source Code Management
 
-Para la gestión de versiones de **TrackTruck** se utiliza **Git y GitHub**, permitiendo mantener un historial organizado de los cambios realizados por el equipo.
+Se conserva la organización y el enlace del informe aportados en el documento base. Los repositorios de backend y app móvil deberán identificarse con enlaces propios y commits de las entregas.
 
-**Repositorio del proyecto:**
+| Artefacto | Tecnología/contenido | Enlace y evidencia |
+|---|---|---|
+| Report | Markdown, requisitos, arquitectura y evidencias. | [Enlace aportado del informe](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai). Pendiente registrar commit de esta revisión. |
+| Backend | Servicios C#, tests y biblioteca BuildingBlocks. | Pendiente incorporar enlace real y rama/commit del incremento. |
+| Mobile app | Android/Kotlin/Compose y tests móviles. | Pendiente incorporar enlace real y rama/commit del incremento. |
+| Landing page, si se presenta como artefacto del producto | Información pública del producto. | Pendiente incorporar enlace de repositorio y entrega. |
+| Library | Proyecto Class Library en el backend o repositorio propio si se separa. | Pendiente registrar ruta/enlace real y versión de consumo. |
 
-[TrackTruck - GitHub](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai)
+[Organización de GitHub registrada](https://github.com/1ASI0657-2620-15987-G4)
 
-Se considera una organización basada en **GitFlow**:
+**GitFlow.**
 
 | Rama | Propósito |
 |---|---|
-| `main` | Versión estable del proyecto. |
-| `develop` | Integración de cambios antes de su liberación. |
-| `feature/*` | Desarrollo de nuevas funcionalidades o artefactos. |
-| `release/*` | Preparación de nuevas versiones. |
-| `hotfix/*` | Correcciones importantes. |
+| main | Entregas estables con tag y evidencia. |
+| develop | Integración y comprobación del incremento. |
+| feature/* | Historia o cambio acotado relacionado con US/TC. |
+| release/* | Preparación y validación de una entrega. |
+| hotfix/* | Corrección urgente de una versión liberada. |
 
-Para las versiones se utiliza **Semantic Versioning** con el formato `MAJOR.MINOR.PATCH`, por ejemplo `1.0.0`.
+Los cambios se integrarán mediante Pull Requests revisados, con historias relacionadas y pruebas pertinentes. El estado de cada repo se documentará según sus ramas reales, sin atribuirles una configuración que todavía no se haya aplicado.
 
-Los commits siguen **Conventional Commits**, utilizando prefijos como:
+**Semantic Versioning.** Se utilizará `MAJOR.MINOR.PATCH` para artefactos de software y tags de entrega. Una incompatibilidad, funcionalidad compatible o corrección se documentará con su alcance. Las etiquetas del informe AV1/TB1 identifican entregables académicos y se relacionarán con tags y commits del software que respaldan.
 
-- `feat:` nueva funcionalidad.
-- `fix:` corrección.
-- `docs:` cambios en documentación.
-- `refactor:` reorganización o mejora.
-- `chore:` tareas de mantenimiento.
+**Conventional Commits.** Ejemplos de formato:
+
+```text
+feat(dispatch): add approved-plan resource reservations
+fix(tracking): ignore duplicate position reports
+test(compliance): cover projected daily work limit
+docs(report): align C# backend and mobile scope
+```
+
+Los ejemplos no representan commits realizados. El equipo registrará los hashes y PR reales de cada incremento.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.2.3. Source Code Style Guide & Conventions
 
-Para mantener consistencia en los artefactos técnicos de **TrackTruck**, se establecen convenciones comunes de nomenclatura y organización.
+Las guías de código toman como referencia las convenciones de backend .NET/C#, app Kotlin y organización de pruebas del documento aportado [R14]. Se aplican al dominio y a las dependencias arquitectónicas de TrackTruck. La configuración definitiva se registrará por repositorio y se verificará en los PRs.
 
-Las principales convenciones son:
+#### 5.2.3.1. Backend — .NET y C#
 
-- Utilizar nombres en **inglés** para componentes, servicios, clases, atributos y elementos arquitectónicos.
-- Utilizar **PascalCase** para nombres de clases, servicios y componentes.
-- Utilizar **camelCase** para atributos, variables y operaciones.
-- Utilizar nombres descriptivos y relacionados con el dominio.
-- Mantener una nomenclatura consistente entre diagramas, documentación y repositorio.
-- Evitar abreviaciones poco claras o nombres genéricos.
-
-Ejemplos:
-
-`ShipmentManagement`
-
-`DispatchPlanningService`
-
-`trackingStatus`
-
-`driverEligibility`
-
-`ShipmentReadyForDispatch`
-
-Estas convenciones permiten mantener una documentación y arquitectura más clara y uniforme entre los integrantes del equipo.
-
-<div style="page-break-after: always;"></div>
-
-### 5.2.4. Software Deployment Configuration
-
-La configuración de despliegue de **TrackTruck** define cómo los diferentes servicios de la solución podrían ser publicados y ejecutados en un entorno de infraestructura.
-
-La arquitectura considera el despliegue independiente de los microservicios, permitiendo que cada servicio pueda actualizarse o escalarse sin afectar directamente a los demás.
-
-Los principales elementos considerados son:
-
-| Elemento | Propósito |
+| Elemento | Convención de TrackTruck |
 |---|---|
-| API Gateway | Centralizar el acceso a los servicios. |
-| Microservices | Ejecutar las capacidades principales de TrackTruck de forma independiente. |
-| Databases | Mantener la persistencia separada por servicio. |
-| Event Broker | Gestionar la comunicación asíncrona entre microservicios. |
-| External Providers | Integrar servicios externos como mapas, pagos y facturación. |
-| Cloud Infrastructure | Alojar y ejecutar los componentes de la solución. |
+| Clases, métodos y propiedades públicas | PascalCase: `DispatchPlan`, `ApprovePlan`, `ScheduledAt`. |
+| Interfaces | Prefijo I: `ITripRepository`, `IEligibilityEvaluator`. |
+| Variables locales y parámetros | camelCase: `driverId`, `requestedInterval`. |
+| Campos privados | `_camelCase`: `_tripRepository`. |
+| Nombres | Inglés, descriptivos y ligados al lenguaje del contexto; evitar abreviaturas ambiguas. |
+| Formato | Cuatro espacios; formato uniforme mediante configuración del repositorio. |
+| Cadenas | Comillas dobles y formato legible; secretos por configuración segura. |
+| Valores constantes | `const` para constantes de compilación; `readonly` para campos que se asignan en su inicialización o constructor. |
+| Documentación | Comentarios XML para contratos públicos cuando aporten información; explicar decisiones o restricciones que el nombre no expresa. |
+| Errores | Validación de entradas y errores de negocio explícitos; excepciones controladas, registros con correlación y respuestas HTTP coherentes. |
+| Operaciones de I/O | APIs asíncronas y cancelación propagada cuando corresponda. |
+| Dependencias | Domain, Application, Infrastructure y API según 4.1; casos de uso en Application y adapters en Infrastructure. |
 
-El despliegue puede realizarse sobre una plataforma cloud como **AWS, Microsoft Azure o Google Cloud**, manteniendo separados los servicios, bases de datos y componentes de integración.
+Las convenciones se contrastarán con la guía de C# de Microsoft [R15]. El formato de nombres no modifica los bounded contexts ni permite consultar directamente la base de otro servicio.
 
-El siguiente diagrama representa la configuración general de despliegue propuesta para TrackTruck.
+<div style="page-break-after: always;"></div>
 
-![Software Deployment Configuration](assets/images/chapter5/software-deployment-configuration.png)
+#### 5.2.3.2. Mobile Application — Kotlin y Jetpack Compose
+
+| Elemento | Convención de TrackTruck |
+|---|---|
+| Clases e interfaces | PascalCase: `TripViewModel`, `TrackingRepository`. |
+| Funciones y propiedades ordinarias | camelCase: `loadTrip`, `isLoading`. |
+| Composables que representan UI | PascalCase: `TripScreen`, `DeliveryCard`. |
+| Constantes de nivel superior o companion | UPPER_SNAKE_CASE: `MAX_RETRY_COUNT`. |
+| Documentación | KDoc para APIs públicas o decisiones que requieren explicación. |
+| Presentación | MVVM, estado inmutable y flujo de eventos desde la UI al ViewModel. |
+| Concurrencia | Coroutines y Flow para red, datos y actualizaciones; manejo explícito de errores y ciclo de vida. |
+| Acceso al backend | Repositorio/adaptador HTTP con contratos JSON; URL según entorno y credenciales protegidas. |
+| Interfaz | Tema central con los tokens de 4.1.8; componentes reutilizables, etiquetas de accesibilidad y estados de carga/error. |
+| Organización | Funcionalidades con presentation, domain y data cuando corresponda; reglas críticas aplicadas también en el backend. |
+
+Se seguirá la guía de Kotlin [R16]. La elección y versión del cliente HTTP se registrarán en la configuración real; la interfaz no accederá a las bases de los servicios.
 
 <div style="page-break-after: always;"></div>
 
+#### 5.2.3.3. Landing Page — HTML, CSS y JavaScript
 
+La landing mantendrá una estructura semántica con encabezados ordenados, navegación, contenido y pie. Las clases CSS utilizarán nombres descriptivos, estilos comunes y variables para color y espaciado. Los scripts estarán separados por responsabilidad y evitarán mezclar lógica operativa de la app con contenido comercial. Se configurarán formato, validación y recursos según la implementación elegida, tomando como referencia la guía HTML/CSS [R17].
 
-## 5.3. Microservices Implementation
+El diseño incluirá etiquetas de formularios, textos alternativos, navegación con teclado y adaptación al ancho disponible. El contenido de integrantes y servicios procederá del informe de TrackTruck. **Pendiente:** repositorio, stack final, configuración de formato y evidencia de revisión.
 
-En esta sección se documenta el desarrollo progresivo de la arquitectura de microservicios de **TrackTruck** mediante diferentes Sprints.
+#### 5.2.3.4. Tests, contratos y revisión
 
-Cada Sprint permite avanzar de manera incremental en la definición de los servicios, sus responsabilidades, integraciones y principales decisiones arquitectónicas.
+| Elemento | Convención |
+|---|---|
+| Tests C# | `Method_Scenario_ExpectedOutcome`, Arrange/Act/Assert, independientes y reproducibles; suites unitarias e integración separadas. |
+| Tests móviles | Nombres que identifiquen acción, condición y resultado; separar pruebas locales e instrumentadas. |
+| BDD | Features y escenarios trazados a historias, precondiciones explícitas y resultado observable. |
+| HTTP | Recursos plurales, JSON camelCase y códigos de respuesta documentados. |
+| Eventos | Hechos en pasado; propietario, `schemaVersion`, `eventId` y correlación identificados. |
+| Persistencia | Convención consistente por servicio; FK locales y referencias externas diferenciadas. |
+| Revisión | Formatter/linter configurado, PR de alcance comprensible y evidencia del cambio. |
+
+La evidencia deberá mostrar las herramientas y convenciones efectivamente aplicadas por el equipo. La estructura de pruebas de 5.1.1 y su ejecución en 5.3.1.3 se mantendrán alineadas con las historias del incremento.
 
 <div style="page-break-after: always;"></div>
+
+#### 5.2.4. Software Deployment Configuration
+
+La configuración de despliegue debe permitir levantar los servicios del incremento y conectar una app móvil identificada a la misma versión de contratos.
+
+| Componente | Configuración prevista | Evidencia/configuración a completar |
+|---|---|---|
+| API Gateway | Rutas hacia los servicios publicados y TLS en el entorno remoto. | Imagen/versión, rutas, endpoint y políticas reales. |
+| APIs C# | Contenedor o proceso independiente del servicio implementado. | Build, versión, health endpoint y variables del entorno. |
+| PostgreSQL | Almacenamiento privado y credenciales por servicio. | Bases, migraciones ejecutadas, persistencia y política de respaldo del entorno. |
+| Broker | Mensajes persistidos, consumidores y recuperación configurados. | Colas, rutas, reintentos y monitoreo. |
+| Modelo IA | Artefacto versionado consumido por Dispatch. | Referencia/checksum, configuración y resultado de carga. |
+| Proveedores | Mapas, pago y facturación mediante adaptadores. | Entorno, contrato y credenciales protegidas; sandbox identificado. |
+| Landing page | Publicación de la página informativa y sus recursos, cuando forme parte del incremento. | URL, commit, revisión responsive y resultado de navegación. |
+| App Android | APK firmado para el entorno de revisión y URL de API configurada. | Archivo, versión, build, hash y dispositivo probado. |
+| Registros y salud | Logs correlacionados y estado de componentes. | Captura de health y reconstrucción de una operación. |
+
+Los valores sensibles se proporcionarán mediante variables o secretos del entorno. El repositorio contendrá ejemplos sin credenciales reales y un README con orden de arranque, migraciones, configuración y comprobación del flujo.
+
+**Datos del entorno por completar:** proveedor/host, nombre de ambiente, fecha, endpoint, servicios y versiones, commit/tag, configuración de publicación y resultado de la prueba desde el APK. El diagrama se actualizará con los componentes realmente desplegados.
+
+![Deployment Configuration — pendiente actualizar con el entorno real](assets/images/chapter5/software-deployment-configuration.png)
+
+
+<div style="page-break-after: always;"></div>
+
+## 5.3. MicroServices Implementation
+
+La implementación se organiza mediante los tres Sprints del roadmap de 3.4. Cada Sprint entregará un incremento de backend C#, app móvil y pruebas conforme a su alcance acordado. Las iteraciones ADD proporcionan las decisiones de diseño y los Sprints documentan su realización en software.
 
 ### 5.3.1. Sprint 1
 
-El objetivo del Sprint 1 es establecer la estructura inicial de la arquitectura de microservicios de TrackTruck.
+**Sprint Goal propuesto:** construir un flujo operacional mínimo protegido que permita acceder a la app, consultar recursos, seleccionar y aprobar un plan válido, registrar e iniciar un viaje, consultar una ubicación y registrar una incidencia, con servicios C# ejecutables y pruebas del incremento.
 
-Durante este Sprint se prioriza la definición de los principales bounded contexts, sus responsabilidades y las relaciones necesarias para soportar el flujo logístico principal.
+**Fecha de inicio, fecha de fin y duración:** pendiente incorporar la planificación real.  
+**Capacidad disponible y responsables de tareas:** pendiente acordar en Sprint Planning.  
+**Historias comprometidas y versión:** pendiente confirmar contra la capacidad del equipo y los repositorios C# y móvil.
 
-Se consideran como actividades principales:
-
-- definir los microservicios iniciales de la solución;
-- establecer responsabilidades y límites entre servicios;
-- definir las principales interfaces de comunicación;
-- establecer comunicación síncrona mediante REST y asíncrona mediante eventos;
-- elaborar las primeras vistas C4 y UML;
-- registrar las principales decisiones arquitectónicas;
-- organizar las actividades mediante el Sprint Backlog y tablero Kanban.
-
-El resultado esperado del Sprint es contar con una base arquitectónica consistente que permita continuar refinando e integrando los demás servicios en los siguientes Sprints.
+El objetivo incluye integración y comportamiento verificable. Las fuentes auxiliares todavía no implementadas podrán representarse con dobles identificados durante pruebas de componentes; el Sprint Review deberá indicar con claridad qué servicios, adaptadores y flujos están integrados realmente. Los porcentajes previos de avance se recalcularán sobre historias aceptadas y evidencia de esta implementación.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.1. Sprint Backlog 1
 
-El Sprint Backlog 1 organiza las actividades necesarias para establecer la estructura inicial de la arquitectura de microservicios de **TrackTruck**.
+Las siguientes tareas proponen trabajo concreto sobre el incremento. Las estimaciones en horas son iniciales y deben revisarse con los responsables y capacidad del Sprint; no representan horas ejecutadas. El estado se completará con la evidencia existente.
 
-**Sprint Goal:** definir la base arquitectónica de la solución, identificando los principales microservicios, sus responsabilidades, relaciones e interfaces de comunicación.
+| ID | Historias/driver | Tarea | Estimación inicial | Evidencia para cerrar | Estado documental |
+|---|---|---|---|---|---|
+| SB01 | ADB01–ADB09 | Actualizar arquitectura, responsabilidades y contratos para C# y móvil. | 6 h | Vistas/ADR revisados y fuentes versionadas. | Diseño actualizado; revisión pendiente. |
+| SB02 | CON01, CON03 | Preparar solución C#, proyectos, DI, compilación y runner de tests. | 6 h | Build y ejecución inicial de suites. | Pendiente contrastar evidencia. |
+| SB03 | US46–US52 | Implementar cuentas, acceso y políticas básicas de organización/rol. | 12 h | API, tests y flujo de login móvil. | Pendiente contrastar evidencia. |
+| SB04 | US03–US08 | Implementar registro y consulta de flota con persistencia. | 10 h | Endpoints, migraciones y casos válidos/invalidación. | Pendiente contrastar evidencia. |
+| SB05 | US09, US11–US12, US65 | Implementar planificación básica y contrato de elegibilidad inicial. | 12 h | Validaciones y fuentes identificadas; pruebas de recursos válidos e inválidos. | Pendiente contrastar evidencia. |
+| SB06 | US67, US69 | Implementar aprobación y reserva de recursos. | 8 h | Prueba de conflicto e idempotencia. | Pendiente contrastar evidencia. |
+| SB07 | US10, US26–US29 | Implementar viaje, inicio y finalización autorizados. | 10 h | Estados, persistencia y tests de transición. | Pendiente contrastar evidencia. |
+| SB08 | US14, US32 | Implementar ingestión, última posición y consulta de seguimiento. | 10 h | Reporte válido, fecha de captura y deduplicación. | Pendiente contrastar evidencia. |
+| SB09 | US18–US19 | Implementar registro y consulta de incidencias. | 6 h | API, persistencia y autorización del viaje. | Pendiente contrastar evidencia. |
+| SB10 | CON02 | Construir estructura MVVM, navegación, estado y pantallas móviles del incremento. | 12 h | APK y pantallas con estados de carga, vacío y error. | Pendiente contrastar evidencia. |
+| SB11 | US46, US10, US14, US18 | Conectar app con las API reales y manejar sesión y errores. | 12 h | Flujo end-to-end y capturas correlacionadas. | Pendiente contrastar evidencia. |
+| SB12 | TC01, TC05, TC09–TC13, TC18 | Ejecutar pruebas de dominio, casos de uso, API y persistencia aplicables. | 8 h | Reportes de suites y defectos tratados. | Pendiente resultado real. |
+| SB13 | TC24, TC26–TC27 | Ejecutar pruebas móviles y flujo integrado del Sprint. | 8 h | Reportes, dispositivo y video/capturas. | Pendiente resultado real. |
+| SB14 | 5.1.3 | Implementar los BuildingBlocks necesarios para el incremento. | 4 h | Proyecto, consumo y tests propios. | Pendiente contrastar evidencia. |
+| SB15 | CON04 | Preparar y ejecutar entorno de revisión del incremento. | 6 h | Configuración, health, endpoint y prueba desde APK. | Pendiente resultado real. |
+| SB16 | QAS04; QAS09 | Documentar contratos, eventos y evidencias del Sprint Review. | 6 h | OpenAPI, commits, resultados y tableros. | Pendiente incorporar evidencias. |
 
-| ID | Work Item / Task | Descripción | Estimación | Estado |
-|---|---|---|---|---|
-| SB01 | Define Microservices | Identificar los microservicios principales de TrackTruck. | 3 h | Terminado |
-| SB02 | Define Bounded Context Responsibilities | Establecer las responsabilidades y límites de cada bounded context. | 3 h | Terminado |
-| SB03 | Define Service Relationships | Definir las relaciones e intercambio de información entre servicios. | 3 h | Terminado |
-| SB04 | Define REST Communication | Establecer las principales comunicaciones síncronas mediante REST. | 2 h | Terminado |
-| SB05 | Define Event Communication | Identificar los principales eventos para comunicación asíncrona. | 3 h | Terminado |
-| SB06 | Define External Integrations | Identificar proveedores externos de mapas, pagos y facturación. | 2 h | Terminado |
-| SB07 | Create C4 Architecture View | Elaborar la vista C4 de la arquitectura inicial. | 4 h | Terminado |
-| SB08 | Create UML Architecture View | Elaborar los diagramas UML principales del Sprint. | 4 h | Terminado |
-| SB09 | Document Architecture Decisions | Registrar las decisiones arquitectónicas tomadas durante el Sprint. | 2 h | Terminado |
+El equipo podrá dividir, reasignar o reducir tareas antes de comprometer el Sprint. Las tareas SB05 y SB11 deben indicar qué dependencias usan servicios reales y cuáles utilizan datos controlados. La validación integrada de jornada, mantenimiento y la IA se amplía en Sprint 2; cada fuente simulada permanece identificada como dependencia pendiente.
 
-El avance de las actividades se gestiona mediante un tablero Kanban con las columnas **Por hacer**, **En proceso**, **En revisión** y **Terminado**.
+![Sprint Backlog 1 — pendiente actualizar](assets/images/chapter5/sprint1-backlog-kanban.png)
 
-![Sprint Backlog 1 - Kanban Board](assets/images/chapter5/sprint1-backlog-kanban.png)
-
-**URL del tablero:** [Sprint 1 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
+**Enlace de planificación/Sprint Backlog:** pendiente incorporar el tablero y las tarjetas correspondientes.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.2. Development Evidence for Sprint Review
 
-Durante el Sprint 1 se desarrollaron los principales artefactos arquitectónicos necesarios para establecer la estructura inicial de **TrackTruck**.
+Se completará con evidencia de código y cambios integrados para el Sprint. Cada captura se relacionará con una US y una revisión del repositorio; las vistas arquitectónicas se incluirán como soporte de las decisiones aplicadas.
 
-Como evidencia del trabajo realizado se consideran los siguientes resultados:
+| Área | Evidencia requerida | Datos/enlaces por completar |
+|---|---|---|
+| Backend C# | Agregado, handler, endpoint y repositorio del flujo implementado. | US, ruta de archivo, PR/commit y captura. |
+| Persistencia | Migraciones y datos creados por la API. | Servicio, versión y captura/consulta autorizada de prueba. |
+| Integración | Adaptador, eventos o llamadas entre servicios del incremento. | Contrato y fuente real/doble/sandbox. |
+| App Android | Compose, ViewModel y repositorio conectado a API. | US, pantalla, commit y captura. |
+| BuildingBlocks | Componentes usados por un servicio. | Proyecto, versión, tests y ejemplo de consumo. |
+| Arquitectura | Vistas C4/UML consistentes con ese código. | Diagrama, fecha y revisión. |
 
-- definición de los bounded contexts principales;
-- identificación de los microservicios de la solución;
-- definición de responsabilidades por servicio;
-- relaciones entre bounded contexts;
-- definición de comunicación síncrona mediante REST;
-- definición de comunicación asíncrona mediante eventos;
-- identificación de integraciones con proveedores externos;
-- elaboración de diagramas C4 y UML;
-- registro de decisiones arquitectónicas.
+**Pendiente incorporar las evidencias de desarrollo.**
 
-Las siguientes evidencias muestran los principales artefactos desarrollados durante el Sprint.
-
-![Sprint 1 - Bounded Context Map](assets/images/chapter5/sprint1-bounded-context-map.png)
-
-![Sprint 1 - C4 Architecture](assets/images/chapter5/sprint1-c4-architecture.png)
-
-![Sprint 1 - UML Architecture](assets/images/chapter5/sprint1-uml-architecture.png)
-
-Estos artefactos permiten validar que el Sprint 1 estableció una base arquitectónica para continuar con el refinamiento de los microservicios en los siguientes Sprints.
+![Development Evidence — pendiente captura real](assets/images/chapter5/sprint1-development-evidence.png)
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.3. Testing Suite Evidence for Sprint Review
 
-Durante el Sprint 1 se revisaron los principales artefactos arquitectónicos definidos para **TrackTruck**, verificando que las responsabilidades, relaciones e interfaces fueran coherentes con los requerimientos y drivers seleccionados.
+Se presentarán resultados por Core Entities Unit Tests, Core Integration Tests, Core BDD y Core System Tests, siguiendo 5.1.1. Para cada suite se identificarán historias, casos, datos, commit, comando, entorno, resultado y evidencias. Los reportes del documento de referencia sirven como modelo de presentación; los resultados de TrackTruck provendrán de sus propias ejecuciones.
 
-Las principales validaciones realizadas fueron:
+Se completará con reportes de ejecución de las suites del Sprint. El registro debe permitir repetir el ensayo y comprender sus límites.
 
-| Elemento validado | Criterio de revisión | Resultado |
+| Suite | Información que se debe registrar | Resultado |
 |---|---|---|
-| Bounded Contexts | Cada contexto posee responsabilidades claramente diferenciadas. | Cumplido |
-| Microservices | Los servicios representan capacidades independientes del negocio. | Cumplido |
-| REST Communication | Las operaciones síncronas poseen interfaces claramente definidas. | Cumplido |
-| Event Communication | Los eventos permiten comunicación desacoplada entre servicios. | Cumplido |
-| External Integrations | Los proveedores externos se encuentran separados mediante interfaces y adaptadores. | Cumplido |
-| Data Ownership | Cada servicio mantiene autonomía sobre sus propios datos. | Cumplido |
-| Architectural Views | Los diagramas C4 y UML representan la estructura propuesta. | Cumplido |
+| Dominio y Application C# | Proyecto, TC, comando, commit y datos de prueba. | Pendiente: aprobados/fallidos/omitidos reales. |
+| API y persistencia | Endpoints, autorización, motor de datos y dependencias sustituidas. | Pendiente. |
+| Contratos y eventos | Esquema, consumidor, idempotencia y recuperación ensayada. | Pendiente. |
+| App móvil | Tests, API level, dispositivo/emulador y build. | Pendiente. |
+| End-to-end | Pasos, servicios reales, datos controlados y observación. | Pendiente. |
+| Calidad | QAS aplicables, carga/falla preparada y métricas. | Pendiente. |
 
-La evidencia de validación del Sprint se presenta en la siguiente imagen.
+Se anexarán reportes del runner, logs pertinentes y capturas. El resumen indicará fecha, responsable y defectos abiertos. Los conteos de aprobación y cobertura se obtendrán de la ejecución; no se reemplazan por una evaluación de diagramas.
 
-![Sprint 1 - Testing Suite Evidence](assets/images/chapter5/sprint1-testing-evidence.png)
-
-Los resultados obtenidos permiten continuar con el refinamiento de los bounded contexts y microservicios en los siguientes Sprints.
+![Testing Suite Evidence — pendiente reporte real](assets/images/chapter5/sprint1-testing-evidence.png)
 
 <div style="page-break-after: always;"></div>
-
-
 
 #### 5.3.1.4. Execution Evidence for Sprint Review
 
-Durante el Sprint 1 se revisó la ejecución del diseño arquitectónico propuesto para **TrackTruck**, verificando el flujo general entre los principales microservicios y sus mecanismos de comunicación.
+Se demostrará el flujo del incremento desde la app móvil hasta el backend C# y sus datos persistidos.
 
-La evidencia considera el recorrido de una operación desde el registro del envío hasta su procesamiento por los servicios involucrados, validando que cada bounded context participe únicamente dentro de sus responsabilidades definidas.
+| Paso de demostración | Evidencia a capturar |
+|---|---|
+| Acceder con usuario autorizado | Pantalla de acceso y resultado de autenticación del entorno. |
+| Consultar conductor y vehículo | Datos de prueba de la organización y fuente consultada. |
+| Seleccionar y aprobar plan válido | Resultado de elegibilidad, reserva y aprobación. |
+| Registrar e iniciar viaje | TripId, estado y fechas devueltos por la API. |
+| Enviar o recibir una ubicación | Origen real o simulado, reportId, recordedAt y ubicación consultada. |
+| Registrar incidencia | Formulario móvil y registro retornado por la API. |
+| Finalizar el recorrido | Estado COMPLETED y persistencia; entrega diferenciada según alcance. |
+| Ensayar un rechazo | Ejemplo de permiso insuficiente, estado inválido o reserva incompatible. |
 
-Se verificaron principalmente los siguientes flujos:
+**Pendiente incorporar:** video o capturas ordenadas, build del APK, endpoints, commits y referencias de los datos de prueba. Las simulaciones de GPS y otras dependencias deberán figurar en la descripción del ensayo.
 
-- registro de un envío;
-- recepción y preparación de la carga;
-- comunicación entre microservicios mediante REST;
-- publicación y consumo de eventos;
-- interacción con servicios externos mediante adaptadores;
-- transferencia de información hacia los servicios responsables de las siguientes etapas del proceso.
-
-La siguiente evidencia representa la ejecución del flujo arquitectónico definido durante el Sprint.
-
-![Sprint 1 - Execution Evidence](assets/images/chapter5/sprint1-execution-evidence.png)
-
-Esta revisión permitió comprobar que la arquitectura propuesta mantiene una secuencia coherente de interacción entre los componentes definidos para TrackTruck.
+![Execution Evidence — pendiente ejecución real](assets/images/chapter5/sprint1-execution-evidence.png)
 
 <div style="page-break-after: always;"></div>
-
 
 #### 5.3.1.5. Microservices Documentation Evidence for Sprint Review
 
-Durante el Sprint 1 se documentaron los principales microservicios definidos para **TrackTruck**, incluyendo sus responsabilidades, relaciones e interfaces de comunicación.
+Se documentarán los servicios efectivamente ejecutables del incremento. Cada ficha incluirá contexto propietario, casos de uso, endpoints, autenticación, errores, modelos de solicitud/respuesta, eventos y configuración.
 
-La documentación considera los servicios principales de la solución y su participación dentro del flujo logístico.
+| Servicio del incremento propuesto | Documentación requerida | Estado |
+|---|---|---|
+| IdentityService | Login, renovación/logout, cuentas y permisos; expiración y revocación aplicadas [R09]. | Pendiente contrato y evidencia del servicio real. |
+| FleetService | Conductores, vehículos, datos válidos y unicidad por organización. | Pendiente. |
+| DriverComplianceService o contrato inicial de elegibilidad | Entradas, reglas, vigencia, motivos y fuentes integradas o controladas. | Pendiente; distinguir implementación y dependencia simulada. |
+| DispatchPlanningService | Plan básico, selección, aprobación, reserva y conflictos. | Pendiente; IA se documentará en el incremento que la implemente. |
+| TripExecutionService | Creación desde plan aprobado, estados y comandos autorizados. | Pendiente. |
+| TrackingService | Ingestión, coordenadas, fecha de captura, última posición e idempotencia. | Pendiente. |
+| IncidentService | Registro, consulta y acceso al viaje. | Pendiente. |
 
-| Microservice | Responsabilidad principal |
-|---|---|
-| Shipment Service | Gestionar la información y estados de los envíos. |
-| Warehouse Service | Gestionar la recepción, almacenamiento y preparación de carga. |
-| Fleet Service | Gestionar conductores y vehículos. |
-| Dispatch Planning Service | Planificar la asignación de recursos y rutas. |
-| Trip Execution Service | Gestionar la ejecución y estados de los viajes. |
-| Tracking Service | Gestionar ubicaciones y seguimiento de los vehículos. |
-| Delivery Service | Gestionar la confirmación de entregas. |
-| Billing Service | Gestionar información relacionada con facturación y pagos. |
+Los demás servicios se documentarán en el Sprint en que formen parte del incremento. La documentación del mapa objetivo en ADD no establece que un servicio ya esté implementado.
 
-También se documentaron los principales mecanismos de integración entre servicios, considerando comunicación mediante **REST APIs** y eventos publicados a través del **Event Broker**.
+**Pendiente incorporar:** enlaces al OpenAPI versionado, README de cada servicio, ejemplos de solicitudes/respuestas y eventos del Sprint. Se registrará la versión del contrato y el commit que lo respalda.
 
-Como evidencia se presentan las vistas arquitectónicas y documentación generadas durante el Sprint.
-
-![Sprint 1 - Microservices Documentation](assets/images/chapter5/sprint1-microservices-documentation.png)
-
-Esta documentación permite mantener una referencia común sobre la estructura, responsabilidades y relaciones de los microservicios definidos para TrackTruck.
+![Microservices Documentation — pendiente documentación ejecutable](assets/images/chapter5/sprint1-microservices-documentation.png)
 
 <div style="page-break-after: always;"></div>
-
-
 
 #### 5.3.1.6. Software Deployment Evidence for Sprint Review
 
-Durante el Sprint 1 se definió la configuración inicial de despliegue de los principales componentes de **TrackTruck**.
+Se completará después de publicar o levantar el incremento en el entorno de revisión y comprobar el acceso desde el APK. El diagrama describe la configuración; la evidencia de despliegue incluye el resultado de ejecutar esa configuración.
 
-La propuesta considera el despliegue independiente de los microservicios, junto con los componentes necesarios para comunicación, persistencia e integración con servicios externos.
+| Campo | Valor por completar |
+|---|---|
+| Ambiente y proveedor/host | Pendiente. |
+| Fecha y responsable | Pendiente. |
+| Tag, commits e imágenes/versiones | Pendiente. |
+| Servicios ejecutados y endpoint | Pendiente. |
+| Health y migraciones | Pendiente. |
+| Broker/consumidores, si están integrados | Pendiente. |
+| APK, versión, hash y dispositivo | Pendiente. |
+| Flujo probado desde el móvil | Pendiente. |
+| Dependencias externas, sandbox y limitaciones observadas | Pendiente. |
+| Capturas/logs y enlace de evidencia | Pendiente. |
 
-Los principales elementos considerados son:
-
-- API Gateway.
-- Microservicios de TrackTruck.
-- Bases de datos independientes por servicio.
-- Event Broker.
-- Proveedores externos.
-- Infraestructura Cloud.
-
-Como evidencia se presenta el diagrama de despliegue correspondiente al Sprint 1.
-
-![Sprint 1 - Software Deployment Evidence](assets/images/chapter5/sprint1-deployment-evidence.png)
-
-La configuración definida servirá como base para continuar refinando el despliegue de la solución en los siguientes Sprints.
+![Deployment Evidence — pendiente ejecución del entorno](assets/images/chapter5/sprint1-deployment-evidence.png)
 
 <div style="page-break-after: always;"></div>
-
-
 
 #### 5.3.1.7. Team Collaboration Insights during Sprint
 
-Durante el Sprint 1, los integrantes del equipo colaboraron en la definición y revisión de la arquitectura inicial de **TrackTruck**.
+Se conservarán contribuciones verificables por integrante. El registro se completará con tareas, commits/PR, revisiones, resultados y coordinación efectivamente realizada durante el Sprint.
 
-Las principales actividades de colaboración fueron:
+| Integrante | Aporte del Sprint | PR/commit o tarjeta | Revisión y evidencia |
+|---|---|---|---|
+| Jean Franck Loa Rojas | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+| Anhelo Rodrigo Rocca Leon | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+| Alexander Piero Fernandez Garfias | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+| Sebastián De Las Casas Latour | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+| Aldair Joaquin Ramos Aguirre | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
 
-- distribución de tareas entre los integrantes;
-- revisión conjunta de bounded contexts y microservicios;
-- elaboración y validación de diagramas arquitectónicos;
-- discusión de responsabilidades e interfaces entre servicios;
-- actualización del tablero Kanban;
-- revisión de decisiones arquitectónicas antes de integrarlas al informe.
+La evidencia incluirá captura de contribuciones y referencias de trabajo y revisión. Los aportes se describirán por resultado concreto, relacionando desarrollo, pruebas, integración y documentación.
 
-La colaboración permitió mantener una visión común de la arquitectura y detectar inconsistencias antes de continuar con los siguientes Sprints.
-
-![Sprint 1 - Team Collaboration](assets/images/chapter5/sprint1-team-collaboration.png)
+![Team Collaboration — pendiente evidencia real](assets/images/chapter5/sprint1-team-collaboration.png)
 
 <div style="page-break-after: always;"></div>
-
-
 
 #### 5.3.1.8. Kanban Board
 
-El tablero Kanban del Sprint 1 permite visualizar y controlar el avance de las actividades relacionadas con la definición inicial de la arquitectura de **TrackTruck**.
+El tablero del Sprint representará tareas de backend C#, app móvil, pruebas, integración, documentación y despliegue. El tablero de una iteración ADD conserva tareas de diseño y revisión; sus tarjetas se vincularán cuando exista una dependencia entre ambos trabajos.
 
-Las tareas se organizan en las siguientes columnas:
+| Columna | Criterio de entrada/salida |
+|---|---|
+| Por hacer | Tarea acordada y todavía no iniciada. |
+| En proceso | Responsable trabajando en el resultado. |
+| En revisión | Código o artefacto listo para revisar y comprobar. |
+| Terminado | Resultado revisado y evidencia que cumple la Definition of Done. |
 
-- **Por hacer**
-- **En proceso**
-- **En revisión**
-- **Terminado**
+**Pendiente incorporar:** enlace verificable, captura del estado del Sprint Review, fechas y tarjetas relacionadas con SB01–SB16 y US comprometidas. El estado de las tarjetas debe reflejar los avances comprobados; no se fija todo como Terminado a partir de este documento.
 
-El tablero permite identificar el estado de cada actividad, facilitar la distribución del trabajo y realizar seguimiento al cumplimiento del Sprint Goal.
-
-![Sprint 1 - Kanban Board](assets/images/chapter5/sprint1-kanban-board.png)
-
-**URL del tablero:** [Sprint 1 - Trello](PEGAR_AQUI_URL_DEL_TABLERO)
+![Sprint 1 Kanban — pendiente captura actual](assets/images/chapter5/sprint1-kanban-board.png)
 
 <div style="page-break-after: always;"></div>
 
-
-
 # Conclusiones
 
-## Conclusiones y recomendaciones
+TrackTruck se plantea como una solución logística de LogiGo con aplicación móvil y backend en C#, organizada en 17 bounded contexts. La revisión mantiene las necesidades de seguimiento, comunicación y organización del documento base y alinea las capacidades ampliadas con propietarios de datos, contratos y reglas definidos.
 
-A partir del desarrollo de la AV1, se definió la problemática que **TrackTruck** busca atender: la dificultad de las empresas de transporte de carga y operadores logísticos para centralizar el monitoreo de vehículos, recorridos, comunicación e incidencias durante sus operaciones.
+El análisis exploratorio utiliza siete registros de entrevistas. Sus resúmenes permiten identificar temas, mientras la validación de roles adicionales, reglas laborales, cierre financiero y planificación con IA requiere investigación y pruebas específicas.
 
-El proceso Lean UX permitió establecer assumptions e hipótesis relacionadas con la necesidad de contar con mayor visibilidad, control y trazabilidad. Estas hipótesis deberán contrastarse con los resultados reales de las entrevistas y posteriores pruebas con usuarios para determinar si los criterios de éxito planteados se cumplen.
+La IA se integra como capacidad de Dispatch Planning, con datos y modelo identificados, evaluación frente a una línea base, restricciones obligatorias, aprobación autorizada y fallback. Su realización se comprobará con implementación, métricas y consumo desde el flujo de planificación.
 
-Como siguiente paso, se recomienda continuar validando las necesidades de los segmentos objetivo, ajustar el Product Backlog según los hallazgos obtenidos y priorizar en el roadmap las funcionalidades de mayor valor, principalmente el monitoreo en tiempo real, seguimiento de recorridos, gestión de incidencias, comunicación con conductores e historial de viajes.
-
+Los siguientes avances deberán materializar el diseño mediante servicios C#, app móvil, pruebas, integración y despliegue. El informe conservará la relación entre historias, decisiones, código, resultados y evidencias, completando los registros pendientes conforme a los incrementos aceptados.
 
 <div style="page-break-after: always;"></div>
 
 # Referencias Bibliográficas
 
-Angular. (s. f.). *Angular documentation*. https://angular.dev/
+Fuentes oficiales consultadas para la revisión tecnológica y competitiva. Fecha de consulta: 08 de octubre de 2026. Las decisiones concretas de dominio y las metas de prueba son propuestas del proyecto.
 
-GitHub. (s. f.). *GitHub documentation*. https://docs.github.com/
+[R01] Microsoft. (s. f.). *.NET Support Policy*. [https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core)
 
-Git. (s. f.). *Git documentation*. https://git-scm.com/doc
+[R02] Microsoft. (s. f.). *Integration tests in ASP.NET Core*. [https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-10.0](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-10.0)
 
-Lucid Software Inc. (s. f.). *Lucidchart*. https://www.lucidchart.com/
+[R03] Microsoft. (s. f.). *Design a microservice domain model — DDD and CQRS patterns*. [https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-domain-model](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-domain-model)
 
-Microsoft. (s. f.). *.NET documentation*. https://learn.microsoft.com/dotnet/
+[R04] Android Developers. (s. f.). *Recommendations for Android architecture*. [https://developer.android.com/topic/architecture/recommendations](https://developer.android.com/topic/architecture/recommendations)
 
-Microsoft. (s. f.). *C# documentation*. https://learn.microsoft.com/dotnet/csharp/
+[R05] Android Developers. (s. f.). *Test your Compose layout*. [https://developer.android.com/develop/ui/compose/testing](https://developer.android.com/develop/ui/compose/testing)
 
-OpenAPI Initiative. (s. f.). *OpenAPI Specification*. https://spec.openapis.org/oas/latest.html
+[R06] Microsoft. (s. f.). *Train and evaluate a model — ML.NET*. [https://learn.microsoft.com/en-us/dotnet/machine-learning/how-to-guides/train-machine-learning-model-ml-net](https://learn.microsoft.com/en-us/dotnet/machine-learning/how-to-guides/train-machine-learning-model-ml-net)
 
-Oracle. (s. f.). *Java documentation*. https://docs.oracle.com/en/java/
+[R07] Android Developers. (s. f.). *Save data in a local database using Room*. [https://developer.android.com/training/data-storage/room](https://developer.android.com/training/data-storage/room)
 
-Swagger. (s. f.). *Swagger documentation*. https://swagger.io/docs/
+[R08] Microsoft. (s. f.). *Choosing a testing strategy — EF Core*. [https://learn.microsoft.com/en-us/ef/core/testing/choosing-a-testing-strategy](https://learn.microsoft.com/en-us/ef/core/testing/choosing-a-testing-strategy)
 
-Trello. (s. f.). *Trello*. https://trello.com/
+[R09] Microsoft. (s. f.). *Configure JWT bearer authentication in ASP.NET Core*. [https://learn.microsoft.com/en-us/aspnet/core/security/authentication/configure-jwt-bearer-authentication?view=aspnetcore-10.0](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/configure-jwt-bearer-authentication?view=aspnetcore-10.0)
 
-TypeScript. (s. f.). *TypeScript documentation*. https://www.typescriptlang.org/docs/
+[R10] Microsoft. (s. f.). *Unit testing C# with xUnit*. [https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-csharp-with-xunit](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-csharp-with-xunit)
 
-UXPressia. (s. f.). *UXPressia*. https://uxpressia.com/
+[R11] FourKites. (s. f.). *Real-Time Network*. [https://www.fourkites.com/network/](https://www.fourkites.com/network/)
 
+[R12] Powerfleet / Fleet Complete. (s. f.). *Products Overview*. [https://www.fleetcomplete.com/product/](https://www.fleetcomplete.com/product/)
+
+[R13] JungleWorks. (s. f.). *Tookan — Enterprise Delivery Management System*. [https://jungleworks.com/tookan/](https://jungleworks.com/tookan/)
+
+Herramientas y convenciones del documento base:
+
+- Git. (s. f.). *Git documentation*. [https://git-scm.com/doc](https://git-scm.com/doc).
+- GitHub. (s. f.). *GitHub documentation*. [https://docs.github.com/](https://docs.github.com/).
+- OpenAPI Initiative. (s. f.). *OpenAPI Specification*. [https://spec.openapis.org/oas/latest.html](https://spec.openapis.org/oas/latest.html).
+- Structurizr. (s. f.). *Documentation*. [https://docs.structurizr.com/](https://docs.structurizr.com/).
+- PlantUML. (s. f.). *PlantUML*. [https://plantuml.com/](https://plantuml.com/).
+- Trello. (s. f.). *Trello*. [https://trello.com/](https://trello.com/).
+- Lucid Software. (s. f.). *Lucidchart*. [https://www.lucidchart.com/](https://www.lucidchart.com/).
+- UXPressia. (s. f.). *UXPressia*. [https://uxpressia.com/](https://uxpressia.com/).
+
+- **[R14] Informe de CargoSystem/CargoExpress aportado por el usuario.** Se utiliza exclusivamente como referencia de organización de pruebas (Core Entities Unit Tests, Core Integration Tests, Core BDD y Core System Tests), guías UI/UX y convenciones de código. Los integrantes, historias, reglas, bounded contexts, arquitectura, repositorios y resultados de ese proyecto pertenecen al documento de referencia.
+- **[R15] Microsoft Learn — C# coding conventions.** https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+- **[R16] Kotlin — Coding conventions.** https://kotlinlang.org/docs/coding-conventions.html
+- **[R17] Google — HTML/CSS Style Guide.** https://google.github.io/styleguide/htmlcssguide.html
+- **[R18] Android Developers — Espresso.** https://developer.android.com/training/testing/espresso
 
 <div style="page-break-after: always;"></div>
 
 # Anexos
 
-## Anexo A. Herramientas utilizadas en el proyecto
+## Anexo A. Herramientas y artefactos del proyecto
 
-| Actividad | Herramienta |
+| Actividad | Herramienta o artefacto |
 |---|---|
-| User Personas | UXPressia |
-| Empathy Maps | UXPressia |
-| Impact Map | UXPressia |
-| As-Is Scenario Mapping | LucidChart |
-| To-Be Scenario Mapping | LucidChart |
-| Control y gestión del proyecto | Trello |
-| Control de versiones | GitHub / Git |
-| Flujo de trabajo de Git | GitFlow Workflow |
+| User Personas y Empathy Maps del documento base | UXPressia. |
+| As-Is y To-Be | Lucidchart; figuras por actualizar según alcance. |
+| Arquitectura C4 | Structurizr y fuentes versionadas. |
+| UML y mapa de contextos | PlantUML/Lucidchart y Miro. |
+| Informe y contratos | Markdown y OpenAPI. |
+| Backend | C#/ASP.NET Core y proyectos de tests. |
+| App móvil | Android/Kotlin/Compose y APK del incremento. |
+| IA | Dataset, modelo, evaluación y Strategy de Dispatch. |
+| Control de cambios y tareas | Git/GitHub y Trello. |
 
+<div style="page-break-after: always;"></div>
+
+## Anexo B. Trazabilidad de contextos
+
+| Código | Contexto | Historias principales | Iteración ADD | Grupo de pruebas | Servicio propuesto |
+| --- | --- | --- | --- | --- | --- |
+| BC01 | Identity & Access | US46–US52 | 1 | TC01 | IdentityService |
+| BC02 | Customer Management | US01–US02, US53 | 1–2 | TC02 | CustomerService |
+| BC03 | Shipment Management | US54–US55 | 2 | TC03 | ShipmentService |
+| BC04 | Warehouse Operations | US56–US57 | 2 | TC04 | WarehouseService |
+| BC05 | Fleet Management | US03–US08, US23–US24 | 1 y 3 | TC05 | FleetService |
+| BC06 | Maintenance Management | US58–US59 | 3 | TC06 | MaintenanceService |
+| BC07 | Workforce Management | US60–US61 | 3 | TC07 | WorkforceService |
+| BC08 | Time & Attendance | US62–US64 | 3 | TC08 | TimeAttendanceService |
+| BC09 | Driver Safety & Compliance | US65 | 3 | TC09 | DriverComplianceService |
+| BC10 | Dispatch Planning | US09, US11–US12, US25, US66–US70 | 3 | TC10 | DispatchPlanningService |
+| BC11 | Trip Execution | US10, US13, US17, US26–US29, US71 | 4 | TC11 | TripExecutionService |
+| BC12 | Tracking & Geolocation | US14–US16, US30–US34, US72–US73 | 4 | TC12 | TrackingService |
+| BC13 | Incident Management | US18–US19, US35–US37 | 4 | TC13 | IncidentService |
+| BC14 | Delivery Management | US74–US75 | 4 | TC14 | DeliveryService |
+| BC15 | Billing & Payments | US76–US78 | 5 | TC15 | BillingService |
+| BC16 | Operational History | US21–US22, US39–US42, US79 | 1 y 5 | TC16 | OperationalHistoryService |
+| BC17 | Reporting & Analytics | US43–US45, US80 | 5 | TC17 | ReportingService |
+
+Los casos críticos TC18–TC27 complementan la comprobación de integraciones y calidad. Las US20 y US38 relacionan la consulta del viaje y datos de Fleet con el marcador móvil. Los NFR se trazan a QAS y restricciones en 3.2.
+
+<div style="page-break-after: always;"></div>
+
+## Anexo C. Pendientes para completar progresivamente
+
+| Apartado | Contenido pendiente | Criterio para completar |
+|---|---|---|
+| Student Outcome TB1 | Aprendizajes y aportes de cada integrante. | Acciones efectivamente realizadas y evidencia correspondiente. |
+| 1.1.2 y 2.2.2 | Datos personales o del participante que falten en el documento base. | Confirmar con la persona; no sustituir por datos inventados. |
+| 1.2.3.4 | Imagen del Canvas actualizado. | Coherencia con tabla e hipótesis H01–H07. |
+| 2.2 y 2.3 | Entrevistas de nuevos roles y validación de arquetipos. | Registro, respuestas y matriz de análisis. |
+| 2.3, 3.1 y 3.3 | Figuras de escenarios, mapas e impactos. | Incorporar tareas ampliadas sin atribuirlas a entrevistas que no las cubren. |
+| 3.4 | Prioridad, estimaciones y compromiso real de Sprints. | Revisar capacidad, dependencias y evidencia de estados. |
+| 4.1.3–4.1.5 | Contexto, vistas UML/C4 y ER por servicio. | Límites y referencias correctos; consistencia con migraciones/código. |
+| 4.3.1–4.3.5 | Vistas, revisión de decisiones y tableros ADD. | Modelos revisados y enlaces verificables. |
+| 5.1.1 | Suites y resultados ejecutados. | Casos, entorno, versión, reporte y defectos. |
+| 5.1.2–5.1.4 | Código, biblioteca y refactoring. | Clases/PR antes y después y tests correspondientes. |
+| 5.2.1–5.2.4 | Versiones exactas, repositorios y configuración. | README reproducible, commits y entorno identificado. |
+| 5.3.1.1 | Planificación y backlog aceptado. | Fechas, capacidad, responsables e historias del Sprint. |
+| 5.3.1.2–5.3.1.8 | Desarrollo, pruebas, ejecución, documentos, despliegue, colaboración y Kanban. | Evidencias reales del incremento C# y móvil. |
+
+<div style="page-break-after: always;"></div>
+
+## Anexo D. Guía de figuras de arquitectura
+
+| Figura | Contenido mínimo |
+|---|---|
+| iteration1-bounded-context-map.png | Los 17 contextos y sus relaciones principales. |
+| iteration1-c4-containers.png | App Android, gateway, servicios C#, broker y datos privados. |
+| iteration1-uml-components.png | Interfaces y componentes de la estructura global. |
+| iteration2-shipment-sequence.png | Cliente/envío, recepción, preparación y disponibilidad de despacho. |
+| iteration3-dispatch-sequence.png | Elegibilidad, mantenimiento, rutas, IA, fallback, reserva y aprobación. |
+| iteration4-tracking-sequence.png | Inicio, ingestión, incidencia, cierre del recorrido y entrega. |
+| iteration5-billing-sequence.png | Condición del cobro, comprobante, pago y reconciliación. |
+| database-diagram.png | Vista por servicio con FK locales y referencias externas diferenciadas. |
+
+Cada figura se guarda bajo la ruta indicada en su sección y conserva su fuente editable en el repositorio. Las imágenes de ejecución y resultados se incorporan después de realizar el ensayo correspondiente.
 
 <div style="page-break-after: always;"></div>
 
 # Links
 
-| Recurso | Enlace |
+| Recurso | Enlace/estado |
 |---|---|
-| Repositorio de GitHub | [Ver repositorio](https://github.com/1ASI0657-2620-15987-G4) |
-| Tablero de Trello | [Ver tablero](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello) |
+| Organización del proyecto | [GitHub — organización registrada](https://github.com/1ASI0657-2620-15987-G4). |
+| Informe | [Repositorio/rama aportados](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai). |
+| Backend C# | Pendiente incorporar enlace real. |
+| App móvil | Pendiente incorporar enlace real. |
+| Biblioteca BuildingBlocks | Pendiente incorporar ruta o repositorio y versión real. |
+| Product Backlog | [Invitación registrada de Trello](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello). Revisar acceso para evidencia. |
+| Iteración ADD 1 | [Tablero registrado](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚). Actualizar nombre/alcance. |
+| Iteraciones ADD 2–5 | Pendiente incorporar enlaces verificables. |
+| Sprint 1 y sus evidencias | Pendiente incorporar tablero, PR, reportes y ejecución real. |
+| APK y entorno de revisión | Pendiente incorporar versión, archivo/enlace y endpoint. |
