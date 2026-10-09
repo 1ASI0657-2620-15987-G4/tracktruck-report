@@ -60,6 +60,7 @@
 | Versión | Fecha      | Autor | Descripción de modificación                                                                                                                                                                                                                                                              |
 |---------|------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AV1     | 07-09-2026 | LogiGo | Creación del informe. Inclusión de los Capítulos I, II y III, junto con el avance del diseño arquitectónico del Capítulo IV.                                                                                                                                                                                              |
+| TP1     | 09-10-2026 | LogiGo | Reconciliación de los Capítulos IV y V con la implementación reutilizada de TrackTruck, incorporación de evidencia verificable y separación explícita entre arquitectura actual y arquitectura objetivo. |
 
 <div style="page-break-after: always;"></div>
 
@@ -224,7 +225,7 @@ En el siguiente cuadro se describen las acciones realizadas y los enunciados de 
 |  | **Conclusiones** | **El equipo actualizó y aplicó conocimientos relacionados con Lean UX, investigación de usuarios, análisis de requisitos y planificación del producto, integrándolos en el desarrollo de los capítulos I, II y III del proyecto.** | **El equipo reconoció la importancia del aprendizaje continuo y autónomo para fortalecer sus competencias y adaptar el desarrollo de soluciones de software a las necesidades de los usuarios y a la evolución del proyecto.** |
 
 
-**Student Outcome para TB1:** pendiente incorporar por integrante los aprendizajes y aplicaciones reales de C#/ASP.NET Core, arquitectura móvil, pruebas, IA e integración, junto con las evidencias correspondientes. Las acciones registradas para AV1 se conservan como antecedentes de esa entrega.
+**Student Outcome para TP1:** pendiente incorporar por integrante los aprendizajes y aplicaciones reales de C#/ASP.NET Core, arquitectura móvil, pruebas, IA e integración, junto con las evidencias correspondientes. Las acciones registradas para AV1 se conservan como antecedentes de esa entrega.
 
 <div style="page-break-after: always;"></div>
 
@@ -1328,9 +1329,9 @@ Se propone persistencia relacional con PostgreSQL y EF Core para los servicios t
 
 #### Diagrama de base de datos
 
-El diagrama se elaborará por contexto para que puedan identificarse claves locales y referencias externas. Las vistas de la arquitectura objetivo deberán coincidir con las migraciones de los servicios implementados. El diagrama anterior de tres áreas deberá actualizarse para retirar claves foráneas entre servicios y separar Incident Management de Tracking & Geolocation.
+El diagrama mostrado es un modelo relacional conceptual y parcial del flujo de viajes y flota. No representa el `AppDbContext` completo de la API actual ni las bases separadas previstas para los 17 bounded contexts. La versión objetivo deberá elaborarse por contexto, identificar claves locales y referencias externas, y coincidir con las migraciones de cada servicio cuando estos sean implementados.
 
-![Database Diagram — pendiente actualizar por contexto](assets/images/chapter4/database-diagram.png)
+![Modelo relacional conceptual parcial de viajes y flota](assets/images/chapter4/database-diagram.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -2385,21 +2386,19 @@ El tablero de esta iteración seguirá ADB35–ADB42 con columnas Por hacer, En 
 
 ### Vista arquitectónica general de TrackTruck
 
-La vista general se actualizará con los 17 contextos, la app Android, los servicios C#, la IA interna de Dispatch y el almacenamiento privado. Se indicarán los componentes de arquitectura objetivo y los ya implementados en el incremento.
+La vista general representa la arquitectura objetivo de 17 bounded contexts y su evolución por incrementos. Al cierre de esta revisión, el incremento reutilizado y renombrado ejecuta una sola API ASP.NET Core con los contextos de código `IAM`, `User` y `Registration`; este último concentra temporalmente viajes, flota, gastos, alertas, auditoría y viajes en curso. La aplicación Android consume esa API. Los servicios independientes, broker, Outbox/Inbox, bases privadas por servicio e IA de Dispatch permanecen como arquitectura objetivo y no se presentan como componentes desplegados.
 
-![Arquitectura general — pendiente actualizar](assets/images/chapter3/arquitectura-tracktruck-completa.png)
+![Arquitectura objetivo general de TrackTruck](assets/images/chapter3/arquitectura-tracktruck-completa.png)
 
 <div style="page-break-after: always;"></div>
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
-# Capítulo V: Product Implementation, Validation & Deployment
-
 ## 5.1. Testing Suites & General Patterns
-Las suites acompañarán la implementación de los servicios C# y la app móvil. Esta sección es un plan de verificación de TrackTruck: las ejecuciones de CargoExpress se utilizan exclusivamente como referencia metodológica y no se presentan como resultados de TrackTruck. El plan cubre reglas del dominio, casos de uso, endpoints, persistencia, eventos, adaptadores, interfaz móvil y flujo integrado. Las pruebas se seleccionan según criterios de aceptación y riesgo del incremento.
+TrackTruck reutiliza una base autorizada de backend, aplicación Android y landing page que fue importada conservando su historia y después renombrada. La verificación del incremento TrackTruck se ejecutó sobre los repositorios resultantes, no sobre una copia externa: la solución .NET compiló en Release y aprobó 326 pruebas unitarias y 96 pruebas de integración; la aplicación Android completó `gradlew test` para debug y release con JDK 17 y Android SDK 34.
 
 
-Los apartados siguientes definen el trabajo requerido y los registros que se completarán. Cada evidencia incluirá versión de código, entorno, comando o procedimiento, casos ejecutados, resultado esperado y observado y defectos pendientes. La revisión de las vistas arquitectónicas se documenta en ADD; las evidencias de software se obtienen ejecutando los componentes implementados.
+Estos resultados acreditan compilación y pruebas automatizadas dentro de sus límites. No acreditan todavía un flujo extremo a extremo app–API, ejecución en dispositivo/emulador, despliegue público ni separación física en microservicios. La revisión de las vistas arquitectónicas se documenta en ADD y se distingue de la evidencia obtenida ejecutando el software.
 
 <div style="page-break-after: always;"></div>
 
@@ -2521,7 +2520,14 @@ Las pruebas de integración de vehículos verifican el registro, consulta y actu
 
 **Resultados y evidencias**
 
-Los escenarios descritos constituyen una referencia de pruebas de integración para los componentes correspondientes de TrackTruck. Los resultados efectivos deberán verificarse utilizando el código y el entorno de pruebas del proyecto, identificando las operaciones ejecutadas, las respuestas obtenidas y los posibles errores.
+La ejecución verificada del 8 de octubre de 2026 utilizó .NET SDK 8.0.425 sobre el commit `cb9c336` de la rama de integración, posteriormente incorporado a `develop` mediante el PR #1 (`ffc6966`). El comando `dotnet test TrackTruck.Platform.API.sln --configuration Release` produjo los resultados siguientes:
+
+| Proyecto ejecutable | Aprobadas | Fallidas | Omitidas | Alcance comprobado |
+|---|---:|---:|---:|---|
+| `TrackTruck.UnitTests` | 326 | 0 | 0 | Entidades, agregados, Value Objects y reglas de IAM, usuarios, viajes, flota, gastos, alertas y auditoría. |
+| `TrackTruck.IntegrationTests` | 96 | 0 | 0 | Casos de integración con persistencia SQLite aislada y servicios/repositorios del incremento. |
+
+**Límite de aceptación:** las pruebas de integración ejercitan la composición interna de la API; no demuestran por sí solas una arquitectura de microservicios, un despliegue cloud ni la integración real con el APK.
 
 <div style="page-break-after: always;"></div>
 
@@ -2569,9 +2575,9 @@ Este escenario considera la consulta del historial de cambios relevantes, permit
 
 **Resultados y evidencias**
 
-Los escenarios descritos permiten estructurar la validación funcional del sistema. Para acreditar su ejecución en TrackTruck se deberán incorporar los archivos Gherkin, las implementaciones de los pasos de prueba, el resultado del runner y las referencias al código correspondiente.
+El repositorio conserva 16 archivos `.feature` con escenarios Gherkin para usuarios, autenticación, viajes, gastos, flota, alertas y auditoría. Durante la verificación se comprobó que la base importada no incluía step bindings de SpecFlow; además versionaba archivos `.feature.cs` generados y volvía a generarlos durante el build. Ese arnés incompleto fue retirado para no contabilizar escenarios pendientes como pruebas aprobadas.
 
-Las evidencias procedentes de proyectos de referencia se utilizarán únicamente como modelo documental y no como resultados ejecutados de TrackTruck.
+Por tanto, los archivos Gherkin se presentan como **especificaciones de aceptación no automatizadas**. Los resultados ejecutados de este Sprint son las 326 pruebas unitarias y 96 pruebas de integración indicadas anteriormente. Automatizar BDD requiere implementar bindings reales y ejecutar el runner; no se atribuye ese resultado a la entrega actual.
 
 <div style="page-break-after: always;"></div>
 
@@ -2580,7 +2586,7 @@ Las evidencias procedentes de proyectos de referencia se utilizarán únicamente
 
 Las pruebas de sistema permiten evaluar el funcionamiento de TrackTruck desde la perspectiva del usuario, comprobando la interacción entre la aplicación móvil, sus interfaces y los servicios del backend.
 
-Para la aplicación Android desarrollada con Kotlin y Jetpack Compose, se contempla la utilización de Compose UI Test para las pruebas instrumentadas de interfaz. Espresso podrá utilizarse cuando existan componentes Android Views. Estas pruebas se complementan con verificaciones de ViewModel, repositorios y servicios.
+La aplicación Android desarrollada con Kotlin y Jetpack Compose incluye pruebas locales y fuentes de pruebas instrumentadas. La ejecución verificada utilizó JDK 17, Android SDK Platform 34 y `gradlew test`: las tareas `testDebugUnitTest` y `testReleaseUnitTest` finalizaron con `BUILD SUCCESSFUL`. Las pruebas instrumentadas de Compose no fueron ejecutadas porque esta revisión no contó con emulador o dispositivo conectado.
 
 **Flujos funcionales considerados**
 
@@ -2613,11 +2619,7 @@ Este escenario considera la visualización de registros históricos y la trazabi
 
 **Resultados y validación**
 
-Las pruebas de sistema deberán registrar la versión de la aplicación, dispositivo o emulador, versión de Android, entorno de ejecución y resultados obtenidos.
-
-Cuando se utilicen servicios simulados, la evidencia deberá identificarse como prueba de interfaz. Para acreditar una prueba de extremo a extremo será necesario verificar la comunicación con el backend y la persistencia correspondiente.
-
-También se contempla la revisión de navegación, adaptación a diferentes tamaños de pantalla y mensajes de error de la aplicación.
+El build y las pruebas locales de debug/release están verificados en el commit `8c75add`, integrado en `develop` mediante el PR #1 (`b764487`). La ejecución instrumentada y el flujo extremo a extremo app–API permanecen como evidencia pendiente; las imágenes heredadas de interfaz no se contabilizan como ejecución en dispositivo de TrackTruck.
 
 <div style="page-break-after: always;"></div>
 
@@ -2644,28 +2646,28 @@ Estas verificaciones se aplicarán durante el desarrollo y las revisiones de có
 
 
 ### 5.1.2. Pattern Based Backend Application(s)
-Los servicios C# se construirán con los patrones y dependencias definidos en el capítulo IV. El informe conservará evidencia de su realización en clases, configuración y pruebas.
+El incremento actual no contiene aún servicios desplegables independientes. `tracktruck-platform` es una solución ASP.NET Core única organizada con DDD por módulos internos. La tabla separa lo comprobado en el código reutilizado de los refinamientos definidos por la arquitectura objetivo.
 
 
-| Elemento | Realización requerida | Evidencia de implementación |
+| Elemento | Estado comprobado en el incremento | Evolución objetivo |
 
 |---|---|---|
 
-| Domain | Agregados, entidades y Value Objects con invariantes. | Código y pruebas de dominio. |
+| Domain | Agregados, entidades, Value Objects, repositorios y servicios de dominio en `IAM`, `User` y `Registration`; 326 pruebas unitarias aprobadas. | Separar modelos y reglas en los contextos objetivo cuando exista necesidad de despliegue independiente. |
 
-| Application | Commands, queries, handlers y puertos. | Caso de uso trazado a una US y pruebas del handler. |
+| Application | Commands, queries, command services y query services se encuentran dentro de cada módulo. | Extraer una capa Application explícita y contratos por servicio durante la separación progresiva. |
 
-| Infrastructure | Repositorios EF Core, migraciones y adaptadores. | Implementación del puerto y prueba pertinente. |
+| Infrastructure | Repositorios EF Core y persistencia compartida mediante `AppDbContext`; pruebas de integración con SQLite aislada. | Persistencia privada por servicio y adaptadores para contratos externos. |
 
-| API | Endpoints, contratos, autorización y errores. | OpenAPI y prueba HTTP sobre la API. |
+| API | Controllers y Resources REST en una sola API; configuración Swagger/OpenAPI incluida. | APIs versionadas por servicio o gateway cuando se materialice la separación. |
 
-| CQRS | Separación de operaciones de cambio y consulta. | Clases de Application y autorización de consultas. |
+| CQRS | Separación lógica mediante commands, queries y sus servicios dentro de los módulos. | Handlers y puertos explícitos por contexto, manteniendo reglas en Domain. |
 
-| Eventos | Outbox local, publicación, envelope e Inbox/deduplicación. | Falla/reintento y efecto único comprobado. |
+| Eventos | No se comprobó broker, Outbox/Inbox ni mensajería entre servicios en el incremento actual. | Eventos de integración confiables cuando existan procesos distribuidos reales. |
 
-| Strategy de planificación | Motor IA y modo básico detrás de la misma interfaz. | Resultado de modelo, versión y caso de fallback. |
+| Strategy de planificación | No implementado en la base reutilizada. | Motor IA y modo básico detrás de una interfaz común, sujetos a reglas obligatorias. |
 
-| App móvil | Compose, ViewModel, casos de uso y repositorio de datos. | Pantalla conectada y prueba de estado/interacción. |
+| App móvil | Kotlin/Compose con pantallas, ViewModels, servicios Retrofit y repositorios; build y pruebas locales aprobados. | Alinear por funcionalidades y verificar integración real app–API en dispositivo/emulador. |
 
 
 ****Organización propuesta de un servicio:****
@@ -2706,20 +2708,17 @@ tests/
 ```
 
 
-La organización se repetirá cuando resulte útil para cada servicio. La app se organizará por funcionalidades, con presentation, domain y data y componentes compartidos de UI. La estructura elegida deberá facilitar entender el caso de uso sin incorporar capas o abstracciones sin función concreta.
+Esta organización describe el destino de la evolución, no el árbol actual del repositorio. La separación se realizará solo cuando un bounded context cuente con modelo, casos de uso, persistencia, contratos y razones operativas suficientes para constituir una unidad desplegable.
 
 
-****Evidencia pendiente:**** rutas reales de clases, commits y captura/diagrama actualizado de los patrones aplicados.
-
-
-![Pattern Based Backend Application — pendiente evidencia de código](assets/images/chapter5/pattern-based-backend-architecture.png)
+**Evidencia actual:** repositorio `tracktruck-platform`, commits `e3b8da0` y `cb9c336`, PR #1 e integración en `develop` mediante `ffc6966`. La estructura comprobada del incremento se describe en la tabla anterior. La captura histórica del proyecto predecesor no se utiliza como evidencia de la arquitectura actual porque conserva namespaces que no corresponden a TrackTruck.
 
 <div style="page-break-after: always;"></div>
 
 
 ### 5.1.3. Pattern Based Custom Software Library
 
-Para TrackTruck se propone desarrollar **TrackTruck.BuildingBlocks**, una biblioteca reutilizable en C# que permita compartir componentes técnicos entre los microservicios, evitando la duplicación de código y facilitando su mantenimiento.
+La arquitectura propone desarrollar **TrackTruck.BuildingBlocks** cuando existan al menos dos servicios que requieran los mismos componentes técnicos. Esta biblioteca no existe en el incremento actual y no se presenta como entregable implementado.
 
 La biblioteca seguirá principios de Clean Architecture y contará con componentes comunes para el manejo de eventos, validaciones y trazabilidad.
 
@@ -2918,7 +2917,7 @@ El despliegue contempla la configuración de los servicios, las dependencias nec
 | Base de datos | Persistencia relacional y conexiones configuradas mediante variables de entorno. |
 | API | Endpoints REST para la comunicación con la aplicación móvil. |
 | Integraciones | Servicios externos configurados mediante adaptadores y credenciales protegidas. |
-| Aplicación móvil | APK Android desarrollado con Kotlin y conectado a los endpoints del backend. |
+| Aplicación móvil | APK Android desarrollado con Kotlin y configurado para consumir los endpoints del backend; la ejecución integrada en emulador o dispositivo requiere evidencia adicional. |
 | CI/CD | GitHub Actions para compilación y ejecución automatizada de pruebas, cuando esté configurado. |
 
 **Evidencia de despliegue**
@@ -2938,17 +2937,17 @@ Las iteraciones ADD del Capítulo IV establecen las decisiones arquitectónicas,
 <div style="page-break-after: always;"></div>
 
 ### 5.3.1. Sprint 1
-****Sprint Goal propuesto:**** construir un flujo operacional mínimo protegido que permita acceder a la app, consultar recursos, seleccionar y aprobar un plan válido, registrar e iniciar un viaje, consultar una ubicación y registrar una incidencia, con servicios C# ejecutables y pruebas del incremento.
+**Sprint Goal reconciliado:** establecer una base ejecutable de TrackTruck mediante la reutilización autorizada y el renombrado de una API ASP.NET Core, una aplicación Android y una landing page; comprobar autenticación, usuarios, flota, viajes, gastos, alertas y auditoría mediante las pruebas existentes, sin atribuir al incremento los microservicios y capacidades objetivo todavía no implementados.
 
 
-****Fecha de inicio, fecha de fin y duración:**** pendiente incorporar la planificación real.  
+**Fecha de integración comprobada:** 8 de octubre de 2026. La fecha de inicio y duración originales del desarrollo reutilizado no se reconstruyen como horas del equipo TrackTruck.
 
-****Capacidad disponible y responsables de tareas:**** pendiente acordar en Sprint Planning.  
+**Capacidad y responsables:** se registran únicamente aportes trazables por commits y PR. La planificación de capacidad del Sprint no está disponible en el repositorio.
 
-****Historias comprometidas y versión:**** pendiente confirmar contra la capacidad del equipo y los repositorios C# y móvil.
+**Alcance comprobado:** IAM, usuarios/clientes/empresarios, conductores, vehículos, viajes, viajes en curso, gastos, alertas y auditoría; app Android con pantallas y repositorios para esos recursos. La planificación inteligente, seguimiento geográfico persistido, servicios independientes, mensajería y BuildingBlocks permanecen fuera del incremento verificado.
 
 
-El objetivo incluye integración y comportamiento verificable. Las fuentes auxiliares todavía no implementadas podrán representarse con dobles identificados durante pruebas de componentes; el Sprint Review deberá indicar con claridad qué servicios, adaptadores y flujos están integrados realmente. El plan de Sprints del equipo contempla aproximadamente 70 % del backend y una primera versión de la app en Sprint 1; dicho porcentaje es una declaración de avance y debe respaldarse con historias aceptadas, repositorios y evidencia verificable. Las características no entregadas se mantienen en el backlog para Sprints 2 y 3.
+La aceptación se expresa por capacidades y evidencia, no por un porcentaje global. Las características no comprobadas se mantienen en el backlog para incrementos posteriores.
 
 <div style="page-break-after: always;"></div>
 
@@ -2996,7 +2995,7 @@ Las siguientes tareas proponen trabajo concreto sobre el incremento. Las estimac
 El equipo podrá dividir, reasignar o reducir tareas antes de comprometer el Sprint. Las tareas SB05 y SB11 deben indicar qué dependencias usan servicios reales y cuáles utilizan datos controlados. La validación integrada de jornada, mantenimiento y la IA se amplía en Sprint 2; cada fuente simulada permanece identificada como dependencia pendiente.
 
 
-![Sprint Backlog 1 — pendiente actualizar](assets/images/chapter5/sprint1-backlog-kanban.png)
+**Captura del Sprint Backlog:** no incorporada; debe añadirse únicamente desde el tablero real del equipo.
 
 
 ****Enlace de planificación/Sprint Backlog:**** pendiente incorporar el tablero y las tarjetas correspondientes.
@@ -3006,20 +3005,17 @@ El equipo podrá dividir, reasignar o reducir tareas antes de comprometer el Spr
 
 #### 5.3.1.2. Development Evidence for Sprint Review
 
-Durante el Sprint 1 de TrackTruck se contempla el desarrollo de los componentes principales del backend con C# y ASP.NET Core, junto con la primera versión de la aplicación móvil Android.
+El incremento reúne la base backend C#/ASP.NET Core, la aplicación Android y la landing page importadas con autorización, renombradas y saneadas como TrackTruck.
 
-La implementación sigue los bounded contexts definidos en el Capítulo IV, manteniendo separadas las responsabilidades del dominio, los casos de uso y la infraestructura.
+La implementación actual materializa parcialmente la arquitectura del Capítulo IV. La API conserva módulos DDD internos, pero todavía no implementa los 17 bounded contexts como microservicios independientes.
 
-| Componente | Desarrollo considerado |
-|---|---|
-| Identity & Access | Autenticación y control de acceso. |
-| Fleet Management | Gestión de conductores y vehículos. |
-| Trip Execution | Registro y administración de viajes. |
-| Tracking & Geolocation | Seguimiento y consulta de posiciones. |
-| Incident Management | Registro y consulta de incidencias. |
-| Mobile Application | Pantallas y navegación mediante Kotlin y Jetpack Compose. |
+| Repositorio | Branch/PR | Commits principales | Resultado incorporado |
+|---|---|---|---|
+| `tracktruck-platform` | Feature de migración → PR #1 → `develop` | `e3b8da0`, `cb9c336`, merge `ffc6966` | API ASP.NET Core renombrada; secretos y artefactos generados retirados; solución y tests normalizados. |
+| `tracktruck-mobile` | Feature de migración → PR #1 → `develop` | `8809c33`, `8c75add`, merge `b764487` | Namespace `com.tracktruck.app`, URL de API configurable, Firebase local opcional y build Gradle verificado. |
+| `tracktruck-website` | Feature de migración → PR #1 → `develop` | `6d24a33`, `de17b4b`, merge `77a07e9` | Marca, equipo, contactos, enlaces, textos legales y recursos migrados a TrackTruck. |
 
-El avance de cada componente se verificará mediante los repositorios GitHub, las funcionalidades implementadas y los resultados de las pruebas correspondientes.
+Los commits de importación conservan la procedencia autorizada. Los commits de refactorización representan la adecuación realizada por TrackTruck y no atribuyen al equipo la autoría original del código reutilizado.
 
 **Repositorio backend:** [TrackTruck Backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform)
 
@@ -3029,37 +3025,34 @@ El avance de cada componente se verificará mediante los repositorios GitHub, la
 
 
 #### 5.3.1.3. Testing Suite Evidence for Sprint Review
-Se presentarán resultados por Core Entities Unit Tests, Core Integration Tests, Core BDD y Core System Tests, siguiendo 5.1.1. Para cada suite se identificarán historias, casos, datos, commit, comando, entorno, resultado y evidencias. Los reportes del documento de referencia sirven como modelo de presentación; los resultados de TrackTruck provendrán de sus propias ejecuciones.
+Las suites se ejecutaron sobre las ramas TrackTruck antes de su integración a `develop`. El registro siguiente distingue resultados ejecutados de especificaciones y verificaciones pendientes.
 
 
-Se completará con reportes de ejecución de las suites del Sprint. El registro debe permitir repetir el ensayo y comprender sus límites.
-
-
-| Suite | Información que se debe registrar | Resultado |
+| Suite | Comando/entorno | Resultado verificado |
 
 |---|---|---|
 
-| Dominio y Application C# | Proyecto, TC, comando, commit y datos de prueba. | Pendiente: aprobados/fallidos/omitidos reales. |
+| Unit tests C# | .NET SDK 8.0.425; `dotnet test TrackTruck.Platform.API.sln --configuration Release` | PASS: 326 aprobadas, 0 fallidas, 0 omitidas. |
 
-| API y persistencia | Endpoints, autorización, motor de datos y dependencias sustituidas. | Pendiente. |
+| Integration tests C# | Mismo comando; persistencia SQLite aislada en tests | PASS: 96 aprobadas, 0 fallidas, 0 omitidas. |
 
-| Contratos y eventos | Esquema, consumidor, idempotencia y recuperación ensayada. | Pendiente. |
+| Especificaciones Gherkin | 16 archivos `.feature` conservados en el repositorio | NOT_AUTOMATED: la base no contiene step bindings. |
 
-| App móvil | Tests, API level, dispositivo/emulador y build. | Pendiente. |
+| App móvil | JDK 17, Android SDK 34; `gradlew test` | PASS: build y unit tests debug/release. |
 
-| End-to-end | Pasos, servicios reales, datos controlados y observación. | Pendiente. |
+| Instrumented/E2E | Requiere dispositivo/emulador y backend ejecutándose | NOT_VERIFIED. |
 
-| Calidad | QAS aplicables, carga/falla preparada y métricas. | Pendiente. |
+| QAS/carga/fallas | Requiere ensayos específicos y métricas | NOT_VERIFIED. |
 
 
 
-![Testing Suite Evidence](assets/images/chapter5/sprint1-testing-evidence.png)
+La captura disponible en los recursos corresponde a una especificación Gherkin y no a una ejecución de pruebas; por ello no se presenta como evidencia de aprobación. Queda pendiente exportar los reportes de consola de las suites verificadas y añadirlos sin alterar sus resultados.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.4. Execution Evidence for Sprint Review
 
-Se demostrará el flujo del incremento desde la app móvil hasta el backend C# y sus datos persistidos.
+La evidencia disponible demuestra compilación y ejecución de suites en backend y mobile. La revisión de integración confirmó que la app usa `http://10.0.2.2:8080/api/v1/` por defecto para el emulador, que el contenedor de la plataforma expone el puerto `8080` y que los contratos principales de autenticación, usuarios, conductores, vehículos, viajes, gastos, alertas y auditoría coinciden en rutas y recursos. Esto acredita preparación contractual, no una ejecución end-to-end. El flujo app móvil → backend → persistencia permanece pendiente de ejecutarse en emulador o dispositivo; la figura se conserva como guion del ensayo, no como captura de una ejecución completada.
 
 
 | Paso de demostración | Evidencia a capturar |
@@ -3090,20 +3083,17 @@ Se demostrará el flujo del incremento desde la app móvil hasta el backend C# y
 
 #### 5.3.1.5. Microservices Documentation Evidence for Sprint Review
 
-La arquitectura de TrackTruck organiza sus funcionalidades mediante bounded contexts con responsabilidades definidas. Durante el Sprint 1 se consideran los servicios necesarios para gestionar usuarios, flotas, viajes, seguimiento e incidencias.
+El diseño de TrackTruck organiza sus responsabilidades mediante bounded contexts, pero el incremento actual se despliega como una API modular única. La tabla evita equiparar módulos de código con microservicios:
 
-| Microservicio propuesto | Responsabilidad |
-|---|---|
-| IdentityService | Autenticación, usuarios y permisos. |
-| FleetService | Administración de conductores y vehículos. |
-| DispatchPlanningService | Planificación y asignación de recursos. |
-| TripExecutionService | Creación, inicio y finalización de viajes. |
-| TrackingService | Registro y consulta de posiciones. |
-| IncidentService | Gestión de incidencias durante los viajes. |
+| Elemento | Estado | Responsabilidad |
+|---|---|---|
+| `IAM` | Implementado dentro de la API | Autenticación, tokens, usuarios y estado de cuenta. |
+| `User` | Implementado dentro de la API | Clientes y empresarios. |
+| `Registration` | Implementado como contexto transicional | Conductores, vehículos, viajes, viajes en curso, gastos, alertas y auditoría. |
+| IdentityService, FleetService y TripExecutionService | Arquitectura objetivo | Separación progresiva de las capacidades ya presentes. |
+| DispatchPlanningService, TrackingService e IncidentService | Arquitectura objetivo/no implementada como servicio independiente | Planificación, geolocalización e incidencias desacopladas. |
 
-Cada servicio deberá documentar sus endpoints, contratos HTTP, validaciones y mecanismos de persistencia. La documentación técnica se mantendrá en los repositorios correspondientes.
-
-Los servicios implementados se distinguirán de aquellos que permanecen como parte del diseño arquitectónico.
+Swagger/OpenAPI está configurado en la API. Una lista de microservicios propuestos no acredita despliegue independiente; esa aceptación requerirá proyectos o imágenes separadas, contratos versionados, persistencia definida y evidencia de ejecución.
 
 **Documentación del backend:** [Repositorio TrackTruck](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform)
 
@@ -3111,61 +3101,61 @@ Los servicios implementados se distinguirán de aquellos que permanecen como par
 
 
 #### 5.3.1.6. Software Deployment Evidence for Sprint Review
-Se completará después de publicar o levantar el incremento en el entorno de revisión y comprobar el acceso desde el APK. El diagrama describe la configuración; la evidencia de despliegue incluye el resultado de ejecutar esa configuración.
+El repositorio contiene Dockerfile y configuración de Railway heredados y renombrados, pero las credenciales de base de datos y JWT fueron retiradas del control de versiones. La compilación local está verificada; no se comprobó un servicio TrackTruck publicado ni acceso desde el APK. El estado de esta sección es **PARTIAL** y la figura representa la configuración prevista.
 
 
-| Campo | Valor por completar |
+| Campo | Estado comprobado |
 
 |---|---|
 
-| Ambiente y proveedor/host | Pendiente. |
+| Ambiente y proveedor/host | Configuración Railway presente; despliegue TrackTruck no verificado. |
 
-| Fecha y responsable | Pendiente. |
+| Fecha y responsable | Revisión local: 8 de octubre de 2026, JeanLoa. |
 
-| Tag, commits e imágenes/versiones | Pendiente. |
+| Tag, commits e imágenes/versiones | `cb9c336` / merge `ffc6966`; .NET 8.0.425. Sin tag de release ni imagen publicada verificados. |
 
-| Servicios ejecutados y endpoint | Pendiente. |
+| Servicios ejecutados y endpoint | Build y tests locales; endpoint público no verificado. |
 
-| Health y migraciones | Pendiente. |
+| Health y migraciones | No verificados en un entorno desplegado. |
 
-| Broker/consumidores, si están integrados | Pendiente. |
+| Broker/consumidores, si están integrados | No implementados en el incremento comprobado. |
 
-| APK, versión, hash y dispositivo | Pendiente. |
+| APK, versión, hash y dispositivo | Build Gradle verificado; APK de revisión, hash y dispositivo no verificados. |
 
-| Flujo probado desde el móvil | Pendiente. |
+| Flujo probado desde el móvil | NOT_VERIFIED. |
 
-| Dependencias externas, sandbox y limitaciones observadas | Pendiente. |
+| Dependencias externas, sandbox y limitaciones observadas | Firebase local opcional y API base configurable; integración externa no ejecutada. |
 
-| Capturas/logs y enlace de evidencia | Pendiente. |
+| Capturas/logs y enlace de evidencia | Resultados de consola disponibles en la revisión técnica; captura de despliegue real pendiente. |
 
 
-![Deployment Evidence — pendiente ejecución del entorno](assets/images/chapter5/sprint1-deployment-evidence.png)
+![Configuración de despliegue prevista; ejecución del entorno pendiente](assets/images/chapter5/sprint1-deployment-evidence.png)
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.7. Team Collaboration Insights during Sprint
-Se conservarán contribuciones verificables por integrante. El registro se completará con tareas, commits/PR, revisiones, resultados y coordinación efectivamente realizada durante el Sprint.
+Se registran solamente contribuciones trazables por identidad Git, commit o PR. Las identidades técnicas que no estén confirmadas con un integrante no se asignan por inferencia.
 
 
 | Integrante | Aporte del Sprint | PR/commit o tarjeta | Revisión y evidencia |
 
 |---|---|---|---|
 
-| Jean Franck Loa Rojas | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+| Jean Franck Loa Rojas | Importación autorizada, rebranding, saneamiento de secretos/artefactos, verificación de backend/mobile/website y reconciliación documental. | Platform/Mobile/Website PR #1; commits `cb9c336`, `8c75add`, `de17b4b`. | Builds y suites descritos en 5.3.1.3. |
 
 | Anhelo Rodrigo Rocca Leon | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
 
-| Alexander Piero Fernandez Garfias | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+| Alexander Piero Fernandez Garfias | Existe evidencia Git con autor `Alexander` para corrección de sintaxis arquitectónica; la correspondencia personal debe confirmarse antes de la calificación individual. | `5f2e8c1`. | Commit de documentación. |
 
 | Sebastián De Las Casas Latour | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
 
 | Aldair Joaquin Ramos Aguirre | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
 
 
-La evidencia incluirá captura de contribuciones y referencias de trabajo y revisión. Los aportes se describirán por resultado concreto, relacionando desarrollo, pruebas, integración y documentación.
+Los commits arquitectónicos `5269cb8`–`c9ef0b9` fueron registrados por la identidad Git `Dostoyevsk1`. Su correspondencia con un integrante debe confirmarse antes de incorporarla al informe individual de desempeño.
 
 
-![Team Collaboration — pendiente evidencia real](assets/images/chapter5/sprint1-team-collaboration.png)
+**Captura de colaboración:** pendiente generar desde las contribuciones verificadas y la identificación confirmada de cada autor.
 
 <div style="page-break-after: always;"></div>
 
@@ -3189,7 +3179,7 @@ El tablero del Sprint representará tareas de backend C#, app móvil, pruebas, i
 ****Pendiente incorporar:**** enlace verificable, captura del estado del Sprint Review, fechas y tarjetas relacionadas con SB01–SB16 y US comprometidas. El estado de las tarjetas debe reflejar los avances comprobados; no se fija todo como Terminado a partir de este documento.
 
 
-![Sprint 1 Kanban — pendiente captura actual](assets/images/chapter5/sprint1-kanban-board.png)
+**Captura del Kanban de Sprint 1:** pendiente incorporar desde un tablero verificable.
 
 
 <div style="page-break-after: always;"></div>
@@ -3247,7 +3237,7 @@ Herramientas y convenciones del documento base:
 - Lucid Software. (s. f.). *Lucidchart*. [https://www.lucidchart.com/](https://www.lucidchart.com/).
 - UXPressia. (s. f.). *UXPressia*. [https://uxpressia.com/](https://uxpressia.com/).
 
-- **[R14] Informe de CargoSystem/CargoExpress aportado por el usuario.** Se utiliza exclusivamente como referencia de organización de pruebas (Core Entities Unit Tests, Core Integration Tests, Core BDD y Core System Tests), guías UI/UX y convenciones de código. Los integrantes, historias, reglas, bounded contexts, arquitectura, repositorios y resultados de ese proyecto pertenecen al documento de referencia.
+- **[R14] Proyecto predecesor reutilizado con autorización del compañero responsable.** Su historia se conserva en los commits de importación; las pruebas y el código se verifican nuevamente bajo los repositorios TrackTruck y no se atribuyen como desarrollo original del equipo actual.
 - **[R15] Microsoft Learn — C# coding conventions.** https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 - **[R16] Kotlin — Coding conventions.** https://kotlinlang.org/docs/coding-conventions.html
 - **[R17] Google — HTML/CSS Style Guide.** https://google.github.io/styleguide/htmlcssguide.html
@@ -3311,11 +3301,11 @@ Los casos críticos TC18–TC27 complementan la comprobación de integraciones y
 | 3.4 | Prioridad, estimaciones y compromiso real de Sprints. | Revisar capacidad, dependencias y evidencia de estados. |
 | 4.1.3–4.1.5 | Contexto, vistas UML/C4 y ER por servicio. | Límites y referencias correctos; consistencia con migraciones/código. |
 | 4.3.1–4.3.5 | Vistas, revisión de decisiones y tableros ADD. | Modelos revisados y enlaces verificables. |
-| 5.1.1 | Suites y resultados ejecutados. | Casos, entorno, versión, reporte y defectos. |
-| 5.1.2–5.1.4 | Código, biblioteca y refactoring. | Clases/PR antes y después y tests correspondientes. |
-| 5.2.1–5.2.4 | Versiones exactas, repositorios y configuración. | README reproducible, commits y entorno identificado. |
+| 5.1.1 | Completado parcialmente: 326 unit tests, 96 integration tests y Gradle test aprobados; instrumented/E2E y BDD automatizado pendientes. | Añadir dispositivo/emulador, bindings BDD y flujo integrado solo cuando se ejecuten. |
+| 5.1.2–5.1.4 | Arquitectura actual contrastada; BuildingBlocks, eventos distribuidos y separación física permanecen como objetivo. | Incorporar clases/PR y tests cuando cada refinamiento sea implementado. |
+| 5.2.1–5.2.4 | Repositorios, commits y entorno local identificados; despliegue público no verificado. | Añadir tag, endpoint, configuración y evidencia de entorno cuando exista. |
 | 5.3.1.1 | Planificación y backlog aceptado. | Fechas, capacidad, responsables e historias del Sprint. |
-| 5.3.1.2–5.3.1.8 | Desarrollo, pruebas, ejecución, documentos, despliegue, colaboración y Kanban. | Evidencias reales del incremento C# y móvil. |
+| 5.3.1.2–5.3.1.8 | Desarrollo y pruebas locales reconciliados; E2E, despliegue, identificación completa de autores y Kanban siguen pendientes. | Evidencias reales del incremento C# y móvil. |
 
 <div style="page-break-after: always;"></div>
 
@@ -3341,10 +3331,11 @@ Cada figura se guarda bajo la ruta indicada en su sección y conserva su fuente 
 | Recurso | Enlace/estado |
 |---|---|
 | Organización del proyecto | [GitHub — organización registrada](https://github.com/1ASI0657-2620-15987-G4). |
-| Informe | [Repositorio/rama aportados](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai). |
-| Backend C# | Pendiente incorporar enlace real. |
-| App móvil | Pendiente incorporar enlace real. |
-| Biblioteca BuildingBlocks | Pendiente incorporar ruta o repositorio y versión real. |
+| Informe | [tracktruck-report — develop](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/develop). |
+| Backend C# | [tracktruck-platform — develop](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/develop). |
+| App móvil | [tracktruck-mobile — develop](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/tree/develop). |
+| Landing page | [tracktruck-website — develop](https://github.com/1ASI0657-2620-15987-G4/tracktruck-website/tree/develop). |
+| Biblioteca BuildingBlocks | Arquitectura objetivo; no implementada en el incremento actual. |
 | Product Backlog | [Invitación registrada de Trello](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello). Revisar acceso para evidencia. |
 | Iteración ADD 1 | [Tablero registrado](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚). Actualizar nombre/alcance. |
 | Iteraciones ADD 2–5 | Pendiente incorporar enlaces verificables. |
