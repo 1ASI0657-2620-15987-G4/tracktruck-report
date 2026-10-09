@@ -2120,7 +2120,6 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 | Aprobación | El responsable confirma una alternativa válida con reservas compatibles. | Pendiente revisión y evidencia |
 | Fallback | El modo básico está identificado y no omite validaciones. | Pendiente revisión y evidencia |
 
-El tablero de esta iteración seguirá ADB17–ADB25 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
 
 ![Kanban — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-kanban.png)
@@ -2378,7 +2377,7 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 
 El tablero de esta iteración seguirá ADB35–ADB42 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-![Kanban — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-kanban.png)
+![Kanban — Iteración 5](assets/images/chapter4/iteration5-kanban.png)
 
 
 
@@ -2394,541 +2393,667 @@ La vista general se actualizará con los 17 contextos, la app Android, los servi
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
-## 5.1. Testing Suites & General Patterns
+# Capítulo V: Product Implementation, Validation & Deployment
 
-Las suites acompañarán la implementación de los servicios C# y la app móvil. El plan cubre reglas del dominio, casos de uso, endpoints, persistencia, eventos, adaptadores, interfaz móvil y flujo integrado. Las pruebas se seleccionan según criterios de aceptación y riesgo del incremento.
+## 5.1. Testing Suites & General Patterns
+Las suites acompañarán la implementación de los servicios C# y la app móvil. Esta sección es un plan de verificación de TrackTruck: las ejecuciones de CargoExpress se utilizan exclusivamente como referencia metodológica y no se presentan como resultados de TrackTruck. El plan cubre reglas del dominio, casos de uso, endpoints, persistencia, eventos, adaptadores, interfaz móvil y flujo integrado. Las pruebas se seleccionan según criterios de aceptación y riesgo del incremento.
+
 
 Los apartados siguientes definen el trabajo requerido y los registros que se completarán. Cada evidencia incluirá versión de código, entorno, comando o procedimiento, casos ejecutados, resultado esperado y observado y defectos pendientes. La revisión de las vistas arquitectónicas se documenta en ADD; las evidencias de software se obtienen ejecutando los componentes implementados.
 
+<div style="page-break-after: always;"></div>
+
 ### 5.1.1. Backend Application Core Testing Suite
-
 #### Niveles y herramientas
-
 | Nivel | Alcance | Herramienta o enfoque | Evidencia |
+
 |---|---|---|---|
-| Unitario del dominio | Value Objects, agregados, transiciones y reglas. | xUnit para C# y datos de prueba explícitos [R10]. | Casos y reporte del runner. |
+
+| Unitario del dominio | Value Objects, agregados, transiciones y reglas. | xUnit para C# y datos de prueba explícitos . | Casos y reporte del runner. |
+
 | Casos de uso | Commands/queries y resultados de validación. | xUnit y dobles de puertos para aislar la regla. | Resultado y dependencias sustituidas identificadas. |
-| Integración de API | Autenticación, autorización, contrato HTTP y handlers. | WebApplicationFactory y Microsoft.AspNetCore.Mvc.Testing [R02]. | Solicitud, respuesta y reporte automatizado. |
-| Persistencia | Migraciones, índices, restricciones y concurrencia. | PostgreSQL de prueba aislado, con el mismo proveedor previsto del servicio. | Versión y configuración del motor y casos ejecutados. |
+
+| Integración de API | Autenticación, autorización, contrato HTTP y handlers. | WebApplicationFactory y Microsoft.AspNetCore.Mvc.Testing . | Solicitud, respuesta y reporte automatizado. |
+
+| Persistencia | Migraciones, índices, restricciones y concurrencia. | Motor relacional de prueba aislado y equivalente al proveedor efectivamente usado por cada servicio (PostgreSQL si se confirma). | Versión y configuración del motor y casos ejecutados. |
+
 | Contratos y eventos | Esquemas, errores, versiones, Outbox/Inbox y duplicación. | Pruebas de contrato, consumidores y broker de prueba. | Eventos y efectos registrados. |
+
 | Adaptadores | Mapas, IA, pagos y comprobantes. | Respuestas controladas y sandbox identificado. | Entradas, salidas y tratamiento de falla. |
-| App móvil | ViewModel, estado, navegación, validación e interacción. | Pruebas locales Kotlin y pruebas de UI de Compose [R05]. | Reportes y dispositivo/emulador utilizado. |
+
+| App móvil | ViewModel, estado, navegación, validación e interacción. | Pruebas locales Kotlin y pruebas de UI de Compose . | Reportes y dispositivo/emulador utilizado. |
+
 | BDD | Comportamiento expresado en Given/When/Then y automatización de escenarios. | Gherkin y runner a registrar al implementarlo. | Feature, steps y resultado trazado a la historia. |
+
 | End-to-end | App → API C# → datos y flujo entre servicios del incremento. | Escenario reproducible en el entorno de revisión. | Video/capturas y datos persistidos correlacionados. |
+
 | Atributos de calidad | QAS01–QAS09 aplicables al incremento. | Carga, fallas controladas, acceso y concurrencia. | Métricas y límites del ensayo. |
 
 <div style="page-break-after: always;"></div>
 
+
 #### 5.1.1.1. Core Entities Unit Tests
 
-Las pruebas unitarias se organizan con xUnit, tomando de la referencia la presentación por entidad y por escenario [R14]. En TrackTruck deben comprobar invariantes, transiciones y resultados de dominio de forma aislada. Las operaciones que consultan una base de datos se evaluarán en la suite de integración.
+Las pruebas unitarias del backend de TrackTruck permiten verificar de forma aislada las reglas de negocio, validaciones y comportamientos definidos en sus entidades y agregados. Para su ejecución se utiliza xUnit en los componentes C# que cuentan con pruebas implementadas.
 
-Los métodos utilizarán el formato `Method_Scenario_ExpectedOutcome`, con Arrange, Act y Assert, datos explícitos y casos independientes. `[Fact]` identifica un escenario y `[Theory]` permite comprobar combinaciones y límites. La tabla define nombres y resultados previstos; su ejecución y las clases definitivas están pendientes.
+**Alert Unit Tests**
 
-| Contexto | Prueba propuesta | Resultado esperado |
-|---|---|---|
-| Identity & Access | `Authorize_UserWithoutPermission_ReturnsDenied` | Rechazar una operación sin permiso. |
-| Customer Management | `CreateCustomer_MissingRequiredData_ReturnsValidationError` | No crear un cliente incompleto. |
-| Shipment Management | `CreateShipment_NonPositiveQuantity_ReturnsValidationError` | Rechazar una cantidad inválida. |
-| Warehouse Operations | `PrepareCargo_QuantityExceedsAvailable_ReturnsConflict` | No preparar más mercancía que la disponible. |
-| Fleet Management | `RegisterVehicle_NonPositiveCapacity_ReturnsValidationError` | Rechazar capacidad inválida. |
-| Maintenance Management | `EvaluateVehicle_CriticalMaintenanceRestriction_ReturnsUnavailable` | Mantener la restricción técnica. |
-| Workforce Management | `CheckAvailability_OverlappingAbsence_ReturnsUnavailable` | Reflejar la ausencia en el intervalo solicitado. |
-| Time & Attendance | `RegisterWorkInterval_OverlappingEntry_ReturnsConflict` | Evitar intervalos superpuestos. |
-| Driver Safety & Compliance | `EvaluateEligibility_ProjectedHoursExceedConfiguredLimit_ReturnsIneligible` | Rechazar según la política configurada y registrar motivos. |
-| Dispatch Planning | `BuildPlan_IneligibleCandidate_ExcludesCandidate` | Excluir recursos que incumplen reglas obligatorias. |
-| Trip Execution | `StartTrip_AlreadyCompleted_ReturnsInvalidTransition` | Rechazar el inicio de un viaje finalizado. |
-| Tracking & Geolocation | `CreatePosition_LatitudeOutOfRange_ReturnsValidationError` | Rechazar coordenadas fuera de rango. |
-| Incident Management | `ResolveIncident_AlreadyResolved_PreservesResolvedState` | Evitar una transición contradictoria. |
-| Delivery Management | `ConfirmDelivery_QuantityExceedsPending_ReturnsValidationError` | Rechazar una cantidad superior a la pendiente. |
-| Billing & Payments | `CalculateAmount_NegativePrice_ReturnsValidationError` | Rechazar precio inválido. |
-| Operational History | `CreateHistoryEntry_MissingEventId_ReturnsValidationError` | Exigir identidad del evento. |
-| Reporting & Analytics | `CalculateIndicator_EmptyDataset_ReturnsNoData` | Mostrar ausencia de datos de acuerdo con la fórmula definida. |
+Las pruebas de alertas comprueban el registro y las reglas asociadas a las incidencias del transporte.
 
-Los dobles sustituyen puertos externos en pruebas del caso de uso. Las pruebas del modelo de IA separan preprocesamiento, inferencia y evaluación; la precisión se mide con viajes reservados para evaluación, sin reutilizar el conjunto de entrenamiento como evidencia de calidad.
+![Alert Unit Tests](assets/images/chapter5/tests/alert-unit-tests.png)
 
 <div style="page-break-after: always;"></div>
 
+**Expense Unit Tests**
+
+Las pruebas de gastos verifican las operaciones y validaciones relacionadas con los importes registrados durante los viajes.
+
+![Expense Unit Tests](assets/images/chapter5/tests/expense-unit-tests.png)
+
+<div style="page-break-after: always;"></div>
+
+**Ongoing Trip Unit Tests**
+
+Las pruebas de viajes comprueban las reglas y los estados relacionados con la ejecución de viajes.
+
+![Ongoing Trip Unit Tests](assets/images/chapter5/tests/ongoing-trip-unit-tests.png)
+
+<div style="page-break-after: always;"></div>
+
+**User Unit Tests**
+
+Las pruebas de usuarios permiten validar las reglas de creación y los datos obligatorios de las cuentas.
+
+![User Unit Tests](assets/images/chapter5/tests/user-unit-tests.png)
+
+
+
+<div style="page-break-after: always;"></div>
+
+
+
 #### 5.1.1.2. Core Integration Tests
 
-Se toma de la referencia el uso de una base de pruebas común y los escenarios de creación, consulta, modificación y recurso inexistente. La implementación propuesta de `IntegrationTestBase` preparará la API C#, datos aislados y limpieza determinística. `WebApplicationFactory` permitirá comprobar HTTP, middleware, autorización y persistencia [R02]. El motor de prueba será PostgreSQL cuando corresponda al servicio [R08].
+Las pruebas de integración tienen como objetivo verificar que los distintos componentes del backend interactúen correctamente, incluyendo controladores, servicios, repositorios y bases de datos. Estas pruebas permiten evaluar el comportamiento de las operaciones principales del sistema y comprobar el manejo adecuado de solicitudes válidas e inválidas.
 
-| Suite/caso propuesto | Comprobación |
+Para TrackTruck, se consideran escenarios relacionados con la gestión de viajes, usuarios y vehículos, tomando como referencia la organización de pruebas del backend desarrollado con ASP.NET Core y C#.
+
+**Integration Test Base**
+
+Se contempla una configuración compartida para preparar el entorno de pruebas, inicializar dependencias y ejecutar escenarios de integración de manera controlada. Esta estructura facilita la reutilización de configuraciones y el aislamiento de los casos.
+
+**Trip Integration Tests**
+
+Las pruebas de integración de viajes permiten comprobar las operaciones de registro, consulta y actualización, además del tratamiento de identificadores inexistentes.
+
+| Prueba | Comportamiento esperado |
 |---|---|
-| `CustomerIntegrationTests.CreateCustomer_WithValidData_ShouldSucceed` | Alta autorizada, respuesta y consulta posterior coherentes. |
-| `ShipmentIntegrationTests.GetShipmentById_WithUnknownId_ReturnsNotFound` | Contrato HTTP de recurso inexistente, sin información ajena. |
-| `FleetIntegrationTests.UpdateVehicle_WithValidData_ShouldPersistChange` | Cambio válido y persistencia posterior. |
-| `TripIntegrationTests.CreateTrip_WithApprovedPlan_ShouldSucceed` | Creación desde un plan válido, referencias y estado inicial. |
-| `TripIntegrationTests.GetAllTrips_WithAuthorizedScope_ReturnsOwnTrips` | Consultar únicamente el ámbito permitido. |
-| `DispatchIntegrationTests.ApprovePlan_WithConcurrentReservation_ReturnsConflict` | Una aprobación efectiva y conflicto de disponibilidad. |
-| `TrackingIntegrationTests.SubmitPosition_WithDuplicateReportId_PersistsOnce` | Deduplicación y orden por fecha de captura. |
-| `HistoryIntegrationTests.ConsumeEvent_WithDuplicateEventId_RecordsOnce` | Historial consolidado sin duplicar el evento. |
-| `DeliveryIntegrationTests.ConfirmDelivery_WithValidEvidence_PersistsOutcome` | Resultado, cantidades y evidencia consistentes. |
+| `CreateTrip_WithValidData_ShouldSucceed` | Registrar correctamente un viaje con datos válidos. |
+| `GetAllTrips_ShouldReturnMultipleTrips` | Recuperar los viajes registrados dentro del ámbito autorizado. |
+| `UpdateTrip_ShouldSucceed` | Actualizar correctamente los datos permitidos de un viaje. |
+| `GetTripById_WithInvalidId_ShouldReturnNull` | Comprobar el resultado definido para un identificador inexistente. |
 
-Los repositorios pueden representar una ausencia con un valor vacío según su contrato; la API debe convertirla en la respuesta HTTP documentada. La autenticación de prueba y los adaptadores simulados se identificarán expresamente. Una prueba HTTP con proveedores sustituidos acredita ese alcance; el flujo integrado se verifica con los componentes efectivamente conectados.
+![Trip Integration Tests](assets/images/chapter5/tests/trip-integration-tests.png)
+
+**User Integration Tests**
+
+Estas pruebas permiten comprobar la creación, consulta y actualización de usuarios, así como el tratamiento de registros inexistentes.
+
+| Prueba | Comportamiento esperado |
+|---|---|
+| `CreateUser_WithValidData_ShouldSucceed` | Registrar un usuario con información válida. |
+| `GetAllUsers_WithMultipleUsers_ShouldReturnAll` | Recuperar los usuarios que correspondan al ámbito autorizado. |
+| `UpdateUser_WithValidData_ShouldSucceed` | Actualizar los datos permitidos de un usuario. |
+| `GetUserById_WithInvalidId_ShouldReturnNull` | Comprobar el comportamiento frente a un identificador inexistente. |
+
+**Vehicle Integration Tests**
+
+Las pruebas de integración de vehículos verifican el registro, consulta y actualización de los vehículos utilizados en las operaciones logísticas. También contemplan consultas con identificadores inexistentes.
+
+| Prueba | Comportamiento esperado |
+|---|---|
+| `CreateVehicle_WithValidData_ShouldSucceed` | Registrar un vehículo válido. |
+| `GetAllVehicles_ShouldReturnMultipleVehicles` | Recuperar los vehículos registrados según los permisos del usuario. |
+| `UpdateVehicle_ShouldSucceed` | Actualizar correctamente los datos permitidos de un vehículo. |
+| `GetVehicleById_WithInvalidId_ShouldReturnNull` | Comprobar el tratamiento de un vehículo inexistente. |
+
+![Vehicle Integration Tests](assets/images/chapter5/tests/vehicle-integration-tests.png)
+
+**Resultados y evidencias**
+
+Los escenarios descritos constituyen una referencia de pruebas de integración para los componentes correspondientes de TrackTruck. Los resultados efectivos deberán verificarse utilizando el código y el entorno de pruebas del proyecto, identificando las operaciones ejecutadas, las respuestas obtenidas y los posibles errores.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.1.1.3. Core Behavior-Driven Development
 
-Se adopta Gherkin para expresar comportamientos de negocio con `Given`, `When` y `Then`, siguiendo la estructura BDD de la referencia. Cada escenario se vincula a una historia de TrackTruck. Los step definitions, el runner y el reporte se documentarán cuando se implemente la automatización.
+Las pruebas basadas en comportamiento (Behavior-Driven Development, BDD) permiten verificar que las funcionalidades del sistema respondan a los requisitos del negocio y a los escenarios definidos para los usuarios.
 
-**Plantillas de escenarios; ejecución pendiente:**
+Para TrackTruck se toma como referencia la utilización de Gherkin, que permite describir el comportamiento esperado mediante las estructuras Given (Dado), When (Cuando) y Then (Entonces). Estos escenarios facilitan la comprensión de los requisitos y la trazabilidad entre las historias de usuario y las pruebas funcionales.
 
-```gherkin
-Feature: Aprobar un despacho con recursos aptos
-  Scenario: Aprobar una alternativa disponible
-    Given un envio preparado de mi organizacion
-      And un conductor elegible y un vehiculo disponible para el intervalo
-      And una alternativa de planificacion presentada al coordinador autorizado
-    When el coordinador aprueba esa alternativa
-    Then se confirma una reserva de conductor y vehiculo
-      And el plan queda aprobado con sus motivos registrados
-      And puede generarse el viaje programado desde el plan aprobado
-```
+La planificación de las pruebas BDD considera las principales operaciones de gestión logística, autenticación, seguimiento de viajes, administración de recursos y auditoría.
 
-```gherkin
-Feature: Aplicar restricciones de jornada a la planificacion
-  Scenario: Rechazar una asignacion que excede el limite configurado
-    Given una politica de prueba con limite diario de 14 horas totales
-      And un conductor con 8 horas ordinarias y 4 horas adicionales registradas
-    When se evalua una asignacion de 3 horas para el mismo dia
-    Then el conductor se considera no elegible por proyectar 15 horas
-      And la recomendacion de IA no puede seleccionar al conductor
-```
+**Escenarios de prueba BDD**
 
-```gherkin
-Feature: Consultar el seguimiento de un envio autorizado
-  Scenario: Impedir la consulta de un envio de otro cliente
-    Given un cliente autenticado con acceso a sus propios envios
-      And un envio que pertenece a otro cliente
-    When intenta consultar el seguimiento de ese envio
-    Then la API deniega la consulta segun su contrato
-      And la app muestra un mensaje comprensible sin revelar los datos ajenos
-```
+| Área funcional | Escenarios considerados |
+|---|---|
+| Gestión de usuarios | Gestión de usuarios, registro de usuario y login. |
+| Gestión de viajes | Registro de nuevo viaje, modificación de viaje y visualización de detalles. |
+| Gestión de gastos | Registro de gastos y consulta de gastos de viaje. |
+| Gestión de flota | Registro de conductor, registro de vehículo, visualización de conductores y vehículos. |
+| Seguimiento y alertas | Alertas de viaje y visualización de viajes del empresario. |
+| Portal del cliente | Visualización de viajes del cliente. |
+| Auditoría | Auditoría de viajes y registro de cambios relevantes. |
 
-El límite de jornada del ejemplo es un dato configurable del caso de prueba. Los escenarios positivos también comprobarán descanso, disponibilidad, mantenimiento y permisos. Las recomendaciones, errores y reintentos tendrán escenarios propios según las historias del Sprint.
+**Evidencia de escenarios BDD**
+
+Se consideran como ejemplos representativos los escenarios de registro de viajes, autenticación de usuarios y auditoría de operaciones. Su validación permite comprobar el comportamiento esperado de funcionalidades relacionadas con los procesos centrales de TrackTruck.
+
+**Registro de nuevo viaje**
+
+Este escenario verifica que un usuario autorizado pueda registrar un viaje con los datos requeridos, respetando las validaciones y condiciones definidas por el negocio.
+
+![Escenario BDD de registro de viaje](assets/images/chapter5/tests/bdd-scenario-register-trip.png)
+
+**Login**
+
+Este escenario comprueba el comportamiento del acceso a la aplicación, incluyendo la validación de credenciales y el tratamiento de solicitudes de autenticación.
+
+![Escenario BDD de autenticación](assets/images/chapter5/tests/bdd-scenario-login.png)
+
+**Auditoría de viajes**
+
+Este escenario considera la consulta del historial de cambios relevantes, permitiendo comprobar la trazabilidad de las operaciones realizadas sobre los viajes.
+
+![Escenario BDD de auditoría](assets/images/chapter5/tests/bdd-scenario-trip-audit.png)
+
+**Resultados y evidencias**
+
+Los escenarios descritos permiten estructurar la validación funcional del sistema. Para acreditar su ejecución en TrackTruck se deberán incorporar los archivos Gherkin, las implementaciones de los pasos de prueba, el resultado del runner y las referencias al código correspondiente.
+
+Las evidencias procedentes de proyectos de referencia se utilizarán únicamente como modelo documental y no como resultados ejecutados de TrackTruck.
 
 <div style="page-break-after: always;"></div>
+
 
 #### 5.1.1.4. Core System Tests
 
-Se adopta la presentación de pruebas de sistema por historia y flujo de usuario de la referencia. Para la app Android con Kotlin/Jetpack Compose se utilizarán pruebas instrumentadas con Compose UI Test [R05]. Espresso se utilizará cuando existan componentes basados en Android Views o pruebas de una interfaz mixta [R18]. Las pruebas de ViewModel y repositorio local complementarán estas verificaciones.
+Las pruebas de sistema permiten evaluar el funcionamiento de TrackTruck desde la perspectiva del usuario, comprobando la interacción entre la aplicación móvil, sus interfaces y los servicios del backend.
+
+Para la aplicación Android desarrollada con Kotlin y Jetpack Compose, se contempla la utilización de Compose UI Test para las pruebas instrumentadas de interfaz. Espresso podrá utilizarse cuando existan componentes Android Views. Estas pruebas se complementan con verificaciones de ViewModel, repositorios y servicios.
+
+**Flujos funcionales considerados**
 
 | Flujo TrackTruck | Trazabilidad | Comprobación de sistema |
 |---|---|---|
-| Iniciar sesión y consultar operaciones autorizadas. | US46–US47; TC01, TC24 | Credenciales, sesión, carga, permisos, error y respuesta de la API real del entorno. |
-| Crear/consultar viaje e iniciar/finalizar su recorrido autorizado. | US10, US13, US27–US28; TC11, TC26 | Acciones visibles, transición persistida y mensajes coherentes. |
-| Reportar ubicación y recuperar conectividad. | US14, US72; TC12, TC21 | Reporte pendiente, reenvío seguro y fecha de captura correctamente mostrada. |
-| Registrar y consultar una incidencia. | US18–US19; TC13 | Datos, confirmación y acceso al viaje permitido. |
-| Confirmar entrega total, parcial o fallida. | US74–US75; TC14 | Cantidades, evidencia, resultado y cierre de la operación según sus reglas. |
-| Consultar historial propio y denegar acceso ajeno. | US79; TC16, TC27 | Cronología, origen y alcance autorizado. |
+| Inicio de sesión | US46–US47; TC01, TC24 | Validación de credenciales, permisos, sesión y respuestas del sistema. |
+| Registro y consulta de viajes | US10, US13, US27–US28; TC11, TC26 | Registro, visualización de información y transiciones de estado. |
+| Seguimiento de viajes | US14, US72; TC12, TC21 | Visualización de posiciones, estados y recuperación de conectividad. |
+| Gestión de incidencias | US18–US19; TC13 | Registro y consulta de incidencias asociadas a viajes autorizados. |
+| Confirmación de entregas | US74–US75; TC14 | Resultado de entrega, cantidades y evidencias correspondientes. |
+| Auditoría de operaciones | US79; TC16, TC27 | Consulta del historial y trazabilidad de cambios. |
 
-La ejecución registrará commit/backend, build y APK de la app, dispositivo o emulador, versión Android, datos, red y servicios utilizados. Se conservarán capturas o video y el reporte del runner. Los ensayos con API simulada se registrarán como pruebas de UI con dobles; la evidencia end-to-end incluirá backend y persistencia del incremento.
+**Evidencia de registro de nuevo viaje**
 
-Las verificaciones de la landing comprobarán navegación por secciones, adaptación a pantallas, legibilidad, foco de teclado, validación y estados de contacto si el formulario se implementa. Se registrarán navegador, dimensiones, versión y resultado observado.
+Este escenario permite revisar el proceso de registro de viajes desde la interfaz móvil, considerando los campos requeridos, las validaciones y la respuesta presentada al usuario.
+
+![Registro de nuevo viaje](assets/images/chapter5/tests/bdd-register-trip.png)
+
+**Evidencia de inicio de sesión**
+
+Este escenario contempla el acceso de usuarios mediante credenciales y la visualización de los estados correspondientes al proceso de autenticación.
+
+![Inicio de sesión](assets/images/chapter5/tests/bdd-login.png)
+
+**Evidencia de auditoría de viajes**
+
+Este escenario considera la visualización de registros históricos y la trazabilidad de cambios asociados a las operaciones logísticas.
+
+![Auditoría de viajes](assets/images/chapter5/tests/bdd-trip-audit.png)
+
+**Resultados y validación**
+
+Las pruebas de sistema deberán registrar la versión de la aplicación, dispositivo o emulador, versión de Android, entorno de ejecución y resultados obtenidos.
+
+Cuando se utilicen servicios simulados, la evidencia deberá identificarse como prueba de interfaz. Para acreditar una prueba de extremo a extremo será necesario verificar la comunicación con el backend y la persistencia correspondiente.
+
+También se contempla la revisión de navegación, adaptación a diferentes tamaños de pantalla y mensajes de error de la aplicación.
 
 <div style="page-break-after: always;"></div>
+
 
 #### 5.1.1.5. Static Testing & Verification
 
-Se adapta de la referencia la revisión de convenciones, calidad, seguridad y PRs. En C# se configurarán analizadores y formato; en Android, lint y el análisis adoptado por el equipo; en la landing se revisarán estructura semántica, estilos y scripts. SonarQube podrá incorporarse si el equipo configura y documenta su uso.
+Las pruebas estáticas permiten evaluar la calidad, seguridad y mantenibilidad del código sin ejecutar la aplicación. En TrackTruck, estas verificaciones consideran el backend desarrollado con C#, la aplicación móvil Android con Kotlin y la landing page.
 
-La revisión comprobará nombres, responsabilidades, manejo de errores, consultas parametrizadas, secretos fuera del código y dependencias vigentes. La cobertura se reportará con herramienta, alcance y exclusiones; una meta de cobertura requiere acuerdo del equipo y casos significativos, y no acredita por sí sola la corrección del sistema.
+Se establecen criterios basados en Clean Code, Domain-Driven Design (DDD) y buenas prácticas de desarrollo para mantener un código organizado, legible y consistente.
 
-Cada PR indicará historia, cambio y validaciones, y recibirá revisión de otro integrante antes de integrar. **Pendiente:** configuración real, PRs, observaciones, resultados de análisis y correcciones. Las comprobaciones estáticas se complementan con las suites ejecutadas.
+**Criterios de verificación**
 
-<div style="page-break-after: always;"></div>
-
-#### Casos iniciales por contexto
-
-| ID | Contexto | Historias | Escenario y resultado esperado |
-| --- | --- | --- | --- |
-| TC01 | Identity & Access | US46–US52 | Acceso válido e inválido, expiración y permisos; rechazar acceso ajeno. |
-| TC02 | Customer Management | US01–US02, US53 | Organización y cliente válidos; entradas incompletas o consulta no autorizada. |
-| TC03 | Shipment Management | US54–US55 | Crear envío y aplicar transición válida; rechazar cantidades y estados inválidos. |
-| TC04 | Warehouse Operations | US56–US57 | Recepción y preparación consistentes; reintento no duplica cantidades. |
-| TC05 | Fleet Management | US03–US08, US23–US24 | Capacidad positiva y placa/licencia válidas; unicidad según organización. |
-| TC06 | Maintenance Management | US58–US59 | Kilometraje y restricciones; vehículo con restricción crítica no se declara apto. |
-| TC07 | Workforce Management | US60–US61 | Disponibilidad por intervalo; ausencia y conflictos se reflejan en la consulta. |
-| TC08 | Time & Attendance | US62–US64 | Intervalos, descansos y horas clasificadas sin superposición ni doble contabilización. |
-| TC09 | Driver Safety & Compliance | US65 | Horas del día más asignación prevista y descanso; decisión y motivos conforme a política. |
-| TC10 | Dispatch Planning | US09, US11–US12, US25, US66–US70 | Filtrar recursos, recomendar, aprobar y reservar; IA y fallback respetan restricciones. |
-| TC11 | Trip Execution | US10, US13, US17, US26–US29, US71 | SCHEDULED → IN_PROGRESS → COMPLETED o cancelación programada; rechazar transición inválida. |
-| TC12 | Tracking & Geolocation | US14–US16, US30–US34, US72–US73 | Coordenadas válidas, última posición por fecha, parada y motivo; muestras insuficientes no confirman parada. |
-| TC13 | Incident Management | US18–US19, US35–US37 | Registrar, consultar y atender incidencia propia; rechazar operación sobre viaje ajeno. |
-| TC14 | Delivery Management | US74–US75 | Entrega total, parcial o fallida con evidencia; cantidades coherentes y reintentos seguros. |
-| TC15 | Billing & Payments | US76–US78 | Importe, moneda, documentos y callbacks válidos; duplicados no producen doble efecto. |
-| TC16 | Operational History | US21–US22, US39–US42, US79 | Eventos de varias fuentes y reintentos; identidad y correlación conservadas una vez por eventId. |
-| TC17 | Reporting & Analytics | US43–US45, US80 | Indicadores con fórmula y filtros conocidos; período sin información se identifica. |
-
-<div style="page-break-after: always;"></div>
-
-#### Casos críticos de integración y calidad
-
-| ID | Trazabilidad | Escenario | Resultado esperado |
-| --- | --- | --- | --- |
-| TC18 | US69; QAS07 | Dos aprobaciones concurrentes reservan un conductor en intervalos incompatibles. | Una reserva confirmada y un conflicto; el reintento con la misma clave recupera el mismo resultado. |
-| TC19 | US62–US65; CON09 | 8 h ordinarias + 4 h adicionales + 3 h de trabajo planificado en el mismo día. | Se rechaza por proyectar 15 h. El caso de 14 h se comprueba como límite solo si también cumple descansos, disponibilidad y demás reglas. |
-| TC20 | US16; QAS02 | Muestras válidas demuestran inmovilidad durante 9 min 59 s y luego alcanzan 10 min. | No se confirma parada antes del umbral; se registra al cumplirlo. Ausencia de muestras no sustituye evidencia de inmovilidad. |
-| TC21 | US72; QAS08 | Reportes persisten sin red y llegan luego repetidos y fuera de orden. | Una sola persistencia por reportId; recordedAt determina la última posición; se registra receivedAt por separado. |
-| TC22 | US14; QAS04 | Reporte con latitud 91 o longitud fuera de rango. | El endpoint lo rechaza con el error documentado; no se persiste una coordenada inválida. |
-| TC23 | QAS01; QAS09 | El broker se interrumpe después de persistir un cambio y su Outbox. | Al recuperarse se publica el hecho pendiente; el consumidor deduplica un eventual reenvío. |
-| TC24 | US46–US47; QAS03 | Token vencido y renovación revocada después de logout. | El acceso vencido y la renovación revocada se rechazan; se comprueba la política real del token aún vigente. |
-| TC25 | US66; QAS06 | Modelo evaluado sobre viajes no usados para entrenarlo. | Se registra MAE, baseline, dataset/modelo y alcance de datos; se comprueba si se cumple la meta de utilidad. |
-| TC26 | US46, US10, US27–US28; CON02 | Flujo de app: acceso, consulta/creación de viaje autorizado, inicio y finalización. | La UI refleja las respuestas reales del backend y muestra error o conflicto de forma controlada. |
-| TC27 | US55, US79; QAS03 | Un cliente consulta un envío ajeno o un historial de otra organización. | La API restringe el acceso según contrato sin exponer datos del recurso. |
-
-Los TC son grupos de escenarios iniciales. El equipo deberá convertirlos en casos positivos, negativos y de límite con datos concretos según el incremento implementado. Las suites de contextos posteriores se ejecutarán cuando su código forme parte del Sprint; los casos de dependencias simuladas se reportarán como tales.
-
-<div style="page-break-after: always;"></div>
-
-#### Registro de resultados por completar
-
-| Campo | Valor a incorporar |
+| Área | Criterio |
 |---|---|
-| Fecha y responsable | Pendiente. |
-| Repositorio, rama, versión y commit | Pendiente. |
-| Suite y casos ejecutados | Pendiente. |
-| Comando/procedimiento y entorno | Pendiente. |
-| Resultado esperado y observado | Pendiente. |
-| Casos aprobados, fallidos y omitidos | Pendiente; registrar conteos reales. |
-| Cobertura, si se mide | Pendiente; indicar herramienta, alcance y exclusiones. |
-| Defectos y acciones | Pendiente. |
-| Archivo o enlace de evidencia | Pendiente. |
+| Backend C# | Convenciones de nombres, separación de responsabilidades, validaciones y manejo de errores. |
+| Aplicación Android | Arquitectura MVVM, buenas prácticas de Kotlin y revisión con Android Lint. |
+| Landing Page | HTML semántico, estilos consistentes y diseño responsive. |
+| Seguridad | Validación de entradas, protección de credenciales y revisión de dependencias. |
+| Revisión de código | Uso de Pull Requests para revisar los cambios antes de integrarlos. |
+
+Estas verificaciones se aplicarán durante el desarrollo y las revisiones de código, complementando las pruebas unitarias, de integración y de sistema.
 
 <div style="page-break-after: always;"></div>
+
 
 ### 5.1.2. Pattern Based Backend Application(s)
-
 Los servicios C# se construirán con los patrones y dependencias definidos en el capítulo IV. El informe conservará evidencia de su realización en clases, configuración y pruebas.
 
+
 | Elemento | Realización requerida | Evidencia de implementación |
+
 |---|---|---|
+
 | Domain | Agregados, entidades y Value Objects con invariantes. | Código y pruebas de dominio. |
+
 | Application | Commands, queries, handlers y puertos. | Caso de uso trazado a una US y pruebas del handler. |
+
 | Infrastructure | Repositorios EF Core, migraciones y adaptadores. | Implementación del puerto y prueba pertinente. |
+
 | API | Endpoints, contratos, autorización y errores. | OpenAPI y prueba HTTP sobre la API. |
+
 | CQRS | Separación de operaciones de cambio y consulta. | Clases de Application y autorización de consultas. |
+
 | Eventos | Outbox local, publicación, envelope e Inbox/deduplicación. | Falla/reintento y efecto único comprobado. |
+
 | Strategy de planificación | Motor IA y modo básico detrás de la misma interfaz. | Resultado de modelo, versión y caso de fallback. |
+
 | App móvil | Compose, ViewModel, casos de uso y repositorio de datos. | Pantalla conectada y prueba de estado/interacción. |
 
-**Organización propuesta de un servicio:**
+
+****Organización propuesta de un servicio:****
+
 
 ```text
+
 src/DispatchPlanning/
-  DispatchPlanning.Domain/
-  DispatchPlanning.Application/
-    Commands/
-    Queries/
-    Ports/
-  DispatchPlanning.Infrastructure/
-    Persistence/
-    Integrations/
-    Recommendations/
-  DispatchPlanning.Api/
+
+  DispatchPlanning.Domain/
+
+  DispatchPlanning.Application/
+
+    Commands/
+
+    Queries/
+
+    Ports/
+
+  DispatchPlanning.Infrastructure/
+
+    Persistence/
+
+    Integrations/
+
+    Recommendations/
+
+  DispatchPlanning.Api/
+
 tests/
-  DispatchPlanning.Domain.Tests/
-  DispatchPlanning.Application.Tests/
-  DispatchPlanning.IntegrationTests/
+
+  DispatchPlanning.Domain.Tests/
+
+  DispatchPlanning.Application.Tests/
+
+  DispatchPlanning.IntegrationTests/
+
 ```
+
 
 La organización se repetirá cuando resulte útil para cada servicio. La app se organizará por funcionalidades, con presentation, domain y data y componentes compartidos de UI. La estructura elegida deberá facilitar entender el caso de uso sin incorporar capas o abstracciones sin función concreta.
 
-<div style="page-break-after: always;"></div>
 
-**Evidencia pendiente:** rutas reales de clases, commits y captura/diagrama actualizado de los patrones aplicados.
+****Evidencia pendiente:**** rutas reales de clases, commits y captura/diagrama actualizado de los patrones aplicados.
+
 
 ![Pattern Based Backend Application — pendiente evidencia de código](assets/images/chapter5/pattern-based-backend-architecture.png)
 
 <div style="page-break-after: always;"></div>
 
+
 ### 5.1.3. Pattern Based Custom Software Library
 
-Se propone implementar **TrackTruck.BuildingBlocks**, una biblioteca técnica C# reutilizable por los servicios. Su alcance comprende contratos y utilidades técnicas comunes y mantiene los modelos de negocio dentro de sus propietarios.
+Para TrackTruck se propone desarrollar **TrackTruck.BuildingBlocks**, una biblioteca reutilizable en C# que permita compartir componentes técnicos entre los microservicios, evitando la duplicación de código y facilitando su mantenimiento.
 
-| Componente propuesto | Función | Patrón o convención | Prueba prevista |
-|---|---|---|---|
-| IntegrationEventEnvelope | Identidad, origen, esquema, versión, fechas y correlación de un hecho. | Contrato de integración / mensajería. | Serialización y validación de campos obligatorios. |
-| IClock y adaptador de reloj | Proporcionar un instante controlable a casos de uso. | Adapter e inyección de dependencia. | Pruebas determinísticas de expiración y límites temporales. |
-| CorrelationContext | Propagar identificación de una operación. | Convención de trazabilidad. | Conservar correlación entre solicitud y evento. |
-| PagedResult | Mantener un formato común para consultas paginadas. | Contrato técnico de respuesta. | Límites y metadatos de paginación. |
-| Abstracción de idempotencia | Permitir registrar y recuperar un resultado repetido. | Puerto y Adapter de almacenamiento. | Repetición recupera el mismo resultado dentro de su ámbito. |
+La biblioteca seguirá principios de Clean Architecture y contará con componentes comunes para el manejo de eventos, validaciones y trazabilidad.
 
-La biblioteca se realizará como proyecto Class Library .NET con tests propios y referencia controlada desde los servicios. Su identidad, versión, compatibilidad y distribución se documentarán en el repositorio. Las implementaciones que dependan de ASP.NET Core o EF Core se separarán de las abstracciones que utilice el dominio.
+| Componente | Función |
+|---|---|
+| IntegrationEventEnvelope | Estandarizar los eventos de integración. |
+| CorrelationContext | Identificar y relacionar operaciones. |
+| PagedResult | Estandarizar resultados paginados. |
+| Idempotency | Evitar efectos duplicados en operaciones repetidas. |
 
-Shipment, Driver, Vehicle, Employee, Trip, Invoice y sus reglas se conservarán en sus contextos. La biblioteca técnica no administrará reservas, jornada, precios ni modelos de entrenamiento. La compatibilidad del envelope no convierte en compartido el significado de cada evento, que conserva su propietario.
+Las reglas de negocio permanecerán dentro de sus respectivos bounded contexts. La implementación y las pruebas de esta biblioteca se documentarán cuando estén disponibles.
 
-**Pendiente incorporar:** proyecto real, componentes finalmente implementados, versión, pruebas ejecutadas y ejemplo de consumo por un servicio.
 
-![Custom Software Library — pendiente evidencia](assets/images/chapter5/pattern-based-custom-software-library.png)
 
 <div style="page-break-after: always;"></div>
 
 ### 5.1.4. Framework Pattern Driven Refactoring Report
 
-La revisión del informe documenta refinamientos del diseño: ampliación a 17 contextos, separación de jornada y elegibilidad, propiedad de datos, IA interna de Dispatch y distinción entre cierre del recorrido y entrega. El refactoring de software se reportará con el código anterior y posterior y sus pruebas.
+Se plantean los siguientes refinamientos para mantener la separación de responsabilidades del backend C# y la aplicación móvil de TrackTruck.
 
-| Problema a revisar en código | Cambio previsto | Patrón o principio | Evidencia para cerrar |
-|---|---|---|---|
-| Reglas de asignación dentro de un endpoint o de Fleet. | Llevar el caso de uso a Dispatch y la evaluación a Compliance. | DDD, Clean Architecture y responsabilidad única. | Archivo/commit antes y después y casos de elegibilidad. |
-| Commands dentro de Domain. | Ubicarlos en Application y mantener reglas en el agregado. | CQRS y separación de dependencias. | Compilación y prueba del caso de uso. |
-| Datos de otros servicios obtenidos por joins o FK cruzadas. | Usar contratos, referencias y proyecciones locales. | Autonomía de datos / ACL. | Migración y prueba de integración. |
-| Recomendación y restricciones mezcladas. | Separar filtro obligatorio y Strategy de recomendación. | Strategy y control de reglas. | Casos de IA y fallback con recursos inválidos. |
-| Llamadas a proveedores en el dominio. | Introducir puertos y adaptadores de Infrastructure. | Adapter / Clean Architecture. | Prueba del adaptador y error externo. |
-| Efectos duplicados por reintentos. | Registrar idempotencia y Outbox/Inbox. | Integridad de integración. | Caso de repetición y recuperación. |
-| Lógica de red o reglas críticas dentro de un Composable. | Llevar acceso a datos al repositorio y estado al ViewModel. | MVVM y flujo unidireccional. | Prueba de estado y pantalla conectada. |
+| Refinamiento previsto | Patrón o principio |
+|---|---|
+| Separar planificación, jornada y elegibilidad en sus contextos responsables. | DDD y responsabilidad única. |
+| Ubicar commands y queries en Application, conservando las reglas en Domain. | CQRS y Clean Architecture. |
+| Acceder a proveedores y otros servicios mediante interfaces y adaptadores. | Adapter y ACL. |
+| Separar las restricciones obligatorias de las recomendaciones de IA. | Strategy. |
+| Gestionar red y estado fuera de los Composables. | Repository y MVVM. |
+| Evitar efectos duplicados al procesar reintentos y eventos. | Idempotencia y Outbox/Inbox. |
 
-**Registro real de refactorización:** pendiente completar fecha, US, problema observado, archivos, PR/commit, comparación antes/después, tests ejecutados y resultado. Los cambios previstos se aceptarán como refactoring realizado cuando exista esa evidencia.
+**Evidencia pendiente:** archivos antes y después, historia relacionada, commit o PR y resultados de las pruebas correspondientes.
 
-![Refactoring Report — pendiente evidencia de código](assets/images/chapter5/framework-pattern-refactoring.png)
+![Evidencia de refactorización](assets/images/chapter5/framework-pattern-refactoring.png)
 
 <div style="page-break-after: always;"></div>
 
 ## 5.2. Software Configuration Management
-
 La configuración debe permitir reproducir el incremento de backend C# y app móvil, identificar sus fuentes y relacionar cada entrega con código y pruebas. Se describen decisiones de trabajo y campos que se completarán con la configuración real del equipo.
+
+
 
 ### 5.2.1. Software Development Environment Configuration
 
-| Área | Tecnología/herramienta propuesta | Configuración que deberá registrarse |
-|---|---|---|
-| Backend | C#, ASP.NET Core y .NET 10 LTS como base propuesta [R01]. | SDK/runtime y paquetes exactos en el repositorio; instrucciones de compilación. |
-| Persistencia | PostgreSQL y EF Core. | Versión del motor/proveedor, migraciones y conexión de cada servicio. |
-| Eventos | RabbitMQ como broker propuesto y Outbox/Inbox por servicio. | Versión, colas, rutas, persistencia, reintentos y mensajes no procesables. |
-| IDE de backend | Visual Studio, Rider o VS Code con soporte C#. | Herramienta utilizada por el equipo y requisitos del SDK. |
-| App móvil | Android Studio, Kotlin, Jetpack Compose y Material 3. | Android SDK, dispositivo de referencia y versiones compatibles del proyecto. |
-| Compilación Android | Gradle/Android Gradle Plugin y JDK compatibles. | Versiones fijadas del proyecto y procedimiento para generar APK. |
-| Pruebas backend | xUnit y herramientas de integración ASP.NET Core. | Runner, versiones, ubicación de suites y comandos. |
-| Pruebas móvil | Pruebas locales Kotlin y UI de Compose. | API de pruebas, emulador/dispositivo, API level y reportes. |
-| IA | ML.NET como opción propuesta para modelo supervisado. | Dataset, pipeline, variables, modelo, versión y métricas reales. |
-| API | OpenAPI y cliente HTTP para revisión. | Documento versionado y ejemplos de errores/autorización. |
-| Ejecución local | Docker y Compose para servicios del incremento, cuando se adopten. | Servicios, puertos, volúmenes y configuración del entorno de revisión. |
-| Gestión | Git, GitHub y Trello. | Repositorios, estrategia de ramas, historias y tableros. |
-| Diseño | Structurizr, PlantUML/Lucidchart y Miro. | Fuentes de diagramas, exportaciones y relación con el incremento. |
-| Documentación | Markdown. | Informe, contratos, README y evidencias por Sprint. |
+El entorno de desarrollo de TrackTruck contempla herramientas para la implementación del backend, la aplicación móvil, las pruebas y la gestión del código fuente. Se busca mantener una configuración organizada y reproducible entre los integrantes del equipo.
 
-Las tecnologías propuestas se confirmarán contra las dependencias reales del repositorio. La implementación y los ensayos registrarán la combinación exacta utilizada. El archivo `.NET` y las dependencias Android deberán permitir reproducir la compilación.
+| Área | Tecnologías y herramientas |
+|---|---|
+| Backend | C#, ASP.NET Core y Entity Framework Core. |
+| Base de datos | Motor relacional por confirmar según el repositorio. |
+| Aplicación móvil | Android Studio, Kotlin, Jetpack Compose y Material 3. |
+| Pruebas | xUnit para backend y Compose UI Test para Android. |
+| Integración y API | REST, JSON y OpenAPI. |
+| Arquitectura | DDD, Clean Architecture, CQRS y bounded contexts. |
+| Control de versiones | Git y GitHub. |
+| Gestión y diseño | Trello, Structurizr y PlantUML. |
+| Documentación | Markdown y README. |
+
+Las versiones del SDK, dependencias y herramientas utilizadas se registrarán de acuerdo con la configuración real de los repositorios.
+
+**Entorno de desarrollo del backend**
+
+![Configuración del backend](assets/images/chapter5/framework-pattern-refactoring.png)
+
+**Entorno de desarrollo de la aplicación Android**
+
+![Configuración de Android Studio](assets/images/chapter5/android-development-environment.png)
 
 <div style="page-break-after: always;"></div>
 
+
+
 ### 5.2.2. Source Code Management
 
-Se conserva la organización y el enlace del informe aportados en el documento base. Los repositorios de backend y app móvil deberán identificarse con enlaces propios y commits de las entregas.
+TrackTruck utiliza Git y GitHub para el control de versiones y la gestión colaborativa del código fuente. Los repositorios permiten organizar el backend, la aplicación móvil, la landing page y la documentación del proyecto.
 
-| Artefacto | Tecnología/contenido | Enlace y evidencia |
+**Repositorios del proyecto**
+
+| Repositorio | Descripción | Enlace |
 |---|---|---|
-| Report | Markdown, requisitos, arquitectura y evidencias. | [Enlace aportado del informe](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai). Pendiente registrar commit de esta revisión. |
-| Backend | Servicios C#, tests y biblioteca BuildingBlocks. | Pendiente incorporar enlace real y rama/commit del incremento. |
-| Mobile app | Android/Kotlin/Compose y tests móviles. | Pendiente incorporar enlace real y rama/commit del incremento. |
-| Landing page, si se presenta como artefacto del producto | Información pública del producto. | Pendiente incorporar enlace de repositorio y entrega. |
-| Library | Proyecto Class Library en el backend o repositorio propio si se separa. | Pendiente registrar ruta/enlace real y versión de consumo. |
+| Report | Informe, documentación y diagramas arquitectónicos. | [TrackTruck Report](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai) |
+| Backend | Servicios desarrollados con C# y ASP.NET Core. | [Repositorio pendiente](URL_BACKEND) |
+| Mobile App | Aplicación Android desarrollada con Kotlin y Jetpack Compose. | [Repositorio pendiente](URL_MOBILE) |
+| Landing Page | Página informativa de TrackTruck. | [Repositorio pendiente](URL_LANDING) |
 
-[Organización de GitHub registrada](https://github.com/1ASI0657-2620-15987-G4)
+**Organización GitHub:** [TrackTruck](https://github.com/1ASI0657-2620-15987-G4)
 
-**GitFlow.**
+**GitFlow**
+
+Se establece GitFlow como estrategia de organización de ramas para separar el desarrollo de funcionalidades, la integración y las versiones estables.
 
 | Rama | Propósito |
 |---|---|
-| main | Entregas estables con tag y evidencia. |
-| develop | Integración y comprobación del incremento. |
-| feature/* | Historia o cambio acotado relacionado con US/TC. |
-| release/* | Preparación y validación de una entrega. |
-| hotfix/* | Corrección urgente de una versión liberada. |
+| `main` | Versiones estables del proyecto. |
+| `develop` | Integración de funcionalidades desarrolladas. |
+| `feature/*` | Desarrollo de nuevas funcionalidades. |
+| `release/*` | Preparación de versiones. |
+| `hotfix/*` | Corrección de errores críticos. |
 
-Los cambios se integrarán mediante Pull Requests revisados, con historias relacionadas y pruebas pertinentes. El estado de cada repo se documentará según sus ramas reales, sin atribuirles una configuración que todavía no se haya aplicado.
+**Semantic Versioning**
 
-**Semantic Versioning.** Se utilizará `MAJOR.MINOR.PATCH` para artefactos de software y tags de entrega. Una incompatibilidad, funcionalidad compatible o corrección se documentará con su alcance. Las etiquetas del informe AV1/TB1 identifican entregables académicos y se relacionarán con tags y commits del software que respaldan.
+Se utilizará el formato `MAJOR.MINOR.PATCH` para identificar las versiones del software, diferenciando cambios incompatibles, nuevas funcionalidades y correcciones.
 
-**Conventional Commits.** Ejemplos de formato:
+**Conventional Commits**
+
+Los commits seguirán una estructura uniforme para identificar el tipo y alcance de los cambios.
 
 ```text
-feat(dispatch): add approved-plan resource reservations
-fix(tracking): ignore duplicate position reports
-test(compliance): cover projected daily work limit
-docs(report): align C# backend and mobile scope
+feat(trip): add trip creation
+fix(tracking): prevent duplicate positions
+test(fleet): add vehicle unit tests
+docs(report): update architecture documentation
 ```
 
-Los ejemplos no representan commits realizados. El equipo registrará los hashes y PR reales de cada incremento.
+Los cambios se integrarán mediante Pull Requests y revisiones de código. Las ramas y versiones utilizadas deberán corresponder a la configuración real de los repositorios.
 
 <div style="page-break-after: always;"></div>
 
 ### 5.2.3. Source Code Style Guide & Conventions
 
-Las guías de código toman como referencia las convenciones de backend .NET/C#, app Kotlin y organización de pruebas del documento aportado [R14]. Se aplican al dominio y a las dependencias arquitectónicas de TrackTruck. La configuración definitiva se registrará por repositorio y se verificará en los PRs.
+TrackTruck establece convenciones de codificación para mantener un código legible, organizado y consistente entre los integrantes del equipo. Estas prácticas se basan en Clean Code, Domain-Driven Design (DDD) y los patrones arquitectónicos definidos para cada componente.
 
 #### 5.2.3.1. Backend — .NET y C#
 
-| Elemento | Convención de TrackTruck |
+El backend utiliza convenciones de C# y una organización por capas para separar la lógica del dominio, los casos de uso y la infraestructura.
+
+| Elemento | Convención |
 |---|---|
-| Clases, métodos y propiedades públicas | PascalCase: `DispatchPlan`, `ApprovePlan`, `ScheduledAt`. |
-| Interfaces | Prefijo I: `ITripRepository`, `IEligibilityEvaluator`. |
-| Variables locales y parámetros | camelCase: `driverId`, `requestedInterval`. |
+| Clases y métodos | PascalCase: `TripService`, `CreateTrip`. |
+| Interfaces | Prefijo `I`: `ITripRepository`. |
+| Variables y parámetros | camelCase: `tripId`, `driverId`. |
 | Campos privados | `_camelCase`: `_tripRepository`. |
-| Nombres | Inglés, descriptivos y ligados al lenguaje del contexto; evitar abreviaturas ambiguas. |
-| Formato | Cuatro espacios; formato uniforme mediante configuración del repositorio. |
-| Cadenas | Comillas dobles y formato legible; secretos por configuración segura. |
-| Valores constantes | `const` para constantes de compilación; `readonly` para campos que se asignan en su inicialización o constructor. |
-| Documentación | Comentarios XML para contratos públicos cuando aporten información; explicar decisiones o restricciones que el nombre no expresa. |
-| Errores | Validación de entradas y errores de negocio explícitos; excepciones controladas, registros con correlación y respuestas HTTP coherentes. |
-| Operaciones de I/O | APIs asíncronas y cancelación propagada cuando corresponda. |
-| Dependencias | Domain, Application, Infrastructure y API según 4.1; casos de uso en Application y adapters en Infrastructure. |
+| Arquitectura | Separación en Domain, Application, Infrastructure y API. |
+| Código | Nombres descriptivos, validaciones y manejo adecuado de excepciones. |
 
-Las convenciones se contrastarán con la guía de C# de Microsoft [R15]. El formato de nombres no modifica los bounded contexts ni permite consultar directamente la base de otro servicio.
-
-<div style="page-break-after: always;"></div>
+Los servicios mantendrán las reglas de negocio dentro de sus bounded contexts, evitando dependencias directas entre los modelos de persistencia de diferentes servicios.
 
 #### 5.2.3.2. Mobile Application — Kotlin y Jetpack Compose
 
-| Elemento | Convención de TrackTruck |
-|---|---|
-| Clases e interfaces | PascalCase: `TripViewModel`, `TrackingRepository`. |
-| Funciones y propiedades ordinarias | camelCase: `loadTrip`, `isLoading`. |
-| Composables que representan UI | PascalCase: `TripScreen`, `DeliveryCard`. |
-| Constantes de nivel superior o companion | UPPER_SNAKE_CASE: `MAX_RETRY_COUNT`. |
-| Documentación | KDoc para APIs públicas o decisiones que requieren explicación. |
-| Presentación | MVVM, estado inmutable y flujo de eventos desde la UI al ViewModel. |
-| Concurrencia | Coroutines y Flow para red, datos y actualizaciones; manejo explícito de errores y ciclo de vida. |
-| Acceso al backend | Repositorio/adaptador HTTP con contratos JSON; URL según entorno y credenciales protegidas. |
-| Interfaz | Tema central con los tokens de 4.1.8; componentes reutilizables, etiquetas de accesibilidad y estados de carga/error. |
-| Organización | Funcionalidades con presentation, domain y data cuando corresponda; reglas críticas aplicadas también en el backend. |
+La aplicación móvil utiliza Kotlin y Jetpack Compose, siguiendo el patrón MVVM para separar la interfaz de usuario y la gestión del estado.
 
-Se seguirá la guía de Kotlin [R16]. La elección y versión del cliente HTTP se registrarán en la configuración real; la interfaz no accederá a las bases de los servicios.
+| Elemento | Convención |
+|---|---|
+| Clases | PascalCase: `TripViewModel`. |
+| Funciones y variables | camelCase: `loadTrips`, `isLoading`. |
+| Composables | PascalCase: `TripScreen`. |
+| Constantes | UPPER_SNAKE_CASE: `MAX_RETRY_COUNT`. |
+| Arquitectura | MVVM y separación de responsabilidades. |
+| Asincronía | Coroutines y Flow para operaciones asíncronas. |
+| Interfaz | Material 3, componentes reutilizables y estados de carga y error. |
+
+La aplicación mantendrá una estructura organizada por funcionalidades y accederá a los servicios del backend mediante contratos HTTP.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.2.3.3. Landing Page — HTML, CSS y JavaScript
 
-La landing mantendrá una estructura semántica con encabezados ordenados, navegación, contenido y pie. Las clases CSS utilizarán nombres descriptivos, estilos comunes y variables para color y espaciado. Los scripts estarán separados por responsabilidad y evitarán mezclar lógica operativa de la app con contenido comercial. Se configurarán formato, validación y recursos según la implementación elegida, tomando como referencia la guía HTML/CSS [R17].
-
-El diseño incluirá etiquetas de formularios, textos alternativos, navegación con teclado y adaptación al ancho disponible. El contenido de integrantes y servicios procederá del informe de TrackTruck. **Pendiente:** repositorio, stack final, configuración de formato y evidencia de revisión.
-
-#### 5.2.3.4. Tests, contratos y revisión
+La landing page seguirá convenciones de desarrollo web orientadas a la claridad, mantenibilidad y accesibilidad.
 
 | Elemento | Convención |
 |---|---|
-| Tests C# | `Method_Scenario_ExpectedOutcome`, Arrange/Act/Assert, independientes y reproducibles; suites unitarias e integración separadas. |
-| Tests móviles | Nombres que identifiquen acción, condición y resultado; separar pruebas locales e instrumentadas. |
-| BDD | Features y escenarios trazados a historias, precondiciones explícitas y resultado observable. |
-| HTTP | Recursos plurales, JSON camelCase y códigos de respuesta documentados. |
-| Eventos | Hechos en pasado; propietario, `schemaVersion`, `eventId` y correlación identificados. |
-| Persistencia | Convención consistente por servicio; FK locales y referencias externas diferenciadas. |
-| Revisión | Formatter/linter configurado, PR de alcance comprensible y evidencia del cambio. |
+| HTML | Uso de etiquetas semánticas y estructura organizada. |
+| CSS | Clases descriptivas, estilos reutilizables y variables de diseño. |
+| JavaScript | Funciones organizadas y separación de responsabilidades. |
+| Responsive | Adaptación a dispositivos móviles y de escritorio. |
+| Accesibilidad | Textos alternativos, contraste y navegación comprensible. |
 
-La evidencia deberá mostrar las herramientas y convenciones efectivamente aplicadas por el equipo. La estructura de pruebas de 5.1.1 y su ejecución en 5.3.1.3 se mantendrán alineadas con las historias del incremento.
+El diseño mantendrá la identidad visual definida para TrackTruck y conservará consistencia entre las distintas secciones de la página.
+
+#### 5.2.3.4. Tests, Contracts & Code Review
+
+Las pruebas y los contratos seguirán convenciones que faciliten su comprensión, ejecución y mantenimiento.
+
+| Elemento | Convención |
+|---|---|
+| Pruebas C# | Nombres `Method_Scenario_ExpectedOutcome` y patrón Arrange-Act-Assert. |
+| Pruebas Android | Pruebas locales e instrumentadas organizadas por funcionalidad. |
+| BDD | Escenarios Given, When y Then. |
+| API REST | JSON, códigos HTTP y contratos documentados. |
+| Code Review | Revisión de cambios mediante Pull Requests. |
+
+Estas convenciones se verificarán progresivamente durante la implementación y revisión de los Sprints.
 
 <div style="page-break-after: always;"></div>
 
-#### 5.2.4. Software Deployment Configuration
 
-La configuración de despliegue debe permitir levantar los servicios del incremento y conectar una app móvil identificada a la misma versión de contratos.
 
-| Componente | Configuración prevista | Evidencia/configuración a completar |
-|---|---|---|
-| API Gateway | Rutas hacia los servicios publicados y TLS en el entorno remoto. | Imagen/versión, rutas, endpoint y políticas reales. |
-| APIs C# | Contenedor o proceso independiente del servicio implementado. | Build, versión, health endpoint y variables del entorno. |
-| PostgreSQL | Almacenamiento privado y credenciales por servicio. | Bases, migraciones ejecutadas, persistencia y política de respaldo del entorno. |
-| Broker | Mensajes persistidos, consumidores y recuperación configurados. | Colas, rutas, reintentos y monitoreo. |
-| Modelo IA | Artefacto versionado consumido por Dispatch. | Referencia/checksum, configuración y resultado de carga. |
-| Proveedores | Mapas, pago y facturación mediante adaptadores. | Entorno, contrato y credenciales protegidas; sandbox identificado. |
-| Landing page | Publicación de la página informativa y sus recursos, cuando forme parte del incremento. | URL, commit, revisión responsive y resultado de navegación. |
-| App Android | APK firmado para el entorno de revisión y URL de API configurada. | Archivo, versión, build, hash y dispositivo probado. |
-| Registros y salud | Logs correlacionados y estado de componentes. | Captura de health y reconstrucción de una operación. |
 
-Los valores sensibles se proporcionarán mediante variables o secretos del entorno. El repositorio contendrá ejemplos sin credenciales reales y un README con orden de arranque, migraciones, configuración y comprobación del flujo.
+### 5.2.4. Software Deployment Configuration
 
-**Datos del entorno por completar:** proveedor/host, nombre de ambiente, fecha, endpoint, servicios y versiones, commit/tag, configuración de publicación y resultado de la prueba desde el APK. El diagrama se actualizará con los componentes realmente desplegados.
+La configuración de despliegue de TrackTruck tiene como objetivo permitir la ejecución del backend desarrollado con C# y ASP.NET Core, su conexión con la base de datos y la comunicación con la aplicación móvil Android.
 
-![Deployment Configuration — pendiente actualizar con el entorno real](assets/images/chapter5/software-deployment-configuration.png)
+El despliegue contempla la configuración de los servicios, las dependencias necesarias y los mecanismos de seguridad para garantizar el funcionamiento de la plataforma.
 
+| Componente | Configuración |
+|---|---|
+| Backend | Servicios ASP.NET Core con configuración independiente. |
+| Base de datos | Persistencia relacional y conexiones configuradas mediante variables de entorno. |
+| API | Endpoints REST para la comunicación con la aplicación móvil. |
+| Integraciones | Servicios externos configurados mediante adaptadores y credenciales protegidas. |
+| Aplicación móvil | APK Android desarrollado con Kotlin y conectado a los endpoints del backend. |
+| CI/CD | GitHub Actions para compilación y ejecución automatizada de pruebas, cuando esté configurado. |
+
+**Evidencia de despliegue**
+
+La evidencia deberá mostrar el estado del servicio publicado, su versión y la ejecución de las verificaciones correspondientes. Se distinguirán los componentes efectivamente desplegados de aquellos que todavía forman parte del diseño arquitectónico.
+
+![Software Deployment Configuration](assets/images/chapter5/software-deployment-configuration.png)
 
 <div style="page-break-after: always;"></div>
 
 ## 5.3. MicroServices Implementation
 
-La implementación se organiza mediante los tres Sprints del roadmap de 3.4. Cada Sprint entregará un incremento de backend C#, app móvil y pruebas conforme a su alcance acordado. Las iteraciones ADD proporcionan las decisiones de diseño y los Sprints documentan su realización en software.
+La implementación de TrackTruck se organiza en tres Sprints, siguiendo la planificación del proyecto. Cada Sprint contempla el desarrollo progresivo del backend, la aplicación móvil Android, las integraciones y las pruebas correspondientes.
+
+Las iteraciones ADD del Capítulo IV establecen las decisiones arquitectónicas, mientras que los Sprints permiten implementar y validar progresivamente las funcionalidades del sistema.
+
+<div style="page-break-after: always;"></div>
 
 ### 5.3.1. Sprint 1
+****Sprint Goal propuesto:**** construir un flujo operacional mínimo protegido que permita acceder a la app, consultar recursos, seleccionar y aprobar un plan válido, registrar e iniciar un viaje, consultar una ubicación y registrar una incidencia, con servicios C# ejecutables y pruebas del incremento.
 
-**Sprint Goal propuesto:** construir un flujo operacional mínimo protegido que permita acceder a la app, consultar recursos, seleccionar y aprobar un plan válido, registrar e iniciar un viaje, consultar una ubicación y registrar una incidencia, con servicios C# ejecutables y pruebas del incremento.
 
-**Fecha de inicio, fecha de fin y duración:** pendiente incorporar la planificación real.  
-**Capacidad disponible y responsables de tareas:** pendiente acordar en Sprint Planning.  
-**Historias comprometidas y versión:** pendiente confirmar contra la capacidad del equipo y los repositorios C# y móvil.
+****Fecha de inicio, fecha de fin y duración:**** pendiente incorporar la planificación real.  
 
-El objetivo incluye integración y comportamiento verificable. Las fuentes auxiliares todavía no implementadas podrán representarse con dobles identificados durante pruebas de componentes; el Sprint Review deberá indicar con claridad qué servicios, adaptadores y flujos están integrados realmente. Los porcentajes previos de avance se recalcularán sobre historias aceptadas y evidencia de esta implementación.
+****Capacidad disponible y responsables de tareas:**** pendiente acordar en Sprint Planning.  
+
+****Historias comprometidas y versión:**** pendiente confirmar contra la capacidad del equipo y los repositorios C# y móvil.
+
+
+El objetivo incluye integración y comportamiento verificable. Las fuentes auxiliares todavía no implementadas podrán representarse con dobles identificados durante pruebas de componentes; el Sprint Review deberá indicar con claridad qué servicios, adaptadores y flujos están integrados realmente. El plan de Sprints del equipo contempla aproximadamente 70 % del backend y una primera versión de la app en Sprint 1; dicho porcentaje es una declaración de avance y debe respaldarse con historias aceptadas, repositorios y evidencia verificable. Las características no entregadas se mantienen en el backlog para Sprints 2 y 3.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.1. Sprint Backlog 1
-
 Las siguientes tareas proponen trabajo concreto sobre el incremento. Las estimaciones en horas son iniciales y deben revisarse con los responsables y capacidad del Sprint; no representan horas ejecutadas. El estado se completará con la evidencia existente.
 
+
 | ID | Historias/driver | Tarea | Estimación inicial | Evidencia para cerrar | Estado documental |
+
 |---|---|---|---|---|---|
+
 | SB01 | ADB01–ADB09 | Actualizar arquitectura, responsabilidades y contratos para C# y móvil. | 6 h | Vistas/ADR revisados y fuentes versionadas. | Diseño actualizado; revisión pendiente. |
+
 | SB02 | CON01, CON03 | Preparar solución C#, proyectos, DI, compilación y runner de tests. | 6 h | Build y ejecución inicial de suites. | Pendiente contrastar evidencia. |
+
 | SB03 | US46–US52 | Implementar cuentas, acceso y políticas básicas de organización/rol. | 12 h | API, tests y flujo de login móvil. | Pendiente contrastar evidencia. |
+
 | SB04 | US03–US08 | Implementar registro y consulta de flota con persistencia. | 10 h | Endpoints, migraciones y casos válidos/invalidación. | Pendiente contrastar evidencia. |
+
 | SB05 | US09, US11–US12, US65 | Implementar planificación básica y contrato de elegibilidad inicial. | 12 h | Validaciones y fuentes identificadas; pruebas de recursos válidos e inválidos. | Pendiente contrastar evidencia. |
+
 | SB06 | US67, US69 | Implementar aprobación y reserva de recursos. | 8 h | Prueba de conflicto e idempotencia. | Pendiente contrastar evidencia. |
+
 | SB07 | US10, US26–US29 | Implementar viaje, inicio y finalización autorizados. | 10 h | Estados, persistencia y tests de transición. | Pendiente contrastar evidencia. |
+
 | SB08 | US14, US32 | Implementar ingestión, última posición y consulta de seguimiento. | 10 h | Reporte válido, fecha de captura y deduplicación. | Pendiente contrastar evidencia. |
+
 | SB09 | US18–US19 | Implementar registro y consulta de incidencias. | 6 h | API, persistencia y autorización del viaje. | Pendiente contrastar evidencia. |
+
 | SB10 | CON02 | Construir estructura MVVM, navegación, estado y pantallas móviles del incremento. | 12 h | APK y pantallas con estados de carga, vacío y error. | Pendiente contrastar evidencia. |
+
 | SB11 | US46, US10, US14, US18 | Conectar app con las API reales y manejar sesión y errores. | 12 h | Flujo end-to-end y capturas correlacionadas. | Pendiente contrastar evidencia. |
+
 | SB12 | TC01, TC05, TC09–TC13, TC18 | Ejecutar pruebas de dominio, casos de uso, API y persistencia aplicables. | 8 h | Reportes de suites y defectos tratados. | Pendiente resultado real. |
+
 | SB13 | TC24, TC26–TC27 | Ejecutar pruebas móviles y flujo integrado del Sprint. | 8 h | Reportes, dispositivo y video/capturas. | Pendiente resultado real. |
+
 | SB14 | 5.1.3 | Implementar los BuildingBlocks necesarios para el incremento. | 4 h | Proyecto, consumo y tests propios. | Pendiente contrastar evidencia. |
+
 | SB15 | CON04 | Preparar y ejecutar entorno de revisión del incremento. | 6 h | Configuración, health, endpoint y prueba desde APK. | Pendiente resultado real. |
+
 | SB16 | QAS04; QAS09 | Documentar contratos, eventos y evidencias del Sprint Review. | 6 h | OpenAPI, commits, resultados y tableros. | Pendiente incorporar evidencias. |
+
 
 El equipo podrá dividir, reasignar o reducir tareas antes de comprometer el Sprint. Las tareas SB05 y SB11 deben indicar qué dependencias usan servicios reales y cuáles utilizan datos controlados. La validación integrada de jornada, mantenimiento y la IA se amplía en Sprint 2; cada fuente simulada permanece identificada como dependencia pendiente.
 
+
 ![Sprint Backlog 1 — pendiente actualizar](assets/images/chapter5/sprint1-backlog-kanban.png)
 
-**Enlace de planificación/Sprint Backlog:** pendiente incorporar el tablero y las tarjetas correspondientes.
+
+****Enlace de planificación/Sprint Backlog:**** pendiente incorporar el tablero y las tarjetas correspondientes.
 
 <div style="page-break-after: always;"></div>
+
 
 #### 5.3.1.2. Development Evidence for Sprint Review
 
-Se completará con evidencia de código y cambios integrados para el Sprint. Cada captura se relacionará con una US y una revisión del repositorio; las vistas arquitectónicas se incluirán como soporte de las decisiones aplicadas.
+Durante el Sprint 1 de TrackTruck se contempla el desarrollo de los componentes principales del backend con C# y ASP.NET Core, junto con la primera versión de la aplicación móvil Android.
 
-| Área | Evidencia requerida | Datos/enlaces por completar |
-|---|---|---|
-| Backend C# | Agregado, handler, endpoint y repositorio del flujo implementado. | US, ruta de archivo, PR/commit y captura. |
-| Persistencia | Migraciones y datos creados por la API. | Servicio, versión y captura/consulta autorizada de prueba. |
-| Integración | Adaptador, eventos o llamadas entre servicios del incremento. | Contrato y fuente real/doble/sandbox. |
-| App Android | Compose, ViewModel y repositorio conectado a API. | US, pantalla, commit y captura. |
-| BuildingBlocks | Componentes usados por un servicio. | Proyecto, versión, tests y ejemplo de consumo. |
-| Arquitectura | Vistas C4/UML consistentes con ese código. | Diagrama, fecha y revisión. |
+La implementación sigue los bounded contexts definidos en el Capítulo IV, manteniendo separadas las responsabilidades del dominio, los casos de uso y la infraestructura.
 
-**Pendiente incorporar las evidencias de desarrollo.**
+| Componente | Desarrollo considerado |
+|---|---|
+| Identity & Access | Autenticación y control de acceso. |
+| Fleet Management | Gestión de conductores y vehículos. |
+| Trip Execution | Registro y administración de viajes. |
+| Tracking & Geolocation | Seguimiento y consulta de posiciones. |
+| Incident Management | Registro y consulta de incidencias. |
+| Mobile Application | Pantallas y navegación mediante Kotlin y Jetpack Compose. |
 
-![Development Evidence — pendiente captura real](assets/images/chapter5/sprint1-development-evidence.png)
+El avance de cada componente se verificará mediante los repositorios GitHub, las funcionalidades implementadas y los resultados de las pruebas correspondientes.
+
+**Repositorio backend:** [TrackTruck Backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform)
+
+**Repositorio móvil:** [TrackTruck Mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile)
 
 <div style="page-break-after: always;"></div>
 
-#### 5.3.1.3. Testing Suite Evidence for Sprint Review
 
+#### 5.3.1.3. Testing Suite Evidence for Sprint Review
 Se presentarán resultados por Core Entities Unit Tests, Core Integration Tests, Core BDD y Core System Tests, siguiendo 5.1.1. Para cada suite se identificarán historias, casos, datos, commit, comando, entorno, resultado y evidencias. Los reportes del documento de referencia sirven como modelo de presentación; los resultados de TrackTruck provendrán de sus propias ejecuciones.
+
 
 Se completará con reportes de ejecución de las suites del Sprint. El registro debe permitir repetir el ensayo y comprender sus límites.
 
+
 | Suite | Información que se debe registrar | Resultado |
+
 |---|---|---|
+
 | Dominio y Application C# | Proyecto, TC, comando, commit y datos de prueba. | Pendiente: aprobados/fallidos/omitidos reales. |
+
 | API y persistencia | Endpoints, autorización, motor de datos y dependencias sustituidas. | Pendiente. |
+
 | Contratos y eventos | Esquema, consumidor, idempotencia y recuperación ensayada. | Pendiente. |
+
 | App móvil | Tests, API level, dispositivo/emulador y build. | Pendiente. |
+
 | End-to-end | Pasos, servicios reales, datos controlados y observación. | Pendiente. |
+
 | Calidad | QAS aplicables, carga/falla preparada y métricas. | Pendiente. |
 
-Se anexarán reportes del runner, logs pertinentes y capturas. El resumen indicará fecha, responsable y defectos abiertos. Los conteos de aprobación y cobertura se obtendrán de la ejecución; no se reemplazan por una evaluación de diagramas.
 
-![Testing Suite Evidence — pendiente reporte real](assets/images/chapter5/sprint1-testing-evidence.png)
+
+![Testing Suite Evidence](assets/images/chapter5/sprint1-testing-evidence.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -2936,98 +3061,136 @@ Se anexarán reportes del runner, logs pertinentes y capturas. El resumen indica
 
 Se demostrará el flujo del incremento desde la app móvil hasta el backend C# y sus datos persistidos.
 
+
 | Paso de demostración | Evidencia a capturar |
+
 |---|---|
+
 | Acceder con usuario autorizado | Pantalla de acceso y resultado de autenticación del entorno. |
+
 | Consultar conductor y vehículo | Datos de prueba de la organización y fuente consultada. |
+
 | Seleccionar y aprobar plan válido | Resultado de elegibilidad, reserva y aprobación. |
+
 | Registrar e iniciar viaje | TripId, estado y fechas devueltos por la API. |
+
 | Enviar o recibir una ubicación | Origen real o simulado, reportId, recordedAt y ubicación consultada. |
+
 | Registrar incidencia | Formulario móvil y registro retornado por la API. |
+
 | Finalizar el recorrido | Estado COMPLETED y persistencia; entrega diferenciada según alcance. |
+
 | Ensayar un rechazo | Ejemplo de permiso insuficiente, estado inválido o reserva incompatible. |
 
-**Pendiente incorporar:** video o capturas ordenadas, build del APK, endpoints, commits y referencias de los datos de prueba. Las simulaciones de GPS y otras dependencias deberán figurar en la descripción del ensayo.
 
 ![Execution Evidence — pendiente ejecución real](assets/images/chapter5/sprint1-execution-evidence.png)
 
 <div style="page-break-after: always;"></div>
 
+
 #### 5.3.1.5. Microservices Documentation Evidence for Sprint Review
 
-Se documentarán los servicios efectivamente ejecutables del incremento. Cada ficha incluirá contexto propietario, casos de uso, endpoints, autenticación, errores, modelos de solicitud/respuesta, eventos y configuración.
+La arquitectura de TrackTruck organiza sus funcionalidades mediante bounded contexts con responsabilidades definidas. Durante el Sprint 1 se consideran los servicios necesarios para gestionar usuarios, flotas, viajes, seguimiento e incidencias.
 
-| Servicio del incremento propuesto | Documentación requerida | Estado |
-|---|---|---|
-| IdentityService | Login, renovación/logout, cuentas y permisos; expiración y revocación aplicadas [R09]. | Pendiente contrato y evidencia del servicio real. |
-| FleetService | Conductores, vehículos, datos válidos y unicidad por organización. | Pendiente. |
-| DriverComplianceService o contrato inicial de elegibilidad | Entradas, reglas, vigencia, motivos y fuentes integradas o controladas. | Pendiente; distinguir implementación y dependencia simulada. |
-| DispatchPlanningService | Plan básico, selección, aprobación, reserva y conflictos. | Pendiente; IA se documentará en el incremento que la implemente. |
-| TripExecutionService | Creación desde plan aprobado, estados y comandos autorizados. | Pendiente. |
-| TrackingService | Ingestión, coordenadas, fecha de captura, última posición e idempotencia. | Pendiente. |
-| IncidentService | Registro, consulta y acceso al viaje. | Pendiente. |
+| Microservicio propuesto | Responsabilidad |
+|---|---|
+| IdentityService | Autenticación, usuarios y permisos. |
+| FleetService | Administración de conductores y vehículos. |
+| DispatchPlanningService | Planificación y asignación de recursos. |
+| TripExecutionService | Creación, inicio y finalización de viajes. |
+| TrackingService | Registro y consulta de posiciones. |
+| IncidentService | Gestión de incidencias durante los viajes. |
 
-Los demás servicios se documentarán en el Sprint en que formen parte del incremento. La documentación del mapa objetivo en ADD no establece que un servicio ya esté implementado.
+Cada servicio deberá documentar sus endpoints, contratos HTTP, validaciones y mecanismos de persistencia. La documentación técnica se mantendrá en los repositorios correspondientes.
 
-**Pendiente incorporar:** enlaces al OpenAPI versionado, README de cada servicio, ejemplos de solicitudes/respuestas y eventos del Sprint. Se registrará la versión del contrato y el commit que lo respalda.
+Los servicios implementados se distinguirán de aquellos que permanecen como parte del diseño arquitectónico.
 
-![Microservices Documentation — pendiente documentación ejecutable](assets/images/chapter5/sprint1-microservices-documentation.png)
+**Documentación del backend:** [Repositorio TrackTruck](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform)
 
 <div style="page-break-after: always;"></div>
 
-#### 5.3.1.6. Software Deployment Evidence for Sprint Review
 
+#### 5.3.1.6. Software Deployment Evidence for Sprint Review
 Se completará después de publicar o levantar el incremento en el entorno de revisión y comprobar el acceso desde el APK. El diagrama describe la configuración; la evidencia de despliegue incluye el resultado de ejecutar esa configuración.
 
+
 | Campo | Valor por completar |
+
 |---|---|
+
 | Ambiente y proveedor/host | Pendiente. |
+
 | Fecha y responsable | Pendiente. |
+
 | Tag, commits e imágenes/versiones | Pendiente. |
+
 | Servicios ejecutados y endpoint | Pendiente. |
+
 | Health y migraciones | Pendiente. |
+
 | Broker/consumidores, si están integrados | Pendiente. |
+
 | APK, versión, hash y dispositivo | Pendiente. |
+
 | Flujo probado desde el móvil | Pendiente. |
+
 | Dependencias externas, sandbox y limitaciones observadas | Pendiente. |
+
 | Capturas/logs y enlace de evidencia | Pendiente. |
+
 
 ![Deployment Evidence — pendiente ejecución del entorno](assets/images/chapter5/sprint1-deployment-evidence.png)
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.7. Team Collaboration Insights during Sprint
-
 Se conservarán contribuciones verificables por integrante. El registro se completará con tareas, commits/PR, revisiones, resultados y coordinación efectivamente realizada durante el Sprint.
 
+
 | Integrante | Aporte del Sprint | PR/commit o tarjeta | Revisión y evidencia |
+
 |---|---|---|---|
+
 | Jean Franck Loa Rojas | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+
 | Anhelo Rodrigo Rocca Leon | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+
 | Alexander Piero Fernandez Garfias | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+
 | Sebastián De Las Casas Latour | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+
 | Aldair Joaquin Ramos Aguirre | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
 
+
 La evidencia incluirá captura de contribuciones y referencias de trabajo y revisión. Los aportes se describirán por resultado concreto, relacionando desarrollo, pruebas, integración y documentación.
+
 
 ![Team Collaboration — pendiente evidencia real](assets/images/chapter5/sprint1-team-collaboration.png)
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.8. Kanban Board
-
 El tablero del Sprint representará tareas de backend C#, app móvil, pruebas, integración, documentación y despliegue. El tablero de una iteración ADD conserva tareas de diseño y revisión; sus tarjetas se vincularán cuando exista una dependencia entre ambos trabajos.
 
+
 | Columna | Criterio de entrada/salida |
+
 |---|---|
+
 | Por hacer | Tarea acordada y todavía no iniciada. |
+
 | En proceso | Responsable trabajando en el resultado. |
+
 | En revisión | Código o artefacto listo para revisar y comprobar. |
+
 | Terminado | Resultado revisado y evidencia que cumple la Definition of Done. |
 
-**Pendiente incorporar:** enlace verificable, captura del estado del Sprint Review, fechas y tarjetas relacionadas con SB01–SB16 y US comprometidas. El estado de las tarjetas debe reflejar los avances comprobados; no se fija todo como Terminado a partir de este documento.
+
+****Pendiente incorporar:**** enlace verificable, captura del estado del Sprint Review, fechas y tarjetas relacionadas con SB01–SB16 y US comprometidas. El estado de las tarjetas debe reflejar los avances comprobados; no se fija todo como Terminado a partir de este documento.
+
 
 ![Sprint 1 Kanban — pendiente captura actual](assets/images/chapter5/sprint1-kanban-board.png)
+
 
 <div style="page-break-after: always;"></div>
 
