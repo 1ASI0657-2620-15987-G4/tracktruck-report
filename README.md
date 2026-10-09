@@ -2917,7 +2917,7 @@ El despliegue contempla la configuración de los servicios, las dependencias nec
 | Base de datos | Persistencia relacional y conexiones configuradas mediante variables de entorno. |
 | API | Endpoints REST para la comunicación con la aplicación móvil. |
 | Integraciones | Servicios externos configurados mediante adaptadores y credenciales protegidas. |
-| Aplicación móvil | APK Android desarrollado con Kotlin y conectado a los endpoints del backend. |
+| Aplicación móvil | APK Android desarrollado con Kotlin y configurado para consumir los endpoints del backend; la ejecución integrada en emulador o dispositivo requiere evidencia adicional. |
 | CI/CD | GitHub Actions para compilación y ejecución automatizada de pruebas, cuando esté configurado. |
 
 **Evidencia de despliegue**
@@ -3052,7 +3052,7 @@ La captura disponible en los recursos corresponde a una especificación Gherkin 
 
 #### 5.3.1.4. Execution Evidence for Sprint Review
 
-La evidencia disponible demuestra compilación y ejecución de suites en backend y mobile. El flujo app móvil → backend → persistencia no fue ejecutado durante esta reconciliación y permanece como evidencia pendiente; la figura se conserva como guion del ensayo, no como captura de una ejecución completada.
+La evidencia disponible demuestra compilación y ejecución de suites en backend y mobile. La revisión de integración confirmó que la app usa `http://10.0.2.2:8080/api/v1/` por defecto para el emulador, que el contenedor de la plataforma expone el puerto `8080` y que los contratos principales de autenticación, usuarios, conductores, vehículos, viajes, gastos, alertas y auditoría coinciden en rutas y recursos. Esto acredita preparación contractual, no una ejecución end-to-end. El flujo app móvil → backend → persistencia permanece pendiente de ejecutarse en emulador o dispositivo; la figura se conserva como guion del ensayo, no como captura de una ejecución completada.
 
 
 | Paso de demostración | Evidencia a capturar |
