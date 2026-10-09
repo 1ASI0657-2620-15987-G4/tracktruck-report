@@ -6,12 +6,12 @@ This checklist is ordered by dependency. A task is marked complete only when its
 
 ## 1. Repository migration and product identity
 
-- [x] Confirm authorization to reuse the CargoExpress repositories.
+- [x] Confirm authorization to reuse the predecessor repositories.
 - [x] Rename `tracktruck-webapp` to `tracktruck-mobile` locally and on GitHub.
 - [x] Create `develop` branches for platform, mobile, and website.
-- [x] Import the authorized source histories into `feature/reuse-cargoexpress-base`.
+- [x] Import the authorized source histories through dedicated migration branches.
 - [x] Remove inherited generated artifacts and unsafe configuration values.
-- [x] Replace CargoSystems, CargoExpress, ACME.CargoExpress, and `com.cargoexpress` identifiers with TrackTruck equivalents.
+- [x] Replace all predecessor brand, namespace, and package identifiers with TrackTruck equivalents.
 - [x] Replace inherited product logos and obsolete repository links.
 
 ## 2. Platform verification
