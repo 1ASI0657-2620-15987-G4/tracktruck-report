@@ -718,6 +718,8 @@ Estos cuatro registros describen principalmente experiencias de empresas que uti
 
 La evidencia permite orientar el backlog inicial. La aceptación del alcance ampliado y de sus reglas se comprobará con investigación adicional y con pruebas de los incrementos implementados.
 
+<div style="page-break-after: always;"></div>
+
 ## 2.3. Needfinding
 
 
@@ -733,13 +735,25 @@ Para el segundo segmento, correspondiente a **organizaciones que coordinan o con
 
 **1. Primer segmento: Empresas de transporte de carga**
 
-![User Persona - Empresas de transporte de carga](assets/images/chapter2/user-persona1.png)
+<p align="center">
+  <img
+    src="assets/images/chapter2/user-persona1.png"
+    alt="User Persona - Empresas de transporte de carga"
+    style="max-width: 95%; max-height: 230mm; width: auto; height: auto;"
+  />
+</p>
 
 <div style="page-break-after: always;"></div>
 
 **2. Segundo segmento: Organizaciones que coordinan o contratan servicios logísticos**
 
-![User Persona - Organizaciones que coordinan o contratan servicios logísticos](assets/images/chapter2/user-persona2.png)
+<p align="center">
+  <img
+    src="assets/images/chapter2/user-persona2.png"
+    alt="User Persona - Empresas de transporte de carga"
+    style="max-width: 95%; max-height: 230mm; width: auto; height: auto;"
+  />
+</p>
 
 
 <div style="page-break-after: always;"></div>
@@ -1006,6 +1020,8 @@ Los datos de perfil de acceso permanecen en Identity & Access; las fichas de cli
 | US77 | Emitir comprobante del servicio | Como responsable de facturación, deseo solicitar boleta o factura con los datos de la operación para documentar el cobro del servicio. | **Scenario 1:** **Given** datos de facturación completos y condición contractual cumplida; **When** solicito el comprobante; **Then** se registra solicitud, estado y referencia devuelta por el proveedor configurado.<br>**Scenario 2:** Given timeout o respuesta incierta; When se reintenta; Then se consulta y usa la misma clave para evitar duplicación; un sandbox se identifica como evidencia de prueba. | Billing & Payments | EP19 |
 | US78 | Registrar pago del servicio | Como responsable de facturación, deseo registrar o confirmar un pago para mantener el estado financiero de la operación. | **Scenario 1:** **Given** un cargo válido y confirmación autorizada; **When** registro el pago o verifico el callback del proveedor; **Then** se actualiza el estado una sola vez y se conserva su referencia.<br>**Scenario 2:** Given callback duplicado o firma inválida; When llega; Then se deduplica o rechaza según el caso. | Billing & Payments | EP19 |
 
+<div style="page-break-after: always;"></div>
+
 ### Requisitos de calidad y técnicos
 
 | ID | Requisito | Escenario o restricción relacionada | Criterio de comprobación |
@@ -1221,8 +1237,6 @@ El contexto C4 nivel 1 representa TrackTruck como un solo sistema, sus personas 
 
 <div style="page-break-after: always;"></div>
 
-**Figura a actualizar:** `assets/images/chapter4/context-diagram.png`. Debe representar estos actores, el límite del sistema y sus relaciones; C# y Kotlin corresponden al nivel tecnológico de contenedores. Los proveedores de pago y facturación se identificarán como sandbox cuando su integración sea de prueba.
-
 ![C4 Context Diagram — pendiente actualizar](assets/images/chapter4/context-diagram.png)
 
 <div style="page-break-after: always;"></div>
@@ -1355,6 +1369,7 @@ CQRS y Clean Architecture se utilizan para organizar responsabilidades y depende
 
 <div style="page-break-after: always;"></div>
 
+
 ### 4.1.8. Product UI/UX Design Guidelines
 
 Esta sección complementa el diseño arquitectónico con las guías de la landing page y de la aplicación móvil. Se adapta la organización de estilos, arquitectura de información, wireframes, wireflows, mock-ups y prototipado del documento de referencia [R14]. Las pantallas, permisos y flujos corresponden a TrackTruck y a sus 17 bounded contexts. La marca del producto es TrackTruck y la startup es LogiGo.
@@ -1384,6 +1399,8 @@ Las confirmaciones, advertencias y errores combinarán texto, icono y color sem�
 | Enlaces | Rubik Light Italic | Enlaces identificados también mediante subrayado o señal visual equivalente. |
 | Campos de entrada | Open Sans Regular | Etiquetas visibles, valores y mensajes de ayuda. |
 | Botones | Rubik Medium | Acciones con verbos claros y consistentes. |
+
+<div style="page-break-after: always;"></div>
 
 **Branding.** Se utilizarán el nombre y los recursos gráficos propios de TrackTruck/LogiGo. Las secciones de equipo mostrarán a los cinco integrantes registrados en 1.1.2. El logo, sus variantes y los archivos de fuente deberán quedar identificados en los recursos del proyecto.
 
@@ -1842,9 +1859,9 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 
 El tablero de esta iteración seguirá ADB01–ADB09 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-![Kanban — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-kanban.png)
+![Kanban — Iteración 1](assets/images/chapter4/iteration1-kanban.png)
 
-[Tablero de Iteración 1 registrado en el documento base; revisar nombre y alcance](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚)
+[Tablero de Iteración 1](https://trello.com/invite/b/6ac84cc391ecbbd25f3fd0d3/ATTI97b4450368046dc64bf149328a4c1591125F1969/tracktruck-iteracion-1-diseno-de-arquitectura)
 
 
 <div style="page-break-after: always;"></div>
@@ -1884,6 +1901,8 @@ Permitir que un envío mantenga datos y estados válidos, que el almacén regist
 - Dispatch Planning: consume la disponibilidad del envío.
 - Identity & Access y Operational History: acceso autorizado y trazabilidad.
 
+<div style="page-break-after: always;"></div>
+
 #### 4.3.2.4. Choose One or More Design Concepts That Satisfy the Selected Drivers
 
 | Concepto | Aplicación |
@@ -1894,7 +1913,6 @@ Permitir que un envío mantenga datos y estados válidos, que el almacén regist
 | Outbox e idempotencia | Evitar que una recepción o liberación repetida duplique cantidades. |
 | ACL | Traducir la preparación física al estado del envío según sus reglas. |
 
-<div style="page-break-after: always;"></div>
 
 #### 4.3.2.5. Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
@@ -1925,7 +1943,6 @@ Warehouse publica CargoPrepared después de guardar la preparación. Shipment co
 | C4 Containers | assets/images/chapter4/iteration2-c4-containers.png | Cliente, Shipment, Warehouse, Dispatch y datos privados. |
 | UML Sequence | assets/images/chapter4/iteration2-shipment-sequence.png | Registro, recepción, preparación, actualización de envío y publicación de disponibilidad. |
 
-Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
 ![C4 Containers — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-c4-containers.png)
 
@@ -1958,7 +1975,8 @@ El tablero de esta iteración seguirá ADB10–ADB16 con columnas Por hacer, En 
 
 ![Kanban — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-kanban.png)
 
-**Enlace del tablero de Iteración 2:** pendiente incorporar el enlace verificable.
+[Tablero de Iteración 2](https://trello.com/invite/b/6ac84e48b10b83160de2d45e/ATTI6f6e2e7b29b94f97f7810c8e1176bec35BBCC523/tracktruck-iteracion-2-shipment-warehouse-y-dispatch)
+
 
 <div style="page-break-after: always;"></div>
 
@@ -2044,6 +2062,9 @@ Dispatch obtiene las fuentes necesarias, verifica su vigencia y pide elegibilida
 | DispatchPlanApproved | Dispatch Planning | Alternativa, recursos, intervalo y aprobación. |
 | TripReplanningRequested | Trip Execution | Solicitud de revisión justificada, conservando el origen. |
 
+<div style="page-break-after: always;"></div>
+
+
 ##### Diseño del componente IA y de las reglas operativas
 
 1. **Recopilar datos vigentes.** Envío, prioridad, capacidad y peso de carga, recursos disponibles, intervalos laborales, horas acumuladas, descansos, restricciones técnicas, kilometraje y alternativas de ruta. Cada evaluación conserva referencias y fecha de los datos utilizados.
@@ -2065,9 +2086,8 @@ Los datos sintéticos sirven para probar contratos y flujo del componente; una e
 | C4 Components / Containers | assets/images/chapter4/iteration3-c4-containers.png | Dispatch, motor IA interno, fuentes de elegibilidad, rutas y datos. |
 | UML Sequence | assets/images/chapter4/iteration3-dispatch-sequence.png | Consultas, filtro, modelo, propuesta, revalidación, reserva y aprobación. |
 
-Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
-![C4 Components / Containers — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-c4-containers.png)
+![C4 Components / Containers — Iteración 3](assets/images/chapter4/iteration3-c4-containers.png)
 
 ![UML Sequence — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-dispatch-sequence.png)
 
@@ -2102,9 +2122,10 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 
 El tablero de esta iteración seguirá ADB17–ADB25 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
+
 ![Kanban — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-kanban.png)
 
-**Enlace del tablero de Iteración 3:** pendiente incorporar el enlace verificable.
+**Tablero Trello:** [TrackTruck – Iteración 3](https://trello.com/invite/b/6ac85027fdd2ae7e47cb9609/ATTI1f9364609742d0282f64597493c0d70a633AD43E/tracktruck-iteracion-3-planificacion-inteligente-de-despachos)
 
 <div style="page-break-after: always;"></div>
 
@@ -2197,7 +2218,6 @@ StartTrip valida estado, usuario y restricciones vigentes y publica TripStarted.
 | C4 Containers | assets/images/chapter4/iteration4-c4-containers.png | App, Trip, Tracking, Incident, Delivery, Shipment y persistencia privada. |
 | UML Sequence | assets/images/chapter4/iteration4-tracking-sequence.png | Inicio, posición, incidencia, finalización y entrega, incluyendo reintentos. |
 
-Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
 ![C4 Containers — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-c4-containers.png)
 
@@ -2236,7 +2256,7 @@ El tablero de esta iteración seguirá ADB26–ADB34 con columnas Por hacer, En 
 
 ![Kanban — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-kanban.png)
 
-**Enlace del tablero de Iteración 4:** pendiente incorporar el enlace verificable.
+**Tablero Trello:** [TrackTruck – Iteración 4](https://trello.com/invite/b/6ac851ed986af29a616e9d68/ATTI3335c368a8c996bd1f7ac36a3f4afe5c251EDFB5/tracktruck-iteracion-4-seguimiento-de-viajes-y-entregas)
 
 <div style="page-break-after: always;"></div>
 
@@ -2323,7 +2343,6 @@ Billing registra precio, condiciones y cargo según el servicio. La entrega pued
 | C4 Containers | assets/images/chapter4/iteration5-c4-containers.png | Billing, proveedores, History, Reporting y modelos privados. |
 | UML Sequence | assets/images/chapter4/iteration5-billing-sequence.png | Condición de cargo, documento, pago, callback y conciliación de reintento. |
 
-Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
 
 ![C4 Containers — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-c4-containers.png)
 
@@ -2361,8 +2380,9 @@ El tablero de esta iteración seguirá ADB35–ADB42 con columnas Por hacer, En 
 
 ![Kanban — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-kanban.png)
 
-**Enlace del tablero de Iteración 5:** pendiente incorporar el enlace verificable.
 
+
+**Tablero Trello:** [TrackTruck – Iteración 5](https://trello.com/invite/b/6ac8537744e9cde920dd169b/ATTI92be952d15cbe2a205313c3c7d3920c740483926/tracktruck-iteracion-5-facturacion-historial-y-reportes)
 
 ### Vista arquitectónica general de TrackTruck
 
