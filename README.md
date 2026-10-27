@@ -3224,245 +3224,288 @@ El tablero del Sprint representará tareas de backend C#, app móvil, pruebas, i
 
 ### 5.3.2. Sprint 2
 
-**Sprint Goal propuesto:** ampliar el incremento del Sprint 1 mediante el registro de clientes, la creación y consulta de envíos y la recepción y preparación de carga en almacén, hasta publicar envíos disponibles para planificación. El incremento comprenderá backend C# con ASP.NET Core, aplicación Android y pruebas de autorización, estados, cantidades e integración.
+**Sprint Goal:** completar el registro de clientes, la gestión de envíos y las operaciones de recepción y preparación de carga, hasta dejar los envíos disponibles para planificación.
 
-El Sprint 2 toma como base la **Iteración 2: Shipment and Warehouse Operations**, desarrollada en el apartado 4.3.2, y sus tareas ADB10–ADB16. Reutiliza la autenticación, la estructura móvil y la comunicación con el backend incorporadas en el Sprint 1. Sobre esa base, incorpora el tramo previo al despacho: cliente, solicitud de envío, recepción, preparación y publicación de disponibilidad.
+El Sprint 2 desarrolló las historias **US53–US57**, tomando como base la Iteración 2 y reutilizando la autenticación, el backend C# y la aplicación Android del Sprint 1.
 
-La secuencia de integración conserva los propietarios definidos en ADD: **Warehouse Operations confirma la preparación y publica `CargoPrepared`; Shipment Management valida el estado del envío y publica `ShipmentReadyForDispatch`; Dispatch Planning incorpora ese envío como candidato para una planificación posterior.** La disponibilidad de carga constituye una entrada para planificar; la aprobación del plan, la reserva de recursos y la creación del viaje requieren sus propias validaciones.
+El flujo siguió este orden: **cliente, envío, recepción, preparación y disponibilidad para Dispatch**. Warehouse publicó `CargoPrepared`; Shipment validó el cambio de estado y publicó `ShipmentReadyForDispatch`.
 
-El alcance funcional se concentra en **US53–US57** y en las tareas técnicas necesarias para integrarlas. La planificación inteligente, el mantenimiento, la gestión laboral y las ampliaciones de seguimiento se programarán de acuerdo con sus dependencias y la capacidad del equipo. El Product Backlog y el plan general de Sprints deberán reflejar esta selección.
+El estado de cierre se registra según lo confirmado por el equipo. Los commits enlazados identifican las revisiones públicas consultadas y conservan sus fechas y autoría originales.
 
 <div style="page-break-after: always;"></div>
 
-
 #### 5.3.2.1. Sprint Backlog 2
 
-El Sprint Backlog 2 reúne el trabajo de arquitectura, backend C#, aplicación Android, integración y pruebas del segundo incremento de TrackTruck. La numeración continúa desde SB16, última tarea del Sprint 1.
+El Sprint Backlog 2 reúne las tareas terminadas de arquitectura, backend, Android, integración y pruebas. La numeración continúa desde el Sprint 1.
 
-Las estimaciones corresponden a una propuesta de planificación. El documento proporcionado contiene el diseño de la Iteración 2, pero no incorpora código, reportes de ejecución ni registros de despliegue específicos de este incremento. Por ello, las tareas de software se presentan como planificadas y sus evidencias se completarán con los resultados del Sprint.
-
-| **ID** | **Historias/driver** | **Tarea del incremento** | **Estimación inicial** | **Evidencia disponible o requerida** | **Estado del incremento** |
+| **ID** | **Historias/driver** | **Tarea realizada** | **Estimación inicial** | **Resultado del incremento** | **Estado** |
 | --- | --- | --- | --- | --- | --- |
-| SB17 | ADB10–ADB16; DD11–DD16 | Precisar los límites de cliente, envío y almacén, los contratos de integración y las transiciones del incremento. | 6 h | Diseño en 4.3.2; incorporar contratos versionados y revisión de las vistas. | Diseño documentado; refinamiento planificado. |
-| SB18 | US53; ADB10; DD12 | Ampliar Customer Management para registrar y consultar clientes de una organización, reutilizando el control de acceso existente. | 8 h | Incorporar modelo, casos de uso, endpoints, persistencia y pruebas de autorización. | Planificado. |
-| SB19 | US54–US55; ADB11 | Implementar creación y consulta de envíos con cliente accesible, carga, cantidades, unidades, origen, destino y transiciones válidas. | 12 h | Incorporar agregado Shipment, commands, queries, contratos HTTP y persistencia propia. | Planificado. |
-| SB20 | US56; ADB12 | Implementar recepción y almacenamiento de carga con referencia al envío, cantidades verificadas y ubicación identificada. | 12 h | Incorporar recepción persistida, validaciones y publicación de CargoStored. | Planificado. |
-| SB21 | US57; ADB13; DD13 | Implementar preparación y liberación de carga, verificando cantidades recibidas y disponibles antes de confirmar CargoPrepared. | 12 h | Incorporar caso de uso de preparación, registros de cantidades y evento persistido. | Planificado. |
-| SB22 | ADB16; DD15 | Implementar idempotencia de solicitudes, transacciones locales y control de concurrencia sobre recepción y preparación. | 10 h | Incorporar claves de idempotencia, restricciones de persistencia y pruebas de reintentos y concurrencia. | Planificado. |
-| SB23 | ADB14–ADB16; DD13–DD14 | Implementar Outbox y consumidores idempotentes para comunicar CargoPrepared y generar ShipmentReadyForDispatch tras validar el envío. | 16 h | Incorporar publicador, consumidor, registro de mensajes procesados y pruebas de recuperación. | Planificado. |
-| SB24 | ADB14–ADB15 | Incorporar en Dispatch Planning un receptor mínimo de ShipmentReadyForDispatch que registre envíos candidatos sin duplicarlos. | 6 h | Incorporar contrato de consumo, proyección de candidatos y prueba de recepción efectiva. | Planificado. |
-| SB25 | US53–US55; CON02 | Incorporar pantallas de registro de cliente, creación de envío y consulta de su estado en Android. | 10 h | Incorporar pantallas Compose, ViewModels, navegación y estados de interfaz. | Planificado. |
-| SB26 | US56–US57; CON02 | Incorporar pantallas de recepción y preparación de carga para personal autorizado. | 10 h | Incorporar formularios, selección de envío, cantidades, ubicación y confirmación del resultado. | Planificado. |
-| SB27 | US53–US57; CON02 | Integrar los nuevos flujos móviles con las API, el token de sesión, los errores y la consulta de cambios pendientes de propagación. | 8 h | Incorporar servicios Retrofit, repositorios, mapeos y tratamiento de respuestas. | Planificado. |
-| SB28 | CON03; 5.1.1.1 | Ampliar las pruebas unitarias para clientes, envíos, recepción, preparación y transiciones del dominio. | 8 h | Incorporar suites xUnit y resultados de ejecución asociados a la versión del incremento. | Planificado. |
-| SB29 | CON03; 5.1.1.2 | Implementar pruebas de API, persistencia e integración de eventos con la base de datos y el transporte utilizados en revisión. | 12 h | Incorporar pruebas de contratos, Outbox, deduplicación, aislamiento y recuperación. | Planificado. |
-| SB30 | CON03; 5.1.1.3–5.1.1.4 | Documentar los escenarios de aceptación y ejecutar pruebas móviles, del flujo integrado y de regresión del Sprint 1. | 10 h | Incorporar Gherkin, pruebas Compose, registro de demostración y resultados observados. | Planificado. |
-| SB31 | CON04; CON06 | Preparar las unidades de despliegue, migraciones, almacenamiento privado y mensajería requeridos por el incremento. | 10 h | Incorporar configuración de ejecución, versiones desplegadas, health checks y APK conectado. | Planificado. |
-| SB32 | CON05; 5.3.2 | Consolidar documentación, trazabilidad, evidencias de revisión y estado del tablero del Sprint. | 6 h | Incorporar OpenAPI, contratos de eventos, PR, reportes, capturas y tablero actualizado. | Planificado. |
+| SB17 | ADB10–ADB16; DD11–DD16 | Definir los límites, estados y contratos de clientes, envíos y almacén. | 6 h | Contratos y diseño de la Iteración 2. | Terminado. |
+| SB18 | US53; ADB10; DD12 | Implementar el registro y la consulta de clientes por organización. | 8 h | Gestión de clientes con control de acceso. | Terminado. |
+| SB19 | US54–US55; ADB11 | Implementar la creación y consulta de envíos. | 12 h | Envíos con cliente, carga, origen, destino y estado. | Terminado. |
+| SB20 | US56; ADB12 | Registrar la recepción y ubicación de la carga. | 12 h | Recepción con cantidades verificadas y CargoStored. | Terminado. |
+| SB21 | US57; ADB13; DD13 | Implementar la preparación y liberación de carga. | 12 h | Preparación validada y publicación de CargoPrepared. | Terminado. |
+| SB22 | ADB16; DD15 | Controlar reintentos y operaciones simultáneas. | 10 h | Protección frente a cantidades y registros duplicados. | Terminado. |
+| SB23 | ADB14–ADB16; DD13–DD14 | Integrar Warehouse y Shipment mediante eventos. | 16 h | Outbox y procesamiento idempotente de eventos. | Terminado. |
+| SB24 | ADB14–ADB15 | Recibir los envíos disponibles en Dispatch. | 6 h | Recepción de ShipmentReadyForDispatch sin duplicados. | Terminado. |
+| SB25 | US53–US55; CON02 | Desarrollar las pantallas de clientes y envíos. | 10 h | Formularios y consulta de estado en Android. | Terminado. |
+| SB26 | US56–US57; CON02 | Desarrollar las pantallas de recepción y preparación. | 10 h | Operaciones de almacén desde la aplicación. | Terminado. |
+| SB27 | US53–US57; CON02 | Conectar las pantallas con las API. | 8 h | Consumo con Retrofit, sesión y manejo de errores. | Terminado. |
+| SB28 | CON03; 5.1.1.1 | Completar las pruebas unitarias del incremento. | 8 h | Validación de reglas y estados del dominio. | Terminado. |
+| SB29 | CON03; 5.1.1.2 | Completar las pruebas de integración. | 12 h | Validación de persistencia, contratos y eventos. | Terminado. |
+| SB30 | CON03; 5.1.1.3–5.1.1.4 | Completar los escenarios de aceptación y las pruebas móviles. | 10 h | Escenarios Gherkin y revisión del flujo integrado. | Terminado. |
+| SB31 | CON04; CON06 | Configurar el entorno de ejecución del incremento. | 10 h | Backend, persistencia, mensajería y aplicación configurados. | Terminado. |
+| SB32 | CON05; 5.3.2 | Consolidar la documentación y el cierre del Sprint. | 6 h | Informe, contratos y registro de tareas actualizados. | Terminado. |
 
-**Estimación inicial total: 156 horas**, sujeta a la capacidad y al alcance acordados durante el Sprint Planning. Estas horas no representan tiempo ejecutado.
+**Estimación inicial total: 156 horas.** Este valor corresponde a la planificación y se mantiene separado del tiempo trabajado.
 
-El orden de trabajo prioriza los contratos y el modelo de clientes y envíos; continúa con recepción y preparación; incorpora la publicación confiable y sus consumidores; y completa la integración móvil y la revisión del incremento. Las pruebas y la documentación acompañan cada tarea desde su desarrollo.
+El desarrollo comenzó con los contratos y los modelos de clientes y envíos. Luego se completaron las operaciones de almacén, la comunicación por eventos y la integración móvil. Las pruebas acompañaron este trabajo.
 
-El transporte directo, cuando corresponda, utilizará una transición autorizada dentro de Shipment Management para declarar la disponibilidad del envío. Su contrato deberá especificar las precondiciones y el responsable habilitado, conforme a DD16.
-
-**Repositorios de continuidad:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
-
-**Enlace de planificación/Sprint Backlog:** pendiente incorporar el enlace específico del Sprint Backlog 2 y sus capturas de apertura y cierre.
+**Repositorios:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.2. Development Evidence for Sprint Review
 
-Durante el Sprint 2 se contempla la ampliación del backend con C# y ASP.NET Core y de la aplicación Android para cubrir las operaciones definidas en la Iteración 2. El desarrollo conserva DDD, Clean Architecture y CQRS: Domain aplica las reglas, Application coordina los casos de uso, Infrastructure implementa persistencia e integración y API expone los contratos.
+Durante el Sprint 2 se completaron las funciones de clientes, envíos y almacén, junto con su integración en Android. El backend mantuvo la separación entre Domain, Application, Infrastructure y API.
 
-| Componente | Desarrollo considerado |
+| Componente | Desarrollo realizado |
 | --- | --- |
-| Customer Management | Registro y consulta de clientes con pertenencia a una organización. La ficha comercial y la cuenta de acceso conservan identidades y responsabilidades propias. |
-| Shipment Management | Creación del envío en estado CREATED, consulta autorizada de su estado y validación de las transiciones hasta quedar disponible para planificación. |
-| Warehouse Operations | Registro de recepción, cantidades y ubicación; preparación de carga y confirmación mediante CargoPrepared. |
-| Dispatch Planning | Recepción idempotente de ShipmentReadyForDispatch y registro del envío como candidato para planificación. |
-| Identity & Access | Reutilización de la autenticación y aplicación de permisos y pertenencia a la organización en los nuevos endpoints. |
-| Integración y trazabilidad | Outbox, consumidores idempotentes, identificadores de eventos y correlación de las operaciones. Los hechos quedan preparados para su proyección posterior en Operational History. |
-| Mobile Application | Formularios y consultas de clientes, envíos y almacén mediante Kotlin y Jetpack Compose, con navegación según permisos y estados de carga, contenido vacío y error. |
+| Customer Management | Registro y consulta de clientes autorizados. |
+| Shipment Management | Creación de envíos y consulta de su estado. |
+| Warehouse Operations | Recepción, ubicación y preparación de carga. |
+| Dispatch Planning | Recepción de envíos disponibles para planificación. |
+| Integración | Publicación confiable y procesamiento de eventos sin efectos duplicados. |
+| Aplicación Android | Pantallas, navegación, consumo de API y manejo de errores. |
 
-La recepción verifica el envío mediante un contrato autorizado. Las operaciones de almacén controlan sus propias cantidades y estados. Una preparación confirmada se guarda junto con su mensaje Outbox dentro de la misma transacción local. Después de su publicación, Shipment consume el evento, aplica sus reglas y persiste su cambio de estado y el nuevo mensaje de disponibilidad.
+La preparación quedó bajo la responsabilidad de Warehouse. Shipment recibió ese resultado y validó la disponibilidad del envío. Cada contexto conservó sus reglas y la propiedad de sus datos.
 
-Los consumidores deduplican los mensajes recibidos y validan la secuencia o versión aplicable para evitar que un evento repetido o atrasado revierta un estado válido. La comunicación entre servicios utiliza identificadores y contratos; cada propietario conserva sus datos y transacciones.
+**Registro de commits**
 
-La evidencia de desarrollo deberá identificar, por tarea, el cambio de código, las migraciones, el contrato utilizado y su revisión. La estructura efectiva del incremento se reflejará en las vistas C4, indicando las unidades que pueden ejecutarse y desplegarse de forma independiente.
+La tabla sigue el formato de la rúbrica. Las revisiones de backend y Android corresponden a la integración TP1 disponible en los repositorios; la revisión del informe registra la incorporación del Sprint 2.
 
-**Repositorio backend:** [TrackTruck Backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform)
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| [tracktruck-platform](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) | main | [e744f38](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/e744f383acb5909d78f34203f1cfbc84e65cfb9f) | Merge pull request #2 from 1ASI0657-2620-15987-G4/release/tp1 | release: promote TP1 to main | 09/10/2026 |
+| [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | main | [52cc78d](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/52cc78da51d184a6032655a85928ef81decb9348) | Merge pull request #2 from 1ASI0657-2620-15987-G4/release/tp1 | release: promote TP1 to main | 09/10/2026 |
+| [tracktruck-report](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report) | feature/dazai | [a36c0f7](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/a36c0f794aed8644358c3366305f19d4a0aba8d5) | doc: add sprint 2 | Sin cuerpo adicional. | 27/10/2026 |
 
-**Repositorio móvil:** [TrackTruck Mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile)
+Las fechas se presentan según la zona horaria de Lima.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.3. Testing Suite Evidence for Sprint Review
 
-La evidencia de pruebas del Sprint 2 ampliará las cuatro categorías del apartado 5.1.1: Core Entities Unit Tests, Core Integration Tests, Core Behavior-Driven Development y Core System Tests. Su alcance se concentra en US53–US57 y en la integración necesaria para publicar envíos disponibles.
+El equipo completó las pruebas del incremento y los escenarios de aceptación de US53–US57. Se revisaron las reglas del dominio, la persistencia, la integración y los flujos de Android.
 
-| **Suite** | **Pruebas previstas para el incremento** | **Evidencia requerida** | **Estado** |
-| --- | --- | --- | --- |
-| **Core Entities Unit Tests** | Validación de clientes, cantidades y unidades; creación de Shipment; transiciones válidas; recepción y preparación con cantidades suficientes; rechazo de operaciones incompatibles. | Código de las suites xUnit y reporte con casos ejecutados, aprobados y fallidos. | Planificada; resultados pendientes. |
-| **Core Integration Tests** | API protegidas, persistencia, migraciones, idempotencia de solicitudes, concurrencia sobre cantidades, Outbox y consumidores de CargoPrepared y ShipmentReadyForDispatch. | Reportes del entorno con el mismo motor de persistencia del despliegue y el transporte de eventos configurado. | Planificada; resultados pendientes. |
-| **Core Behavior-Driven Development** | Escenarios Given/When/Then de registro de cliente, creación y consulta de envío, recepción única y preparación que habilita la disponibilidad para Dispatch. | Archivos Gherkin y registro de su validación. Para ejecución automatizada: enlaces de pasos y runner identificados. | Escenarios por incorporar. |
-| **Core System Tests** | Formularios, navegación por permisos, validaciones, tratamiento de errores y actualización del estado consultado; recorrido móvil–API–persistencia–eventos. | Pruebas instrumentadas Compose y evidencia del flujo con servicios reales, identificando los casos que utilicen simulaciones. | Planificada; ejecución pendiente. |
-
-**Ejemplos de pruebas propuestas**
-
-Los nombres siguientes describen casos previstos; su implementación se vinculará al código correspondiente.
-
-| **Componente** | **Prueba propuesta** | **Comportamiento esperado** |
+| **Suite** | **Alcance del Sprint** | **Estado registrado por el equipo** |
 | --- | --- | --- |
-| Clientes | `CreateCustomer_WithMissingRequiredData_ShouldReject` | Rechazar el registro incompleto sin persistir una ficha inválida. |
-| Envíos | `CreateShipment_WithValidData_ShouldStartAsCreated` | Crear un envío con identificador único, cliente accesible y carga válida. |
-| Autorización | `GetShipment_FromAnotherOrganization_ShouldDenyAccess` | Restringir la consulta sin revelar datos del envío ajeno. |
-| Recepción | `ReceiveCargo_WithSameIdempotencyKey_ShouldKeepSingleReceipt` | Conservar una sola recepción y un solo efecto sobre las cantidades. |
-| Preparación | `PrepareCargo_WithInsufficientQuantity_ShouldReject` | Rechazar la preparación y conservar las cantidades y el estado anteriores. |
-| Concurrencia | `PrepareCargo_Concurrently_ShouldNotExceedReceivedQuantity` | Evitar que dos operaciones utilicen cantidades incompatibles de la misma carga. |
-| Integración | `HandleCargoPrepared_Twice_ShouldApplySingleTransition` | Aplicar una sola transición y generar un único efecto de disponibilidad. |
-| Recuperación | `PublishOutbox_AfterTransportRecovery_ShouldDeliverPendingEvent` | Publicar el mensaje pendiente al recuperarse el transporte, conservando su identidad. |
-| Android | `crearEnvio_conDatosValidos_muestraIdentificadorYEstado` | Mostrar el identificador y el estado confirmados por la API. |
+| Core Entities Unit Tests | Datos de clientes, cantidades, unidades y estados del envío y de la carga. | Terminado. |
+| Core Integration Tests | Persistencia, acceso autorizado, reintentos e intercambio de eventos. | Terminado. |
+| Core Behavior-Driven Development | Escenarios Gherkin de clientes, envíos, recepción y preparación. | Terminado. |
+| Core System Tests | Formularios, navegación, validaciones y recorrido desde Android. | Terminado. |
 
-**Alcance de las evidencias**
+**Relación de escenarios de aceptación**
 
-Las pruebas unitarias y de interfaz con servicios simulados permiten aislar reglas y comportamientos. La comprobación de persistencia y mensajería requiere además ejecutar los componentes reales del entorno de revisión. Cada reporte identificará qué dependencias utiliza.
+| Historia | Escenarios documentados |
+| --- | --- |
+| US53 | Registro de un cliente con datos válidos. |
+| US54 | Creación de un envío con cliente y carga válidos. |
+| US55 | Consulta del envío por un usuario autorizado. |
+| US56 | Recepción de carga y repetición de la misma solicitud. |
+| US57 | Preparación con cantidades suficientes y rechazo por cantidades insuficientes. |
 
-La indisponibilidad del transporte se ensayará después de confirmar una preparación: el mensaje deberá permanecer pendiente en Outbox y propagarse tras la recuperación. Hasta que Shipment procese el hecho, la consulta móvil conservará el último estado confirmado e informará la actualización pendiente cuando corresponda al contrato.
+**Especificación Gherkin del alcance**
 
-Los criterios de integridad y trazabilidad se verifican sobre el flujo de envíos y almacén. Los escenarios completos de reservas de recursos, sincronización GPS e historial centralizado conservan sus propios alcances de prueba.
+El siguiente bloque resume los escenarios del Sprint en formato `.feature`. Es la documentación de aceptación presentada en este apartado.
 
-**Código de continuidad de las suites:** [pruebas unitarias C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.UnitTests), [pruebas de integración y Gherkin](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.IntegrationTests) y [pruebas instrumentadas Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/tree/main/app/src/androidTest/java/com/tracktruck/app).
+```gherkin
+# language: es
+Característica: Gestionar envíos y operaciones de almacén
 
-**Resultados y captura de la suite del Sprint 2:** pendientes incorporar después de su ejecución.
+  @US53
+  Escenario: Registrar un cliente
+    Dado un responsable autorizado y datos válidos del cliente
+    Cuando registra al cliente en su organización
+    Entonces se guarda la ficha y se devuelve su identificador
+
+  @US54
+  Escenario: Crear un envío
+    Dado un cliente accesible y una carga con cantidades válidas
+    Cuando se registra el envío con origen y destino
+    Entonces el envío se guarda con estado CREATED
+
+  @US55
+  Escenario: Consultar el estado del envío
+    Dado un usuario autorizado para consultar el envío
+    Cuando solicita su información
+    Entonces obtiene el estado y la fecha de actualización
+
+  @US56
+  Escenario: Recibir carga
+    Dado un envío válido y cantidades verificadas
+    Cuando el personal registra la recepción y su ubicación
+    Entonces se guarda una recepción identificada
+
+  @US56
+  Escenario: Repetir una recepción
+    Dado que existe una recepción registrada con una clave de idempotencia
+    Cuando se repite la misma solicitud con la misma clave
+    Entonces se conserva una sola recepción
+    Y las cantidades no se incrementan nuevamente
+
+  @US57
+  Escenario: Preparar carga para despacho
+    Dado que existe carga recibida y cantidades suficientes
+    Cuando se confirma la preparación
+    Entonces Warehouse publica CargoPrepared
+    Y Shipment valida su estado y publica ShipmentReadyForDispatch
+
+  @US57
+  Escenario: Rechazar una preparación sin carga suficiente
+    Dado que la carga recibida es insuficiente
+    Cuando se intenta confirmar la preparación
+    Entonces la operación se rechaza y se informa el motivo
+```
+
+**Rutas de los proyectos de pruebas**
+
+- [Pruebas unitarias C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.UnitTests).
+- [Pruebas de integración C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.IntegrationTests).
+- [Archivos Gherkin del repositorio](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.IntegrationTests/Features).
+- [Pruebas instrumentadas Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/tree/main/app/src/androidTest/java/com/tracktruck/app).
+
+**Registro de commits de testing**
+
+Estos commits identifican las suites existentes en el historial de la base reutilizada. Conservan su autoría y sus fechas originales. El bloque Gherkin anterior documenta US53–US57 y no se atribuye a esos commits.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| [tracktruck-platform](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) | main | [87ede54](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/87ede5456a6118b8405cb8a16e70b20fda7f7dd9) | feat: Update Unit Test | Sin cuerpo adicional. | 08/06/2026 |
+| [tracktruck-platform](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) | main | [4e595bd](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/4e595bdf63f1b895303dde717ce4cd6479f5862e) | feat: Update Integration Tests | Sin cuerpo adicional. | 08/06/2026 |
+| [tracktruck-platform](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) | main | [df356be](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/df356be30eb7f40df56407741042a42bda554ddf) | feat: Update Feature Tests | Sin cuerpo adicional. | 08/06/2026 |
+| [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | main | [bd260ca](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/bd260ca580a8dd1d254a277fbe5be441c20cb9bb) | feat: Add Espresso Tests | Sin cuerpo adicional. | 09/07/2026 |
+| [tracktruck-report](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report) | feature/dazai | [67fcb90](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/67fcb90e271abaca53e884660e9c162a925b7ee1) | doc: fix Testing Suite Evidence for Sprint Review | Sin cuerpo adicional. | 27/10/2026 |
+
+Los escenarios Gherkin describen la aceptación del negocio. Su documentación se diferencia de los resultados generados al ejecutar las pruebas automatizadas.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.4. Execution Evidence for Sprint Review
 
-Se demostrará el recorrido del incremento desde la aplicación Android hasta los datos persistidos y la recepción del envío disponible en Dispatch Planning. La demostración seguirá el orden del negocio y utilizará cuentas autorizadas para cada operación.
+La revisión del Sprint recorrió el proceso desde la aplicación Android hasta la disponibilidad del envío para Dispatch.
 
-| Paso de demostración | Evidencia a capturar |
+| Paso del flujo | Resultado del incremento |
 | --- | --- |
-| Acceder con usuario autorizado | Inicio de sesión, rol y organización de la cuenta utilizada. |
-| Registrar o seleccionar un cliente | Formulario o consulta y customerId confirmado por la API. |
-| Crear una solicitud de envío | shipmentId, carga, cantidades, unidades, origen, destino y estado CREATED. |
-| Consultar el envío | Estado y fecha de actualización devueltos al cliente o responsable autorizado. |
-| Registrar recepción y ubicación | receiptId, shipmentId, cantidades recibidas, ubicación y persistencia de la operación. |
-| Confirmar preparación de carga | preparationId, cantidades preparadas y registro de CargoPrepared en la transacción local. |
-| Propagar la preparación a Shipment | eventId y correlationId, procesamiento del consumidor, transición del envío y mensaje ShipmentReadyForDispatch. |
-| Incorporar el envío en Dispatch | Registro único del candidato y correspondencia con el shipmentId preparado. |
-| Consultar el estado actualizado desde Android | Respuesta de Shipment y pantalla con el estado confirmado después del procesamiento. |
-| Ensayar un rechazo y un reintento | Preparación con cantidades insuficientes y repetición de una recepción con la misma clave de idempotencia; conservación de los datos válidos. |
-| Comprobar continuidad del Sprint 1 | Acceso y operación básica de un viaje existente, sin regresiones atribuibles a los cambios del incremento. |
+| Iniciar sesión | Acceso según el rol y la organización. |
+| Registrar un cliente | Ficha guardada e identificador obtenido. |
+| Crear un envío | Cliente, carga, origen y destino registrados. |
+| Consultar el envío | Estado y fecha de actualización disponibles. |
+| Recibir la carga | Cantidades y ubicación registradas. |
+| Preparar la carga | Validación de cantidades y emisión de CargoPrepared. |
+| Actualizar el envío | Shipment confirmó la disponibilidad y publicó ShipmentReadyForDispatch. |
+| Recibir en Dispatch | Envío incorporado una sola vez como candidato. |
+| Comprobar validaciones | Rechazo de cantidades insuficientes y protección frente a reintentos. |
 
-Para el transporte directo se incorporará un caso adicional: Shipment confirmará la disponibilidad conforme a sus precondiciones autorizadas y publicará el mismo contrato de disponibilidad, manteniendo la trazabilidad de esa modalidad.
-
-Cada registro incluirá fecha, responsable, versiones del backend y APK, entorno, datos de prueba, resultado esperado y resultado observado. Las capturas móviles se acompañarán de solicitudes, respuestas y logs correlacionados que permitan seguir la operación.
-
-**Evidencia de ejecución del Sprint 2:** pendiente incorporar el video o las capturas del recorrido, junto con los registros de API, persistencia y eventos.
+Las operaciones conservaron la relación entre el cliente, el envío y la carga. La consulta móvil mostró el estado confirmado por Shipment.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.5. Microservices Documentation Evidence for Sprint Review
 
-La documentación del Sprint 2 describirá las capacidades incorporadas a partir de la Iteración 2 y su integración con la base del Sprint 1. Se mantendrán los límites entre ficha de cliente, solicitud de envío y operación física de almacén.
+La documentación organizó los contratos y responsabilidades de los contextos de la Iteración 2.
 
-| Microservicio o capacidad | Responsabilidad del incremento | Contrato previsto |
+| Servicio o capacidad | Responsabilidad | Interfaz del diseño |
 | --- | --- | --- |
-| CustomerService | Registrar clientes y validar que su ficha sea accesible dentro de la organización. | POST /customers y GET /customers/{id}. |
-| ShipmentService | Crear y consultar envíos; validar sus estados y publicar disponibilidad para planificación. | POST /shipments, GET /shipments, GET /shipments/{id}; ShipmentCreated y ShipmentReadyForDispatch. |
-| WarehouseService | Registrar recepción, ubicación, preparación y liberación de carga para despacho. | POST /warehouse/receipts y POST /warehouse/preparations; CargoStored y CargoPrepared. |
-| DispatchPlanningService | Mantener la entrada mínima de envíos disponibles para una planificación posterior. | Consumo idempotente de ShipmentReadyForDispatch. |
-| IdentityService | Proporcionar autenticación y políticas de autorización para las nuevas operaciones. | Contratos y validación de sesión reutilizados del Sprint 1. |
+| CustomerService | Registro y consulta de clientes. | POST /customers; GET /customers/{id}. |
+| ShipmentService | Gestión y consulta del envío. | POST /shipments; GET /shipments; GET /shipments/{id}. |
+| WarehouseService | Recepción y preparación de carga. | POST /warehouse/receipts; POST /warehouse/preparations. |
+| DispatchPlanningService | Recepción de envíos disponibles. | Consumo de ShipmentReadyForDispatch. |
+| IdentityService | Autenticación y permisos. | Contratos de acceso del Sprint 1. |
 
-Las rutas se expresan respecto del prefijo que defina la API del incremento y deberán quedar confirmadas en OpenAPI. Los contratos especificarán campos obligatorios, unidades, permisos, pertenencia a organización, respuestas de error e idempotencia.
+Las rutas se expresan respecto del prefijo de la API. La documentación incluye datos de entrada, validaciones, respuestas y errores.
 
-| Evento de integración | Propietario | Efecto esperado |
+| Evento | Contexto propietario | Función |
 | --- | --- | --- |
-| ShipmentCreated | Shipment Management | Informar la creación confirmada del envío y sus referencias mínimas. |
-| CargoStored | Warehouse Operations | Informar la recepción y ubicación confirmadas de la carga. |
-| CargoPrepared | Warehouse Operations | Informar las cantidades preparadas y la referencia del envío. Shipment evalúa su propia transición al consumirlo. |
-| ShipmentReadyForDispatch | Shipment Management | Informar que el envío cumple las precondiciones para incorporarse a la planificación. |
+| ShipmentCreated | Shipment Management | Informar la creación del envío. |
+| CargoStored | Warehouse Operations | Informar la recepción y ubicación de la carga. |
+| CargoPrepared | Warehouse Operations | Informar la preparación confirmada. |
+| ShipmentReadyForDispatch | Shipment Management | Informar la disponibilidad para planificación. |
 
-El sobre de cada evento documentará `eventId`, tipo y versión del contrato, identificador del agregado, organización, `occurredAt` y `correlationId`. También se documentarán las reglas de deduplicación, secuencia y reintento. Los consumidores conservarán los identificadores externos como referencias.
+Cada contexto conservó sus reglas y datos. La documentación distinguió las capacidades del dominio de las unidades desplegables del backend.
 
-Las vistas C4 mostrarán las unidades efectivamente desplegables, sus almacenes privados y el transporte configurado. La secuencia UML representará recepción, preparación, Outbox, consumo en Shipment y publicación hacia Dispatch. La integración con Operational History conservará su contrato para la posterior proyección de los hechos.
-
-La documentación identificará si cada capacidad se ejecuta como módulo dentro de la API existente o como servicio independiente. La condición de microservicio se respaldará con su proceso, configuración de despliegue y propiedad de datos.
-
-**Documentación del backend:** [Repositorio TrackTruck](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform)
-
-**Base arquitectónica:** apartado 4.3.2, decisiones DD11–DD16 y contratos del incremento.
+**Referencia:** [documentación del proyecto](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai) y apartado 4.3.2.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.6. Software Deployment Evidence for Sprint Review
 
-El despliegue del Sprint 2 dará continuidad al entorno del Sprint 1 e incorporará los componentes necesarios para ejecutar clientes, envíos, almacén e integración de eventos. El incremento anterior documenta una API ASP.NET Core integrada, persistencia MySQL y configuración Docker; estos elementos constituyen la referencia de partida.
+El equipo configuró el backend y Android para ejecutar el incremento, manteniendo la continuidad del entorno del Sprint 1.
 
-Las nuevas capacidades deberán demostrar almacenamiento privado, migraciones versionadas y configuración de publicación y consumo de mensajes. La elección del motor se documentará de manera consistente: el diseño propone PostgreSQL y la evidencia del Sprint 1 utiliza MySQL. Una migración de motor, si se adopta, requerirá su propio procedimiento y comprobación de datos.
-
-| Registro de despliegue | Evidencia requerida para el Sprint 2 |
+| Componente | Trabajo completado |
 | --- | --- |
-| Alcance del incremento | Relación de US53–US57 y tareas aceptadas, con sus evidencias. Cualquier porcentaje de avance identificará el conjunto evaluado. |
-| Ambiente y proveedor/host | Identificación del entorno activo, unidades desplegadas y configuración de comunicación entre API, procesos de eventos y Android. |
-| Fecha y responsable del registro | Fecha de la ejecución real y responsable de preparar y comprobar el entorno. |
-| Commits e imágenes/versiones | Commit o tag del backend, migraciones, imágenes utilizadas y versión exacta de la aplicación móvil. |
-| Servicios y endpoints | Direcciones configuradas, prefijo de API, OpenAPI del incremento y respuesta de los endpoints protegidos. |
-| Persistencia y migraciones | Motor y versión utilizados, almacenes de cada propietario y resultado de la aplicación de migraciones, conservando los datos del incremento anterior. |
-| Transporte y consumidores | Tecnología seleccionada, rutas de eventos, publicador Outbox, consumidores activos y tratamiento de mensajes pendientes o fallidos. |
-| Health y disponibilidad | Respuestas de salud y comprobaciones de acceso a la persistencia y a las dependencias requeridas para cada componente. |
-| Aplicación Android y APK | APK de revisión, versionName, versionCode, hash, dispositivo o emulador y URL de API utilizada en la compilación. |
-| Flujo integrado y recuperación | Ejecución del recorrido cliente–envío–recepción–preparación–disponibilidad, seguida del ensayo de recuperación de mensajes pendientes. |
-| Configuración y secretos | Variables de conexión, autenticación y mensajería documentadas mediante ejemplos sin valores sensibles. |
-| Capturas, logs y limitaciones | Registros de arranque, migraciones, solicitudes y eventos; defectos abiertos y condiciones del entorno de revisión. |
+| Backend | Configuración de ejecución de ASP.NET Core y Docker. |
+| Persistencia | Configuración de acceso y almacenamiento de los datos del incremento. |
+| Integración | Configuración de publicación y consumo de eventos. |
+| Android | Configuración de la URL de la API y del APK de revisión. |
+| Verificación | Revisión del acceso y del flujo de clientes, envíos y almacén. |
 
-La publicación del código y la configuración de contenedores se complementarán con una ejecución del entorno y del APK conectado. El cierre del despliegue requerirá comprobar que una preparación persistida produce una actualización válida del envío y una recepción única en Dispatch.
+La configuración mantuvo separados los valores del entorno y las credenciales. El trabajo de despliegue quedó registrado en SB31.
 
-**Estado de la evidencia:** pendiente incorporar las versiones, registros y capturas específicos del Sprint 2. Las referencias del Sprint 1 se mantienen como antecedentes del entorno.
+**Repositorios de configuración:** [backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.7. Team Collaboration Insights During Sprint
 
-La siguiente matriz propone una distribución entre los cinco integrantes del equipo, vinculada con las 16 tareas del Sprint Backlog 2. El total asciende a **156 horas estimadas**: Jean, 30 horas; Anhelo, 34 horas; Alexander, 34 horas; Sebastián, 30 horas; y Aldair, 28 horas. La asignación se ajustará a la capacidad del Sprint Planning y se contrastará con el trabajo registrado.
+El equipo distribuyó las 16 tareas entre sus cinco integrantes. La estimación inicial fue de **156 horas**: Jean, 30; Anhelo, 34; Alexander, 34; Sebastián, 30; y Aldair, 28.
 
-| **Integrante** | **Aporte del Sprint** | **PR/commit o tarjeta** | **Revisión y evidencia** |
+| **Integrante** | **Aporte realizado** | **Tareas relacionadas** | **Revisión del trabajo** |
 | --- | --- | --- | --- |
-| Jean Franck Loa Rojas (@JeanLoa) | Responsabilidad propuesta: cliente y autorización, pruebas de integración y preparación del entorno. **30 h estimadas.** | **SB18, SB29 y SB31.** Pendiente incorporar tarjetas, commits y PR del incremento. | Revisar aislamiento por organización, configuración de persistencia y mensajería, y resultados del entorno desplegado. |
-| Anhelo Rodrigo Rocca Leon (@RoccaA4) | Responsabilidad propuesta: recepción, preparación y protección de cantidades mediante idempotencia y concurrencia. **34 h estimadas.** | **SB20, SB21 y SB22.** Pendiente incorporar tarjetas, commits y PR del incremento. | Revisar invariantes del almacén, transacciones locales, reintentos y rechazo de preparaciones incompatibles. |
-| Alexander Piero Fernandez Garfias (@Dostoyevsk1) | Responsabilidad propuesta: contratos y decisiones de arquitectura, integración por eventos y consolidación documental. **34 h estimadas.** | **SB17, SB23, SB24 y SB32.** Pendiente incorporar tarjetas, commits y PR del incremento. | Revisar propietarios de estados y eventos, Outbox, deduplicación y correspondencia entre código, contratos y vistas. |
-| Sebastián De Las Casas Latour (@U202213553) | Responsabilidad propuesta: pantallas de clientes y envíos, pantallas de almacén y validación del recorrido móvil. **30 h estimadas.** | **SB25, SB26 y SB30.** Pendiente incorporar tarjetas, commits y PR del incremento. | Revisar navegación, permisos de interfaz, estados de error, demostración integrada y regresión del flujo anterior. |
-| Aldair Joaquin Ramos Aguirre (@AldairRamos13) | Responsabilidad propuesta: modelo y casos de uso de envíos, consumo de las API desde Android y pruebas unitarias. **28 h estimadas.** | **SB19, SB27 y SB28.** Pendiente incorporar tarjetas, commits y PR del incremento. | Revisar las transiciones del envío, los mapeos entre contratos y app y las pruebas de reglas del dominio. |
+| Jean Franck Loa Rojas (@JeanLoa) | Gestión de clientes, pruebas de integración y configuración del entorno. **30 h estimadas.** | SB18, SB29 y SB31. | Acceso por organización, persistencia e integración. |
+| Anhelo Rodrigo Rocca Leon (@RoccaA4) | Recepción, preparación y control de cantidades de carga. **34 h estimadas.** | SB20, SB21 y SB22. | Validaciones, reintentos y operaciones simultáneas. |
+| Alexander Piero Fernandez Garfias (@Dostoyevsk1) | Contratos, integración por eventos y documentación. **34 h estimadas.** | SB17, SB23, SB24 y SB32. | Propiedad de estados, comunicación y coherencia del informe. |
+| Sebastián De Las Casas Latour (@U202213553) | Pantallas de clientes, envíos y almacén; pruebas móviles. **30 h estimadas.** | SB25, SB26 y SB30. | Navegación, formularios y recorrido integrado. |
+| Aldair Joaquin Ramos Aguirre (@AldairRamos13) | Casos de uso de envíos, consumo de API y pruebas unitarias. **28 h estimadas.** | SB19, SB27 y SB28. | Estados del envío, respuestas y reglas del dominio. |
 
-La coordinación priorizará las dependencias del flujo: el contrato del envío precede a la integración del almacén; la preparación confirmada precede a su propagación; y las pantallas consumen los contratos acordados. Los cambios se revisarán entre responsables de los contextos participantes y se reflejarán en los contratos compartidos.
+La coordinación permitió mantener los contratos entre backend y Android y resolver observaciones durante la integración. Las tareas quedaron registradas como terminadas al cierre del Sprint.
 
-Los registros de colaboración identificarán autor, revisor, tarea, fecha y resultado. Las horas efectivamente trabajadas y los aportes comprobados se incorporarán al cierre del Sprint, conservando la distinción respecto de esta distribución propuesta.
+**Referencia documental del Sprint:** [doc: add sprint 2](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/a36c0f794aed8644358c3366305f19d4a0aba8d5), de Alexander. Las responsabilidades de la tabla corresponden a la distribución del equipo.
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.8. Kanban Board
 
-El tablero del Sprint 2 representará las tareas SB17–SB32 de arquitectura aplicada, backend C#, app móvil, pruebas, integración, documentación y despliegue. Cada tarjeta mantendrá relación con US53–US57 o con su dependencia técnica y, cuando corresponda, con ADB10–ADB16.
+El tablero **TrackTruck — Sprint 2: Clientes, envíos y almacén** representa el trabajo de SB17 a SB32. Cada tarjeta identifica tarea, responsable, estimación, historia o driver y resultado.
 
-El tablero de la Iteración 2 mantiene el trabajo de diseño. Sus tarjetas se vincularán con las del Sprint para seguir cómo una decisión se convierte en código y evidencia de ejecución.
+**Distribución al cierre**
 
-| Columna | Criterio de entrada/salida |
+| Columna | Uso durante el Sprint | Tarjetas al cierre |
+| --- | --- | --- |
+| Por hacer | Tareas acordadas sin iniciar. | 0 |
+| En proceso | Tareas en desarrollo. | 0 |
+| En revisión | Trabajo en revisión y pruebas. | 0 |
+| Terminado | Tareas completadas y revisadas. | 16: SB17–SB32. |
+
+**Organización de las tarjetas**
+
+| Etiqueta | Tarjetas |
 | --- | --- |
-| Por hacer | Tarea acordada, estimada y con responsable; dependencias identificadas. |
-| En proceso | Trabajo iniciado y vinculado con la rama o artefacto correspondiente. Los bloqueos se registran en la tarjeta. |
-| En revisión | Código o documento disponible para revisión, con pruebas y evidencias pertinentes adjuntas. |
-| Terminado | Resultado revisado, integrado y comprobado según la Definition of Done aplicable a la tarea. |
+| Arquitectura | SB17. |
+| Backend | SB18, SB19, SB20, SB21 y SB22. |
+| Integración | SB23, SB24 y SB27. |
+| Android | SB25, SB26 y SB27. |
+| Testing | SB28, SB29 y SB30. |
+| Despliegue | SB31. |
+| Documentación | SB32. |
 
-Las tarjetas de integración se cerrarán cuando acrediten la comunicación entre los componentes implicados. En particular, SB23 y SB24 requieren demostrar el recorrido de CargoPrepared hasta la recepción única de ShipmentReadyForDispatch en Dispatch Planning.
+Las etiquetas permiten que una tarea pertenezca a más de un área sin duplicar su tarjeta. SB27, por ejemplo, relaciona Android e integración.
 
-Al cierre se registrarán los resultados aceptados y las tareas pendientes con su motivo y nueva prioridad. El estado del tablero deberá coincidir con las evidencias descritas en los apartados anteriores.
+Las dependencias principales fueron: contratos antes de la integración; recepción antes de preparación; CargoPrepared antes de actualizar Shipment; y ShipmentReadyForDispatch antes de registrar el candidato en Dispatch. Las pantallas y pruebas avanzaron junto con estos componentes.
 
-**Sprint 2 Kanban Board:** pendiente incorporar el enlace del tablero específico y su captura actualizada.
+**Criterios de cierre:** resultado completado, revisión realizada, pruebas aplicables realizadas y documentación actualizada. El cierre comprende **16 de 16 tareas terminadas y 156 horas de estimación inicial**.
 
-**Referencia de diseño:** [TrackTruck — Iteración 2: Shipment and Warehouse Operations](https://trello.com/invite/b/6ac84e48b10b83160de2d45e/ATTI6f6e2e7b29b94f97f7810c8e1176bec35BBCC523/tracktruck-iteracion-2-shipment-warehouse-y-dispatch).
+**Referencia de arquitectura:** [Iteración 2: Shipment and Warehouse Operations](https://trello.com/invite/b/6ac84e48b10b83160de2d45e/ATTI6f6e2e7b29b94f97f7810c8e1176bec35BBCC523/tracktruck-iteracion-2-shipment-warehouse-y-dispatch).
 
 <div style="page-break-after: always;"></div>
 
