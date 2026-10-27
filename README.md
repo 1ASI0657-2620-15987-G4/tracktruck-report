@@ -2775,9 +2775,9 @@ TrackTruck utiliza Git y GitHub para el control de versiones y la gestión colab
 | Repositorio | Descripción | Enlace |
 |---|---|---|
 | Report | Informe, documentación y diagramas arquitectónicos. | [TrackTruck Report](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai) |
-| Backend | Servicios desarrollados con C# y ASP.NET Core. | [Repositorio pendiente](URL_BACKEND) |
-| Mobile App | Aplicación Android desarrollada con Kotlin y Jetpack Compose. | [Repositorio pendiente](URL_MOBILE) |
-| Landing Page | Página informativa de TrackTruck. | [Repositorio pendiente](URL_LANDING) |
+| Backend | Servicios desarrollados con C# y ASP.NET Core. | [Backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) |
+| Mobile App | Aplicación Android desarrollada con Kotlin y Jetpack Compose. | [App Mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) |
+| Landing Page | Página informativa de TrackTruck. | [LandingPage](https://github.com/1ASI0657-2620-15987-G4/tracktruck-website) |
 
 **Organización GitHub:** [TrackTruck](https://github.com/1ASI0657-2620-15987-G4)
 
@@ -2955,7 +2955,10 @@ La selección básica de recursos de SB05 corresponde a las validaciones existen
 
 **Repositorios del incremento:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
 
-![Sprint Backlog 1 — tablero del Sprint](assets/images/chapter5/sprint1-kanban-board.png)
+![Sprint Backlog 1 — tablero del Sprint](assets/images/chapter5/sprint1-backlog-kanban.png)
+
+![Sprint Backlog 1 — tablero del Sprint](assets/images/chapter5/sprint1-backlog-kanban-2.png)
+
 
 **Enlace de planificación/Sprint Backlog:** [TrackTruck — Sprint Backlog 1](https://trello.com/invite/b/6ae0a29f22ab3c2547e7db57/ATTI24f79af3e643afcc3b63eb4777bda328D4CF5C11/tracktruck-sprint-backlog-1)
 
