@@ -55,9 +55,11 @@
 
 <h2 align="center">Registro de Versiones del Informe</h2>
 
-| Versión | Fecha      | Autor | Descripción de modificación                                                                                                                                                                                                                                                              |
-|---------|------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AV1     | 07-09-2026 | LogiGo | Creación del informe. Inclusión de los Capítulos I, II y III, junto con el avance del diseño arquitectónico del Capítulo IV.                                                                                                                                                                                              |
+| Versión | Fecha | Autor | Descripción de modificación |
+| --- | --- | --- | --- |
+| AV1 | 07-09-2026 | LogiGo | Creación del informe. Inclusión de los Capítulos I, II y III y avance del diseño arquitectónico del Capítulo IV. |
+| TB1 | 06-10-2026 | LogiGo | Desarrollo de las cinco iteraciones ADD del Capítulo IV. Incorporación del Capítulo V y del Sprint 1, con los avances del backend, la aplicación Android, las pruebas y la configuración del entorno. |
+| TB2 | 27-10-2026 | LogiGo | Incorporación del Sprint 2: gestión de clientes, envíos y operaciones de almacén. Actualización de las evidencias de desarrollo, pruebas, ejecución, documentación, despliegue, colaboración y tableros de trabajo. |
 
 <div style="page-break-after: always;"></div>
 
