@@ -1214,21 +1214,57 @@ Los principios orientan la arquitectura objetivo y su implementación incrementa
 
 ### 4.1.2. Approaches Statements Architectural Styles & Patterns
 
-**Domain-Driven Design.** Se adopta la delimitación de 17 bounded contexts del apartado 4.3.1.3. Cada contexto conserva su lenguaje, agregados, reglas y propiedad de datos. La arquitectura objetivo propone servicios asociados a esas capacidades; su condición de servicio desplegable deberá quedar reflejada en el código, configuración y vistas C4 del incremento.
+**Domain-Driven Design (DDD).**
 
-**Backend en C# con ASP.NET Core.** Los servicios se organizan mediante Clean Architecture con capas Domain, Application, Infrastructure y API. Domain contiene agregados, entidades y Value Objects; Application define casos de uso, commands, queries y puertos; Infrastructure implementa persistencia y adaptadores; API expone y valida contratos HTTP. Las dependencias de negocio apuntan hacia Domain. La composición de implementaciones se realiza en el arranque de la API.
+Se adopta la delimitación de los 17 bounded contexts definidos en el apartado 4.3.1.3. Cada contexto mantiene su propio lenguaje, agregados, reglas de negocio y propiedad de datos. La arquitectura objetivo contempla servicios asociados a estas capacidades, cuya implementación debe reflejarse en el código, la configuración y las vistas C4 del incremento.
 
-**CQRS.** Los commands y sus handlers se sitúan en Application y producen cambios mediante el modelo de dominio. Las queries proporcionan consultas autorizadas. Esta separación puede utilizar la misma base del servicio; bases de lectura adicionales se incorporarán solamente cuando se justifique su necesidad. Los commands no se ubican en Domain.
+**Backend en C# con ASP.NET Core.**
 
-**Microservicios y eventos.** REST se utiliza para respuestas inmediatas y APIs de consulta o comando. Los eventos de integración comunican hechos ya persistidos y permiten que otros servicios actualicen sus propias proyecciones. Los eventos de dominio locales y los de integración tienen propósitos distintos. La publicación confiable utiliza Outbox y los consumidores aplican deduplicación; se diseña para entrega al menos una vez. La separación de modelos y casos de uso se apoya en los patrones DDD/CQRS documentados por Microsoft [R03].
+El backend se organiza mediante Clean Architecture, separando las responsabilidades en cuatro capas:
 
-**App móvil Android.** Se adopta Kotlin, Jetpack Compose y Material 3 como elección técnica. La app usa MVVM, un flujo de estado unidireccional y separación de presentación, casos de uso y acceso a datos. ViewModel expone estados de carga, datos, vacío y error. El repositorio de datos implementa el acceso a la API y la persistencia local de reportes pendientes; se propone Room para esos reportes [R07]. Android recomienda separar UI y datos y usar repositorios y ViewModel [R04].
+- **Domain:** contiene los agregados, las entidades, los Value Objects y las reglas de negocio.
+- **Application:** define los casos de uso, commands, queries, handlers y puertos.
+- **Infrastructure:** implementa la persistencia y los adaptadores de servicios externos.
+- **API:** expone los endpoints y valida los contratos HTTP.
 
-**Persistencia.** Se propone PostgreSQL con EF Core para los servicios transaccionales. Cada servicio mantiene su base o almacenamiento privado y sus migraciones. Los servicios se integran por identificadores, contratos y eventos. No se realizan joins ni claves foráneas entre bases de distintos servicios.
+Las dependencias de negocio apuntan hacia Domain. La configuración y composición de las implementaciones se realizan durante el arranque de la API.
 
-**IA en Dispatch Planning.** Un componente interno implementará la recomendación asistida por un modelo evaluado, detrás de una interfaz de Application. Se propone ML.NET como opción compatible con C#; su incorporación requiere un conjunto de datos identificado, entrenamiento y evaluación [R06]. Las reglas de elegibilidad y la aprobación del responsable conservan autoridad sobre el resultado final.
+**Command Query Responsibility Segregation (CQRS).**
 
-**Patrones de apoyo.** Repository, Adapter y Anti-Corruption Layer, Strategy, Publish–Subscribe, Outbox/Inbox, idempotencia y Circuit Breaker se aplicarán conforme a las interacciones documentadas. Una biblioteca técnica BuildingBlocks reunirá únicamente componentes comunes estables; los modelos del negocio permanecen en su contexto propietario.
+Se separan las operaciones que modifican información de aquellas que permiten consultarla. Los commands y sus handlers pertenecen a Application y ejecutan los cambios mediante el modelo de dominio. Las queries proporcionan consultas sujetas a los permisos correspondientes.
+
+Esta separación puede utilizar una misma base de datos dentro del servicio. Las bases de lectura adicionales se incorporarán cuando exista una necesidad que lo justifique.
+
+**Microservicios y eventos.**
+
+REST se utiliza para las consultas y operaciones que requieren una respuesta inmediata. Los eventos de integración comunican hechos que ya fueron persistidos, permitiendo que otros servicios actualicen sus propios datos y proyecciones.
+
+Los eventos de dominio representan hechos internos de un contexto, mientras que los eventos de integración permiten la comunicación entre servicios. Para una publicación confiable se contempla Outbox y, en los consumidores, mecanismos de deduplicación que eviten efectos repetidos ante una entrega de mensajes al menos una vez.
+
+**Persistencia.**
+
+Se propone PostgreSQL con Entity Framework Core para los servicios transaccionales. Cada servicio mantiene su almacenamiento privado y sus propias migraciones.
+
+La integración entre servicios se realiza mediante identificadores, contratos y eventos. No se establecen claves foráneas ni se ejecutan joins entre bases de datos de servicios diferentes.
+
+**Aplicación móvil Android.**
+
+La aplicación utiliza Kotlin, Jetpack Compose y Material 3. Su organización sigue MVVM y un flujo de estado unidireccional, separando la presentación, los casos de uso y el acceso a datos.
+
+Los ViewModels exponen los estados de carga, datos disponibles, contenido vacío y error. Los repositorios gestionan la comunicación con las API y el almacenamiento local. Para conservar los reportes de ubicación que esperan sincronización, se propone utilizar Room.
+
+**Inteligencia artificial en Dispatch Planning.**
+
+Se contempla un componente interno de recomendación asistida por IA, ubicado detrás de una interfaz de Application. ML.NET se propone como una opción compatible con C#.
+
+Su incorporación requiere identificar los datos utilizados, entrenar el modelo y evaluar sus resultados. Las reglas obligatorias de elegibilidad y la aprobación del responsable determinan la decisión final sobre el plan de despacho.
+
+**Patrones de apoyo.**
+
+Se contemplan Repository, Adapter, Anti-Corruption Layer, Strategy, Publish–Subscribe, Outbox/Inbox, idempotencia y Circuit Breaker, según las necesidades de las interacciones documentadas.
+
+Una biblioteca técnica denominada **BuildingBlocks** reunirá los componentes comunes y estables. Los modelos y las reglas de negocio permanecerán dentro de sus respectivos bounded contexts.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -3249,23 +3285,30 @@ Herramientas y convenciones del documento base:
 
 ## Anexo A. Herramientas y artefactos del proyecto
 
-| Actividad | Herramienta o artefacto |
-|---|---|
-| User Personas y Empathy Maps del documento base | UXPressia. |
-| As-Is y To-Be | Lucidchart; figuras por actualizar según alcance. |
-| Arquitectura C4 | Structurizr y fuentes versionadas. |
-| UML y mapa de contextos | PlantUML/Lucidchart y Miro. |
-| Informe y contratos | Markdown y OpenAPI. |
-| Backend | C#/ASP.NET Core y proyectos de tests. |
-| App móvil | Android/Kotlin/Compose y APK del incremento. |
-| IA | Dataset, modelo, evaluación y Strategy de Dispatch. |
-| Control de cambios y tareas | Git/GitHub y Trello. |
+Este anexo reúne las herramientas y los artefactos registrados para TrackTruck, con acceso a los diseños, al código y a las evidencias del informe.
+
+| **Actividad** | **Herramientas y artefactos** | **Ubicación o referencia** |
+| --- | --- | --- |
+| User Personas y Empathy Maps | UXPressia; fichas y mapas incorporados al informe. | [Figuras del Capítulo II](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter2) |
+| As-Is, To-Be e Impact Map | Lucidchart y figuras de escenarios e impactos. | [Figuras del Capítulo II](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter2); [Figuras del Capítulo III](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter3) |
+| Arquitectura C4 | Structurizr como herramienta referenciada; diagramas exportados de contexto y contenedores. | [Figuras de arquitectura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter4) |
+| UML y mapa de contextos | PlantUML, Lucidchart y Miro como herramientas referenciadas; modelos y mapa de contextos documentados. | [Figuras de arquitectura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter4) |
+| UX/UI y prototipos de landing y app móvil | Figma; wireframes, wireflows, mock-ups, user flows y prototipos elaborados. | [Diseños y prototipos en Figma](https://www.figma.com/design/vCqC47s66ZJhjitxluqHvS/Untitled?node-id=0-1&t=lRQvaAVcNTiV4ONG-1) |
+| Informe y contratos HTTP | Markdown, especificaciones de requisitos y documentación OpenAPI/Swagger. | [Informe principal](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md); [Configuración del backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/README.md) |
+| Backend | C#, ASP.NET Core 8, Entity Framework Core, MySQL y proyectos de pruebas. | [Repositorio backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform); [Pruebas unitarias](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.UnitTests); [Integración y Gherkin](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.IntegrationTests) |
+| Componentes técnicos compartidos | Repositorio base, unidad de trabajo, persistencia y convenciones implementados en Shared. La biblioteca independiente TrackTruck.BuildingBlocks se describe como evolución técnica. | [Shared](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.Platform.API/Shared); [Diseño de BuildingBlocks](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#513-pattern-based-custom-software-library) |
+| App móvil | Android, Kotlin, Jetpack Compose, MVVM, Retrofit y configuración de compilación del APK. | [Repositorio móvil](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile); [Compilación y versión Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/blob/main/app/build.gradle.kts) |
+| Planificación asistida por IA | Diseño del motor interno, Strategy de recomendación y fallback; especificación de dataset, modelo y evaluación. | [Diseño del componente de planificación](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4335-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces) |
+| Control de cambios y tareas | Git/GitHub para código y documentación; Trello para Product Backlog, Sprints e iteraciones ADD. | [Organización GitHub](https://github.com/1ASI0657-2620-15987-G4); [Product Backlog](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello) |
+| Entorno de revisión | Docker, configuración de Railway, persistencia MySQL y conexión configurable desde Android. | [Dockerfile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/Dockerfile); [Railway](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/TrackTruck.Platform.API/railway.toml); [Configuración de la app](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/blob/main/README.md) |
 
 <div style="page-break-after: always;"></div>
 
 ## Anexo B. Trazabilidad de contextos
 
-| Código | Contexto | Historias principales | Iteración ADD | Grupo de pruebas | Servicio propuesto |
+La matriz relaciona los 17 bounded contexts de la arquitectura objetivo con sus historias de usuario, iteraciones ADD, grupos de pruebas previstos y servicios propuestos. Los nombres de los servicios representan el diseño arquitectónico; su presencia en esta tabla no implica que existan 17 despliegues independientes en el incremento actual.
+
+| **Código** | **Contexto** | **Historias principales** | **Iteración ADD** | **Grupo de pruebas previsto** | **Servicio propuesto** |
 | --- | --- | --- | --- | --- | --- |
 | BC01 | Identity & Access | US46–US52 | 1 | TC01 | IdentityService |
 | BC02 | Customer Management | US01–US02, US53 | 1–2 | TC02 | CustomerService |
@@ -3285,58 +3328,97 @@ Herramientas y convenciones del documento base:
 | BC16 | Operational History | US21–US22, US39–US42, US79 | 1 y 5 | TC16 | OperationalHistoryService |
 | BC17 | Reporting & Analytics | US43–US45, US80 | 5 | TC17 | ReportingService |
 
-Los casos críticos TC18–TC27 complementan la comprobación de integraciones y calidad. Las US20 y US38 relacionan la consulta del viaje y datos de Fleet con el marcador móvil. Los NFR se trazan a QAS y restricciones en 3.2.
+Las US20 y US38 complementan la consulta del viaje y de los datos de Fleet mediante el marcador del dispositivo móvil. Los grupos TC18–TC27 se conservan como referencias de planificación para integraciones y atributos de calidad; no representan resultados de pruebas ejecutadas. Los requisitos no funcionales se relacionan con los QAS y las restricciones del Capítulo IV.
+
+El detalle de las historias se consulta en [User Stories](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#32-user-stories) y su distribución temporal en [Product Backlog](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#34-product-backlog).
 
 <div style="page-break-after: always;"></div>
 
-## Anexo C. Pendientes para completar progresivamente
+## Anexo C. Estado del avance y continuidad del proyecto
 
-| Apartado | Contenido pendiente | Criterio para completar |
-|---|---|---|
-| Student Outcome TB1 | Aprendizajes y aportes de cada integrante. | Acciones efectivamente realizadas y evidencia correspondiente. |
-| 1.1.2 y 2.2.2 | Datos personales o del participante que falten en el documento base. | Confirmar con la persona; no sustituir por datos inventados. |
-| 1.2.3.4 | Imagen del Canvas actualizado. | Coherencia con tabla e hipótesis H01–H07. |
-| 2.2 y 2.3 | Entrevistas de nuevos roles y validación de arquetipos. | Registro, respuestas y matriz de análisis. |
-| 2.3, 3.1 y 3.3 | Figuras de escenarios, mapas e impactos. | Incorporar tareas ampliadas sin atribuirlas a entrevistas que no las cubren. |
-| 3.4 | Prioridad, estimaciones y compromiso real de Sprints. | Revisar capacidad, dependencias y evidencia de estados. |
-| 4.1.3–4.1.5 | Contexto, vistas UML/C4 y ER por servicio. | Límites y referencias correctos; consistencia con migraciones/código. |
-| 4.3.1–4.3.5 | Vistas, revisión de decisiones y tableros ADD. | Modelos revisados y enlaces verificables. |
-| 5.1.1 | Suites y resultados ejecutados. | Casos, entorno, versión, reporte y defectos. |
-| 5.1.2–5.1.4 | Código, biblioteca y refactoring. | Clases/PR antes y después y tests correspondientes. |
-| 5.2.1–5.2.4 | Versiones exactas, repositorios y configuración. | README reproducible, commits y entorno identificado. |
-| 5.3.1.1 | Planificación y backlog aceptado. | Fechas, capacidad, responsables e historias del Sprint. |
-| 5.3.1.2–5.3.1.8 | Desarrollo, pruebas, ejecución, documentos, despliegue, colaboración y Kanban. | Evidencias reales del incremento C# y móvil. |
+El estado actualizado distingue los artefactos incorporados, las entregas finalizadas y el trabajo programado. Conforme al Product Backlog vigente, los Sprints 1 y 2 se encuentran finalizados; las historias restantes se distribuyen entre los Sprints 3, 4 y 5.
+
+| **Apartado o entrega** | **Estado actualizado** | **Contenido y seguimiento** | **Referencia** |
+| --- | --- | --- | --- |
+| Student Outcome TB1 y AV2 | Documentado. | Se incorporaron aprendizajes y aportes por integrante para TB1 y AV2. | [Student Outcome](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#student-outcome) |
+| 1.1.2 y 2.2.2 | Contenido incorporado. | Perfiles de los cinco integrantes y registro de siete entrevistas. | [Integrantes](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#112-perfiles-de-integrantes-del-equipo); [Entrevistas](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#222-registro-de-entrevistas) |
+| 1.2.3.4 | Canvas documentado; figura disponible para revisión de coherencia. | Mantener la correspondencia entre la figura, el alcance vigente y las hipótesis H01–H07. | [Lean UX Canvas](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#1234-lean-ux-canvas) |
+| 2.3, 3.1 y 3.3 | Figuras incorporadas. | User Personas, Empathy Maps, escenarios As-Is/To-Be e Impact Map. | [Figuras del Capítulo II](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter2); [Figuras del Capítulo III](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter3) |
+| 3.4: Sprints 1 y 2 | Finalizados, según el estado registrado en el Product Backlog. | Conservar la relación entre las historias finalizadas y sus artefactos del backend y la app. | [Product Backlog](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#34-product-backlog) |
+| 4.1.3–4.1.5 | Diagramas incorporados al informe. | Contexto, vistas UML y diseño de persistencia; su ubicación se detalla en el Anexo D. | [Figuras de arquitectura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter4) |
+| 4.1.8.3–4.1.8.5 | Diseño y prototipos elaborados. | Wireframes, mock-ups, wireflows, user flows y prototipos de landing y aplicación móvil. | [Archivo de Figma](https://www.figma.com/design/vCqC47s66ZJhjitxluqHvS/Untitled?node-id=0-1&t=lRQvaAVcNTiV4ONG-1) |
+| 4.3.1–4.3.5 | Cinco iteraciones ADD documentadas y tableros registrados. | Backlogs de diseño, decisiones, vistas y tableros de revisión de cada iteración. | [ADD Iterations](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#43-add-iterations) |
+| 5.1.1 y 5.3.1.3 | Suites implementadas y documentadas. | Pruebas unitarias e integración del backend, pruebas instrumentadas Android y escenarios Gherkin. Los resultados de ejecución se registran con su entorno y versión. | [Pruebas unitarias](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.UnitTests); [Integración y Gherkin](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.IntegrationTests); [Pruebas Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/tree/main/app/src/androidTest/java/com/tracktruck/app) |
+| 5.1.2–5.1.4 | Patrones y evolución técnica documentados; Shared implementado. | Distinguir los componentes compartidos existentes del diseño de la biblioteca independiente y de los refactorings todavía propuestos. | [Shared](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.Platform.API/Shared); [Biblioteca](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#513-pattern-based-custom-software-library); [Refactoring](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#514-framework-pattern-driven-refactoring-report) |
+| 5.2.1–5.2.4 | Repositorios y configuración documentados. | Configuración de ejecución backend, persistencia, compilación Android y acceso a la API. | [Configuración del backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/README.md); [Configuración de la app](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/blob/main/README.md); [Dockerfile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/Dockerfile) |
+| 5.3.1.1–5.3.1.8 | Apartados del Sprint 1 documentados. | Backlog, desarrollo, pruebas, ejecución, contratos, despliegue, colaboración y Kanban. Mantener los registros operativos asociados a cada demostración. | [Sprint Backlog 1](https://trello.com/invite/b/6ae0a29f22ab3c2547e7db57/ATTI24f79af3e643afcc3b63eb4777bda328D4CF5C11/tracktruck-sprint-backlog-1); [Kanban del Sprint 1](https://trello.com/invite/b/6ac872b881eb3c6497f3555a/ATTIc0666f9e02553987528127d82e89c2cd65903E70/tracktruck-sprint-1-kanban); [Evidencias del Capítulo V](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter5) |
+| Continuidad: Sprint 3 | Se realizará en el Sprint 3. | Entregas, historial de viajes e incidencias anteriores: US21, US22, US37, US39–US42, US74 y US75. | [Historias del Sprint 3](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#34-product-backlog) |
+| Continuidad: Sprint 4 | Se realizará en el Sprint 4. | Cotización, comprobantes, pagos e historial consolidado: US76–US79. | [Historias del Sprint 4](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#34-product-backlog) |
+| Continuidad: Sprint 5 | Se realizará en el Sprint 5. | Resumen de operaciones, dashboard e indicadores: US43–US45 y US80. | [Historias del Sprint 5](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#34-product-backlog) |
+
+El avance funcional del backend y de la aplicación móvil se reporta cercano al 70 % según la estimación del equipo. Este indicador se mantiene separado del estado documental, la cobertura de pruebas y la disponibilidad del entorno. La evidencia operativa de cada entrega debe identificar versión de código, entorno, APK utilizado y resultado observado.
 
 <div style="page-break-after: always;"></div>
 
 ## Anexo D. Guía de figuras de arquitectura
 
-| Figura | Contenido mínimo |
-|---|---|
-| iteration1-bounded-context-map.png | Los 17 contextos y sus relaciones principales. |
-| iteration1-c4-containers.png | App Android, gateway, servicios C#, broker y datos privados. |
-| iteration1-uml-components.png | Interfaces y componentes de la estructura global. |
-| iteration2-shipment-sequence.png | Cliente/envío, recepción, preparación y disponibilidad de despacho. |
-| iteration3-dispatch-sequence.png | Elegibilidad, mantenimiento, rutas, IA, fallback, reserva y aprobación. |
-| iteration4-tracking-sequence.png | Inicio, ingestión, incidencia, cierre del recorrido y entrega. |
-| iteration5-billing-sequence.png | Condición del cobro, comprobante, pago y reconciliación. |
-| database-diagram.png | Vista por servicio con FK locales y referencias externas diferenciadas. |
+Las siguientes figuras están ubicadas en el repositorio del informe, rama `feature/dazai`. Cada fila permite abrir tanto el apartado correspondiente como el archivo de la figura.
 
-Cada figura se guarda bajo la ruta indicada en su sección y conserva su fuente editable en el repositorio. Las imágenes de ejecución y resultados se incorporan después de realizar el ensayo correspondiente.
+| **Figura** | **Contenido o propósito** | **Apartado del reporte** | **Ubicación en el repositorio** |
+| --- | --- | --- | --- |
+| `context-diagram.png` | Contexto de TrackTruck, actores y sistemas externos. | [4.1.3](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#413-context-diagram) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/context-diagram.png) |
+| `activity-diagram.png` | Actividades y decisiones del proceso operacional. | [4.1.4](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#414-approach-driven-viewpoints-diagrams) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/activity-diagram.png) |
+| `state-diagram.png` | Estados y transiciones del modelo representado. | [4.1.4](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#414-approach-driven-viewpoints-diagrams) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/state-diagram.png) |
+| `class-diagram.png` | Entidades, relaciones y responsabilidades del modelo. | [4.1.4](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#414-approach-driven-viewpoints-diagrams) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/class-diagram.png) |
+| `database-diagram.png` | Diseño de persistencia y relaciones; distinguir FK locales y referencias entre contextos. | [4.1.5](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#415-relationalnon-relational-database-diagram) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/database-diagram.png) |
+| `iteration1-bounded-context-map.png` | Los 17 bounded contexts y sus relaciones de colaboración. | [4.3.1.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4316-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration1-bounded-context-map.png) |
+| `iteration1-c4-containers.png` | Contenedores de la arquitectura objetivo: app, gateway, servicios C#, broker y almacenamiento. | [4.3.1.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4316-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration1-c4-containers.png) |
+| `iteration1-uml-components.png` | Interfaces, puertos, adaptadores y dependencias de la estructura global. | [4.3.1.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4316-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration1-uml-components.png) |
+| `iteration2-c4-containers.png` | Colaboración entre Customer, Shipment, Warehouse y Dispatch. | [4.3.2.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4326-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration2-c4-containers.png) |
+| `iteration2-shipment-sequence.png` | Registro del envío, recepción, preparación y disponibilidad para despacho. | [4.3.2.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4326-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration2-shipment-sequence.png) |
+| `iteration3-c4-containers.png` | Planificación, motor IA interno, fuentes operativas y alternativas de ruta. | [4.3.3.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4336-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration3-c4-containers.png) |
+| `iteration3-dispatch-sequence.png` | Elegibilidad, mantenimiento, alternativas, fallback, reserva y aprobación. | [4.3.3.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4336-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration3-dispatch-sequence.png) |
+| `iteration4-c4-containers.png` | Relación entre app, Trip, Tracking, Incident, Delivery y Shipment. | [4.3.4.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4346-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration4-c4-containers.png) |
+| `iteration4-tracking-sequence.png` | Inicio, reportes de ubicación, incidencias, cierre del recorrido y entrega. | [4.3.4.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4346-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration4-tracking-sequence.png) |
+| `iteration5-c4-containers.png` | Billing, proveedores externos, Operational History y Reporting. | [4.3.5.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4356-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration5-c4-containers.png) |
+| `iteration5-billing-sequence.png` | Condición de cobro, comprobante, pago y reconciliación de reintentos. | [4.3.5.6](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#4356-sketch-views-c4--uml-and-record-design-decisions) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter4/iteration5-billing-sequence.png) |
+| `arquitectura-tracktruck-completa.png` | Vista general de la arquitectura de TrackTruck. | [Vista general](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#vista-arquitectónica-general-de-tracktruck) | [Ver figura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter3/arquitectura-tracktruck-completa.png) |
+
+Las vistas de la arquitectura objetivo incluyen capacidades que pueden incorporarse por incrementos. Para evaluar una entrega, se contrastan con los componentes y la configuración de la versión de código revisada. Los archivos enlazados son las imágenes disponibles en el reporte; las fuentes editables se incorporarán junto a sus figuras cuando se versionen.
+
+**Acceso general:** [Documento principal del reporte](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md) y [Figuras de arquitectura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter4).
 
 <div style="page-break-after: always;"></div>
 
 # Links
 
-| Recurso | Enlace/estado |
-|---|---|
-| Organización del proyecto | [GitHub — organización registrada](https://github.com/1ASI0657-2620-15987-G4). |
-| Informe | [Repositorio/rama aportados](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai). |
-| Backend C# | Pendiente incorporar enlace real. |
-| App móvil | Pendiente incorporar enlace real. |
-| Biblioteca BuildingBlocks | Pendiente incorporar ruta o repositorio y versión real. |
-| Product Backlog | [Invitación registrada de Trello](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello). Revisar acceso para evidencia. |
-| Iteración ADD 1 | [Tablero registrado](https://trello.com/invite/b/6ac2dd2b34ad352f3eb33e7a/ATTIf963f61854ba1e4384cb7fcf73ed07f28507791F/tracktruck-iteracion-1-gestion-de-viajes-y-seguimiento-🚚). Actualizar nombre/alcance. |
-| Iteraciones ADD 2–5 | Pendiente incorporar enlaces verificables. |
-| Sprint 1 y sus evidencias | Pendiente incorporar tablero, PR, reportes y ejecución real. |
-| APK y entorno de revisión | Pendiente incorporar versión, archivo/enlace y endpoint. |
+Índice de repositorios, diseños, tableros y evidencias registrados en el proyecto. Los enlaces de Trello corresponden a las invitaciones incluidas en el informe.
+
+| **Recurso** | **Enlace o referencia** |
+| --- | --- |
+| Organización del proyecto | [LogiGo / TrackTruck en GitHub](https://github.com/1ASI0657-2620-15987-G4) |
+| Informe: repositorio y rama | [tracktruck-report — feature/dazai](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai) |
+| Documento principal del informe | [README.md del reporte](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md) |
+| Backend C# | [tracktruck-platform — main](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main) |
+| Aplicación móvil | [tracktruck-mobile — main](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/tree/main) |
+| Landing page: código | [tracktruck-website — main](https://github.com/1ASI0657-2620-15987-G4/tracktruck-website/tree/main) |
+| Diseños UX/UI y prototipos | [Landing page y aplicación móvil en Figma](https://www.figma.com/design/vCqC47s66ZJhjitxluqHvS/Untitled?node-id=0-1&t=lRQvaAVcNTiV4ONG-1) |
+| Componentes compartidos del backend | [Shared](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.Platform.API/Shared) |
+| Biblioteca BuildingBlocks: diseño | [Diseño de TrackTruck.BuildingBlocks](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#513-pattern-based-custom-software-library); componentes actuales en [Shared](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.Platform.API/Shared) |
+| Product Backlog | [Tablero del Product Backlog](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello) |
+| Iteración ADD 1 | [Tablero de la Iteración 1](https://trello.com/invite/b/6ac84cc391ecbbd25f3fd0d3/ATTI97b4450368046dc64bf149328a4c1591125F1969/tracktruck-iteracion-1-diseno-de-arquitectura); [Iteración 1 en el informe](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#431-iteration-1-global-system-structure) |
+| Iteración ADD 2 | [Tablero de la Iteración 2](https://trello.com/invite/b/6ac84e48b10b83160de2d45e/ATTI6f6e2e7b29b94f97f7810c8e1176bec35BBCC523/tracktruck-iteracion-2-shipment-warehouse-y-dispatch); [Iteración 2 en el informe](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#432-iteration-2-shipment-and-warehouse-operations) |
+| Iteración ADD 3 | [Tablero de la Iteración 3](https://trello.com/invite/b/6ac85027fdd2ae7e47cb9609/ATTI1f9364609742d0282f64597493c0d70a633AD43E/tracktruck-iteracion-3-planificacion-inteligente-de-despachos); [Iteración 3 en el informe](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#433-iteration-3-intelligent-dispatch-planning-and-resource-assignment) |
+| Iteración ADD 4 | [Tablero de la Iteración 4](https://trello.com/invite/b/6ac851ed986af29a616e9d68/ATTI3335c368a8c996bd1f7ac36a3f4afe5c251EDFB5/tracktruck-iteracion-4-seguimiento-de-viajes-y-entregas); [Iteración 4 en el informe](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#434-iteration-4-trip-execution-tracking-and-delivery) |
+| Iteración ADD 5 | [Tablero de la Iteración 5](https://trello.com/invite/b/6ac8537744e9cde920dd169b/ATTI92be952d15cbe2a205313c3c7d3920c740483926/tracktruck-iteracion-5-facturacion-historial-y-reportes); [Iteración 5 en el informe](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#435-iteration-5-billing-operational-history-and-analytics) |
+| Sprint Backlog 1 | [Tablero actualizado del Sprint Backlog 1](https://trello.com/invite/b/6ae0a29f22ab3c2547e7db57/ATTI24f79af3e643afcc3b63eb4777bda328D4CF5C11/tracktruck-sprint-backlog-1) |
+| Kanban del Sprint 1 | [Tablero Kanban del Sprint 1](https://trello.com/invite/b/6ac872b881eb3c6497f3555a/ATTIc0666f9e02553987528127d82e89c2cd65903E70/tracktruck-sprint-1-kanban) |
+| Sprint 1: evidencias del informe | [Sección del Sprint 1](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#531-sprint-1); [Evidencias del Capítulo V](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter5) |
+| Sprint 2 / AV2: estado del avance | [Estado en el Product Backlog](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#34-product-backlog); [Registro TB1 y AV2](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#student-outcome) |
+| Pruebas unitarias backend | [Pruebas unitarias](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.UnitTests) |
+| Pruebas de integración y aceptación | [Integración y Gherkin](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.IntegrationTests) |
+| Pruebas instrumentadas Android | [Pruebas Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/tree/main/app/src/androidTest/java/com/tracktruck/app) |
+| Configuración del backend y entorno de revisión | [Configuración del backend](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/README.md); [Dockerfile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/Dockerfile); [Railway](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/TrackTruck.Platform.API/railway.toml); [Arranque y health check](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/main/TrackTruck.Platform.API/Program.cs) |
+| Compilación y versión del APK | [Compilación y versión Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/blob/main/app/build.gradle.kts); [Configuración de la app](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/blob/main/README.md) |
+| Evidencia de despliegue registrada | [Software Deployment Evidence](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/README.md#5316-software-deployment-evidence-for-sprint-review); [Captura del servicio MySQL](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter5/sprint1-deployment-evidence.png) |
+| Figuras de arquitectura en el reporte | [Figuras de arquitectura](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai/assets/images/chapter4); [Vista arquitectónica general](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/blob/feature/dazai/assets/images/chapter3/arquitectura-tracktruck-completa.png) |
