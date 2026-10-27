@@ -1061,92 +1061,92 @@ El Impact Map relaciona el objetivo de negocio con cambios esperados en las tare
 
 ## 3.4. Product Backlog
 
-El Product Backlog reúne las **80 historias** especificadas en 3.2. Se conserva la estimación original de US01–US50 y se añade la historia US31, que estaba ausente del backlog del documento base. Las estimaciones de historias incorporadas y su Sprint sugerido son propuestas iniciales que el equipo deberá revisar durante la planificación. Los Story Points expresan complejidad relativa y no equivalen directamente a horas.
+El Product Backlog reúne las **80 historias** especificadas en 3.2 y organiza su desarrollo en cinco Sprints. Se conservan las estimaciones de las historias; los Story Points expresan complejidad relativa y no equivalen directamente a horas.
 
-El estado **Pendiente contrastar evidencia** significa que este archivo no incluye el código, commit, pruebas ni aceptación necesarios para establecer el estado real de implementación. El equipo debe trasladar al tablero los avances comprobados y mantener correspondencia con la revisión de cada Sprint.
+Las historias de los **Sprints 1 y 2** se encuentran **finalizadas**. Las restantes se distribuyen entre el **Sprint 3**, para entregas e historial de viajes; el **Sprint 4**, para facturación, pagos e historial consolidado; y el **Sprint 5**, para dashboard e indicadores operacionales.
 
-| Orden | Story ID | Título | Contexto responsable | Prioridad | Story Points | Incremento sugerido | Estado documental |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | US46 | Iniciar sesión | Identity & Access | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 2 | US52 | Habilitar cuenta de usuario | Identity & Access | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 3 | US51 | Gestionar roles y permisos | Identity & Access | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 4 | US01 | Registrar empresa | Customer Management | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 5 | US02 | Visualizar información de la empresa | Customer Management | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
-| 6 | US03 | Registrar vehículo | Fleet Management | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 7 | US04 | Consultar vehículos | Fleet Management | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
-| 8 | US06 | Registrar conductor | Fleet Management | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 9 | US07 | Consultar conductores | Fleet Management | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
-| 10 | US09 | Registrar alternativa de ruta | Dispatch Planning | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 11 | US65 | Evaluar elegibilidad del conductor | Driver Safety & Compliance | Alta | 8 | Sprint 1 | Pendiente contrastar evidencia |
-| 12 | US11 | Seleccionar vehículo para el despacho | Dispatch Planning | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 13 | US12 | Seleccionar conductor para el despacho | Dispatch Planning | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 14 | US69 | Evitar reservas superpuestas | Dispatch Planning | Alta | 8 | Sprint 1 | Pendiente contrastar evidencia |
-| 15 | US67 | Aprobar plan de despacho | Dispatch Planning | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 16 | US10 | Registrar viaje programado | Trip Execution | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 17 | US26 | Consultar detalle de viaje activo | Trip Execution | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 18 | US27 | Iniciar viaje | Trip Execution | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 19 | US14 | Visualizar ubicación del vehículo | Tracking & Geolocation | Alta | 8 | Sprint 1 | Pendiente contrastar evidencia |
-| 20 | US13 | Consultar viajes activos | Trip Execution | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 21 | US18 | Registrar incidencia | Incident Management | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 22 | US19 | Consultar incidencias de un viaje | Incident Management | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 23 | US20 | Abrir marcador para contactar al conductor | Trip Execution; Fleet Management; app móvil | Alta | 5 | Sprint 1 | Pendiente contrastar evidencia |
-| 24 | US29 | Visualizar estado de un viaje | Trip Execution | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
-| 25 | US28 | Finalizar viaje | Trip Execution | Alta | 3 | Sprint 1 | Pendiente contrastar evidencia |
-| 26 | US47 | Cerrar sesión | Identity & Access | Alta | 1 | Sprint 1 | Pendiente contrastar evidencia |
-| 27 | US49 | Consultar perfil | Identity & Access | Alta | 2 | Sprint 1 | Pendiente contrastar evidencia |
-| 28 | US05 | Actualizar información de vehículo | Fleet Management | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
-| 29 | US08 | Actualizar información de conductor | Fleet Management | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
-| 30 | US15 | Visualizar recorrido del viaje | Tracking & Geolocation | Media | 8 | Sprint 2 | Pendiente contrastar evidencia |
-| 31 | US16 | Identificar paradas durante el recorrido | Tracking & Geolocation | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 32 | US17 | Identificar retrasos en el viaje | Trip Execution | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 33 | US23 | Consultar detalle de vehículo | Fleet Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 34 | US24 | Consultar detalle de conductor | Fleet Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 35 | US25 | Consultar rutas registradas | Dispatch Planning | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
-| 36 | US30 | Visualizar vehículos en mapa | Tracking & Geolocation | Media | 8 | Sprint 2 | Pendiente contrastar evidencia |
-| 37 | US31 | Seleccionar vehículo desde el mapa | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 38 | US32 | Consultar última ubicación conocida | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 39 | US33 | Visualizar progreso del recorrido | Tracking & Geolocation | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 40 | US34 | Consultar información de una parada | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 41 | US35 | Visualizar incidencias en el recorrido | Incident Management | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 42 | US36 | Consultar detalle de incidencia | Incident Management | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
-| 43 | US38 | Consultar contacto desde el viaje | Trip Execution; Fleet Management; app móvil | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 44 | US48 | Recuperar contraseña | Identity & Access | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 45 | US50 | Actualizar perfil | Identity & Access | Media | 2 | Sprint 2 | Pendiente contrastar evidencia |
-| 46 | US53 | Registrar cliente del servicio | Customer Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 47 | US54 | Crear solicitud de envío | Shipment Management | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 48 | US55 | Consultar estado del envío | Shipment Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 49 | US56 | Registrar recepción de carga | Warehouse Operations | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 50 | US57 | Preparar carga para despacho | Warehouse Operations | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 51 | US58 | Programar y cerrar mantenimiento | Maintenance Management | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 52 | US59 | Registrar kilometraje | Maintenance Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 53 | US60 | Registrar empleado | Workforce Management | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 54 | US61 | Gestionar disponibilidad laboral | Workforce Management | Media | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 55 | US62 | Registrar jornada trabajada | Time & Attendance | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 56 | US63 | Registrar descansos | Time & Attendance | Alta | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 57 | US64 | Registrar horas adicionales | Time & Attendance | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 58 | US66 | Solicitar recomendación asistida por IA | Dispatch Planning | Alta | 8 | Sprint 2 | Pendiente contrastar evidencia |
-| 59 | US68 | Continuar con planificación básica | Dispatch Planning | Alta | 5 | Sprint 2 | Pendiente contrastar evidencia |
-| 60 | US70 | Replanificar ante una excepción | Dispatch Planning | Media | 8 | Sprint 2 | Pendiente contrastar evidencia |
-| 61 | US71 | Cancelar viaje programado | Trip Execution | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 62 | US72 | Sincronizar reportes de ubicación pendientes | Tracking & Geolocation | Alta | 8 | Sprint 2 | Pendiente contrastar evidencia |
-| 63 | US73 | Actualizar motivo de parada | Tracking & Geolocation | Media | 3 | Sprint 2 | Pendiente contrastar evidencia |
-| 64 | US21 | Consultar historial de viajes | Operational History | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
-| 65 | US22 | Consultar detalle de viaje finalizado | Operational History | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
-| 66 | US37 | Consultar incidencias anteriores | Incident Management | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
-| 67 | US39 | Filtrar historial de viajes | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
-| 68 | US40 | Consultar historial de un vehículo | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
-| 69 | US41 | Consultar historial de un conductor | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
-| 70 | US42 | Consultar historial de una ruta | Operational History | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
-| 71 | US43 | Visualizar resumen de operaciones | Reporting & Analytics | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
-| 72 | US44 | Visualizar viajes activos en dashboard | Reporting & Analytics | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
-| 73 | US45 | Visualizar incidencias actuales | Reporting & Analytics | Media | 3 | Sprint 3 | Pendiente contrastar evidencia |
-| 74 | US74 | Confirmar entrega | Delivery Management | Alta | 5 | Sprint 3 | Pendiente contrastar evidencia |
-| 75 | US75 | Registrar entrega parcial o fallida | Delivery Management | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
-| 76 | US76 | Cotizar servicio logístico | Billing & Payments | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
-| 77 | US77 | Emitir comprobante del servicio | Billing & Payments | Media | 8 | Sprint 3 | Pendiente contrastar evidencia |
-| 78 | US78 | Registrar pago del servicio | Billing & Payments | Media | 8 | Sprint 3 | Pendiente contrastar evidencia |
-| 79 | US79 | Consultar historial consolidado | Operational History | Alta | 8 | Sprint 3 | Pendiente contrastar evidencia |
-| 80 | US80 | Consultar indicadores operacionales | Reporting & Analytics | Media | 5 | Sprint 3 | Pendiente contrastar evidencia |
+| **Orden** | **Story ID** | **Título**                                   | **Contexto responsable**                    | **Prioridad** | **Story Points** | **Sprint** | **Estado**                  |
+| --------- | ------------ | -------------------------------------------- | ------------------------------------------- | ------------- | ---------------- | ---------- | --------------------------- |
+| 1         | US46         | Iniciar sesión                               | Identity & Access                           | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 2         | US52         | Habilitar cuenta de usuario                  | Identity & Access                           | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 3         | US51         | Gestionar roles y permisos                   | Identity & Access                           | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 4         | US01         | Registrar empresa                            | Customer Management                         | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 5         | US02         | Visualizar información de la empresa         | Customer Management                         | Alta          | 2                | Sprint 1   | Finalizado                  |
+| 6         | US03         | Registrar vehículo                           | Fleet Management                            | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 7         | US04         | Consultar vehículos                          | Fleet Management                            | Alta          | 2                | Sprint 1   | Finalizado                  |
+| 8         | US06         | Registrar conductor                          | Fleet Management                            | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 9         | US07         | Consultar conductores                        | Fleet Management                            | Alta          | 2                | Sprint 1   | Finalizado                  |
+| 10        | US09         | Registrar alternativa de ruta                | Dispatch Planning                           | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 11        | US65         | Evaluar elegibilidad del conductor           | Driver Safety & Compliance                  | Alta          | 8                | Sprint 1   | Finalizado                  |
+| 12        | US11         | Seleccionar vehículo para el despacho        | Dispatch Planning                           | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 13        | US12         | Seleccionar conductor para el despacho       | Dispatch Planning                           | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 14        | US69         | Evitar reservas superpuestas                 | Dispatch Planning                           | Alta          | 8                | Sprint 1   | Finalizado                  |
+| 15        | US67         | Aprobar plan de despacho                     | Dispatch Planning                           | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 16        | US10         | Registrar viaje programado                   | Trip Execution                              | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 17        | US26         | Consultar detalle de viaje activo            | Trip Execution                              | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 18        | US27         | Iniciar viaje                                | Trip Execution                              | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 19        | US14         | Visualizar ubicación del vehículo            | Tracking & Geolocation                      | Alta          | 8                | Sprint 1   | Finalizado                  |
+| 20        | US13         | Consultar viajes activos                     | Trip Execution                              | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 21        | US18         | Registrar incidencia                         | Incident Management                         | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 22        | US19         | Consultar incidencias de un viaje            | Incident Management                         | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 23        | US20         | Abrir marcador para contactar al conductor   | Trip Execution; Fleet Management; app móvil | Alta          | 5                | Sprint 1   | Finalizado                  |
+| 24        | US29         | Visualizar estado de un viaje                | Trip Execution                              | Alta          | 2                | Sprint 1   | Finalizado                  |
+| 25        | US28         | Finalizar viaje                              | Trip Execution                              | Alta          | 3                | Sprint 1   | Finalizado                  |
+| 26        | US47         | Cerrar sesión                                | Identity & Access                           | Alta          | 1                | Sprint 1   | Finalizado                  |
+| 27        | US49         | Consultar perfil                             | Identity & Access                           | Alta          | 2                | Sprint 1   | Finalizado                  |
+| 28        | US05         | Actualizar información de vehículo           | Fleet Management                            | Media         | 2                | Sprint 2   | Finalizado                  |
+| 29        | US08         | Actualizar información de conductor          | Fleet Management                            | Media         | 2                | Sprint 2   | Finalizado                  |
+| 30        | US15         | Visualizar recorrido del viaje               | Tracking & Geolocation                      | Media         | 8                | Sprint 2   | Finalizado                  |
+| 31        | US16         | Identificar paradas durante el recorrido     | Tracking & Geolocation                      | Media         | 5                | Sprint 2   | Finalizado                  |
+| 32        | US17         | Identificar retrasos en el viaje             | Trip Execution                              | Media         | 5                | Sprint 2   | Finalizado                  |
+| 33        | US23         | Consultar detalle de vehículo                | Fleet Management                            | Media         | 3                | Sprint 2   | Finalizado                  |
+| 34        | US24         | Consultar detalle de conductor               | Fleet Management                            | Media         | 3                | Sprint 2   | Finalizado                  |
+| 35        | US25         | Consultar rutas registradas                  | Dispatch Planning                           | Media         | 2                | Sprint 2   | Finalizado                  |
+| 36        | US30         | Visualizar vehículos en mapa                 | Tracking & Geolocation                      | Media         | 8                | Sprint 2   | Finalizado                  |
+| 37        | US31         | Seleccionar vehículo desde el mapa           | Tracking & Geolocation                      | Media         | 3                | Sprint 2   | Finalizado                  |
+| 38        | US32         | Consultar última ubicación conocida          | Tracking & Geolocation                      | Media         | 3                | Sprint 2   | Finalizado                  |
+| 39        | US33         | Visualizar progreso del recorrido            | Tracking & Geolocation                      | Media         | 5                | Sprint 2   | Finalizado                  |
+| 40        | US34         | Consultar información de una parada          | Tracking & Geolocation                      | Media         | 3                | Sprint 2   | Finalizado                  |
+| 41        | US35         | Visualizar incidencias en el recorrido       | Incident Management                         | Media         | 5                | Sprint 2   | Finalizado                  |
+| 42        | US36         | Consultar detalle de incidencia              | Incident Management                         | Media         | 2                | Sprint 2   | Finalizado                  |
+| 43        | US38         | Consultar contacto desde el viaje            | Trip Execution; Fleet Management; app móvil | Media         | 3                | Sprint 2   | Finalizado                  |
+| 44        | US48         | Recuperar contraseña                         | Identity & Access                           | Media         | 3                | Sprint 2   | Finalizado                  |
+| 45        | US50         | Actualizar perfil                            | Identity & Access                           | Media         | 2                | Sprint 2   | Finalizado                  |
+| 46        | US53         | Registrar cliente del servicio               | Customer Management                         | Media         | 3                | Sprint 2   | Finalizado                  |
+| 47        | US54         | Crear solicitud de envío                     | Shipment Management                         | Media         | 5                | Sprint 2   | Finalizado                  |
+| 48        | US55         | Consultar estado del envío                   | Shipment Management                         | Media         | 3                | Sprint 2   | Finalizado                  |
+| 49        | US56         | Registrar recepción de carga                 | Warehouse Operations                        | Alta          | 5                | Sprint 2   | Finalizado                  |
+| 50        | US57         | Preparar carga para despacho                 | Warehouse Operations                        | Alta          | 5                | Sprint 2   | Finalizado                  |
+| 51        | US58         | Programar y cerrar mantenimiento             | Maintenance Management                      | Alta          | 5                | Sprint 2   | Finalizado                  |
+| 52        | US59         | Registrar kilometraje                        | Maintenance Management                      | Media         | 3                | Sprint 2   | Finalizado                  |
+| 53        | US60         | Registrar empleado                           | Workforce Management                        | Media         | 3                | Sprint 2   | Finalizado                  |
+| 54        | US61         | Gestionar disponibilidad laboral             | Workforce Management                        | Media         | 5                | Sprint 2   | Finalizado                  |
+| 55        | US62         | Registrar jornada trabajada                  | Time & Attendance                           | Alta          | 5                | Sprint 2   | Finalizado                  |
+| 56        | US63         | Registrar descansos                          | Time & Attendance                           | Alta          | 3                | Sprint 2   | Finalizado                  |
+| 57        | US64         | Registrar horas adicionales                  | Time & Attendance                           | Alta          | 5                | Sprint 2   | Finalizado                  |
+| 58        | US66         | Solicitar recomendación asistida por IA      | Dispatch Planning                           | Alta          | 8                | Sprint 2   | Finalizado                  |
+| 59        | US68         | Continuar con planificación básica           | Dispatch Planning                           | Alta          | 5                | Sprint 2   | Finalizado                  |
+| 60        | US70         | Replanificar ante una excepción              | Dispatch Planning                           | Media         | 8                | Sprint 2   | Finalizado                  |
+| 61        | US71         | Cancelar viaje programado                    | Trip Execution                              | Media         | 3                | Sprint 2   | Finalizado                  |
+| 62        | US72         | Sincronizar reportes de ubicación pendientes | Tracking & Geolocation                      | Alta          | 8                | Sprint 2   | Finalizado                  |
+| 63        | US73         | Actualizar motivo de parada                  | Tracking & Geolocation                      | Media         | 3                | Sprint 2   | Finalizado                  |
+| 64        | US21         | Consultar historial de viajes                | Operational History                         | Media         | 5                | Sprint 3   | Se realizará en el Sprint 3 |
+| 65        | US22         | Consultar detalle de viaje finalizado        | Operational History                         | Media         | 5                | Sprint 3   | Se realizará en el Sprint 3 |
+| 66        | US37         | Consultar incidencias anteriores             | Incident Management                         | Media         | 3                | Sprint 3   | Se realizará en el Sprint 3 |
+| 67        | US39         | Filtrar historial de viajes                  | Operational History                         | Media         | 3                | Sprint 3   | Se realizará en el Sprint 3 |
+| 68        | US40         | Consultar historial de un vehículo           | Operational History                         | Media         | 3                | Sprint 3   | Se realizará en el Sprint 3 |
+| 69        | US41         | Consultar historial de un conductor          | Operational History                         | Media         | 3                | Sprint 3   | Se realizará en el Sprint 3 |
+| 70        | US42         | Consultar historial de una ruta              | Operational History                         | Media         | 3                | Sprint 3   | Se realizará en el Sprint 3 |
+| 71        | US43         | Visualizar resumen de operaciones            | Reporting & Analytics                       | Media         | 5                | Sprint 5   | Se realizará en el Sprint 5 |
+| 72        | US44         | Visualizar viajes activos en dashboard       | Reporting & Analytics                       | Media         | 3                | Sprint 5   | Se realizará en el Sprint 5 |
+| 73        | US45         | Visualizar incidencias actuales              | Reporting & Analytics                       | Media         | 3                | Sprint 5   | Se realizará en el Sprint 5 |
+| 74        | US74         | Confirmar entrega                            | Delivery Management                         | Alta          | 5                | Sprint 3   | Se realizará en el Sprint 3 |
+| 75        | US75         | Registrar entrega parcial o fallida          | Delivery Management                         | Media         | 5                | Sprint 3   | Se realizará en el Sprint 3 |
+| 76        | US76         | Cotizar servicio logístico                   | Billing & Payments                          | Media         | 5                | Sprint 4   | Se realizará en el Sprint 4 |
+| 77        | US77         | Emitir comprobante del servicio              | Billing & Payments                          | Media         | 8                | Sprint 4   | Se realizará en el Sprint 4 |
+| 78        | US78         | Registrar pago del servicio                  | Billing & Payments                          | Media         | 8                | Sprint 4   | Se realizará en el Sprint 4 |
+| 79        | US79         | Consultar historial consolidado              | Operational History                         | Alta          | 8                | Sprint 4   | Se realizará en el Sprint 4 |
+| 80        | US80         | Consultar indicadores operacionales          | Reporting & Analytics                       | Media         | 5                | Sprint 5   | Se realizará en el Sprint 5 |
 
 <div style="page-break-after: always;"></div>
 
@@ -1447,55 +1447,87 @@ Estas agrupaciones sirven para diseñar pantallas; la autorización concreta se 
 
 #### 4.1.8.3. Landing Page UI Design
 
-**Landing Page Wireframe.** Se conserva la estructura de cinco secciones de la referencia, con contenido propio de TrackTruck.
+El diseño de la landing page de **TrackTruck** se encuentra elaborado en Figma e incluye **wireframes, mock-ups y un prototipo de navegación**. Estos artefactos definen la organización del contenido, la apariencia visual y el recorrido del visitante, y sirven como referencia para la implementación de la página.
 
-| Sección | Contenido de TrackTruck | Acción o propósito |
-|---|---|---|
-| Inicio | Nombre del producto y propuesta de valor para coordinar el transporte de carga. | Acceder a información de la app o solicitar una demostración, según el mecanismo que implemente el equipo. |
-| Servicio | Envíos, planificación asistida, seguimiento, incidencias y entrega; distinguir funciones implementadas de las previstas. | Comprender el servicio y consultar sus beneficios. |
-| Sobre nosotros | Descripción de LogiGo y del problema que aborda. | Presentar la startup y el objetivo del proyecto. |
-| Integrantes | Los cinco integrantes del informe original. | Mostrar los perfiles autorizados del equipo. |
-| Contáctanos | Información de contacto verificada y formulario, si se implementa. | Consultar sobre el servicio y recibir confirmación del envío. |
+**Landing Page Wireframe.** Se elaboraron los wireframes para organizar la cabecera, el menú de navegación, las secciones principales y el pie de página. La estructura comprende cinco secciones:
 
-La página incluirá cabecera, navegación y pie; sus imágenes tendrán descripción y sus textos mantendrán una jerarquía legible. La implementación deberá funcionar con teclado y en diferentes anchuras. Un formulario de contacto deberá informar carga, éxito y error de acuerdo con su comportamiento real.
+| **Sección** | **Contenido de TrackTruck** | **Acción o propósito** |
+| --- | --- | --- |
+| Inicio | Nombre del producto y propuesta de valor para coordinar el transporte de carga. | Presentar TrackTruck y orientar al visitante hacia la información del servicio. |
+| Servicio | Presentación de las funcionalidades de envíos, planificación, seguimiento, incidencias y entrega. | Explicar el alcance del producto y sus beneficios. |
+| Sobre nosotros | Descripción de LogiGo, la problemática identificada y el objetivo del proyecto. | Dar a conocer la startup y la motivación de la solución. |
+| Integrantes | Presentación de los cinco integrantes del equipo. | Identificar a los responsables del proyecto. |
+| Contáctanos | Diseño de la sección de contacto y de los elementos destinados a solicitar información. | Facilitar el contacto con el equipo y las consultas sobre el servicio. |
 
-**Landing Page Mock-up.** El mock-up aplicará la paleta, tipografías, grilla y estados de componentes de 4.1.8.1 al wireframe aprobado. El documento registrará enlace o archivo, versión y fecha. Las imágenes y cifras del servicio deberán corresponder a recursos autorizados y resultados verificables.
+**Landing Page Mock-up.** Se elaboraron los mock-ups que representan la apariencia visual de la landing page. Estos diseños concretan la distribución de los elementos, la jerarquía de los textos, los colores, las tipografías, las imágenes y los componentes de interfaz, tomando como referencia las guías de estilo del apartado 4.1.8.1.
 
-**Pendiente:** wireframe y mock-up desktop/mobile, recursos gráficos, enlace de diseño y capturas de la landing implementada. La landing presenta el producto; las funciones operativas del frontend requerido se implementan en la aplicación móvil.
+**Landing Page Prototype.** Se elaboró el prototipo en Figma para representar el recorrido del visitante y la navegación entre las secciones de la página. El prototipo permite presentar la experiencia propuesta y revisar la relación entre los elementos de navegación y el contenido.
+
+**Estado del diseño:** wireframes, mock-ups y prototipo elaborados y disponibles en el archivo de Figma.
+
+**Enlace al diseño y prototipo:** [Ver Landing Page de TrackTruck en Figma](https://www.figma.com/design/vCqC47s66ZJhjitxluqHvS/Untitled?node-id=0-1&t=lRQvaAVcNTiV4ONG-1).
 
 <div style="page-break-after: always;"></div>
 
 #### 4.1.8.4. Mobile Applications UX/UI Design
 
-**Mobile Applications Wireframes.** Se toma de la referencia la separación de pantallas de acceso, operación y consulta. El catálogo se adapta a las historias de TrackTruck y se implementará por incrementos.
+El diseño UX/UI de la aplicación móvil de **TrackTruck** se encuentra elaborado en Figma e incluye **wireframes, wireflow diagrams, mock-ups y user flow diagrams**. Estos artefactos organizan las pantallas de acceso, operación y consulta, y relacionan la experiencia del usuario con las historias y responsabilidades arquitectónicas del proyecto.
 
-| Grupo de pantallas | Contenido requerido | Relación con la arquitectura |
-|---|---|---|
+**Mobile Applications Wireframes.** Se elaboraron los wireframes para definir la estructura de las pantallas, la distribución de los elementos, las acciones principales y la navegación. El catálogo de diseño se organiza en los siguientes grupos:
+
+| **Grupo de pantallas** | **Contenido del diseño** | **Relación con la arquitectura** |
+| --- | --- | --- |
 | Acceso y cuenta | Inicio de sesión, recuperación y gestión de cuenta según el alcance; mensajes de credenciales inválidas y sesión vencida. | Identity & Access. |
-| Clientes y envíos | Datos del cliente, creación/consulta del envío, carga y estado. | Customer y Shipment. |
-| Almacén | Recepción, preparación y salida, con cantidades y estados visibles. | Warehouse Operations. |
-| Recursos | Conductores, vehículos, mantenimiento, personal y disponibilidad. | Fleet, Maintenance y Workforce. |
-| Jornada y elegibilidad | Horas registradas, descansos y resultado de restricciones operativas. | Time & Attendance y Driver Safety & Compliance. |
-| Planificación | Alternativas de conductor, vehículo y ruta; prioridad, duración estimada y motivos; aprobación autorizada. | Dispatch Planning, con IA interna y reglas obligatorias. |
-| Viaje y mapa | Viaje asignado, inicio, estado, posición actualizada y reportes pendientes de sincronización. | Trip Execution y Tracking & Geolocation. |
-| Incidencia y entrega | Registro de incidencia, atención, cantidades entregadas, resultado y evidencia. | Incident y Delivery. |
-| Documentos y consulta | Comprobantes, pagos, historial e indicadores visibles según permisos. | Billing, Operational History y Reporting. |
+| Clientes y envíos | Datos del cliente, creación y consulta del envío, carga y estado. | Customer Management y Shipment Management. |
+| Almacén | Recepción, preparación y salida de carga, con cantidades y estados visibles. | Warehouse Operations. |
+| Recursos | Conductores, vehículos, mantenimiento, personal y disponibilidad. | Fleet Management, Maintenance Management y Workforce Management. |
+| Jornada y elegibilidad | Horas registradas, descansos y presentación de restricciones operativas. | Time & Attendance y Driver Safety & Compliance. |
+| Planificación | Alternativas de conductor, vehículo y ruta; prioridad, duración estimada, motivos y aprobación autorizada. | Dispatch Planning. |
+| Viaje y mapa | Viaje asignado, inicio, estado, ubicación y reportes pendientes de sincronización. | Trip Execution y Tracking & Geolocation. |
+| Incidencia y entrega | Registro de incidencias, atención, cantidades entregadas, resultado y evidencia. | Incident Management y Delivery Management. |
+| Documentos y consulta | Comprobantes, pagos, historial e indicadores, según los permisos del usuario. | Billing & Payments, Operational History y Reporting & Analytics. |
 
-**Mobile Applications Wireflow Diagrams.** Cada wireflow combinará pantallas y decisiones. Para coordinación: envío preparado → solicitud de alternativas → revisión → aprobación o ajuste → viaje programado. Para conductor: viaje asignado → inicio → seguimiento y posibles incidencias → finalización del recorrido y registro de entrega correspondiente. Para cliente: consulta de envío → detalle → seguimiento, evidencia y documentos autorizados. El diagrama representará también falta de recursos aptos, conflicto de reserva, sesión vencida y desconexión.
+**Mobile Applications Wireflow Diagrams.** Se elaboraron los wireflows para relacionar las pantallas con las acciones y decisiones de cada actor. Los recorridos contemplados son:
 
-**Mobile Applications Mock-ups.** Los mock-ups aplicarán el tema de TrackTruck a las pantallas priorizadas. Se documentarán estados normal, carga, vacío, validación, error, procesamiento y sin conexión. La UI mostrará la última fecha de ubicación; una lectura antigua no se presentará como información actual. Las recomendaciones de IA se mostrarán como alternativas que requieren aprobación.
+| **Actor** | **Recorrido representado** |
+| --- | --- |
+| Coordinación | Envío preparado → solicitud de alternativas → revisión → aprobación o ajuste → viaje programado. |
+| Conductor | Viaje asignado → inicio → seguimiento y posibles incidencias → finalización del recorrido y registro de la entrega correspondiente. |
+| Cliente | Consulta del envío → detalle → seguimiento → consulta de evidencias y documentos autorizados. |
 
-**Mobile Applications User Flow Diagrams.** Los flujos describirán el objetivo, actor, precondiciones, decisiones, recuperación y resultado. Las funciones de inicio/finalización de viaje, confirmación de entrega y aprobación de despacho mostrarán sus consecuencias antes de confirmar. La finalización del recorrido y la entrega mantienen sus responsabilidades y estados propios.
+Los wireflows contemplan situaciones que afectan la continuidad de la operación, como falta de recursos aptos, conflictos de reserva, sesión vencida y desconexión.
 
-**Pendiente:** archivos y enlaces de wireframes, wireflows, mock-ups y user flows; versión, historias cubiertas y revisión de consistencia con permisos y contratos. El diseño de pantallas no modifica la propiedad de datos de los bounded contexts.
+**Mobile Applications Mock-ups.** Se elaboraron los mock-ups de las pantallas priorizadas, aplicando la identidad visual de TrackTruck y las guías de estilo del apartado 4.1.8.1. Estos diseños concretan la jerarquía visual, los colores, las tipografías, los formularios, los botones y los componentes de navegación.
+
+El diseño contempla los estados normal, carga, vacío, validación, error, procesamiento y sin conexión. La presentación del seguimiento diferencia la última ubicación registrada de una lectura actualizada. Las recomendaciones de planificación asistida se representan como alternativas sujetas a aprobación.
+
+**Mobile Applications User Flow Diagrams.** Se elaboraron los diagramas de flujo de usuario para describir los objetivos, actores, precondiciones, decisiones y resultados de los recorridos principales. Los flujos incluyen las acciones de inicio y finalización de viaje, aprobación del despacho y confirmación de entrega, manteniendo diferenciados el cierre del recorrido y el resultado de la entrega.
+
+**Estado del diseño:** wireframes, wireflows, mock-ups y user flows elaborados y disponibles en Figma. Las pantallas organizan la interacción del usuario y mantienen las responsabilidades de los bounded contexts definidos en la arquitectura.
+
+**Enlace al diseño móvil:** [Ver diseños de TrackTruck en Figma](https://www.figma.com/design/vCqC47s66ZJhjitxluqHvS/Untitled?node-id=0-1&t=lRQvaAVcNTiV4ONG-1).
 
 <div style="page-break-after: always;"></div>
 
 #### 4.1.8.5. Mobile Applications Prototyping
 
-Se elaborará un prototipo navegable de los flujos comprometidos para el incremento. La revisión comprobará que el usuario identifica la acción principal, entiende el estado, puede corregir errores y distingue una operación pendiente de otra confirmada. La aceptación del prototipo se registrará por tarea y observación; las pruebas de sistema de 5.1.1 comprobarán posteriormente la app conectada al backend.
+Se elaboró un **prototipo navegable de la aplicación móvil de TrackTruck en Figma**, a partir de los wireframes, mock-ups y flujos de usuario definidos en el apartado anterior.
 
-**Registro por completar:** herramienta, enlace accesible, versión/fecha, pantallas e historias incluidas, participantes, tareas, observaciones, ajustes y resultado de revisión. Los participantes y resultados se incorporarán desde actividades reales del equipo.
+El prototipo representa la navegación entre las pantallas priorizadas y permite recorrer la experiencia propuesta para los distintos actores. Su propósito es facilitar la revisión de la organización del contenido, la identificación de las acciones principales y la continuidad de los flujos antes de trasladar los ajustes a la aplicación.
+
+| **Aspecto** | **Descripción** |
+| --- | --- |
+| Herramienta | Figma. |
+| Artefacto | Prototipo navegable de la aplicación móvil de TrackTruck. |
+| Base del prototipo | Wireframes, wireflow diagrams, mock-ups y user flow diagrams elaborados para el proyecto. |
+| Alcance | Pantallas y recorridos priorizados de acceso, operación y consulta, según el rol del usuario y el incremento. |
+| Propósito de revisión | Recorrer la navegación, reconocer las acciones principales, comprender los estados de la interfaz y revisar la secuencia de las operaciones. |
+| Relación con la implementación | Referencia para desarrollar y ajustar las pantallas de la aplicación móvil. La comprobación de la app conectada al backend se documenta mediante las pruebas de sistema del apartado 5.1.1. |
+| Estado | Prototipo navegable elaborado y disponible en el archivo de Figma. |
+
+El prototipo permite presentar los recorridos y discutir ajustes de interacción y diseño. Los resultados de pruebas con participantes se documentan a partir de las actividades de validación realizadas por el equipo.
+
+**Enlace al prototipo y sus diseños:** [Ver archivo de TrackTruck en Figma](https://www.figma.com/design/vCqC47s66ZJhjitxluqHvS/Untitled?node-id=0-1&t=lRQvaAVcNTiV4ONG-1).
 
 <div style="page-break-after: always;"></div>
 
