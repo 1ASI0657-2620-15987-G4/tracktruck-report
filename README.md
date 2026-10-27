@@ -2916,16 +2916,6 @@ Las iteraciones ADD del Capítulo IV establecen las decisiones arquitectónicas,
 ### 5.3.1. Sprint 1
 ****Sprint Goal propuesto:**** construir un flujo operacional mínimo protegido que permita acceder a la app, consultar recursos, seleccionar y aprobar un plan válido, registrar e iniciar un viaje, consultar una ubicación y registrar una incidencia, con servicios C# ejecutables y pruebas del incremento.
 
-
-****Fecha de inicio, fecha de fin y duración:**** pendiente incorporar la planificación real.  
-
-****Capacidad disponible y responsables de tareas:**** pendiente acordar en Sprint Planning.  
-
-****Historias comprometidas y versión:**** pendiente confirmar contra la capacidad del equipo y los repositorios C# y móvil.
-
-
-El objetivo incluye integración y comportamiento verificable. Las fuentes auxiliares todavía no implementadas podrán representarse con dobles identificados durante pruebas de componentes; el Sprint Review deberá indicar con claridad qué servicios, adaptadores y flujos están integrados realmente. El plan de Sprints del equipo contempla aproximadamente 70 % del backend y una primera versión de la app en Sprint 1; dicho porcentaje es una declaración de avance y debe respaldarse con historias aceptadas, repositorios y evidencia verificable. Las características no entregadas se mantienen en el backlog para Sprints 2 y 3.
-
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.1. Sprint Backlog 1
@@ -2955,9 +2945,11 @@ La selección básica de recursos de SB05 corresponde a las validaciones existen
 
 **Repositorios del incremento:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
 
-![Sprint Backlog 1 — tablero del Sprint](assets/images/chapter5/sprint1-backlog-kanban.png)
 
-![Sprint Backlog 1 — tablero del Sprint](assets/images/chapter5/sprint1-backlog-kanban-2.png)
+![Sprint Backlog 1 — first](assets/images/chapter5/sprint1-backlog-kanban.png)
+
+
+![Sprint Backlog 1 — last](assets/images/chapter5/sprint1-backlog-kanban-2.png)
 
 
 **Enlace de planificación/Sprint Backlog:** [TrackTruck — Sprint Backlog 1](https://trello.com/invite/b/6ae0a29f22ab3c2547e7db57/ATTI24f79af3e643afcc3b63eb4777bda328D4CF5C11/tracktruck-sprint-backlog-1)
