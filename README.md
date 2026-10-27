@@ -2929,38 +2929,35 @@ El objetivo incluye integración y comportamiento verificable. Las fuentes auxil
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.1. Sprint Backlog 1
-Las siguientes tareas proponen trabajo concreto sobre el incremento. Las estimaciones en horas son iniciales y deben revisarse con los responsables y capacidad del Sprint; no representan horas ejecutadas. El estado se completará con la evidencia existente.
 
+El Sprint Backlog 1 reúne el trabajo de arquitectura, backend C#, aplicación Android y pruebas del primer incremento de TrackTruck. Los estados reflejan los artefactos existentes en el informe y en los repositorios del proyecto. Las horas corresponden a estimaciones de planificación y se conservan separadas de las horas efectivamente trabajadas.
 
-| ID   | Historias/driver            | Tarea                                                                             | Estimación inicial | Evidencia para cerrar                                                          | Estado documental                       |
-| ---- | --------------------------- | --------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------ | --------------------------------------- |
-| SB01 | ADB01–ADB09                 | Actualizar arquitectura, responsabilidades y contratos para C# y móvil.           | 6 h                | Vistas/ADR revisados y fuentes versionadas.                                    | Diseño actualizado; revisión pendiente. |
-| SB02 | CON01, CON03                | Preparar solución C#, proyectos, DI, compilación y runner de tests.               | 6 h                | Build y ejecución inicial de suites.                                           | Pendiente contrastar evidencia.         |
-| SB03 | US46–US52                   | Implementar cuentas, acceso y políticas básicas de organización/rol.              | 12 h               | API, tests y flujo de login móvil.                                             | Pendiente contrastar evidencia.         |
-| SB04 | US03–US08                   | Implementar registro y consulta de flota con persistencia.                        | 10 h               | Endpoints, migraciones y casos válidos/invalidación.                           | Pendiente contrastar evidencia.         |
-| SB05 | US09, US11–US12, US65       | Implementar planificación básica y contrato de elegibilidad inicial.              | 12 h               | Validaciones y fuentes identificadas; pruebas de recursos válidos e inválidos. | Pendiente contrastar evidencia.         |
-| SB06 | US67, US69                  | Implementar aprobación y reserva de recursos.                                     | 8 h                | Prueba de conflicto e idempotencia.                                            | Pendiente contrastar evidencia.         |
-| SB07 | US10, US26–US29             | Implementar viaje, inicio y finalización autorizados.                             | 10 h               | Estados, persistencia y tests de transición.                                   | Pendiente contrastar evidencia.         |
-| SB08 | US14, US32                  | Implementar ingestión, última posición y consulta de seguimiento.                 | 10 h               | Reporte válido, fecha de captura y deduplicación.                              | Pendiente contrastar evidencia.         |
-| SB09 | US18–US19                   | Implementar registro y consulta de incidencias.                                   | 6 h                | API, persistencia y autorización del viaje.                                    | Pendiente contrastar evidencia.         |
-| SB10 | CON02                       | Construir estructura MVVM, navegación, estado y pantallas móviles del incremento. | 12 h               | APK y pantallas con estados de carga, vacío y error.                           | Pendiente contrastar evidencia.         |
-| SB11 | US46, US10, US14, US18      | Conectar app con las API reales y manejar sesión y errores.                       | 12 h               | Flujo end-to-end y capturas correlacionadas.                                   | Pendiente contrastar evidencia.         |
-| SB12 | TC01, TC05, TC09–TC13, TC18 | Ejecutar pruebas de dominio, casos de uso, API y persistencia aplicables.         | 8 h                | Reportes de suites y defectos tratados.                                        | Pendiente resultado real.               |
-| SB13 | TC24, TC26–TC27             | Ejecutar pruebas móviles y flujo integrado del Sprint.                            | 8 h                | Reportes, dispositivo y video/capturas.                                        | Pendiente resultado real.               |
-| SB14 | 5.1.3                       | Implementar los BuildingBlocks necesarios para el incremento.                     | 4 h                | Proyecto, consumo y tests propios.                                             | Pendiente contrastar evidencia.         |
-| SB15 | CON04                       | Preparar y ejecutar entorno de revisión del incremento.                           | 6 h                | Configuración, health, endpoint y prueba desde APK.                            | Pendiente resultado real.               |
-| SB16 | QAS04; QAS09                | Documentar contratos, eventos y evidencias del Sprint Review.                     | 6 h                | OpenAPI, commits, resultados y tableros.                                       | Pendiente incorporar evidencias.        |
+| **ID** | **Historias/driver** | **Tarea del incremento** | **Estimación inicial** | **Evidencia disponible** | **Estado del incremento** |
+| --- | --- | --- | --- | --- | --- |
+| SB01 | ADB01–ADB09 | Documentar la arquitectura, las responsabilidades y los contratos previstos para el backend C# y la app móvil. | 6 h | Capítulo IV: bounded contexts, iteraciones ADD, interfaces y decisiones de diseño. | Documentado. |
+| SB02 | CON01, CON03 | Configurar la solución ASP.NET Core, la inyección de dependencias y los proyectos de pruebas. | 6 h | `TrackTruck.Platform.API.sln`, `Program.cs` y proyectos `TrackTruck.UnitTests` y `TrackTruck.IntegrationTests`. | Implementado. |
+| SB03 | US46, US49, US52 | Implementar el registro, el inicio de sesión y la consulta de usuario y rol del alcance básico. | 12 h | `AuthenticationController`, `UsersController`, servicios de IAM y pantallas de registro e inicio de sesión. | Implementado en su alcance básico. |
+| SB04 | US03–US08 | Implementar el registro, la consulta y la actualización de conductores y vehículos con persistencia. | 10 h | Controladores, servicios, repositorios y pruebas de `Driver` y `Vehicle`. | Implementado. |
+| SB05 | US11–US12 | Implementar la selección de conductor y vehículo y la validación básica de su disponibilidad al registrar un viaje. | 12 h | `TripCommandService`, validación de recursos y formularios móviles de registro y edición de viajes. | Implementado en su alcance básico. |
+| SB06 | US67, US69 | Implementar la aprobación formal del plan y las reservas de recursos con control de conflictos. | 8 h | Contratos y decisiones de Dispatch Planning en las secciones 4.3.1 y 4.3.3. | Diseño documentado; implementación fuera del incremento revisado. |
+| SB07 | US10, US13, US26–US29 | Implementar el registro, la consulta, la actualización y los cambios básicos de estado de los viajes. | 10 h | `TripsController`, `TripCommandService`, `TripRepository` y acciones de inicio y finalización de la app. | Implementado en su alcance básico. |
+| SB08 | US14, US32 | Implementar el registro y la consulta de coordenadas de viajes en curso y su visualización móvil. | 10 h | `OngoingTripsController`, `OngoingTripCommandService` y `GpsViewModel`. | Implementado; la demostración móvil utiliza ubicaciones simuladas. |
+| SB09 | US18–US19 | Implementar el registro y la consulta de alertas o incidencias asociadas a un viaje. | 6 h | `AlertsController`, servicios y repositorio de alertas, pruebas del backend y pantalla móvil de alertas. | Implementado. |
+| SB10 | CON02 | Construir la estructura MVVM, la navegación, los formularios y los estados de interfaz de la app Android. | 12 h | Pantallas, ViewModels y navegación desarrollados con Kotlin y Jetpack Compose. | Implementado. |
+| SB11 | US46, US10, US14, US18 | Implementar el consumo de las API desde la app y el manejo de sesión, respuestas y errores. | 12 h | Servicios Retrofit, repositorios móviles, token de sesión y URL del backend configurable. | Integración implementada en código. |
+| SB12 | CON03; 5.1.1.1–5.1.1.2 | Implementar las suites unitarias y de integración del backend. | 8 h | Diez archivos de pruebas unitarias y diez de integración; capturas y casos descritos en 5.1.1.1 y 5.1.1.2. | Pruebas implementadas y documentadas. |
+| SB13 | CON03; 5.1.1.4 | Implementar pruebas instrumentadas de interfaz, validación y navegación móvil. | 8 h | Diez clases funcionales de pruebas Android con Compose UI Test y servicios simulados. | Pruebas implementadas y documentadas. |
+| SB14 | 5.1.2; 5.1.3 | Implementar los componentes técnicos compartidos utilizados por el incremento. | 4 h | Carpeta `Shared`: repositorio base, unidad de trabajo, configuración de persistencia y convenciones REST. | Componentes compartidos implementados. |
+| SB15 | CON04 | Configurar la ejecución del backend y la conexión de la aplicación Android. | 6 h | Dockerfiles, configuración de persistencia, endpoint `/health` y propiedad `TRACKTRUCK_API_BASE_URL`. | Configurado. |
+| SB16 | CON05; 5.1.1; 5.3.1 | Documentar los contratos HTTP, los escenarios de aceptación y las evidencias de desarrollo y pruebas. | 6 h | Swagger/OpenAPI, archivos Gherkin, código versionado y evidencias del Capítulo V. | Documentado. |
 
+La selección básica de recursos de SB05 corresponde a las validaciones existentes en el registro de viajes. La aprobación formal y las reservas concurrentes de SB06 conservan su condición de diseño. El seguimiento de SB08 incluye simulación de posiciones en Android. Los componentes de SB14 pertenecen a `Shared`; la biblioteca independiente `TrackTruck.BuildingBlocks` descrita en 5.1.3 forma parte de la evolución propuesta.
 
-El equipo podrá dividir, reasignar o reducir tareas antes de comprometer el Sprint. Las tareas SB05 y SB11 deben indicar qué dependencias usan servicios reales y cuáles utilizan datos controlados. La validación integrada de jornada, mantenimiento y la IA se amplía en Sprint 2; cada fuente simulada permanece identificada como dependencia pendiente.
+**Repositorios del incremento:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
 
+![Sprint Backlog 1 — tablero del Sprint](assets/images/chapter5/sprint1-kanban-board.png)
 
-![Sprint Backlog 1 — pendiente actualizar](assets/images/chapter5/sprint1-backlog-kanban.png)
-
-![Sprint Backlog 1 — pendiente actualizar](assets/images/chapter5/sprint1-backlog-kanban-2.png)
-
-**Enlace de planificación/Sprint Backlog:** *https://trello.com/invite/b/6ae0a29f22ab3c2547e7db57/ATTI24f79af3e643afcc3b63eb4777bda328D4CF5C11/tracktruck-sprint-backlog-1*
-
+**Enlace de planificación/Sprint Backlog:** [TrackTruck — Sprint Backlog 1](https://trello.com/invite/b/6ae0a29f22ab3c2547e7db57/ATTI24f79af3e643afcc3b63eb4777bda328D4CF5C11/tracktruck-sprint-backlog-1)
 
 <div style="page-break-after: always;"></div>
 
@@ -2990,22 +2987,39 @@ El avance de cada componente se verificará mediante los repositorios GitHub, la
 
 
 #### 5.3.1.3. Testing Suite Evidence for Sprint Review
-Se presentarán resultados por Core Entities Unit Tests, Core Integration Tests, Core BDD y Core System Tests, siguiendo 5.1.1. Para cada suite se identificarán historias, casos, datos, commit, comando, entorno, resultado y evidencias. Los reportes del documento de referencia sirven como modelo de presentación; los resultados de TrackTruck provendrán de sus propias ejecuciones.
+
+La evidencia de pruebas del Sprint 1 reúne las suites implementadas en el backend C# y la aplicación Android, junto con los escenarios de aceptación documentados en Gherkin. Su organización sigue los cuatro apartados de 5.1.1: Core Entities Unit Tests, Core Integration Tests, Core Behavior-Driven Development y Core System Tests.
+
+| **Suite** | **Pruebas y alcance comprobados en el código** | **Evidencia** | **Estado** |
+| --- | --- | --- | --- |
+| **Core Entities Unit Tests** | Pruebas con xUnit para usuarios, clientes, empresarios, conductores, vehículos, viajes, viajes en curso, gastos, alertas y auditoría. Incluyen validaciones y comportamientos de los componentes correspondientes. | Diez archivos en `TrackTruck.UnitTests`; capturas de Alert, Expense, Ongoing Trip y User en 5.1.1.1. | Suite implementada y documentada. |
+| **Core Integration Tests** | Pruebas de repositorios, Entity Framework Core y unidad de trabajo: creación, consulta, actualización y tratamiento de registros inexistentes. El entorno de pruebas utiliza SQLite en memoria. | Diez archivos de integración y `IntegrationTestBase.cs` en `TrackTruck.IntegrationTests`; casos y capturas en 5.1.1.2. | Suite implementada y documentada. |
+| **Core Behavior-Driven Development** | Dieciséis archivos Gherkin con escenarios Given/When/Then sobre usuarios, autenticación, viajes, recursos, gastos, alertas y auditoría. | Carpeta `TrackTruck.IntegrationTests/Features` y escenarios mostrados en 5.1.1.3. | Escenarios de aceptación documentados. |
+| **Core System Tests** | Pruebas instrumentadas con AndroidJUnit4 y Compose UI Test para registro y edición de viajes, gastos, seguimiento de empresario y cliente, alertas, registro de usuario, login, viajes del cliente e historial. | Diez clases funcionales en `app/src/androidTest`; capturas de pruebas móviles en 5.1.1.4. | Pruebas de interfaz implementadas y documentadas. |
+
+**Ejemplos de pruebas implementadas**
+
+| **Componente** | **Prueba** | **Comportamiento verificado por el caso** |
+| --- | --- | --- |
+| Viajes | `CreateTrip_WithValidData_ShouldSucceed` | Persistencia y recuperación de un viaje con datos válidos. |
+| Viajes | `GetTripById_WithInvalidId_ShouldReturnNull` | Tratamiento de la consulta de un identificador inexistente. |
+| Usuarios | `CreateUser_WithValidData_ShouldSucceed` | Registro y recuperación de los datos del usuario. |
+| Usuarios | `UpdateUser_PasswordHash_ShouldSucceed` | Actualización del hash de contraseña persistido. |
+| Login móvil | `iniciarSesion_conCredencialesValidas_navegaAlHomeYGuardaLaSesion` | Navegación y almacenamiento del estado de sesión con servicios de prueba. |
+| Registro de viaje móvil | `registrarViaje_camposObligatoriosVacios_botonPermaneceDeshabilitado` | Validación de campos obligatorios mediante el estado del botón de registro. |
+
+**Alcance de las evidencias**
+
+Las pruebas de integración revisadas ejercitan la persistencia con SQLite en memoria; la configuración de ejecución del backend utiliza MySQL. Las pruebas instrumentadas de Android emplean `FakeServices` y respuestas controladas para comprobar la interfaz y la navegación. Los archivos Gherkin constituyen especificaciones de aceptación: el repositorio no incluye los enlaces de pasos necesarios para ejecutarlos como una suite BDD automatizada.
+
+Los nombres de algunos archivos Android conservan la numeración original de sus historias. Su correspondencia con el informe se establece por la funcionalidad probada; por ejemplo, `US17_LoginScreenTest` verifica el inicio de sesión, identificado como US46 en el backlog vigente.
+
+**Código de las suites:** [pruebas unitarias C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.UnitTests), [pruebas de integración y Gherkin](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/tree/main/TrackTruck.IntegrationTests) y [pruebas instrumentadas Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/tree/main/app/src/androidTest/java/com/tracktruck/app).
+
+**Versiones de código revisadas:** backend [`e744f38`](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/e744f383acb5909d78f34203f1cfbc84e65cfb9f) y móvil [`52cc78d`](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/52cc78da51d184a6032655a85928ef81decb9348).
 
 
-Se completará con reportes de ejecución de las suites del Sprint. El registro debe permitir repetir el ensayo y comprender sus límites.
-
-
-| Suite                    | Información que se debe registrar                                   | Resultado                                      |
-| ------------------------ | ------------------------------------------------------------------- | ---------------------------------------------- |
-| Dominio y Application C# | Proyecto, TC, comando, commit y datos de prueba.                    | Pendiente: aprobados/fallidos/omitidos reales. |
-| API y persistencia       | Endpoints, autorización, motor de datos y dependencias sustituidas. | Pendiente.                                     |
-| Contratos y eventos      | Esquema, consumidor, idempotencia y recuperación ensayada.          | Pendiente.                                     |
-| App móvil                | Tests, API level, dispositivo/emulador y build.                     | Pendiente.                                     |
-| End-to-end               | Pasos, servicios reales, datos controlados y observación.           | Pendiente.                                     |
-| Calidad                  | QAS aplicables, carga/falla preparada y métricas.                   | Pendiente.                                     |
-
-
+La tabla resume las suites existentes y su alcance. Las cantidades de archivos identifican el código disponible y no representan totales de pruebas aprobadas o fallidas.
 
 ![Testing Suite Evidence](assets/images/chapter5/sprint1-testing-evidence.png)
 
@@ -3056,44 +3070,54 @@ Los servicios implementados se distinguirán de aquellos que permanecen como par
 
 
 #### 5.3.1.6. Software Deployment Evidence for Sprint Review
-Se completará después de publicar o levantar el incremento en el entorno de revisión y comprobar el acceso desde el APK. El diagrama describe la configuración; la evidencia de despliegue incluye el resultado de ejecutar esa configuración.
 
+Durante el Sprint 1, el equipo reporta un avance de implementación cercano al **70 % tanto en el backend como en el frontend móvil de TrackTruck**. El incremento cuenta con código integrado en las ramas `main`, configuración del backend para su ejecución mediante Docker y configuración de la aplicación Android para consumir la API del entorno de revisión.
 
-| Campo                                                    | Valor por completar |
-| -------------------------------------------------------- | ------------------- |
-| Ambiente y proveedor/host                                | Pendiente.          |
-| Fecha y responsable                                      | Pendiente.          |
-| Tag, commits e imágenes/versiones                        | Pendiente.          |
-| Servicios ejecutados y endpoint                          | Pendiente.          |
-| Health y migraciones                                     | Pendiente.          |
-| Broker/consumidores, si están integrados                 | Pendiente.          |
-| APK, versión, hash y dispositivo                         | Pendiente.          |
-| Flujo probado desde el móvil                             | Pendiente.          |
-| Dependencias externas, sandbox y limitaciones observadas | Pendiente.          |
-| Capturas/logs y enlace de evidencia                      | Pendiente.          |
+La evidencia disponible comprende los archivos de configuración, las revisiones integradas y una captura del servicio MySQL. Esta sección registra esos elementos y distingue la preparación del entorno de los resultados de ejecución que deben presentarse durante el Sprint Review.
 
+| **Campo** | **Evidencia y estado del incremento** |
+| --- | --- |
+| Avance del incremento | Backend y frontend móvil con un avance aproximado del 70 %, según la estimación del equipo. Este porcentaje corresponde al desarrollo funcional y no representa cobertura de pruebas ni disponibilidad del servicio. |
+| Ambiente y proveedor/host | Configuración orientada a Railway, con backend ASP.NET Core 8 en contenedor Linux y persistencia MySQL. Se dispone de un [Dockerfile en la raíz](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/e744f383acb5909d78f34203f1cfbc84e65cfb9f/Dockerfile) y de [configuración de Railway](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/e744f383acb5909d78f34203f1cfbc84e65cfb9f/TrackTruck.Platform.API/railway.toml). |
+| Fecha y responsable del registro | Integración de las versiones revisadas en `main` el **09/10/2026**, registrada por **Jean Franck Loa Rojas (@JeanLoa)**. Esta fecha corresponde a la integración del código; la captura no permite establecer la fecha ni el responsable de la ejecución del entorno. |
+| Commits e imágenes/versiones | Backend: [`e744f38`](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/e744f383acb5909d78f34203f1cfbc84e65cfb9f). Aplicación móvil: [`52cc78d`](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/52cc78da51d184a6032655a85928ef81decb9348). El Dockerfile utiliza las imágenes `mcr.microsoft.com/dotnet/sdk:8.0` y `mcr.microsoft.com/dotnet/aspnet:8.0`. No se encontraron releases publicadas en los dos repositorios consultados. |
+| Servicios y endpoints configurados | La API reúne actualmente los contextos IAM, Registration y User. El código declara las rutas `/health` y `/swagger`; el Dockerfile establece 8080 como puerto de respaldo. La aplicación utiliza por defecto `http://10.0.2.2:8080/api/v1/` para acceder al backend desde el emulador y permite cambiar la URL mediante `TRACKTRUCK_API_BASE_URL`. La configuración revisada no confirma una URL pública operativa. |
+| Health y preparación de la base de datos | [Program.cs](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/blob/e744f383acb5909d78f34203f1cfbc84e65cfb9f/TrackTruck.Platform.API/Program.cs) registra un health check básico y utiliza `Database.EnsureCreated()` para crear la estructura inicial. No se identificaron migraciones versionadas en el árbol revisado. La captura muestra tablas de usuarios, clientes, empresarios, conductores, vehículos, viajes, viajes en curso, gastos, alertas y auditoría. |
+| Broker y consumidores | No se identifica un broker ni consumidores de mensajería en la configuración de despliegue revisada. La evidencia de este incremento se concentra en la API y la base MySQL. |
+| Aplicación Android y APK | [Configuración Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/blob/52cc78da51d184a6032655a85928ef81decb9348/app/build.gradle.kts): `applicationId = com.tracktruck.app`, `versionName = 1.0`, `versionCode = 1`, Android mínimo API 24 y objetivo API 34. No se adjuntó un APK de revisión con su hash e identificación del dispositivo; estos datos deben acompañar la demostración. |
+| Flujo para la revisión desde el móvil | El alcance del incremento incluye autenticación y gestión de usuarios, conductores, vehículos y viajes. La evidencia de ejecución debe registrar el APK utilizado, las solicitudes y respuestas de la API y la persistencia de los datos. Los archivos consultados documentan la configuración, pero no contienen un registro que acredite ese recorrido completo. |
+| Dependencias externas y configuración | MySQL y JWT se configuran mediante variables de entorno o configuración local. La aplicación declara dependencias de Google Maps y Firebase; la integración de Firebase requiere un archivo `google-services.json` autorizado. La URL de la API puede configurarse durante la compilación, según el [README móvil](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/blob/52cc78da51d184a6032655a85928ef81decb9348/README.md). |
+| Capturas, logs y limitaciones observadas | Se incluye la captura del servicio MySQL como evidencia de la estructura disponible. En ella el servicio aparece **pausado por superar límites de uso**, por lo que no acredita disponibilidad continua. En los repositorios consultados no se encontraron ejecuciones de GitHub Actions ni logs publicados que permitan confirmar un despliegue exitoso o una prueba integrada. |
 
-![Deployment Evidence — pendiente ejecución del entorno](assets/images/chapter5/sprint1-deployment-evidence.png)
+**Evidencia del servicio MySQL**
+
+La captura permite observar las tablas del entorno de base de datos y el estado del servicio en el momento registrado.
+
+![Evidencia del servicio MySQL y su estado](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/raw/feature/dazai/assets/images/chapter5/sprint1-deployment-evidence.png)
+
+El avance cercano al 70 % describe el estado de implementación reportado por el equipo. Para completar la evidencia operativa del Sprint Review se incorporarán la URL del entorno activo, la respuesta de `/health`, los logs de arranque y la demostración del APK conectado al backend.
+
 
 <div style="page-break-after: always;"></div>
 
 #### 5.3.1.7. Team Collaboration Insights during Sprint
-Se conservarán contribuciones verificables por integrante. El registro se completará con tareas, commits/PR, revisiones, resultados y coordinación efectivamente realizada durante el Sprint.
 
+La siguiente matriz propone una distribución de responsabilidades para los cinco integrantes del equipo, vinculada con las 16 tareas del Sprint Backlog 1. Alexander concentra cuatro tareas y 30 horas estimadas; Anhelo, tres tareas y 28 horas; Jean, Sebastián y Aldair, tres tareas y 26 horas cada uno. El total es de 136 horas inicialmente estimadas, sujetas a revisión según la capacidad del equipo; no representan horas ejecutadas ni porcentajes de avance.
 
-| Integrante                        | Aporte del Sprint                | PR/commit o tarjeta | Revisión y evidencia |
-| --------------------------------- | -------------------------------- | ------------------- | -------------------- |
-| Jean Franck Loa Rojas             | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
-| Anhelo Rodrigo Rocca Leon         | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
-| Alexander Piero Fernandez Garfias | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
-| Sebastián De Las Casas Latour     | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
-| Aldair Joaquin Ramos Aguirre      | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
+Los enlaces permiten consultar cambios reales de los repositorios y distinguen los aportes registrados de las responsabilidades propuestas. La inclusión de un enlace en una fila no reasigna su autoría al integrante ni acredita que haya ejecutado o revisado ese trabajo.
 
+| **Integrante** | **Aporte del Sprint** | **PR/commit o tarjeta** | **Revisión y evidencia** |
+| --- | --- | --- | --- |
+| Jean Franck Loa Rojas (@JeanLoa) | Responsabilidad propuesta: cuentas y control de acceso, pruebas del backend y preparación del entorno de revisión. **26 h estimadas.** | **SB03, SB12, SB15.** [Adaptación del backend (cb9c336)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/cb9c33618fb03d8fc051aab1662953286753d87d); [Adaptación de la app (8c75add)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/8c75add6da8de9cd8181f417a2f84cd8ae49a7a6); [Integración del backend en main (e744f38)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/e744f383acb5909d78f34203f1cfbc84e65cfb9f); [Integración de la app en main (52cc78d)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/52cc78da51d184a6032655a85928ef81decb9348). | Aporte registrado: adaptación de los proyectos backend y móvil a TrackTruck e integración de las ramas de entrega. Los commits acreditan cambios e integraciones; los resultados de compilación, pruebas y despliegue deben documentarse por separado. |
+| Anhelo Rodrigo Rocca Leon (@RoccaA4) | Responsabilidad propuesta: gestión de flota, aprobación y reserva de recursos, y ciclo de vida de los viajes. **28 h estimadas.** | **SB04, SB06, SB07.** Referencia del proyecto sobre el que se propone trabajar: [Integración del backend en main (e744f38)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/e744f383acb5909d78f34203f1cfbc84e65cfb9f). | No se identificaron commits asociados a @RoccaA4 en las tres ramas consultadas. Esta asignación requiere validación del equipo y evidencia propia de implementación o revisión. |
+| Alexander Piero Fernandez Garfias (@Dostoyevsk1) | Responsabilidad propuesta: arquitectura y contratos, preparación de la solución C#, planificación básica y consolidación de la documentación del Sprint. **30 h estimadas.** | **SB01, SB02, SB05, SB16.** [Arquitectura (e6865f4)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/e6865f46c1dd90e2938290547587e251306ec005); [Capítulo de implementación (c9ef0b9)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/c9ef0b95288ee07a5e37e16c4fc4589358ce9947); [Corrección del Sprint 1 (7ac349c)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/7ac349c51e69bcea84259f03fe369a5ca3b67bfa). | Aporte registrado: actualización de la documentación arquitectónica, del capítulo de implementación y del formato del Sprint 1. Estos cambios documentales no acreditan por sí solos la implementación de las tareas backend propuestas. |
+| Sebastián De Las Casas Latour (@U202213553) | Responsabilidad propuesta: seguimiento y última posición, estructura y pantallas móviles, y componentes compartidos BuildingBlocks. **26 h estimadas.** | **SB08, SB10, SB14.** [Entrevista documentada (65fb17c)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/65fb17c71348a762a66a686b994157c9b01ab657). Referencia técnica de la app: [Adaptación de la app (8c75add)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/8c75add6da8de9cd8181f417a2f84cd8ae49a7a6). | Antecedente registrado: incorporación de una entrevista al informe el 18/09/2026. No se identificaron commits de esta cuenta en las ramas main del backend o de la app; las responsabilidades técnicas propuestas requieren evidencia adicional. |
+| Aldair Joaquin Ramos Aguirre (@AldairRamos13) | Responsabilidad propuesta: registro y consulta de incidencias, integración de la app con las API y pruebas móviles del flujo integrado. **26 h estimadas.** | **SB09, SB11, SB13.** Referencias de los proyectos integrados: [Integración del backend en main (e744f38)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform/commit/e744f383acb5909d78f34203f1cfbc84e65cfb9f); [Integración de la app en main (52cc78d)](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile/commit/52cc78da51d184a6032655a85928ef81decb9348). | No se identificaron commits asociados a @AldairRamos13 en las tres ramas consultadas. Los enlaces son referencias técnicas; la ejecución y revisión de estas tareas deben respaldarse con tarjetas, commits, PR o reportes propios. |
 
-La evidencia incluirá captura de contribuciones y referencias de trabajo y revisión. Los aportes se describirán por resultado concreto, relacionando desarrollo, pruebas, integración y documentación.
+El backend y la aplicación móvil incorporan una base de código previa mediante importaciones registradas en sus historiales. Las contribuciones de esa base conservan su autoría y no se contabilizan como implementaciones nuevas de los cinco integrantes. La adaptación a TrackTruck y las integraciones registradas se diferencian del desarrollo original.
 
+Para cerrar la colaboración del Sprint, el equipo deberá validar esta distribución y registrar las evidencias del trabajo efectivamente realizado. La presencia de pruebas en el código, de un commit o de una integración no demuestra por sí sola que las pruebas hayan sido ejecutadas o que exista una revisión aprobada. Como no se proporcionó un intervalo de fechas del Sprint 1, los historiales consultados también incluyen antecedentes anteriores a ese incremento.
 
-![Team Collaboration — pendiente evidencia real](assets/images/chapter5/sprint1-team-collaboration.png)
 
 <div style="page-break-after: always;"></div>
 
