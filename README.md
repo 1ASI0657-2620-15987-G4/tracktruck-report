@@ -3485,7 +3485,7 @@ El tablero del Sprint 2 reúne las tareas de backend C#, app móvil, pruebas, in
 
 **Sprint 2 Kanban Board:** [TrackTruck — Sprint 2 Kanban](https://trello.com/invite/b/6ae0d85fcc073ee20120ea4f/ATTI1e7ff569fd9b34bc1a425fde6cd32b7aE38587D2/tracktruck-sprint-2-kanban-board)
 
-![Sprint 2 Kanban Board](https://raw.githubusercontent.com/1ASI0657-2620-15987-G4/tracktruck-report/feature/dazai/assets/images/chapter5/sprint2-kanban.png)
+![Sprint 2 Kanban Board](assets/images/chapter5/sprint2-kanban.png)
 
 <div style="page-break-after: always;"></div>
 
