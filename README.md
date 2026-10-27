@@ -8,7 +8,6 @@
 <h3 align="center">1ASI0657</h3>
 
 <h3 align="center">Fundamentos de Arquitectura de Software </h3>
-<h3 align="center">NRC</h3>
 <h3 align="center">15987</h3>
 
 <h1 align="center">Informe de Trabajo Final</h1>
@@ -53,7 +52,6 @@
 
 <h3 align="center">Periodo 202620</h3>
 
-<div style="page-break-after: always;"></div>
 
 <h2 align="center">Registro de Versiones del Informe</h2>
 
@@ -2251,7 +2249,6 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 | Entrega | La confirmación y excepciones actualizan Shipment por contrato. | Pendiente revisión y evidencia |
 | Historial | Se conservan cambios de recursos y hechos con correlación. | Pendiente revisión y evidencia |
 
-El tablero de esta iteración seguirá ADB26–ADB34 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
 ![Kanban — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-kanban.png)
 
@@ -2393,8 +2390,6 @@ La vista general se actualizará con los 17 contextos, la app Android, los servi
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
-# Capítulo V: Product Implementation, Validation & Deployment
-
 ## 5.1. Testing Suites & General Patterns
 Las suites acompañarán la implementación de los servicios C# y la app móvil de TrackTruck. El plan de verificación cubre reglas del dominio, casos de uso, endpoints, persistencia, eventos, adaptadores, interfaz móvil y flujo integrado. Las pruebas se seleccionan según criterios de aceptación y riesgo del incremento.
 
@@ -2405,29 +2400,19 @@ Los apartados siguientes definen el trabajo requerido y los registros que se com
 
 ### 5.1.1. Backend Application Core Testing Suite
 #### Niveles y herramientas
-| Nivel | Alcance | Herramienta o enfoque | Evidencia |
 
-|---|---|---|---|
-
-| Unitario del dominio | Value Objects, agregados, transiciones y reglas. | xUnit para C# y datos de prueba explícitos . | Casos y reporte del runner. |
-
-| Casos de uso | Commands/queries y resultados de validación. | xUnit y dobles de puertos para aislar la regla. | Resultado y dependencias sustituidas identificadas. |
-
-| Integración de API | Autenticación, autorización, contrato HTTP y handlers. | WebApplicationFactory y Microsoft.AspNetCore.Mvc.Testing . | Solicitud, respuesta y reporte automatizado. |
-
-| Persistencia | Migraciones, índices, restricciones y concurrencia. | Motor relacional de prueba aislado y equivalente al proveedor efectivamente usado por cada servicio (PostgreSQL si se confirma). | Versión y configuración del motor y casos ejecutados. |
-
-| Contratos y eventos | Esquemas, errores, versiones, Outbox/Inbox y duplicación. | Pruebas de contrato, consumidores y broker de prueba. | Eventos y efectos registrados. |
-
-| Adaptadores | Mapas, IA, pagos y comprobantes. | Respuestas controladas y sandbox identificado. | Entradas, salidas y tratamiento de falla. |
-
-| App móvil | ViewModel, estado, navegación, validación e interacción. | Pruebas locales Kotlin y pruebas de UI de Compose . | Reportes y dispositivo/emulador utilizado. |
-
-| BDD | Comportamiento expresado en Given/When/Then y automatización de escenarios. | Gherkin y runner a registrar al implementarlo. | Feature, steps y resultado trazado a la historia. |
-
-| End-to-end | App → API C# → datos y flujo entre servicios del incremento. | Escenario reproducible en el entorno de revisión. | Video/capturas y datos persistidos correlacionados. |
-
-| Atributos de calidad | QAS01–QAS09 aplicables al incremento. | Carga, fallas controladas, acceso y concurrencia. | Métricas y límites del ensayo. |
+| Nivel                | Alcance                                                                     | Herramienta o enfoque                                                                                                            | Evidencia                                             |
+| -------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Unitario del dominio | Value Objects, agregados, transiciones y reglas.                            | xUnit para C# y datos de prueba explícitos .                                                                                     | Casos y reporte del runner.                           |
+| Casos de uso         | Commands/queries y resultados de validación.                                | xUnit y dobles de puertos para aislar la regla.                                                                                  | Resultado y dependencias sustituidas identificadas.   |
+| Integración de API   | Autenticación, autorización, contrato HTTP y handlers.                      | WebApplicationFactory y Microsoft.AspNetCore.Mvc.Testing .                                                                       | Solicitud, respuesta y reporte automatizado.          |
+| Persistencia         | Migraciones, índices, restricciones y concurrencia.                         | Motor relacional de prueba aislado y equivalente al proveedor efectivamente usado por cada servicio (PostgreSQL si se confirma). | Versión y configuración del motor y casos ejecutados. |
+| Contratos y eventos  | Esquemas, errores, versiones, Outbox/Inbox y duplicación.                   | Pruebas de contrato, consumidores y broker de prueba.                                                                            | Eventos y efectos registrados.                        |
+| Adaptadores          | Mapas, IA, pagos y comprobantes.                                            | Respuestas controladas y sandbox identificado.                                                                                   | Entradas, salidas y tratamiento de falla.             |
+| App móvil            | ViewModel, estado, navegación, validación e interacción.                    | Pruebas locales Kotlin y pruebas de UI de Compose .                                                                              | Reportes y dispositivo/emulador utilizado.            |
+| BDD                  | Comportamiento expresado en Given/When/Then y automatización de escenarios. | Gherkin y runner a registrar al implementarlo.                                                                                   | Feature, steps y resultado trazado a la historia.     |
+| End-to-end           | App → API C# → datos y flujo entre servicios del incremento.                | Escenario reproducible en el entorno de revisión.                                                                                | Video/capturas y datos persistidos correlacionados.   |
+| Atributos de calidad | QAS01–QAS09 aplicables al incremento.                                       | Carga, fallas controladas, acceso y concurrencia.                                                                                | Métricas y límites del ensayo.                        |
 
 <div style="page-break-after: always;"></div>
 
@@ -2647,25 +2632,16 @@ Estas verificaciones se aplicarán durante el desarrollo y las revisiones de có
 Los servicios C# se construirán con los patrones y dependencias definidos en el capítulo IV. El informe conservará evidencia de su realización en clases, configuración y pruebas.
 
 
-| Elemento | Realización requerida | Evidencia de implementación |
-
-|---|---|---|
-
-| Domain | Agregados, entidades y Value Objects con invariantes. | Código y pruebas de dominio. |
-
-| Application | Commands, queries, handlers y puertos. | Caso de uso trazado a una US y pruebas del handler. |
-
-| Infrastructure | Repositorios EF Core, migraciones y adaptadores. | Implementación del puerto y prueba pertinente. |
-
-| API | Endpoints, contratos, autorización y errores. | OpenAPI y prueba HTTP sobre la API. |
-
-| CQRS | Separación de operaciones de cambio y consulta. | Clases de Application y autorización de consultas. |
-
-| Eventos | Outbox local, publicación, envelope e Inbox/deduplicación. | Falla/reintento y efecto único comprobado. |
-
-| Strategy de planificación | Motor IA y modo básico detrás de la misma interfaz. | Resultado de modelo, versión y caso de fallback. |
-
-| App móvil | Compose, ViewModel, casos de uso y repositorio de datos. | Pantalla conectada y prueba de estado/interacción. |
+| Elemento                  | Realización requerida                                      | Evidencia de implementación                         |
+| ------------------------- | ---------------------------------------------------------- | --------------------------------------------------- |
+| Domain                    | Agregados, entidades y Value Objects con invariantes.      | Código y pruebas de dominio.                        |
+| Application               | Commands, queries, handlers y puertos.                     | Caso de uso trazado a una US y pruebas del handler. |
+| Infrastructure            | Repositorios EF Core, migraciones y adaptadores.           | Implementación del puerto y prueba pertinente.      |
+| API                       | Endpoints, contratos, autorización y errores.              | OpenAPI y prueba HTTP sobre la API.                 |
+| CQRS                      | Separación de operaciones de cambio y consulta.            | Clases de Application y autorización de consultas.  |
+| Eventos                   | Outbox local, publicación, envelope e Inbox/deduplicación. | Falla/reintento y efecto único comprobado.          |
+| Strategy de planificación | Motor IA y modo básico detrás de la misma interfaz.        | Resultado de modelo, versión y caso de fallback.    |
+| App móvil                 | Compose, ViewModel, casos de uso y repositorio de datos.   | Pantalla conectada y prueba de estado/interacción.  |
 
 
 ****Organización propuesta de un servicio:****
@@ -2956,41 +2932,24 @@ El objetivo incluye integración y comportamiento verificable. Las fuentes auxil
 Las siguientes tareas proponen trabajo concreto sobre el incremento. Las estimaciones en horas son iniciales y deben revisarse con los responsables y capacidad del Sprint; no representan horas ejecutadas. El estado se completará con la evidencia existente.
 
 
-| ID | Historias/driver | Tarea | Estimación inicial | Evidencia para cerrar | Estado documental |
-
-|---|---|---|---|---|---|
-
-| SB01 | ADB01–ADB09 | Actualizar arquitectura, responsabilidades y contratos para C# y móvil. | 6 h | Vistas/ADR revisados y fuentes versionadas. | Diseño actualizado; revisión pendiente. |
-
-| SB02 | CON01, CON03 | Preparar solución C#, proyectos, DI, compilación y runner de tests. | 6 h | Build y ejecución inicial de suites. | Pendiente contrastar evidencia. |
-
-| SB03 | US46–US52 | Implementar cuentas, acceso y políticas básicas de organización/rol. | 12 h | API, tests y flujo de login móvil. | Pendiente contrastar evidencia. |
-
-| SB04 | US03–US08 | Implementar registro y consulta de flota con persistencia. | 10 h | Endpoints, migraciones y casos válidos/invalidación. | Pendiente contrastar evidencia. |
-
-| SB05 | US09, US11–US12, US65 | Implementar planificación básica y contrato de elegibilidad inicial. | 12 h | Validaciones y fuentes identificadas; pruebas de recursos válidos e inválidos. | Pendiente contrastar evidencia. |
-
-| SB06 | US67, US69 | Implementar aprobación y reserva de recursos. | 8 h | Prueba de conflicto e idempotencia. | Pendiente contrastar evidencia. |
-
-| SB07 | US10, US26–US29 | Implementar viaje, inicio y finalización autorizados. | 10 h | Estados, persistencia y tests de transición. | Pendiente contrastar evidencia. |
-
-| SB08 | US14, US32 | Implementar ingestión, última posición y consulta de seguimiento. | 10 h | Reporte válido, fecha de captura y deduplicación. | Pendiente contrastar evidencia. |
-
-| SB09 | US18–US19 | Implementar registro y consulta de incidencias. | 6 h | API, persistencia y autorización del viaje. | Pendiente contrastar evidencia. |
-
-| SB10 | CON02 | Construir estructura MVVM, navegación, estado y pantallas móviles del incremento. | 12 h | APK y pantallas con estados de carga, vacío y error. | Pendiente contrastar evidencia. |
-
-| SB11 | US46, US10, US14, US18 | Conectar app con las API reales y manejar sesión y errores. | 12 h | Flujo end-to-end y capturas correlacionadas. | Pendiente contrastar evidencia. |
-
-| SB12 | TC01, TC05, TC09–TC13, TC18 | Ejecutar pruebas de dominio, casos de uso, API y persistencia aplicables. | 8 h | Reportes de suites y defectos tratados. | Pendiente resultado real. |
-
-| SB13 | TC24, TC26–TC27 | Ejecutar pruebas móviles y flujo integrado del Sprint. | 8 h | Reportes, dispositivo y video/capturas. | Pendiente resultado real. |
-
-| SB14 | 5.1.3 | Implementar los BuildingBlocks necesarios para el incremento. | 4 h | Proyecto, consumo y tests propios. | Pendiente contrastar evidencia. |
-
-| SB15 | CON04 | Preparar y ejecutar entorno de revisión del incremento. | 6 h | Configuración, health, endpoint y prueba desde APK. | Pendiente resultado real. |
-
-| SB16 | QAS04; QAS09 | Documentar contratos, eventos y evidencias del Sprint Review. | 6 h | OpenAPI, commits, resultados y tableros. | Pendiente incorporar evidencias. |
+| ID   | Historias/driver            | Tarea                                                                             | Estimación inicial | Evidencia para cerrar                                                          | Estado documental                       |
+| ---- | --------------------------- | --------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------ | --------------------------------------- |
+| SB01 | ADB01–ADB09                 | Actualizar arquitectura, responsabilidades y contratos para C# y móvil.           | 6 h                | Vistas/ADR revisados y fuentes versionadas.                                    | Diseño actualizado; revisión pendiente. |
+| SB02 | CON01, CON03                | Preparar solución C#, proyectos, DI, compilación y runner de tests.               | 6 h                | Build y ejecución inicial de suites.                                           | Pendiente contrastar evidencia.         |
+| SB03 | US46–US52                   | Implementar cuentas, acceso y políticas básicas de organización/rol.              | 12 h               | API, tests y flujo de login móvil.                                             | Pendiente contrastar evidencia.         |
+| SB04 | US03–US08                   | Implementar registro y consulta de flota con persistencia.                        | 10 h               | Endpoints, migraciones y casos válidos/invalidación.                           | Pendiente contrastar evidencia.         |
+| SB05 | US09, US11–US12, US65       | Implementar planificación básica y contrato de elegibilidad inicial.              | 12 h               | Validaciones y fuentes identificadas; pruebas de recursos válidos e inválidos. | Pendiente contrastar evidencia.         |
+| SB06 | US67, US69                  | Implementar aprobación y reserva de recursos.                                     | 8 h                | Prueba de conflicto e idempotencia.                                            | Pendiente contrastar evidencia.         |
+| SB07 | US10, US26–US29             | Implementar viaje, inicio y finalización autorizados.                             | 10 h               | Estados, persistencia y tests de transición.                                   | Pendiente contrastar evidencia.         |
+| SB08 | US14, US32                  | Implementar ingestión, última posición y consulta de seguimiento.                 | 10 h               | Reporte válido, fecha de captura y deduplicación.                              | Pendiente contrastar evidencia.         |
+| SB09 | US18–US19                   | Implementar registro y consulta de incidencias.                                   | 6 h                | API, persistencia y autorización del viaje.                                    | Pendiente contrastar evidencia.         |
+| SB10 | CON02                       | Construir estructura MVVM, navegación, estado y pantallas móviles del incremento. | 12 h               | APK y pantallas con estados de carga, vacío y error.                           | Pendiente contrastar evidencia.         |
+| SB11 | US46, US10, US14, US18      | Conectar app con las API reales y manejar sesión y errores.                       | 12 h               | Flujo end-to-end y capturas correlacionadas.                                   | Pendiente contrastar evidencia.         |
+| SB12 | TC01, TC05, TC09–TC13, TC18 | Ejecutar pruebas de dominio, casos de uso, API y persistencia aplicables.         | 8 h                | Reportes de suites y defectos tratados.                                        | Pendiente resultado real.               |
+| SB13 | TC24, TC26–TC27             | Ejecutar pruebas móviles y flujo integrado del Sprint.                            | 8 h                | Reportes, dispositivo y video/capturas.                                        | Pendiente resultado real.               |
+| SB14 | 5.1.3                       | Implementar los BuildingBlocks necesarios para el incremento.                     | 4 h                | Proyecto, consumo y tests propios.                                             | Pendiente contrastar evidencia.         |
+| SB15 | CON04                       | Preparar y ejecutar entorno de revisión del incremento.                           | 6 h                | Configuración, health, endpoint y prueba desde APK.                            | Pendiente resultado real.               |
+| SB16 | QAS04; QAS09                | Documentar contratos, eventos y evidencias del Sprint Review.                     | 6 h                | OpenAPI, commits, resultados y tableros.                                       | Pendiente incorporar evidencias.        |
 
 
 El equipo podrá dividir, reasignar o reducir tareas antes de comprometer el Sprint. Las tareas SB05 y SB11 deben indicar qué dependencias usan servicios reales y cuáles utilizan datos controlados. La validación integrada de jornada, mantenimiento y la IA se amplía en Sprint 2; cada fuente simulada permanece identificada como dependencia pendiente.
@@ -2998,8 +2957,10 @@ El equipo podrá dividir, reasignar o reducir tareas antes de comprometer el Spr
 
 ![Sprint Backlog 1 — pendiente actualizar](assets/images/chapter5/sprint1-backlog-kanban.png)
 
+![Sprint Backlog 1 — pendiente actualizar](assets/images/chapter5/sprint1-backlog-kanban-2.png)
 
-****Enlace de planificación/Sprint Backlog:**** pendiente incorporar el tablero y las tarjetas correspondientes.
+**Enlace de planificación/Sprint Backlog:** *https://trello.com/invite/b/6ae0a29f22ab3c2547e7db57/ATTI24f79af3e643afcc3b63eb4777bda328D4CF5C11/tracktruck-sprint-backlog-1*
+
 
 <div style="page-break-after: always;"></div>
 
@@ -3035,21 +2996,14 @@ Se presentarán resultados por Core Entities Unit Tests, Core Integration Tests,
 Se completará con reportes de ejecución de las suites del Sprint. El registro debe permitir repetir el ensayo y comprender sus límites.
 
 
-| Suite | Información que se debe registrar | Resultado |
-
-|---|---|---|
-
-| Dominio y Application C# | Proyecto, TC, comando, commit y datos de prueba. | Pendiente: aprobados/fallidos/omitidos reales. |
-
-| API y persistencia | Endpoints, autorización, motor de datos y dependencias sustituidas. | Pendiente. |
-
-| Contratos y eventos | Esquema, consumidor, idempotencia y recuperación ensayada. | Pendiente. |
-
-| App móvil | Tests, API level, dispositivo/emulador y build. | Pendiente. |
-
-| End-to-end | Pasos, servicios reales, datos controlados y observación. | Pendiente. |
-
-| Calidad | QAS aplicables, carga/falla preparada y métricas. | Pendiente. |
+| Suite                    | Información que se debe registrar                                   | Resultado                                      |
+| ------------------------ | ------------------------------------------------------------------- | ---------------------------------------------- |
+| Dominio y Application C# | Proyecto, TC, comando, commit y datos de prueba.                    | Pendiente: aprobados/fallidos/omitidos reales. |
+| API y persistencia       | Endpoints, autorización, motor de datos y dependencias sustituidas. | Pendiente.                                     |
+| Contratos y eventos      | Esquema, consumidor, idempotencia y recuperación ensayada.          | Pendiente.                                     |
+| App móvil                | Tests, API level, dispositivo/emulador y build.                     | Pendiente.                                     |
+| End-to-end               | Pasos, servicios reales, datos controlados y observación.           | Pendiente.                                     |
+| Calidad                  | QAS aplicables, carga/falla preparada y métricas.                   | Pendiente.                                     |
 
 
 
@@ -3062,25 +3016,16 @@ Se completará con reportes de ejecución de las suites del Sprint. El registro 
 Se demostrará el flujo del incremento desde la app móvil hasta el backend C# y sus datos persistidos.
 
 
-| Paso de demostración | Evidencia a capturar |
-
-|---|---|
-
-| Acceder con usuario autorizado | Pantalla de acceso y resultado de autenticación del entorno. |
-
-| Consultar conductor y vehículo | Datos de prueba de la organización y fuente consultada. |
-
-| Seleccionar y aprobar plan válido | Resultado de elegibilidad, reserva y aprobación. |
-
-| Registrar e iniciar viaje | TripId, estado y fechas devueltos por la API. |
-
-| Enviar o recibir una ubicación | Origen real o simulado, reportId, recordedAt y ubicación consultada. |
-
-| Registrar incidencia | Formulario móvil y registro retornado por la API. |
-
-| Finalizar el recorrido | Estado COMPLETED y persistencia; entrega diferenciada según alcance. |
-
-| Ensayar un rechazo | Ejemplo de permiso insuficiente, estado inválido o reserva incompatible. |
+| Paso de demostración              | Evidencia a capturar                                                     |
+| --------------------------------- | ------------------------------------------------------------------------ |
+| Acceder con usuario autorizado    | Pantalla de acceso y resultado de autenticación del entorno.             |
+| Consultar conductor y vehículo    | Datos de prueba de la organización y fuente consultada.                  |
+| Seleccionar y aprobar plan válido | Resultado de elegibilidad, reserva y aprobación.                         |
+| Registrar e iniciar viaje         | TripId, estado y fechas devueltos por la API.                            |
+| Enviar o recibir una ubicación    | Origen real o simulado, reportId, recordedAt y ubicación consultada.     |
+| Registrar incidencia              | Formulario móvil y registro retornado por la API.                        |
+| Finalizar el recorrido            | Estado COMPLETED y persistencia; entrega diferenciada según alcance.     |
+| Ensayar un rechazo                | Ejemplo de permiso insuficiente, estado inválido o reserva incompatible. |
 
 
 ![Execution Evidence — pendiente ejecución real](assets/images/chapter5/sprint1-execution-evidence.png)
@@ -3114,29 +3059,18 @@ Los servicios implementados se distinguirán de aquellos que permanecen como par
 Se completará después de publicar o levantar el incremento en el entorno de revisión y comprobar el acceso desde el APK. El diagrama describe la configuración; la evidencia de despliegue incluye el resultado de ejecutar esa configuración.
 
 
-| Campo | Valor por completar |
-
-|---|---|
-
-| Ambiente y proveedor/host | Pendiente. |
-
-| Fecha y responsable | Pendiente. |
-
-| Tag, commits e imágenes/versiones | Pendiente. |
-
-| Servicios ejecutados y endpoint | Pendiente. |
-
-| Health y migraciones | Pendiente. |
-
-| Broker/consumidores, si están integrados | Pendiente. |
-
-| APK, versión, hash y dispositivo | Pendiente. |
-
-| Flujo probado desde el móvil | Pendiente. |
-
-| Dependencias externas, sandbox y limitaciones observadas | Pendiente. |
-
-| Capturas/logs y enlace de evidencia | Pendiente. |
+| Campo                                                    | Valor por completar |
+| -------------------------------------------------------- | ------------------- |
+| Ambiente y proveedor/host                                | Pendiente.          |
+| Fecha y responsable                                      | Pendiente.          |
+| Tag, commits e imágenes/versiones                        | Pendiente.          |
+| Servicios ejecutados y endpoint                          | Pendiente.          |
+| Health y migraciones                                     | Pendiente.          |
+| Broker/consumidores, si están integrados                 | Pendiente.          |
+| APK, versión, hash y dispositivo                         | Pendiente.          |
+| Flujo probado desde el móvil                             | Pendiente.          |
+| Dependencias externas, sandbox y limitaciones observadas | Pendiente.          |
+| Capturas/logs y enlace de evidencia                      | Pendiente.          |
 
 
 ![Deployment Evidence — pendiente ejecución del entorno](assets/images/chapter5/sprint1-deployment-evidence.png)
@@ -3147,19 +3081,13 @@ Se completará después de publicar o levantar el incremento en el entorno de re
 Se conservarán contribuciones verificables por integrante. El registro se completará con tareas, commits/PR, revisiones, resultados y coordinación efectivamente realizada durante el Sprint.
 
 
-| Integrante | Aporte del Sprint | PR/commit o tarjeta | Revisión y evidencia |
-
-|---|---|---|---|
-
-| Jean Franck Loa Rojas | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
-
-| Anhelo Rodrigo Rocca Leon | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
-
-| Alexander Piero Fernandez Garfias | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
-
-| Sebastián De Las Casas Latour | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
-
-| Aldair Joaquin Ramos Aguirre | Pendiente registrar aporte real. | Pendiente. | Pendiente. |
+| Integrante                        | Aporte del Sprint                | PR/commit o tarjeta | Revisión y evidencia |
+| --------------------------------- | -------------------------------- | ------------------- | -------------------- |
+| Jean Franck Loa Rojas             | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
+| Anhelo Rodrigo Rocca Leon         | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
+| Alexander Piero Fernandez Garfias | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
+| Sebastián De Las Casas Latour     | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
+| Aldair Joaquin Ramos Aguirre      | Pendiente registrar aporte real. | Pendiente.          | Pendiente.           |
 
 
 La evidencia incluirá captura de contribuciones y referencias de trabajo y revisión. Los aportes se describirán por resultado concreto, relacionando desarrollo, pruebas, integración y documentación.
@@ -3173,17 +3101,12 @@ La evidencia incluirá captura de contribuciones y referencias de trabajo y revi
 El tablero del Sprint representará tareas de backend C#, app móvil, pruebas, integración, documentación y despliegue. El tablero de una iteración ADD conserva tareas de diseño y revisión; sus tarjetas se vincularán cuando exista una dependencia entre ambos trabajos.
 
 
-| Columna | Criterio de entrada/salida |
-
-|---|---|
-
-| Por hacer | Tarea acordada y todavía no iniciada. |
-
-| En proceso | Responsable trabajando en el resultado. |
-
-| En revisión | Código o artefacto listo para revisar y comprobar. |
-
-| Terminado | Resultado revisado y evidencia que cumple la Definition of Done. |
+| Columna     | Criterio de entrada/salida                                       |
+| ----------- | ---------------------------------------------------------------- |
+| Por hacer   | Tarea acordada y todavía no iniciada.                            |
+| En proceso  | Responsable trabajando en el resultado.                          |
+| En revisión | Código o artefacto listo para revisar y comprobar.               |
+| Terminado   | Resultado revisado y evidencia que cumple la Definition of Done. |
 
 
 **Sprint 1 Kanban Board:** [TrackTruck — Sprint 1 Kanban](https://trello.com/invite/b/6ac872b881eb3c6497f3555a/ATTIc0666f9e02553987528127d82e89c2cd65903E70/tracktruck-sprint-1-kanban)
