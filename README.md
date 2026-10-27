@@ -3261,9 +3261,7 @@ El Sprint Backlog 2 reúne las tareas terminadas de arquitectura, backend, Andro
 
 El desarrollo comenzó con los contratos y los modelos de clientes y envíos. Luego se completaron las operaciones de almacén, la comunicación por eventos y la integración móvil. Las pruebas acompañaron este trabajo.
 
-**Repositorios del incremento:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
-
-![Sprint Backlog 1 — first](assets/images/chapter5/sprint2-backlog.png)
+![Sprint Backlog 2](assets/images/chapter5/sprint2-backlog.png)
 
 **Repositorios:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
 
@@ -3438,8 +3436,6 @@ Las rutas se expresan respecto del prefijo de la API. La documentación incluye 
 
 Cada contexto conservó sus reglas y datos. La documentación distinguió las capacidades del dominio de las unidades desplegables del backend.
 
-**Referencia:** [documentación del proyecto](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/tree/feature/dazai) y apartado 4.3.2.
-
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.6. Software Deployment Evidence for Sprint Review
@@ -3474,45 +3470,24 @@ El equipo distribuyó las 16 tareas entre sus cinco integrantes. La estimación 
 
 La coordinación permitió mantener los contratos entre backend y Android y resolver observaciones durante la integración. Las tareas quedaron registradas como terminadas al cierre del Sprint.
 
-**Referencia documental del Sprint:** [doc: add sprint 2](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/commit/a36c0f794aed8644358c3366305f19d4a0aba8d5), de Alexander. Las responsabilidades de la tabla corresponden a la distribución del equipo.
-
 <div style="page-break-after: always;"></div>
 
 #### 5.3.2.8. Kanban Board
 
-El tablero **TrackTruck — Sprint 2: Clientes, envíos y almacén** representa el trabajo de SB17 a SB32. Cada tarjeta identifica tarea, responsable, estimación, historia o driver y resultado.
+El tablero del Sprint 2 reúne las tareas de backend C#, app móvil, pruebas, integración, documentación y despliegue. Las tarjetas se relacionan con las historias US53–US57 y con las decisiones de diseño de la Iteración 2.
 
-**Distribución al cierre**
-
-| Columna | Uso durante el Sprint | Tarjetas al cierre |
-| --- | --- | --- |
-| Por hacer | Tareas acordadas sin iniciar. | 0 |
-| En proceso | Tareas en desarrollo. | 0 |
-| En revisión | Trabajo en revisión y pruebas. | 0 |
-| Terminado | Tareas completadas y revisadas. | 16: SB17–SB32. |
-
-**Organización de las tarjetas**
-
-| Etiqueta | Tarjetas |
+| Columna | Criterio de entrada/salida |
 | --- | --- |
-| Arquitectura | SB17. |
-| Backend | SB18, SB19, SB20, SB21 y SB22. |
-| Integración | SB23, SB24 y SB27. |
-| Android | SB25, SB26 y SB27. |
-| Testing | SB28, SB29 y SB30. |
-| Despliegue | SB31. |
-| Documentación | SB32. |
+| Por hacer | Tarea acordada y todavía no iniciada. |
+| En proceso | Responsable trabajando en la tarea. |
+| En revisión | Código o documento listo para revisar y comprobar. |
+| Terminado | Resultado completado, revisado y con evidencia que cumple la Definition of Done. |
 
-Las etiquetas permiten que una tarea pertenezca a más de un área sin duplicar su tarjeta. SB27, por ejemplo, relaciona Android e integración.
+**Sprint 2 Kanban Board:** [TrackTruck — Sprint 2 Kanban](https://trello.com/invite/b/6ae0d85fcc073ee20120ea4f/ATTI1e7ff569fd9b34bc1a425fde6cd32b7aE38587D2/tracktruck-sprint-2-kanban-board)
 
-Las dependencias principales fueron: contratos antes de la integración; recepción antes de preparación; CargoPrepared antes de actualizar Shipment; y ShipmentReadyForDispatch antes de registrar el candidato en Dispatch. Las pantallas y pruebas avanzaron junto con estos componentes.
-
-**Criterios de cierre:** resultado completado, revisión realizada, pruebas aplicables realizadas y documentación actualizada. El cierre comprende **16 de 16 tareas terminadas y 156 horas de estimación inicial**.
-
-**Referencia de arquitectura:** [Iteración 2: Shipment and Warehouse Operations](https://trello.com/invite/b/6ac84e48b10b83160de2d45e/ATTI6f6e2e7b29b94f97f7810c8e1176bec35BBCC523/tracktruck-iteracion-2-shipment-warehouse-y-dispatch).
+![Sprint 2 Kanban Board](https://raw.githubusercontent.com/1ASI0657-2620-15987-G4/tracktruck-report/feature/dazai/assets/images/chapter5/sprint2-kanban.png)
 
 <div style="page-break-after: always;"></div>
-
 
 # Conclusiones
 
