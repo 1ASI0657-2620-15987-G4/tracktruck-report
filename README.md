@@ -3277,9 +3277,11 @@ El Sprint Backlog 2 reúne las tareas terminadas de arquitectura, backend, Andro
 
 El desarrollo comenzó con los contratos y los modelos de clientes y envíos. Luego se completaron las operaciones de almacén, la comunicación por eventos y la integración móvil. Las pruebas acompañaron este trabajo.
 
+**Repositorios:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
+
 ![Sprint Backlog 2](assets/images/chapter5/sprint2-backlog.png)
 
-**Repositorios:** [Backend C#](https://github.com/1ASI0657-2620-15987-G4/tracktruck-platform) y [aplicación Android](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile).
+**Enlace de planificación/Sprint Backlog:** [TrackTruck — Sprint Backlog 2](https://trello.com/invite/b/6ae0d25197f93e7bf924fd7f/ATTI3ed483f0b9628d561fe9d3cdbf1d2d9671977D43/tracktruck-sprint-2-clientes-envios-y-almacen)
 
 <div style="page-break-after: always;"></div>
 
