@@ -1902,15 +1902,15 @@ Los endpoints son contratos iniciales para refinar en OpenAPI; no establecen que
 | C4 Containers | assets/images/chapter4/iteration1-c4-containers.png | App Android, gateway, APIs C#, broker y bases privadas; distinguir objetivo e incremento. |
 | UML Components | assets/images/chapter4/iteration1-uml-components.png | Puertos y dependencias entre componentes de servicio y adaptadores. |
 
-Las figuras se incorporarán o actualizarán conforme al diseño descrito y se contrastarán con el incremento ejecutable.
+Las figuras presentan el mapa de bounded contexts y las vistas de contenedores y componentes de la Iteración 1.
 
-![Bounded Context Map — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-bounded-context-map.png)
+![Bounded Context Map — Iteración 1](assets/images/chapter4/iteration1-bounded-context-map.png)
 
-![C4 Containers — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-c4-containers.png)
+![C4 Containers — Iteración 1](assets/images/chapter4/iteration1-c4-containers.png)
 
 <div style="page-break-after: always;"></div>
 
-![UML Components — Iteración 1, pendiente actualizar](assets/images/chapter4/iteration1-uml-components.png)
+![UML Components — Iteración 1](assets/images/chapter4/iteration1-uml-components.png)
 
 | ID | Decisión documentada | Justificación |
 | --- | --- | --- |
@@ -2027,9 +2027,9 @@ Warehouse publica CargoPrepared después de guardar la preparación. Shipment co
 | UML Sequence | assets/images/chapter4/iteration2-shipment-sequence.png | Registro, recepción, preparación, actualización de envío y publicación de disponibilidad. |
 
 
-![C4 Containers — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-c4-containers.png)
+![C4 Containers — Iteración 2](assets/images/chapter4/iteration2-c4-containers.png)
 
-![UML Sequence — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-shipment-sequence.png)
+![UML Sequence — Iteración 2](assets/images/chapter4/iteration2-shipment-sequence.png)
 
 | ID | Decisión documentada | Justificación |
 | --- | --- | --- |
@@ -2056,7 +2056,7 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 
 El tablero de esta iteración seguirá ADB10–ADB16 con columnas Por hacer, En proceso, En revisión y Terminado. El estado de cada tarjeta se actualizará con el avance real; una tarea de diseño se cierra con modelo y revisión y una tarea de software con la Definition of Done.
 
-![Kanban — Iteración 2, pendiente actualizar](assets/images/chapter4/iteration2-kanban.png)
+![Kanban — Iteración 2](assets/images/chapter4/iteration2-kanban.png)
 
 [Tablero de Iteración 2](https://trello.com/invite/b/6ac84e48b10b83160de2d45e/ATTI6f6e2e7b29b94f97f7810c8e1176bec35BBCC523/tracktruck-iteracion-2-shipment-warehouse-y-dispatch)
 
@@ -2172,7 +2172,7 @@ Los datos sintéticos sirven para probar contratos y flujo del componente; una e
 
 ![C4 Components / Containers — Iteración 3](assets/images/chapter4/iteration3-c4-containers.png)
 
-![UML Sequence — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-dispatch-sequence.png)
+![UML Sequence — Iteración 3](assets/images/chapter4/iteration3-dispatch-sequence.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -2205,7 +2205,7 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 
 
 
-![Kanban — Iteración 3, pendiente actualizar](assets/images/chapter4/iteration3-kanban.png)
+![Kanban — Iteración 3](assets/images/chapter4/iteration3-kanban.png)
 
 **Tablero Trello:** [TrackTruck – Iteración 3](https://trello.com/invite/b/6ac85027fdd2ae7e47cb9609/ATTI1f9364609742d0282f64597493c0d70a633AD43E/tracktruck-iteracion-3-planificacion-inteligente-de-despachos)
 
@@ -2301,9 +2301,9 @@ StartTrip valida estado, usuario y restricciones vigentes y publica TripStarted.
 | UML Sequence | assets/images/chapter4/iteration4-tracking-sequence.png | Inicio, posición, incidencia, finalización y entrega, incluyendo reintentos. |
 
 
-![C4 Containers — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-c4-containers.png)
+![C4 Containers — Iteración 4](assets/images/chapter4/iteration4-c4-containers.png)
 
-![UML Sequence — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-tracking-sequence.png)
+![UML Sequence — Iteración 4](assets/images/chapter4/iteration4-tracking-sequence.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -2335,7 +2335,7 @@ El diseño se revisará con los criterios siguientes. Los resultados de revisió
 | Historial | Se conservan cambios de recursos y hechos con correlación. | Pendiente revisión y evidencia |
 
 
-![Kanban — Iteración 4, pendiente actualizar](assets/images/chapter4/iteration4-kanban.png)
+![Kanban — Iteración 4](assets/images/chapter4/iteration4-kanban.png)
 
 **Tablero Trello:** [TrackTruck – Iteración 4](https://trello.com/invite/b/6ac851ed986af29a616e9d68/ATTI3335c368a8c996bd1f7ac36a3f4afe5c251EDFB5/tracktruck-iteracion-4-seguimiento-de-viajes-y-entregas)
 
@@ -2425,9 +2425,9 @@ Billing registra precio, condiciones y cargo según el servicio. La entrega pued
 | UML Sequence | assets/images/chapter4/iteration5-billing-sequence.png | Condición de cargo, documento, pago, callback y conciliación de reintento. |
 
 
-![C4 Containers — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-c4-containers.png)
+![C4 Containers — Iteración 5](assets/images/chapter4/iteration5-c4-containers.png)
 
-![UML Sequence — Iteración 5, pendiente actualizar](assets/images/chapter4/iteration5-billing-sequence.png)
+![UML Sequence — Iteración 5](assets/images/chapter4/iteration5-billing-sequence.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -2467,9 +2467,9 @@ El tablero de esta iteración seguirá ADB35–ADB42 con columnas Por hacer, En 
 
 ### Vista arquitectónica general de TrackTruck
 
-La vista general se actualizará con los 17 contextos, la app Android, los servicios C#, la IA interna de Dispatch y el almacenamiento privado. Se indicarán los componentes de arquitectura objetivo y los ya implementados en el incremento.
+La figura presenta la arquitectura general de TrackTruck. El detalle de los bounded contexts y sus relaciones se documenta en la Iteración 1.
 
-![Arquitectura general — pendiente actualizar](assets/images/chapter3/arquitectura-tracktruck-completa.png)
+![Arquitectura general](assets/images/chapter3/arquitectura-tracktruck-completa.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -3210,7 +3210,7 @@ El tablero del Sprint representará tareas de backend C#, app móvil, pruebas, i
 
 **Sprint 1 Kanban Board:** [TrackTruck — Sprint 1 Kanban](https://trello.com/invite/b/6ac872b881eb3c6497f3555a/ATTIc0666f9e02553987528127d82e89c2cd65903E70/tracktruck-sprint-1-kanban)
 
-![Sprint 1 Kanban — pendiente captura actual](assets/images/chapter5/sprint1-kanban-board.png)
+![Sprint 1 Kanban](assets/images/chapter5/sprint1-kanban-board.png)
 
 
 <div style="page-break-after: always;"></div>
