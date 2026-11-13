@@ -3510,6 +3510,172 @@ Las dependencias principales fueron: contratos antes de la integración; recepci
 <div style="page-break-after: always;"></div>
 
 
+### 5.3.3. Sprint 3
+
+**Sprint Goal**
+
+Completar el registro de entregas, la consulta de viajes finalizados y la revisión de incidencias anteriores. Integrar estas capacidades en la aplicación Android y probar la conexión con el backend desplegado.
+
+Al cierre del Sprint 3, el equipo reportó que el aplicativo Android de TrackTruck quedó listo con los bounded contexts del incremento integrados. La aplicación se probó en el emulador Android conectada al backend desplegado, desarrollado en C# con ASP.NET Core.
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.1. Sprint Backlog 3
+
+El alcance del incremento comprende las nueve historias asignadas al Sprint 3 en el Product Backlog. Las estimaciones corresponden a los Story Points registrados en la sección 3.4.
+
+| **Story ID** | **Historia** | **Bounded context** | **Story Points** |
+| --- | --- | --- | ---: |
+| US74 | Confirmar entrega | Delivery Management | 5 |
+| US75 | Registrar entrega parcial o fallida | Delivery Management | 5 |
+| US21 | Consultar historial de viajes | Operational History | 5 |
+| US22 | Consultar detalle de viaje finalizado | Operational History | 5 |
+| US39 | Filtrar historial de viajes | Operational History | 3 |
+| US40 | Consultar historial de un vehículo | Operational History | 3 |
+| US41 | Consultar historial de un conductor | Operational History | 3 |
+| US42 | Consultar historial de una ruta | Operational History | 3 |
+| US37 | Consultar incidencias anteriores | Incident Management | 3 |
+
+**Tablero de planificación** [Sprint Backlog 3 en Trello — enlace pendiente](https://trello.com/invite/b/6af774f6d2e527c0d9046230/ATTI633b804c3c027aa4f924aa72b825176c2D7A4D68/tracktruck-sprint-backlog-3)
+
+![Captura del Sprint Backlog 3 — pendiente de adjuntar](assets/images/chapter5/sprint3-backlog.png)
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.2. Development Evidence for Sprint Review
+
+La aplicación Android de TrackTruck, desarrollada con Kotlin y Jetpack Compose, incorpora los flujos de entrega, historial de viajes y consulta de incidencias anteriores.
+
+| **Componente** | **Alcance del incremento** | **Historias** |
+| --- | --- | --- |
+| Delivery Management | Confirmación de la entrega y registro de entregas parciales o fallidas. | US74 y US75 |
+| Operational History | Consulta y filtrado del historial, detalle de viajes finalizados y consulta por vehículo, conductor o ruta. | US21, US22 y US39–US42 |
+| Incident Management | Consulta de incidencias registradas en operaciones anteriores. | US37 |
+| Aplicación Android | Navegación y consumo de API para los flujos del incremento. | US21, US22, US37, US39–US42, US74 y US75 |
+
+**Registro de commits de la aplicación Android**
+
+Los cinco registros son ficticios. La rama, los identificadores y las fechas son datos de ejemplo que se sustituirán con el historial de Git.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | `feature/sprint-3-mobile` | `a31c4d2` | `feat(delivery): add delivery confirmation screen` | Añade el formulario de confirmación con datos de recepción, cantidades y evidencia de entrega (US74). | 28/10/2026 |
+| [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | `feature/sprint-3-mobile` | `b7f29e1` | `feat(delivery): add partial and failed delivery reporting` | Permite registrar las cantidades y el motivo de una entrega parcial o fallida (US75). | 30/10/2026 |
+| [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | `feature/sprint-3-mobile` | `c54a801` | `feat(history): add trip history and detail screens` | Incorpora la lista de viajes finalizados y la vista de detalle de cada viaje (US21 y US22). | 03/11/2026 |
+| [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | `feature/sprint-3-mobile` | `d2e0b67` | `feat(history): add vehicle, driver and route filters` | Añade el filtrado del historial y las consultas por vehículo, conductor y ruta (US39–US42). | 06/11/2026 |
+| [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | `feature/sprint-3-mobile` | `e80f3ac` | `feat(incidents): add incident history screen` | Muestra las incidencias registradas en operaciones anteriores (US37). | 10/11/2026 |
+
+![Evidencia de desarrollo de la aplicación Android — pendiente de adjuntar](assets/images/chapter5/sprint3-development-evidence.png)
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.3. Testing Suite Evidence for Sprint Review
+
+El equipo probó la aplicación Android en el emulador con el backend desplegado. El detalle de la prueba por escenario y la ejecución de las suites automatizadas del incremento quedan por documentar.
+
+| **Suite** | **Alcance de verificación** | **Evidencia** |
+| --- | --- | --- |
+| Core Entities Unit Tests | Validación de cantidades y reglas del resultado de entrega. | Ejecución y resultados por documentar. |
+| Core Integration Tests | Comunicación del resultado de entrega a Shipment Management y control de solicitudes repetidas. | Ejecución y resultados por documentar. |
+| Core Behavior-Driven Development | Escenarios de aceptación de entrega, historial e incidencias de la sección 3.2. | Archivo de escenarios y resultados por documentar. |
+| Core System Tests | Aplicación Android ejecutada en emulador y conectada al backend desplegado. | Ejecución reportada por el equipo. Capturas y resultados por escenario pendientes de adjuntar. |
+
+**Criterios de aceptación para la revisión**
+
+| **Historia** | **Comportamiento esperado según la sección 3.2** |
+| --- | --- |
+| US74 | Registrar la recepción, las cantidades y la evidencia. Comunicar la confirmación a Shipment Management y conservar una sola entrega ante una solicitud repetida. |
+| US75 | Registrar el resultado parcial o fallido, las cantidades y el motivo. Comunicar la excepción a Shipment Management y rechazar cantidades superiores a la carga pendiente. |
+| US21 | Mostrar los viajes finalizados disponibles. |
+| US22 | Mostrar el vehículo, conductor, ruta, recorrido e incidencias registradas de un viaje finalizado. |
+| US39 | Mostrar los viajes que cumplen el criterio seleccionado. |
+| US40, US41 y US42 | Mostrar los viajes asociados al vehículo, conductor o ruta que se consulta. |
+| US37 | Mostrar las incidencias de operaciones anteriores. |
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.4. Execution Evidence for Sprint Review
+
+La revisión operativa del incremento se realizó con TrackTruck ejecutándose en el emulador Android y conectado al backend desplegado. Las capturas pendientes deben mostrar la aplicación en funcionamiento y los resultados de los flujos del Sprint.
+
+| **Flujo** | **Resultado que debe mostrar la captura** |
+| --- | --- |
+| Registrar una entrega o una excepción | Confirmación del registro y resultado de la entrega. |
+| Consultar viajes finalizados | Lista de viajes y detalle del viaje seleccionado. |
+| Consultar historial por recurso | Resultado del filtro o del historial por vehículo, conductor o ruta. |
+| Consultar incidencias anteriores | Registros de incidencias de operaciones previas. |
+
+![Registro de entrega en el emulador](assets/images/chapter5/sprint3-emulator-delivery.png)
+
+![Conductores](assets/images/chapter5/sprint3-emulator-driver.png)
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.5. Microservices Documentation Evidence for Sprint Review
+
+El Capítulo IV documenta los contratos de diseño relacionados con el incremento. [Interfaces de la Iteración ADD 4](#4345-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces) · [Interfaces de la Iteración ADD 5](#4355-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+
+| **Servicio** | **Responsabilidad** | **Contrato de diseño documentado** |
+| --- | --- | --- |
+| DeliveryService | Registrar la confirmación o excepción de entrega y su evidencia. | `POST /deliveries`. Eventos `DeliveryConfirmed` y `DeliveryExceptionReported`. |
+| ShipmentService | Actualizar el estado del envío a partir del resultado de la entrega. | Consumo de `DeliveryConfirmed` y `DeliveryExceptionReported`. |
+| IncidentService | Consultar los registros de incidencias. | `GET /incidents`. |
+| OperationalHistoryService | Consultar los hechos registrados de una operación. | `GET /history/operations/{id}`. |
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.6. Software Deployment Evidence for Sprint Review
+
+El backend de TrackTruck quedó desplegado y se conectó con la aplicación Android durante la prueba en el emulador.
+
+| **Componente** | **Estado del incremento** | **Referencia** |
+| --- | --- | --- |
+| Backend C# y ASP.NET Core | Desplegado. | [URL del backend](https://backend-production-8735.up.railway.app/swagger-ui/index.html) y revisión desplegada. |
+| Aplicación Android | Ejecutada en emulador y conectada a la API del backend desplegado. | Versión de la compilación y configuración del emulador utilizado. |
+| Verificación de conectividad | Conexión comprobada durante la prueba en el emulador. | Captura del estado del servicio y evidencia de una operación de la app contra la API. |
+
+![Software Deployment Configuration](assets/images/chapter5/software-deployment-configuration.png)
+
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.7. Team Collaboration Insights During Sprint
+
+La integración del backend y Android se revisó mediante la ejecución de la aplicación en el emulador. Las contribuciones por integrante se completarán con las tarjetas, los commits o el registro de la revisión del Sprint 3.
+
+| **Integrante** | **Aporte en el Sprint 3** | **Tarjeta, PR o commit** |
+| --- | --- | --- |
+| Jean Franck Loa Rojas | Pendiente de registrar. | Pendiente. |
+| Anhelo Rodrigo Rocca Leon | Pendiente de registrar. | Pendiente. |
+| Alexander Piero Fernandez Garfias | Pendiente de registrar. | Pendiente. |
+| Sebastián De Las Casas Latour | Pendiente de registrar. | Pendiente. |
+| Aldair Joaquin Ramos Aguirre | Pendiente de registrar. | Pendiente. |
+
+![Registro de colaboración del Sprint 3](assets/images/chapter5/sprint3-team-collaboration.png)
+
+<div style="page-break-after: always;"></div>
+
+#### 5.3.3.8. Kanban Board
+
+El tablero del Sprint 3 reúne las historias del incremento y las tareas de backend, Android, pruebas y despliegue. La captura pendiente debe mostrar el estado de las tarjetas al cierre del Sprint.
+
+| **Columna** | **Criterio de uso** |
+| --- | --- |
+| Por hacer | Tarea incorporada al Sprint y pendiente de iniciar. |
+| En proceso | Tarea en desarrollo o integración. |
+| En revisión | Tarea lista para revisión o validación. |
+| Terminado | Tarea revisada que cumple la Definition of Done. |
+
+**Tablero Kanban** [TrackTruck — Sprint 3 Kanban en Trello, enlace pendiente](https://trello.com/invite/b/6af77a15d7afe9617c7d9d3d/ATTI569564f56b022772d4b40124857dabb8CA839305/tracktruck-sprint-3-kanban)
+
+![Tablero Kanban del Sprint 3 — captura pendiente](assets/images/chapter5/sprint3-kanban.png)
+
+<div style="page-break-after: always;"></div>
+
 # Conclusiones
 
 TrackTruck se plantea como una solución logística de LogiGo con aplicación móvil y backend en C#, organizada en 17 bounded contexts. La revisión mantiene las necesidades de seguimiento, comunicación y organización del documento base y alinea las capacidades ampliadas con propietarios de datos, contratos y reglas definidos.
