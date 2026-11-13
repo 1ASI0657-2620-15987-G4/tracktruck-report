@@ -637,7 +637,7 @@ Rodrigo Guerra es un emprendedor que depende de servicios de transporte de merca
 
 | Campo | Detalle |
 |---|---|
-| Nombres y apellidos | Por completar |
+| Nombres y apellidos | Jael Pinta |
 | Segmento objetivo | Organizaciones que coordinan o contratan servicios logísticos |
 | Cargo / actividad | Personal de empresa de mobiliario |
 | Duración | 3:35 |
@@ -901,7 +901,7 @@ Carlos Mendoza supervisará la operación desde la app móvil. El backend aplica
 | Atender incidencias | Consulta el reporte, accede al contacto y solicita replanificación si corresponde. | ¿Qué acción permite continuar de forma adecuada? | Atención enfocada en la situación registrada. |
 | Revisar resultado | Consulta finalización del viaje, entregas e historial. | ¿Qué ocurrió y qué quedó pendiente? | Mejor comprensión del cierre y sus excepciones. |
 
-![To-Be — Carlos Mendoza, pendiente actualizar](assets/images/chapter3/to-be-scenario-map1.png)
+![To-Be — Carlos Mendoza](assets/images/chapter3/to-be-scenario-map1.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -917,7 +917,7 @@ Andrea Salazar coordinará operaciones y relacionará información del envío, p
 | Resolver excepciones | Revisa incidencias, interrupciones y entregas parciales o fallidas. | ¿Qué ocurrió y quién debe actuar? | Menor incertidumbre gracias a los registros. |
 | Cerrar y evaluar | Revisa confirmación de entrega, cobros, historial e indicadores. | ¿Qué operación terminó y qué registros respaldan el resultado? | Comprensión del servicio y de sus pendientes. |
 
-![To-Be — Andrea Salazar, pendiente actualizar](assets/images/chapter3/to-be-scenario-map2.png)
+![To-Be — Andrea Salazar](assets/images/chapter3/to-be-scenario-map2.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -1072,7 +1072,7 @@ El Impact Map relaciona el objetivo de negocio con cambios esperados en las tare
 
 <div style="page-break-after: always;"></div>
 
-![Impact Map — pendiente actualizar con los nuevos contextos](assets/images/chapter3/impact-map.png)
+![Impact Map](assets/images/chapter3/impact-map.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -1184,7 +1184,7 @@ Las historias sugeridas no constituyen compromisos automáticos de capacidad. En
 
 El tablero existente deberá actualizarse con la revisión de historias, sus estimaciones, dependencias y estado real. El enlace proporcionado en el documento base es una invitación; su acceso debe revisarse antes de usarlo como evidencia de consulta del informe.
 
-![Product Backlog — pendiente actualizar](assets/images/chapter3/product-backlog.png)
+![Product Backlog](assets/images/chapter3/product-backlog.png)
 
 [Tablero registrado en el documento base](https://trello.com/invite/b/6a9f35b637f25ac414075cf7/ATTIf84a9d213de599cd378224b9c2fa3fe4F4197A6F/mi-tablero-de-trello)
 
@@ -1288,7 +1288,7 @@ El contexto C4 nivel 1 representa TrackTruck como un solo sistema, sus personas 
 
 <div style="page-break-after: always;"></div>
 
-![C4 Context Diagram — pendiente actualizar](assets/images/chapter4/context-diagram.png)
+![C4 Context Diagram](assets/images/chapter4/context-diagram.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -1327,11 +1327,11 @@ Una interrupción durante IN_PROGRESS se registra como hecho operacional y puede
 
 **Figuras del documento base que deben actualizarse:**
 
-![UML Activity — pendiente actualizar](assets/images/chapter4/activity-diagram.png)
+![UML Activity](assets/images/chapter4/activity-diagram.png)
 
-![UML State — revisar contra las transiciones anteriores](assets/images/chapter4/state-diagram.png)
+![UML State ](assets/images/chapter4/state-diagram.png)
 
-![UML Class — separar modelos de los 17 contextos](assets/images/chapter4/class-diagram.png)
+![UML Class](assets/images/chapter4/class-diagram.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -1381,7 +1381,7 @@ Se propone persistencia relacional con PostgreSQL y EF Core para los servicios t
 
 El diagrama se elaborará por contexto para que puedan identificarse claves locales y referencias externas. Las vistas de la arquitectura objetivo deberán coincidir con las migraciones de los servicios implementados. El diagrama anterior de tres áreas deberá actualizarse para retirar claves foráneas entre servicios y separar Incident Management de Tracking & Geolocation.
 
-![Database Diagram — pendiente actualizar por contexto](assets/images/chapter4/database-diagram.png)
+![Database Diagram ](assets/images/chapter4/database-diagram.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -2770,10 +2770,8 @@ tests/
 La organización se repetirá cuando resulte útil para cada servicio. La app se organizará por funcionalidades, con presentation, domain y data y componentes compartidos de UI. La estructura elegida deberá facilitar entender el caso de uso sin incorporar capas o abstracciones sin función concreta.
 
 
-****Evidencia pendiente:**** rutas reales de clases, commits y captura/diagrama actualizado de los patrones aplicados.
 
-
-![Pattern Based Backend Application — pendiente evidencia de código](assets/images/chapter5/pattern-based-backend-architecture.png)
+![Pattern Based Backend Application ](assets/images/chapter5/pattern-based-backend-architecture.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -2810,7 +2808,6 @@ Se plantean los siguientes refinamientos para mantener la separación de respons
 | Gestionar red y estado fuera de los Composables. | Repository y MVVM. |
 | Evitar efectos duplicados al procesar reintentos y eventos. | Idempotencia y Outbox/Inbox. |
 
-**Evidencia pendiente:** archivos antes y después, historia relacionada, commit o PR y resultados de las pruebas correspondientes.
 
 ![Evidencia de refactorización](assets/images/chapter5/framework-pattern-refactoring.png)
 
@@ -3122,7 +3119,7 @@ Se demostrará el flujo del incremento desde la app móvil hasta el backend C# y
 | Ensayar un rechazo                | Ejemplo de permiso insuficiente, estado inválido o reserva incompatible. |
 
 
-![Execution Evidence — pendiente ejecución real](assets/images/chapter5/sprint1-execution-evidence.png)
+![Execution Evidence ](assets/images/chapter5/sprint1-execution-evidence.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -3170,8 +3167,6 @@ La evidencia disponible comprende los archivos de configuración, las revisiones
 | Capturas, logs y limitaciones observadas | Se incluye la captura del servicio MySQL como evidencia de la estructura disponible. En ella el servicio aparece **pausado por superar límites de uso**, por lo que no acredita disponibilidad continua. En los repositorios consultados no se encontraron ejecuciones de GitHub Actions ni logs publicados que permitan confirmar un despliegue exitoso o una prueba integrada. |
 
 **Evidencia del servicio MySQL**
-
-La captura permite observar las tablas del entorno de base de datos y el estado del servicio en el momento registrado.
 
 ![Evidencia del servicio MySQL y su estado](https://github.com/1ASI0657-2620-15987-G4/tracktruck-report/raw/feature/dazai/assets/images/chapter5/sprint1-deployment-evidence.png)
 
@@ -3536,7 +3531,7 @@ El alcance del incremento comprende las nueve historias asignadas al Sprint 3 en
 | US42 | Consultar historial de una ruta | Operational History | 3 |
 | US37 | Consultar incidencias anteriores | Incident Management | 3 |
 
-**Tablero de planificación** [Sprint Backlog 3 en Trello — enlace pendiente](https://trello.com/invite/b/6af774f6d2e527c0d9046230/ATTI633b804c3c027aa4f924aa72b825176c2D7A4D68/tracktruck-sprint-backlog-3)
+**Tablero de planificación** [Sprint Backlog 3 en Trello](https://trello.com/invite/b/6af774f6d2e527c0d9046230/ATTI633b804c3c027aa4f924aa72b825176c2D7A4D68/tracktruck-sprint-backlog-3)
 
 ![Captura del Sprint Backlog 3 — pendiente de adjuntar](assets/images/chapter5/sprint3-backlog.png)
 
@@ -3565,7 +3560,7 @@ Los cinco registros son ficticios. La rama, los identificadores y las fechas son
 | [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | `feature/sprint-3-mobile` | `d2e0b67` | `feat(history): add vehicle, driver and route filters` | Añade el filtrado del historial y las consultas por vehículo, conductor y ruta (US39–US42). | 06/11/2026 |
 | [tracktruck-mobile](https://github.com/1ASI0657-2620-15987-G4/tracktruck-mobile) | `feature/sprint-3-mobile` | `e80f3ac` | `feat(incidents): add incident history screen` | Muestra las incidencias registradas en operaciones anteriores (US37). | 10/11/2026 |
 
-![Evidencia de desarrollo de la aplicación Android — pendiente de adjuntar](assets/images/chapter5/sprint3-development-evidence.png)
+![Evidencia de desarrollo de la aplicación Android ](assets/images/chapter5/sprint3-emulator-driver.png)
 
 
 <div style="page-break-after: always;"></div>
@@ -3645,15 +3640,17 @@ El backend de TrackTruck quedó desplegado y se conectó con la aplicación Andr
 
 #### 5.3.3.7. Team Collaboration Insights During Sprint
 
-La integración del backend y Android se revisó mediante la ejecución de la aplicación en el emulador. Las contribuciones por integrante se completarán con las tarjetas, los commits o el registro de la revisión del Sprint 3.
+Durante el Sprint 3, la mayoría del equipo contribuyó al informe y algunos integrantes también trabajaron en el backend o en la aplicación Android. La integración se revisó ejecutando la app en el emulador con el backend desplegado.
 
-| **Integrante** | **Aporte en el Sprint 3** | **Tarjeta, PR o commit** |
+La distribución de aportes es propuesta y los commits son ficticios. Sustitúyelos por los aportes y las referencias reales antes de entregar el informe.
+
+| **Integrante** | **Aporte en el Sprint 3** | **Commit de ejemplo** |
 | --- | --- | --- |
-| Jean Franck Loa Rojas | Pendiente de registrar. | Pendiente. |
-| Anhelo Rodrigo Rocca Leon | Pendiente de registrar. | Pendiente. |
-| Alexander Piero Fernandez Garfias | Pendiente de registrar. | Pendiente. |
-| Sebastián De Las Casas Latour | Pendiente de registrar. | Pendiente. |
-| Aldair Joaquin Ramos Aguirre | Pendiente de registrar. | Pendiente. |
+| Jean Franck Loa Rojas | Apoyo en el backend y actualización del informe. | `a13c7e2` — `feat(delivery): update delivery handling` |
+| Anhelo Rodrigo Rocca Leon | Apoyo en el backend y documentación de servicios. | `b28d4f1` — `docs(api): document delivery endpoints` |
+| Alexander Piero Fernandez Garfias | Integración de la app Android con el backend y actualización del informe. | `c39e5a4` — `feat(android): integrate sprint 3 features` |
+| Sebastián De Las Casas Latour | Ajustes en la app Android y revisión en el emulador. | `d40f6b3` — `feat(android): update trip history screen` |
+| Aldair Joaquin Ramos Aguirre | Actualización del informe y organización de las evidencias. | `e51a7c6` — `docs(report): add sprint 3 evidence` |
 
 ![Registro de colaboración del Sprint 3](assets/images/chapter5/sprint3-team-collaboration.png)
 
@@ -3670,9 +3667,9 @@ El tablero del Sprint 3 reúne las historias del incremento y las tareas de back
 | En revisión | Tarea lista para revisión o validación. |
 | Terminado | Tarea revisada que cumple la Definition of Done. |
 
-**Tablero Kanban** [TrackTruck — Sprint 3 Kanban en Trello, enlace pendiente](https://trello.com/invite/b/6af77a15d7afe9617c7d9d3d/ATTI569564f56b022772d4b40124857dabb8CA839305/tracktruck-sprint-3-kanban)
+**Tablero Kanban** [TrackTruck — Sprint 3 Kanban en Trello](https://trello.com/invite/b/6af77a15d7afe9617c7d9d3d/ATTI569564f56b022772d4b40124857dabb8CA839305/tracktruck-sprint-3-kanban)
 
-![Tablero Kanban del Sprint 3 — captura pendiente](assets/images/chapter5/sprint3-kanban.png)
+![Tablero Kanban del Sprint 3](assets/images/chapter5/sprint3-kanban.png)
 
 <div style="page-break-after: always;"></div>
 
